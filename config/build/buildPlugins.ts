@@ -7,7 +7,9 @@ export function buildPlugins(
   options: IBuildOptions
 ): webpack.WebpackPluginInstance[] {
   return [
-    new HTMLWebpackPlugin(),
+    new HTMLWebpackPlugin({
+      template: options.paths.html,
+    }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
