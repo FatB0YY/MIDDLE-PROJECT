@@ -3,6 +3,7 @@ import { IBuildOptions } from "./types/config";
 import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoader";
 import { buildResolvers } from "./buildResolvers";
+import { buildDevServer } from "./buildDevServer";
 
 // ф-ция для сборки конфига
 export function buildWebpackConfig(
@@ -21,5 +22,7 @@ export function buildWebpackConfig(
     },
     resolve: buildResolvers(),
     plugins: buildPlugins(),
+    devtool: options.isDev ? "inline-source-map" : false,
+    devServer: options.isDev ? buildDevServer(options) : undefined,
   };
 }

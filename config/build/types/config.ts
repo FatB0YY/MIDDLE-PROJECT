@@ -5,8 +5,14 @@ export interface BuildPaths {
   build: string;
 }
 
+export interface IBuildEnv {
+  mode: BuildMode;
+  port: number;
+}
+
 export interface IBuildOptions {
   mode: BuildMode;
   paths: BuildPaths;
   isDev: boolean;
+  port: number;
 }
