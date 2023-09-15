@@ -1,6 +1,17 @@
-import * as webpack from "webpack";
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+import HTMLWebpackPlugin from "html-webpack-plugin";
+import webpack from "webpack";
+import { IBuildOptions } from "./types/config";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export function buildPlugins(): webpack.WebpackPluginInstance[] {
-  return [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()];
+export function buildPlugins(
+  options: IBuildOptions
+): webpack.WebpackPluginInstance[] {
+  return [
+    new HTMLWebpackPlugin(),
+    new webpack.ProgressPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[name].[contenthash:8].css",
+    }),
+  ];
 }

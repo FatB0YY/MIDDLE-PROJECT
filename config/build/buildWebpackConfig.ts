@@ -17,11 +17,11 @@ export function buildWebpackConfig(
       path: options.paths.build, // путь
       clean: true, // очистка ненужных файлов
     },
+    plugins: buildPlugins(options),
     module: {
-      rules: buildLoaders(), // обрабатываем файлы за рамки js (png css scss svg ts...)
+      rules: buildLoaders(options), // обрабатываем файлы за рамки js (png css scss svg ts...)
     },
     resolve: buildResolvers(),
-    plugins: buildPlugins(),
     devtool: options.isDev ? "inline-source-map" : false,
     devServer: options.isDev ? buildDevServer(options) : undefined,
   };

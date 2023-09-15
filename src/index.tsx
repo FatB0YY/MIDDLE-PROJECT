@@ -1,3 +1,4 @@
-const str: string = "Hello World";
+import { render } from "react-dom";
+import App from "./App";
 
-console.log("str", str);
+render(<App />, document.getElementById("root"));
