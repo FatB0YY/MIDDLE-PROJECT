@@ -15,7 +15,7 @@
     "sourceMap": true,
     "checkJs": false,
     "noEmit": false,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "removeComments": true,
     "importsNotUsedAsValues": "remove",
     "downlevelIteration": true,
