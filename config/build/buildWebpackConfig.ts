@@ -21,7 +21,7 @@ export function buildWebpackConfig(
     module: {
       rules: buildLoaders(options), // обрабатываем файлы за рамки js (png css scss svg ts...)
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     devtool: options.isDev ? "inline-source-map" : false,
     devServer: options.isDev ? buildDevServer(options) : undefined,
   };

@@ -1,12 +1,11 @@
 import React, { Suspense } from "react";
-import Counter from "./components/Counter/Counter";
 import { Route, Routes } from "react-router-dom";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
 import { Link } from "react-router-dom";
 import "./styles/index.scss";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers/classNames/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useTheme } from "app/providers/ThemeProvider";
+import { AboutPageAsync } from "pages/AboutPage";
+import { MainPageAsync } from "pages/MainPage";
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -15,7 +14,6 @@ const App = () => {
     <div className={classNames("app", {}, [theme])}>
       <button onClick={toggleTheme}>TOGGLE</button>
       Text text text
-      <Counter />
       <Link to={"/"}>Главная</Link>
       <Link to={"/about"}>О сайте</Link>
       <Suspense fallback={<div>Loading...</div>}>
