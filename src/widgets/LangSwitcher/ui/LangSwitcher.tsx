@@ -11,17 +11,21 @@ interface LangSwitcherProps {
 export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
   const { t, i18n } = useTranslation()
 
-  const toggle = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+  const updateLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(e.target.value as 'en' | 'ru')
   }
 
   return (
-    <Button
-      className={classNames(cls.LangSwitcher, {}, [className])}
-      theme={ThemeButton.CLEAR}
-      onClick={toggle}
-    >
-      {t('Язык')}
-    </Button>
+    <div style={{ margin: 12 }}>
+      <select
+        value={i18n.language}
+        onChange={updateLang}
+        className={classNames(cls.LangSwitcher, {}, [className])}
+      >
+        <option value={'ru'}>Ru</option>
+        <option value={'en'}>En</option>
+      </select>
+      <div>{t('Язык')}</div>
+    </div>
   )
 }
