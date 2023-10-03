@@ -3,12 +3,12 @@
 //     "browser": true,
 //     "es2021": true
 //   },
-//   "extends": ["standard-with-typescript", "plugin:react/recommended"],
+//   "extends": ["standard-with-typescript", "plugin:react/recommended", "plugin:i18next/recommended"],
 //   "parserOptions": {
 //     "ecmaVersion": "latest",
 //     "sourceType": "module"
 //   },
-//   "plugins": ["react"],
+//   "plugins": ["react", "i18next"],
 //   "rules": {
 //     "indent": [2, 2],
 //     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".tsx"] }],
@@ -27,7 +27,8 @@
 //     "jsx-quotes": ["warn", "prefer-single"],
 //     "max-len": ["error", { "code": 120 }],
 //     "comma-dangle": ["error", "never"], // или always-multiline
-//     "semi": ["error", "never"]
+//     "semi": ["error", "never"],
+//     "i18next/no-literal-string": ['error', {markupOnly: true}]
 //   },
 //   "globals": {
 //     "__IS_DEV__": "readonly"
