@@ -1,23 +1,23 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin'
-import webpack, { DefinePlugin } from 'webpack'
-import { IBuildOptions } from './types/config'
+import webpack from 'webpack'
+import { type IBuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
-export function buildPlugins(options: IBuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins (options: IBuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new HTMLWebpackPlugin({
-      template: options.paths.html,
+      template: options.paths.html
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(options.isDev),
+      __IS_DEV__: JSON.stringify(options.isDev)
     }),
-    new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin()
   ]
 
   if (options.isDev) {

@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import React, { type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ThemeSwitcher.module.scss'
-import { useTheme } from 'app/providers/ThemeProvider'
+import { useTheme, Theme } from 'app/providers/ThemeProvider'
 import LightIcon from '../assets/icons/theme-light.svg'
 import DarkIcon from '../assets/icons/theme-dark.svg'
-import { Theme } from 'app/providers/ThemeProvider'
+
 import { Button, ThemeButton } from 'shared/ui/Button'
 
 interface ThemeSwitcherProps {
