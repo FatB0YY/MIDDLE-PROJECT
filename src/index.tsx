@@ -12,3 +12,11 @@ render(
   </BrowserRouter>,
   document.getElementById('root')
 )
+
+// const pagesMap = {
+//   basic: "Basic",
+//   formatting: "Formatting",
+//   full: "Full",
+// };
+
+// type PageType = keyof typeof pagesMap;
