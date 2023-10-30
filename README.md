@@ -29,3 +29,4 @@
 24. Динамическая отрисовка компонентов в зависимости от user agent'а и оптимизация бандла.
 25. Реализация Git flow и подхода trunk based, а также использование feature flags и динамических настроек пользователя.
 26. Редизайн проекта, основанный на макетах от дизайнера, включая гибкую модульную систему макета, возможность выбора дизайна пользователем и скрипты для удаления устаревшего кода.
+27. 27. Test environment. Setting up Jest. React Testing Library. Component tests. Screenshots of the tests. Loki. Regression UI testing
