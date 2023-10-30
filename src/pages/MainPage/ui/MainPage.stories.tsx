@@ -1,7 +1,9 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 import MainPage from './MainPage'
-import 'app/styles/index.scss' // вроде есть декоратор, но переменные нихуя не видит
+import { KeyObject } from 'crypto'
 
 export default {
   title: 'PAGES/MainPage',
@@ -11,7 +13,12 @@ export default {
   },
 } as ComponentMeta<typeof MainPage>
 
+// @ts-ignore
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}
+
+export const Dark = Template.bind({})
+Dark.args = {}
+Dark.decorators = [ThemeDecorator(Theme.DARK)]
