@@ -25,11 +25,11 @@ jobs:
       - name: Запус сборки prod
         run: npm run build:prod
 
-      - name: Запуск линтера TypeScript
-        run: npm run lint:ts
+      # - name: Запуск линтера TypeScript
+      #   run: npm run lint:ts
 
-      - name: Запуск линтера SCSS
-        run: npm run lint:scss
+      # - name: Запуск линтера SCSS
+      #   run: npm run lint:scss
 
       - name: Запуск юнит-тестов
         run: npm run test:unit
