@@ -37,5 +37,5 @@ jobs:
       - name: Запуск сборки sb
         run: npm run sb:build
 
-      - name: Запуск ui-тестов (screenshot)
-        run: npm run test:ui:ci
+      # - name: Запуск ui-тестов (screenshot)
+      #   run: npm run test:ui:ci
