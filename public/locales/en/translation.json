@@ -1,9 +1,29 @@
 {
-  "Тестовый пример": "Test example",
-  "Перевод": "Translate",
-  "Главная страница": "Main page",
-  "Язык": "English",
-  "Страница не найдена": "Page not found",
-  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
-  "Обновить страницу": "Refresh the page"
+  "pages": {
+    "aboutpage": "About us",
+    "mainpage": "Main",
+    "notfoundpage": "Not Found Page"
+  },
+  "widgets": {
+    "langswitcher": {
+      "optionen": "English",
+      "optionru": "Russian",
+      "optionenshort": "En",
+      "optionrushort": "Ru"
+    },
+    "navbar": {
+      "applink": {
+        "main": "Main",
+        "about": "About us"
+      }
+    },
+    "pageerror": {
+      "buttonreload": "An unexpected error has occurred",
+      "title": "Refresh the page"
+    }
+  },
+  "Главная страница": "Главная страница",
+  "Обновить страницу": "Обновить страницу",
+  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "Страница не найдена": "Страница не найдена"
 }

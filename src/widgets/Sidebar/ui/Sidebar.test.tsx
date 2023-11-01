@@ -1,17 +1,20 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Sidebar } from './Sidebar'
-import { withTranslation } from 'react-i18next'
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation'
+import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation'
+import { renderWirhRouter } from 'shared/config/tests/renderWithRouter'
 
 describe('Sidebar', () => {
   test('Проверка рендера', () => {
-    renderWithTranslation(<Sidebar />)
+    render(renderWirhRouter(renderWithTranslation(<Sidebar />)))
+
     expect(screen.getByTestId('sidebar')).toBeInTheDocument()
   })
 
   test('Нажатие тоггл', () => {
-    renderWithTranslation(<Sidebar />)
+    render(renderWirhRouter(renderWithTranslation(<Sidebar />)))
+
     const toggleBtn = screen.getByTestId('sidebar-toggle')
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument()
 
     fireEvent.click(toggleBtn)
 

@@ -1,8 +1,25 @@
 {
-  "Главная страница": "Главная страница",
-  "О сайте": "О сайте",
-  "Обновить страницу": "Обновить страницу",
-  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
-  "Страница не найдена": "Страница не найдена",
-  "Язык": "Язык"
+  "pages": {
+    "aboutpage": "aboutpage",
+    "mainpage": "mainpage",
+    "notfoundpage": "notfoundpage"
+  },
+  "widgets": {
+    "langswitcher": {
+      "optionen": "optionen",
+      "optionenshort": "optionenshort",
+      "optionru": "optionru",
+      "optionrushort": "optionrushort"
+    },
+    "navbar": {
+      "applink": {
+        "about": "about",
+        "main": "main"
+      }
+    },
+    "pageerror": {
+      "buttonreload": "buttonreload",
+      "title": "title"
+    }
+  }
 }

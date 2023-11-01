@@ -17,8 +17,8 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
 
   return (
     <div className={classNames(cls.PageError, {}, [className])}>
-      <p>{t('Произошла непредвиденная ошибка')}</p>
-      <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
+      <p>{t('widgets.pageerror.title')}</p>
+      <Button onClick={reloadPage}>{t('widgets.pageerror.buttonreload')}</Button>
     </div>
   )
 }
