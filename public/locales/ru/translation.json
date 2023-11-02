@@ -15,7 +15,9 @@
       "applink": {
         "main": "Главная",
         "about": "О нас"
-      }
+      },
+      "login": "Войти",
+      "signup": "Регистрация"
     },
     "pageerror": {
       "buttonreload": "Обновить страницу",

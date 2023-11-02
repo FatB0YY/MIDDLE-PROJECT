@@ -15,7 +15,9 @@
       "applink": {
         "main": "Main",
         "about": "About us"
-      }
+      },
+      "login": "LogIn",
+      "signup": "SignUp"
     },
     "pageerror": {
       "buttonreload": "An unexpected error has occurred",

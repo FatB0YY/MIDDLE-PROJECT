@@ -13,7 +13,7 @@
 //     ecmaVersion: 'latest',
 //     sourceType: 'module',
 //   },
-//   plugins: ['react', '@typescript-eslint', 'i18next'],
+//   plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 //   rules: {
 //     'react/jsx-indent': [2, 2],
 //     'react/jsx-indent-props': [2, 2],
@@ -39,6 +39,8 @@
 //       },
 //     ],
 //     'max-len': ['error', { ignoreComments: true, code: 120 }],
+//      "react-hooks/rules-of-hooks": "error",
+//      "react-hooks/exhaustive-deps": "error"
 //   },
 //   globals: {
 //     __IS_DEV__: true,

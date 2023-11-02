@@ -15,7 +15,9 @@
       "applink": {
         "about": "about",
         "main": "main"
-      }
+      },
+      "login": "login",
+      "signup": "signup"
     },
     "pageerror": {
       "buttonreload": "buttonreload",
