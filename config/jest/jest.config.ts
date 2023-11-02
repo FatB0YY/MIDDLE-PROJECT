@@ -17,4 +17,7 @@ export default {
     ),
     '\\.s?css$': 'identity-obj-proxy',
   },
+  globals: {
+    __IS_DEV__: true,
+  },
 }
