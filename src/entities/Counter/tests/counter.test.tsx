@@ -2,15 +2,17 @@ import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation
 import { renderWirhRouter } from 'shared/config/tests/renderWithRouter'
 
 import { Counter } from '../index'
-import { StoreProvider } from 'app/providers/StoreProvider'
+import { StateSchema, StoreProvider } from 'app/providers/StoreProvider/index'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { DeepPartial } from '@reduxjs/toolkit'
 
 describe('Counter test component', () => {
   test('Проверка рендера', () => {
-    const initialStateMock = { counter: { value: 10 } }
+    const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
+
     render(
-      <StoreProvider initialState={initialStateMock}>
+      <StoreProvider initialState={initialStateMock as StateSchema}>
         {renderWirhRouter(renderWithTranslation(<Counter />))}
       </StoreProvider>
     )
@@ -20,9 +22,10 @@ describe('Counter test component', () => {
   })
 
   test('Проверка inc', () => {
-    const initialStateMock = { counter: { value: 10 } }
+    const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
+
     render(
-      <StoreProvider initialState={initialStateMock}>
+      <StoreProvider initialState={initialStateMock as StateSchema}>
         {renderWirhRouter(renderWithTranslation(<Counter />))}
       </StoreProvider>
     )
@@ -33,9 +36,10 @@ describe('Counter test component', () => {
   })
 
   test('Проверка dec', () => {
-    const initialStateMock = { counter: { value: 10 } }
+    const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
+
     render(
-      <StoreProvider initialState={initialStateMock}>
+      <StoreProvider initialState={initialStateMock as StateSchema}>
         {renderWirhRouter(renderWithTranslation(<Counter />))}
       </StoreProvider>
     )

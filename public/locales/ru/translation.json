@@ -4,6 +4,16 @@
     "mainpage": "Главная страница",
     "notfoundpage": "Страница не найдена"
   },
+  "features": {
+    "authbyusername": {
+      "loginform": {
+        "login": "Войти",
+        "placeholderEmail": "Введите username",
+        "placeholderPassword": "Введите пароль"
+      }
+    }
+  },
+
   "widgets": {
     "langswitcher": {
       "optionen": "Английский",

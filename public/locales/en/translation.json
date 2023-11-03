@@ -4,6 +4,15 @@
     "mainpage": "Main",
     "notfoundpage": "Not Found Page"
   },
+  "features": {
+    "authbyusername": {
+      "loginform": {
+        "login": "LogIn",
+        "placeholderEmail": "Enter username",
+        "placeholderPassword": "Enter password"
+      }
+    }
+  },
   "widgets": {
     "langswitcher": {
       "optionen": "English",

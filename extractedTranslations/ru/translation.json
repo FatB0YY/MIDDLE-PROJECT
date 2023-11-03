@@ -1,4 +1,13 @@
 {
+  "features": {
+    "authbyusername": {
+      "loginform": {
+        "login": "login",
+        "placeholderEmail": "placeholderEmail",
+        "placeholderPassword": "placeholderPassword"
+      }
+    }
+  },
   "pages": {
     "aboutpage": "aboutpage",
     "mainpage": "mainpage",
