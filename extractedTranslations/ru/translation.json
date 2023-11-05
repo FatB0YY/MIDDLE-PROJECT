@@ -4,7 +4,8 @@
       "loginform": {
         "login": "login",
         "placeholderEmail": "placeholderEmail",
-        "placeholderPassword": "placeholderPassword"
+        "placeholderPassword": "placeholderPassword",
+        "title": "title"
       }
     }
   },
@@ -26,7 +27,7 @@
         "main": "main"
       },
       "login": "login",
-      "signup": "signup"
+      "logout": "logout"
     },
     "pageerror": {
       "buttonreload": "buttonreload",

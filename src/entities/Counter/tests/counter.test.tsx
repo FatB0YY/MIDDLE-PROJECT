@@ -1,11 +1,11 @@
 import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation'
 import { renderWirhRouter } from 'shared/config/tests/renderWithRouter'
-
-import { Counter } from '../index'
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider/index'
+import Counter from '../ui/Counter'
+import { StateSchema } from 'shared/lib/store/types'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { DeepPartial } from '@reduxjs/toolkit'
+import { StoreProvider } from 'shared/lib/store/StateProvider'
 
 describe('Counter test component', () => {
   test('Проверка рендера', () => {

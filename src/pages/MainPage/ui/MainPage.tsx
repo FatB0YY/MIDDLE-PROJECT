@@ -1,4 +1,4 @@
-import { Counter } from 'entities/Counter/index'
+import Counter from '../../../entities/Counter/ui/Counter'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Input } from 'shared/ui/Input'
@@ -15,8 +15,6 @@ const MainPage = () => {
     <div>
       {t('pages.mainpage')}
       <Counter />
-
-      <Input placeholder='Введите текст' onChange={onChange} value={value} />
     </div>
   )
 }

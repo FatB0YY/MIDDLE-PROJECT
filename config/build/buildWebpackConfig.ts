@@ -1,28 +1,28 @@
-import type * as webpack from 'webpack'
-import { type IBuildOptions } from './types/config'
+import * as webpack from 'webpack'
+import { IBuildOptions } from './types/config'
 import { buildPlugins } from './buildPlugins'
 import { buildLoaders } from './buildLoader'
 import { buildResolvers } from './buildResolvers'
 import { buildDevServer } from './buildDevServer'
 
 // ф-ция для сборки конфига
-export function buildWebpackConfig (
-  options: IBuildOptions
-): webpack.Configuration {
+export function buildWebpackConfig(options: IBuildOptions): webpack.Configuration {
+  const { paths, mode, isDev } = options
+
   return {
-    mode: options.mode,
-    entry: options.paths.entry, // стартовая точка приложения
+    mode: mode,
+    entry: paths.entry, // стартовая точка приложения
     output: {
       filename: '[name].[contenthash].js', // [contenthash] от кеша
-      path: options.paths.build, // путь
-      clean: true // очистка ненужных файлов
+      path: paths.build, // путь
+      clean: true, // очистка ненужных файлов
     },
     plugins: buildPlugins(options),
     module: {
-      rules: buildLoaders(options) // обрабатываем файлы за рамки js (png css scss svg ts...)
+      rules: buildLoaders(options), // обрабатываем файлы за рамки js (png css scss svg ts...)
     },
     resolve: buildResolvers(options),
-    devtool: options.isDev ? 'inline-source-map' : false,
-    devServer: options.isDev ? buildDevServer(options) : undefined
+    devtool: isDev ? 'inline-source-map' : false,
+    devServer: isDev ? buildDevServer(options) : undefined,
   }
 }

@@ -9,7 +9,8 @@
       "loginform": {
         "login": "LogIn",
         "placeholderEmail": "Enter username",
-        "placeholderPassword": "Enter password"
+        "placeholderPassword": "Enter password",
+        "title": "Auth form"
       }
     }
   },
@@ -26,11 +27,12 @@
         "about": "About us"
       },
       "login": "LogIn",
-      "signup": "SignUp"
+      "signup": "SignUp",
+      "logout": "LogOut"
     },
     "pageerror": {
-      "buttonreload": "An unexpected error has occurred",
-      "title": "Refresh the page"
+      "buttonreload": "Refresh the page",
+      "title": "An unexpected error has occurred"
     }
   },
   "Главная страница": "Главная страница",

@@ -1,10 +1,13 @@
 import webpack from 'webpack'
 import { buildCssLoader } from './loaders/buildCssLoader'
 import { IBuildOptions } from './types/config'
-import { buildSvgLoader } from './loaders/buildSvgLoader'
 
 export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
-  const svgLoader = buildSvgLoader()
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
   const cssLoader = buildCssLoader(isDev)
 
   const babelLoader = {

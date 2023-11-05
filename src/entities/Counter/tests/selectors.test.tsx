@@ -1,7 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit'
 import { getCounter } from '../model/selectors/getCounter'
 import { getCounterValue } from '../model/selectors/getCounterValue'
-import { StateSchema } from 'app/providers/StoreProvider'
+import { StateSchema } from 'shared/lib/store/types'
 
 describe('Selectors Counter', () => {
   test('Проверяем правильную работу getCounter', () => {
