@@ -47,7 +47,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       <Button onClick={onShowModal} theme={ThemeButton.CLEAR_INVERTED} className={cls.links}>
         {t('widgets.navbar.login')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
     </div>
   )
 }

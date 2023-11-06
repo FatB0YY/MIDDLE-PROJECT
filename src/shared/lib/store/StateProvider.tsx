@@ -11,6 +11,8 @@ interface StoreProviderProps {
   initialState?: DeepPartial<StateSchema>
 }
 
+// подумал и решил не делать асинк редьюсеры для тестов
+
 // пока что заглушка для тестов!!! ----------------------------------------------
 export function createReduxStore(initialState?: DeepPartial<StateSchema>) {
   const rootReducers: ReducersMapObject<StateSchema> = {
