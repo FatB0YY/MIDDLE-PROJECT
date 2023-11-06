@@ -1,7 +1,7 @@
 import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation'
 import { renderWirhRouter } from 'shared/config/tests/renderWithRouter'
 import Counter from '../ui/Counter'
-import { StateSchema } from 'shared/lib/store/types'
+import { StateSchema } from 'shared/lib/store/index'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { DeepPartial } from '@reduxjs/toolkit'

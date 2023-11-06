@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { ReduxStoreWithManager, useAppDispatch } from 'shared/lib/store'
 import { useStore } from 'react-redux'
-import { StateSchemaKey } from 'shared/lib/store/types'
+import { StateSchemaKey } from 'shared/lib/store/index'
 import { Reducer } from '@reduxjs/toolkit'
 
 // типизируем что у нас лист редьюсеров
