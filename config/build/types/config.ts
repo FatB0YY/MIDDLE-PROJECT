@@ -10,6 +10,7 @@ export interface BuildPaths {
 export interface IBuildEnv {
   mode: BuildMode
   port: number
+  apiUrl: string
 }
 
 export interface IBuildOptions {
@@ -17,4 +18,5 @@ export interface IBuildOptions {
   paths: BuildPaths
   isDev: boolean
   port: number
+  apiUrl: string
 }

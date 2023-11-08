@@ -44,6 +44,7 @@
 //   },
 //   globals: {
 //     __IS_DEV__: true,
+//     __API_URL__: true,
 //   },
 //   overrides: [
 //     {
