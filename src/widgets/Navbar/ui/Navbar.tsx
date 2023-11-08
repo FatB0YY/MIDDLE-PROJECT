@@ -1,21 +1,22 @@
-import React, { FC, useCallback, useState } from 'react'
+import React, { FC, memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { Modal } from 'shared/ui/Modal'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button/index'
 import { LoginModal } from 'features/AuthByUsername'
-import { useActionCreators, useStateSelector } from 'shared/lib/store'
-import { getUserAuthData, userActions } from 'entities/User'
+import { useActionCreators } from 'shared/lib/store'
+import { getUserAuthData, userActions } from 'essence/user'
+import { useSelector } from 'react-redux'
 
 interface NavbarProps {
   className?: string
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const { t } = useTranslation()
   const [isAuthModal, setIsAuthModal] = useState(false)
-  const authData = useStateSelector(getUserAuthData)
+  const authData = useSelector(getUserAuthData)
   // dispatch
   const actionsUser = useActionCreators(userActions)
 
@@ -50,4 +51,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
     </div>
   )
-}
+})

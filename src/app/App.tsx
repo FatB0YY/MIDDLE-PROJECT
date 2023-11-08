@@ -5,7 +5,7 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { useTheme } from './providers/ThemeProvider'
 import { useActionCreators } from 'shared/lib/store'
-import { userActions } from 'entities/User'
+import { userActions } from 'essence/user'
 
 function App() {
   const { theme } = useTheme()

@@ -6,11 +6,11 @@ import {
   } from "@reduxjs/toolkit";
   import { useMemo } from "react";
   import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-  import { AppDispatch, RootStore } from "./types";
+  import { AppDispatch } from "./types";
 
   
-  export const useAppDispatch = useDispatch<AppDispatch>;
-  export const useStateSelector: TypedUseSelectorHook<RootStore> = useSelector;
+  export const useAppDispatch = useDispatch<AppDispatch>
+  // export const useStateSelector: TypedUseSelectorHook<RootStore> = useSelector;
   
   export const useActionCreators = <Actions extends ActionCreatorsMapObject>(
     actions: Actions

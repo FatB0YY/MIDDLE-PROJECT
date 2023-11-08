@@ -1,19 +1,20 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Button } from 'shared/ui/Button'
 import { counterActions } from '../model/slice/counterSlice'
 import { getCounterValue } from '../model/selectors/getCounterValue'
+import { useActionCreators } from 'shared/lib/store'
+import { useSelector } from 'react-redux'
 
 const Counter = () => {
-  const dispatch = useDispatch()
+  const actionsCounter = useActionCreators(counterActions)
   const counterValue = useSelector(getCounterValue)
 
   const inc = () => {
-    dispatch(counterActions.increment())
+    actionsCounter.increment()
   }
 
   const dec = () => {
-    dispatch(counterActions.decrement())
+    actionsCounter.decrement()
   }
   return (
     <div data-testid='value-title'>

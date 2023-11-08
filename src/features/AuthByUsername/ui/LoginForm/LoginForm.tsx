@@ -7,12 +7,14 @@ import { Input } from 'shared/ui/Input'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginState } from '../../model/selectors/getLoginState'
 import { loginByUsernameThunk } from '../../model/services/loginByUsernameThunk'
-import { useActionCreators, useStateSelector } from 'shared/lib/store'
+import { useActionCreators, useAppDispatch } from 'shared/lib/store'
 import { Text, TextTheme } from 'shared/ui/Text'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+import { useSelector } from 'react-redux'
 
 export interface LoginFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 // чтобы не было на каждый рендер создание новой ссылки
@@ -20,13 +22,14 @@ const initialReducers: ReducersList = {
   loginForm: loginReducer,
 }
 
-const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
+const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   // i18n
   const { t } = useTranslation()
   // dispatch
-  let actionsLogin = useActionCreators({ ...loginActions, loginByUsernameThunk })
+  const actionsLogin = useActionCreators(loginActions)
+  const dispatch = useAppDispatch()
   // state redux
-  const { password, username, error, isLoading } = useStateSelector(getLoginState)
+  const { password, username, error, isLoading } = useSelector(getLoginState)
 
   const onChangeUsername = useCallback(
     (value) => {
@@ -42,9 +45,14 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     [actionsLogin]
   )
 
-  const onLoginClick = useCallback(() => {
-    actionsLogin.loginByUsernameThunk({ username: username, password: password })
-  }, [actionsLogin, username, password])
+  const onLoginClick = useCallback(async () => {
+    // использую useAppDispatch тк нужны типы, обычно делаю через useActionsCreators
+    const result = await dispatch(loginByUsernameThunk({ username: username, password: password }))
+
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
+  }, [dispatch, onSuccess, username, password])
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react'
+import React, { ButtonHTMLAttributes, FC, ReactNode, memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -22,25 +22,24 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   size?: ButtonSize
   disabled?: boolean
+  children?: ReactNode
 }
 
-export const Button: FC<ButtonProps> = ({
-  className,
-  children,
-  theme,
-  square,
-  size = ButtonSize.M,
-  disabled,
-  ...otherProps
-}) => {
-  const mods: Record<string, boolean> = {
-    [cls.square]: square,
-    [cls.disabled]: disabled,
+// не рекомендуется использовать memo когда компонент
+// использует пропс children.
+// НО в кнопке нет сложной древовидной структуры, поэтому можно :) хранить дешево, а сравнивать легко
+
+export const Button: FC<ButtonProps> = memo(
+  ({ className, children, theme, square, size = ButtonSize.M, disabled, ...otherProps }) => {
+    const mods: Record<string, boolean> = {
+      [cls.square]: square,
+      [cls.disabled]: disabled,
+    }
+
+    return (
+      <button className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])} {...otherProps}>
+        {children}
+      </button>
+    )
   }
-
-  return (
-    <button className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])} {...otherProps}>
-      {children}
-    </button>
-  )
-}
+)

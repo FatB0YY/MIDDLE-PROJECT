@@ -1,6 +1,38 @@
 {
-  "posts": [{ "id": "1", "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
-  "profile": { "name": "typicode" },
-  "users": [{ "username": "admin", "password": "123" }]
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Joi",
+    "lastname": "Smith",
+    "age": 21,
+    "currency": "RUB",
+    "country": "Нигер",
+    "city": "Ниамей",
+    "username": "admin",
+    "avatar": "https://pikuco.ru/upload/test_stable/96d/96d01aba12f9a99d9c0362b263d03969.webp"
+  }
 }

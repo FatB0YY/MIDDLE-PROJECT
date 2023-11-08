@@ -24,7 +24,8 @@
     "navbar": {
       "applink": {
         "main": "Main",
-        "about": "About us"
+        "about": "About us",
+        "profile": "Profile"
       },
       "login": "LogIn",
       "signup": "SignUp",

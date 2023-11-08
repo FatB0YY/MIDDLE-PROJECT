@@ -25,7 +25,8 @@
     "navbar": {
       "applink": {
         "main": "Главная",
-        "about": "О нас"
+        "about": "О нас",
+        "profile": "Профиль"
       },
       "login": "Войти",
       "signup": "Регистрация",

@@ -1,11 +1,12 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
-import { store } from './root'
-import { CounterSchema } from 'entities/Counter/index'
-import { UserSchema } from 'entities/User/index'
+import { createReduxStore } from './root'
+import { CounterSchema } from 'essence/counter/index'
+import { UserSchema } from 'essence/user/index'
 import { LoginSchema } from 'features/AuthByUsername/index'
+import { ProfileSchema } from 'essence/profile'
 
-export type RootStore = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+// export type RootStore = ReturnType<typeof store.getState>
 
 export interface StateSchema {
   counter: CounterSchema
@@ -13,6 +14,7 @@ export interface StateSchema {
 
   // async
   loginForm?: LoginSchema
+  profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

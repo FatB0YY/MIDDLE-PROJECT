@@ -1,15 +1,12 @@
-import React, { FC, useState } from 'react'
+import React, { FC, memo, useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher/index'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { ButtonSize } from 'shared/ui/Button/ui/Button'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink'
-import { useTranslation } from 'react-i18next'
-import { RoutePath } from 'app/providers/router/config/routeConfig'
-import MainIcon from '../assets/icons/main-20-20.svg'
-import AboutIcon from '../assets/icons/about-20-20.svg'
+import { SidebarItemsList } from '../../model/items'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 interface SidebarProps {
   className?: string
@@ -18,29 +15,31 @@ interface SidebarProps {
 // если true навешивамаем класс collapsed, если false - удаляем
 // { [cls.collapsed]: collapsed }
 
-export const Sidebar: FC<SidebarProps> = ({ className }) => {
+export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false)
 
   const onToggle = () => {
     setCollapsed((prev) => !prev)
   }
 
-  const { t } = useTranslation()
+  // в каких случаях перерисовывается компонент:
+  // 1. изменился пропс
+  // 2. изменилось состояние (state)
+  // 3. перерисовался родитель -> предотвращение мемоизацией
+  // ------- или
+  // memo hoc для SidebarItem
+
+  // const itemsList = useMemo(
+  //   () => SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />),
+  //   [collapsed]
+  // )
 
   return (
     <div data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
       <div className={cls.items}>
-        <div className={cls.item}>
-          <AppLink to={RoutePath.main} className={cls.link}>
-            {collapsed ? <MainIcon className={cls.icon} /> : <span> {t('widgets.navbar.applink.main')}</span>}
-          </AppLink>
-        </div>
-
-        <div className={cls.item}>
-          <AppLink to={RoutePath.about} className={cls.link}>
-            {collapsed ? <AboutIcon className={cls.icon} /> : <span>{t('widgets.navbar.applink.about')}</span>}
-          </AppLink>
-        </div>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
       </div>
 
       <Button
@@ -59,4 +58,4 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </div>
     </div>
   )
-}
+})

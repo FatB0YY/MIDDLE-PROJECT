@@ -1,4 +1,4 @@
-import Counter from '../../../entities/Counter/ui/Counter'
+import { Counter } from '../../../essence/counter'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Input } from 'shared/ui/Input'

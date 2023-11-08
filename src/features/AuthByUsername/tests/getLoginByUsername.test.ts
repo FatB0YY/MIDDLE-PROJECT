@@ -1,4 +1,4 @@
-import { IUser } from 'entities/User'
+import { IUser } from 'essence/user'
 import { ILoginByUsername, loginByUsernameThunk } from '../model/services/loginByUsernameThunk'
 import axios from 'axios'
 import { Dispatch } from '@reduxjs/toolkit'

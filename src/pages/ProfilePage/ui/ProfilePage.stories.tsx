@@ -2,23 +2,23 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import MainPage from './MainPage'
+import ProfilePage from './ProfilePage'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
-  title: 'PAGES/MainPage',
-  component: MainPage,
+  title: 'PAGES/ProfilePage',
+  component: ProfilePage,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof MainPage>
+} as ComponentMeta<typeof ProfilePage>
 
 // @ts-ignore
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />
+const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [StoreDecorator({})]
+Normal.decorators = [StoreDecorator({ profile: {} })]
 
 export const Dark = Template.bind({})
 Dark.args = {}

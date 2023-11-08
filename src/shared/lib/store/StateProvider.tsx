@@ -1,36 +1,17 @@
 import React, { FC, ReactNode } from 'react'
 import { Provider } from 'react-redux'
 import { StateSchema } from './types'
-import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
-import { counterReducer } from '../../../entities/Counter/index'
-import { userReducer } from '../../../entities/User/index'
-import { loginReducer } from '../../../features/AuthByUsername/model/slice/loginSlice'
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
+import { createReduxStore } from 'shared/lib/store/index'
 
 interface StoreProviderProps {
   children?: ReactNode
   initialState?: DeepPartial<StateSchema>
+  asyncReducers?: DeepPartial<ReducersMapObject>
 }
 
-// подумал и решил не делать асинк редьюсеры для тестов
-
-// пока что заглушка для тестов!!! ----------------------------------------------
-export function createReduxStore(initialState?: DeepPartial<StateSchema>) {
-  const rootReducers: ReducersMapObject<StateSchema> = {
-    counter: counterReducer,
-    user: userReducer,
-    loginForm: loginReducer,
-  }
-
-  return configureStore<DeepPartial<StateSchema>>({
-    reducer: rootReducers,
-    devTools: __IS_DEV__,
-    preloadedState: initialState,
-  })
-}
-// пока что заглушка для тестов!!! ----------------------------------------------
-
-export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }) => {
-  const store = createReduxStore(initialState)
+export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState, asyncReducers }) => {
+  const store = createReduxStore(initialState as StateSchema, asyncReducers as ReducersMapObject)
 
   return <Provider store={store}>{children}</Provider>
 }
