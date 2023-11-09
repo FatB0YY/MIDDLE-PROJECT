@@ -1,0 +1,12 @@
+import { StateSchema } from 'shared/lib/store'
+import { ProfileSchema } from '../types/profile'
+
+// заглушка
+const mock: ProfileSchema = {
+  data: null,
+  error: null,
+  isLoading: false,
+  readonly: true,
+}
+
+export const getProfileState = (state: StateSchema) => state?.profile || mock

@@ -1,0 +1,12 @@
+{
+  "entities": {
+    "profile": {
+      "profilecard": {
+        "edit": "",
+        "first": "",
+        "lastname": "",
+        "title": ""
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@ import { useActionCreators, useAppDispatch } from 'shared/lib/store'
 import { Text, TextTheme } from 'shared/ui/Text'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useSelector } from 'react-redux'
+import { useActionCreatorsTyped } from 'shared/lib/store/hook'
 
 export interface LoginFormProps {
   className?: string
@@ -26,7 +27,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   // i18n
   const { t } = useTranslation()
   // dispatch
-  const actionsLogin = useActionCreators(loginActions)
+  const actionsLogin = useActionCreatorsTyped(loginActions)
   const dispatch = useAppDispatch()
   // state redux
   const { password, username, error, isLoading } = useSelector(getLoginState)
@@ -46,7 +47,6 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   )
 
   const onLoginClick = useCallback(async () => {
-    // использую useAppDispatch тк нужны типы, обычно делаю через useActionsCreators
     const result = await dispatch(loginByUsernameThunk({ username: username, password: password }))
 
     if (result.meta.requestStatus === 'fulfilled') {

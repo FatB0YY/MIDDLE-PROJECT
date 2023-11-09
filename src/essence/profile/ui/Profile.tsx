@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Profile.module.scss'
 

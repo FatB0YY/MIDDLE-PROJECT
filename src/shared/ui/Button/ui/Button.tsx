@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, FC, ReactNode, memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 export enum ThemeButton {
@@ -30,8 +30,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // НО в кнопке нет сложной древовидной структуры, поэтому можно :) хранить дешево, а сравнивать легко
 
 export const Button: FC<ButtonProps> = memo(
-  ({ className, children, theme, square, size = ButtonSize.M, disabled, ...otherProps }) => {
-    const mods: Record<string, boolean> = {
+  ({ className, children, theme = ThemeButton.OUTLINE, square, size = ButtonSize.M, disabled, ...otherProps }) => {
+    const mods: Mods = {
       [cls.square]: square,
       [cls.disabled]: disabled,
     }

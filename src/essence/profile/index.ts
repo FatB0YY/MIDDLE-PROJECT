@@ -1,5 +1,5 @@
 import { IProfile, ProfileSchema } from './model/types/profile'
 import { profileActions, profileReducer } from './model/slice/profileSlice'
-import { Profile } from './ui/Profile'
+import { ProfileCard } from './ui/ProfileCard/ProfileCard'
 
-export { IProfile, ProfileSchema, profileActions, profileReducer, Profile }
+export { ProfileCard, IProfile, ProfileSchema, profileActions, profileReducer }

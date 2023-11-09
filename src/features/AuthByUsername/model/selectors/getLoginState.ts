@@ -1,14 +1,12 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StateSchema } from 'shared/lib/store/index'
+import { LoginSchema } from '../types/loginSchema'
 
 // заглушка
-const mock: DeepPartial<StateSchema> = {
-  loginForm: {
-    error: null,
-    isLoading: false,
-    password: '',
-    username: '',
-  },
+const mock: LoginSchema = {
+  error: null,
+  isLoading: false,
+  password: '',
+  username: '',
 }
 
-export const getLoginState = (state: StateSchema) => state?.loginForm || mock.loginForm
+export const getLoginState = (state: StateSchema) => state?.loginForm || mock

@@ -1,24 +1,29 @@
 import { IUser } from 'essence/user'
 import { ILoginByUsername, loginByUsernameThunk } from '../model/services/loginByUsernameThunk'
-import axios from 'axios'
+import axios, { AxiosStatic } from 'axios'
 import { Dispatch } from '@reduxjs/toolkit'
 import { StateSchema } from 'shared/lib/store/index'
+import { $api } from 'shared/api/api'
 
 // мокаем
 jest.mock('axios')
 
 // для ts, глубокий мок
-const mockedAxios = jest.mocked(axios, { shallow: true })
+const mockedAxios = jest.mocked(axios, { shallow: false })
 
 describe('loginByUsernameThunk', () => {
   let dispatch: Dispatch
   let getState: () => StateSchema
+  let api: jest.MockedFunctionDeep<AxiosStatic>
+  let navigate: jest.MockedFn<any>
   const mockUser: IUser = { id: '1', username: 'Joi' }
   const mockLoginData: ILoginByUsername = { username: 'admin', password: '123' }
 
   beforeEach(() => {
     dispatch = jest.fn()
     getState = jest.fn()
+    api = mockedAxios
+    navigate = jest.fn()
   })
 
   test('Проверка с resolved ответом', async () => {
@@ -28,7 +33,7 @@ describe('loginByUsernameThunk', () => {
 
     const thunk = loginByUsernameThunk(mockLoginData)
 
-    await thunk(dispatch, getState, null)
+    await thunk(dispatch, getState, { api, navigate })
 
     expect(mockedAxios.post).toHaveBeenCalled()
 
@@ -58,7 +63,7 @@ describe('loginByUsernameThunk', () => {
 
     const thunk = loginByUsernameThunk(mockLoginData)
 
-    await thunk(dispatch, getState, null)
+    await thunk(dispatch, getState, { api, navigate })
 
     expect(mockedAxios.post).toHaveBeenCalled()
 

@@ -1,4 +1,14 @@
 {
+  "entities": {
+    "profile": {
+      "profilecard": {
+        "edit": "edit",
+        "first": "first",
+        "lastname": "lastname",
+        "title": "title"
+      }
+    }
+  },
   "features": {
     "authbyusername": {
       "loginform": {
@@ -12,14 +22,14 @@
   "pages": {
     "aboutpage": "aboutpage",
     "mainpage": "mainpage",
-    "notfoundpage": "notfoundpage"
+    "notfoundpage": ""
   },
   "widgets": {
     "langswitcher": {
-      "optionen": "optionen",
-      "optionenshort": "optionenshort",
-      "optionru": "optionru",
-      "optionrushort": "optionrushort"
+      "optionen": "",
+      "optionenshort": "",
+      "optionru": "",
+      "optionrushort": ""
     },
     "navbar": {
       "login": "login",

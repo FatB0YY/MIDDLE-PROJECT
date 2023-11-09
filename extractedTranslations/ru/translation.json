@@ -1,4 +1,14 @@
 {
+  "entities": {
+    "profile": {
+      "profilecard": {
+        "edit": "edit",
+        "first": "first",
+        "lastname": "lastname",
+        "title": "title"
+      }
+    }
+  },
   "features": {
     "authbyusername": {
       "loginform": {

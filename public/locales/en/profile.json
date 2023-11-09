@@ -1,0 +1,7 @@
+{
+  "entities": {
+    "profile": {
+      "profilecard": { "title": "Profile", "edit": "Edit", "first": "Your firstname", "lastname": "Your lastname" }
+    }
+  }
+}

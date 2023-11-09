@@ -1,7 +1,8 @@
-import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { Portal } from 'shared/ui/Portal/index'
+import { useTheme } from 'app/providers/ThemeProvider'
 
 interface ModalProps {
   className?: string
@@ -11,15 +12,9 @@ interface ModalProps {
   lazy?: boolean
 }
 
-export const Modal: FC<ModalProps> = ({
-  className,
-  children,
-  isOpen,
-  onClose,
-  lazy,
-  ...otherProps
-}) => {
+export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy, ...otherProps }) => {
   const [isMounted, setIsMounted] = useState(false)
+  const { theme } = useTheme()
 
   useEffect(() => {
     if (isOpen) {
@@ -40,16 +35,12 @@ export const Modal: FC<ModalProps> = ({
   // на каждый перерендер комп., эти функции будут создаваться заного, новые ссылки!!!
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape' || e.key === 'Esc') {
+      if ((e.key === 'Escape' || e.key === 'Esc') && onClose) {
         onClose()
       }
     },
     [closeHandler]
   )
-
-  const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen,
-  }
 
   useEffect(() => {
     if (isOpen) {
@@ -65,9 +56,13 @@ export const Modal: FC<ModalProps> = ({
     return null
   }
 
+  const mods: Mods = {
+    [cls.opened]: isOpen,
+  }
+
   return (
     <Portal>
-      <div {...otherProps} className={classNames(cls.Modal, mods, [className])}>
+      <div {...otherProps} className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
         <div onClick={closeHandler} className={cls.overlay}>
           <div onClick={onContentClick} className={cls.content}>
             {children}

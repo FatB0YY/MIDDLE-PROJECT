@@ -15,7 +15,7 @@ export enum TextTheme {
   ERROR = 'error',
 }
 
-export const Text: FC<TextProps> = memo(({ className, title, text, theme }) => {
+export const Text: FC<TextProps> = memo(({ className, title, text, theme = TextTheme.PRIMARY }) => {
   return (
     <div className={classNames(cls.Text, {}, [className, cls[theme]])}>
       {title && <p className={cls.title}>{title}</p>}

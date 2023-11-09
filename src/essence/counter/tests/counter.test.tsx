@@ -4,7 +4,6 @@ import Counter from '../ui/Counter'
 import { StateSchema } from 'shared/lib/store/index'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StoreProvider } from 'shared/lib/store/StateProvider'
 
 describe('Counter test component', () => {
@@ -12,9 +11,11 @@ describe('Counter test component', () => {
     const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
 
     render(
-      <StoreProvider initialState={initialStateMock as StateSchema}>
-        {renderWirhRouter(renderWithTranslation(<Counter />))}
-      </StoreProvider>
+      renderWirhRouter(
+        <StoreProvider initialState={initialStateMock as StateSchema}>
+          {renderWithTranslation(<Counter />)}
+        </StoreProvider>
+      )
     )
 
     expect(screen.getByTestId('value-title')).toBeInTheDocument()
@@ -25,9 +26,11 @@ describe('Counter test component', () => {
     const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
 
     render(
-      <StoreProvider initialState={initialStateMock as StateSchema}>
-        {renderWirhRouter(renderWithTranslation(<Counter />))}
-      </StoreProvider>
+      renderWirhRouter(
+        <StoreProvider initialState={initialStateMock as StateSchema}>
+          {renderWithTranslation(<Counter />)}
+        </StoreProvider>
+      )
     )
 
     userEvent.click(screen.getByTestId('inc-btn'))
@@ -39,9 +42,11 @@ describe('Counter test component', () => {
     const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
 
     render(
-      <StoreProvider initialState={initialStateMock as StateSchema}>
-        {renderWirhRouter(renderWithTranslation(<Counter />))}
-      </StoreProvider>
+      renderWirhRouter(
+        <StoreProvider initialState={initialStateMock as StateSchema}>
+          {renderWithTranslation(<Counter />)}
+        </StoreProvider>
+      )
     )
 
     userEvent.click(screen.getByTestId('dec-btn'))

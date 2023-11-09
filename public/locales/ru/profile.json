@@ -1,0 +1,7 @@
+{
+  "entities": {
+    "profile": {
+      "profilecard": { "title": "Профиль", "edit": "Редактировать", "first": "Ваше имя", "lastname": "Ваша фамилия" }
+    }
+  }
+}
