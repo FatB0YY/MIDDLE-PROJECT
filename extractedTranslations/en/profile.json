@@ -2,9 +2,12 @@
   "entities": {
     "profile": {
       "profilecard": {
+        "age": "",
+        "cancel": "",
         "edit": "",
         "first": "",
         "lastname": "",
+        "save": "",
         "title": ""
       }
     }

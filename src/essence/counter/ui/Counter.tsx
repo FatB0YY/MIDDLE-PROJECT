@@ -2,11 +2,11 @@ import React from 'react'
 import { Button } from 'shared/ui/Button'
 import { counterActions } from '../model/slice/counterSlice'
 import { getCounterValue } from '../model/selectors/getCounterValue'
-import { useActionCreators } from 'shared/lib/store'
+import { useActionCreatorsTyped } from 'shared/lib/store'
 import { useSelector } from 'react-redux'
 
 const Counter = () => {
-  const actionsCounter = useActionCreators(counterActions)
+  const actionsCounter = useActionCreatorsTyped(counterActions)
   const counterValue = useSelector(getCounterValue)
 
   const inc = () => {

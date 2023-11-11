@@ -14,6 +14,8 @@
       }
     }
   },
+  "entities": { "CurrencySelect": { "label": "Specify the currency" } },
+
   "widgets": {
     "langswitcher": {
       "optionen": "English",

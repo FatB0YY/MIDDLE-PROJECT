@@ -4,14 +4,12 @@ import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { useTheme } from './providers/ThemeProvider'
-import { useActionCreators } from 'shared/lib/store'
 import { userActions } from 'essence/user'
+import { useActionCreatorsTyped } from 'shared/lib/store'
 
 function App() {
   const { theme } = useTheme()
-
-  // dispatch
-  const actionsUser = useActionCreators(userActions)
+  const actionsUser = useActionCreatorsTyped(userActions)
 
   useEffect(() => {
     actionsUser.initAuthData()

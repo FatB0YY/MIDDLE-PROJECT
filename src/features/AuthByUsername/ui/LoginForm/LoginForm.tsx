@@ -7,11 +7,10 @@ import { Input } from 'shared/ui/Input'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginState } from '../../model/selectors/getLoginState'
 import { loginByUsernameThunk } from '../../model/services/loginByUsernameThunk'
-import { useActionCreators, useAppDispatch } from 'shared/lib/store'
+import { useActionCreatorsTyped } from 'shared/lib/store'
 import { Text, TextTheme } from 'shared/ui/Text'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useSelector } from 'react-redux'
-import { useActionCreatorsTyped } from 'shared/lib/store/hook'
 
 export interface LoginFormProps {
   className?: string
@@ -23,12 +22,15 @@ const initialReducers: ReducersList = {
   loginForm: loginReducer,
 }
 
+const actions = {
+  ...loginActions,
+  loginByUsername: loginByUsernameThunk,
+}
+
 const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   // i18n
   const { t } = useTranslation()
-  // dispatch
-  const actionsLogin = useActionCreatorsTyped(loginActions)
-  const dispatch = useAppDispatch()
+  const actionsLogin = useActionCreatorsTyped(actions)
   // state redux
   const { password, username, error, isLoading } = useSelector(getLoginState)
 
@@ -47,12 +49,12 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
   )
 
   const onLoginClick = useCallback(async () => {
-    const result = await dispatch(loginByUsernameThunk({ username: username, password: password }))
-
-    if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess()
-    }
-  }, [dispatch, onSuccess, username, password])
+    actionsLogin.loginByUsername({ username: username, password: password }).then((result) => {
+      if (result.meta.requestStatus === 'fulfilled') {
+        onSuccess()
+      }
+    })
+  }, [actionsLogin, onSuccess, username, password])
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>

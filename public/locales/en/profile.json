@@ -1,7 +1,15 @@
 {
   "entities": {
     "profile": {
-      "profilecard": { "title": "Profile", "edit": "Edit", "first": "Your firstname", "lastname": "Your lastname" }
+      "profilecard": {
+        "title": "Profile",
+        "edit": "Edit",
+        "first": "Your firstname",
+        "lastname": "Your lastname",
+        "cancel": "Cancel",
+        "save": "Save",
+        "age": "Your age"
+      }
     }
   }
 }

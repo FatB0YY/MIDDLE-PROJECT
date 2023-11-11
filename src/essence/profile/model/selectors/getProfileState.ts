@@ -4,6 +4,7 @@ import { ProfileSchema } from '../types/profile'
 // заглушка
 const mock: ProfileSchema = {
   data: null,
+  form: null,
   error: null,
   isLoading: false,
   readonly: true,

@@ -1,10 +1,16 @@
 {
   "entities": {
+    "CurrencySelect": {
+      "label": "label"
+    },
     "profile": {
       "profilecard": {
+        "age": "age",
+        "cancel": "cancel",
         "edit": "edit",
         "first": "first",
         "lastname": "lastname",
+        "save": "save",
         "title": "title"
       }
     }

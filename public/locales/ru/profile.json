@@ -1,7 +1,15 @@
 {
   "entities": {
     "profile": {
-      "profilecard": { "title": "Профиль", "edit": "Редактировать", "first": "Ваше имя", "lastname": "Ваша фамилия" }
+      "profilecard": {
+        "title": "Профиль",
+        "edit": "Редактировать",
+        "first": "Ваше имя",
+        "lastname": "Ваша фамилия",
+        "cancel": "Отменить",
+        "save": "Сохранить",
+        "age": "Ваш возраст"
+      }
     }
   }
 }

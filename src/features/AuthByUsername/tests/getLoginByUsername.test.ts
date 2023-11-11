@@ -3,7 +3,6 @@ import { ILoginByUsername, loginByUsernameThunk } from '../model/services/loginB
 import axios, { AxiosStatic } from 'axios'
 import { Dispatch } from '@reduxjs/toolkit'
 import { StateSchema } from 'shared/lib/store/index'
-import { $api } from 'shared/api/api'
 
 // мокаем
 jest.mock('axios')
