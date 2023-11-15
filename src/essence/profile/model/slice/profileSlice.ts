@@ -41,19 +41,19 @@ const profileSlice = createSlice({
     })
     //
     builder.addCase(updateProfileDataThunk.pending, (state) => {
-      state.error = null
+      state.validateError = undefined
       state.isLoading = true
     })
     builder.addCase(updateProfileDataThunk.fulfilled, (state, action: PayloadAction<IProfile>) => {
       state.isLoading = false
-      state.error = null
+      state.validateError = undefined
 
       state.data = action.payload
       state.form = action.payload
     })
     builder.addCase(updateProfileDataThunk.rejected, (state, action) => {
       state.isLoading = false
-      state.error = action.payload || null
+      state.validateError = action.payload
     })
   },
 })

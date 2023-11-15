@@ -11,7 +11,7 @@ import { AppDispatch, ThunkConfig } from "./types";
 export const useAppDispatch = useDispatch<AppDispatch>;
 
 type BoundActions<Actions extends ActionCreatorsMapObject> = {
-  [key in keyof Actions]: Actions[key] extends AsyncThunk<any, any, ThunkConfig<string>>
+  [key in keyof Actions]: Actions[key] extends AsyncThunk<any, any, ThunkConfig<any>>
     ? BoundAsyncThunk<Actions[key]>
     : Actions[key];
 };

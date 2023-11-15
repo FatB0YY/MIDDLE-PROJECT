@@ -1,4 +1,3 @@
-import { IProfile, ProfileSchema } from 'essence/profile'
 import { updateProfileDataThunk } from '../model/services/updateProfileDataThunk'
 import axios, { AxiosStatic } from 'axios'
 import { Dispatch } from '@reduxjs/toolkit'
@@ -16,6 +15,7 @@ const mockedAxios = jest.mocked(axios, { shallow: false })
 describe('updateProfileDataThunk', () => {
   let dispatch: Dispatch
   let getState: () => StateSchema
+  let getStateNoValid: () => StateSchema
   let api: jest.MockedFunctionDeep<AxiosStatic>
   let navigate: jest.MockedFn<any>
 
@@ -30,17 +30,6 @@ describe('updateProfileDataThunk', () => {
     username: 'Admin',
   }
 
-  const dataWithNoValid = {
-    age: 'no valid',
-    avatar: 'rfrfr',
-    city: 'M',
-    country: Country.ARMENIA,
-    currency: ECurrency.RUB,
-    first: '',
-    lastname: '',
-    username: 'Admin',
-  }
-
   beforeEach(() => {
     const state: DeepPartial<StateSchema> = {
       profile: {
@@ -48,8 +37,15 @@ describe('updateProfileDataThunk', () => {
       },
     }
 
+    const stateNoValid: DeepPartial<StateSchema> = {
+      profile: {
+        form: { ...data, lastname: '' },
+      },
+    }
+
     dispatch = jest.fn()
     getState = jest.fn(() => state as StateSchema)
+    getStateNoValid = jest.fn(() => stateNoValid as StateSchema)
     api = mockedAxios
     navigate = jest.fn()
   })
@@ -78,28 +74,45 @@ describe('updateProfileDataThunk', () => {
     expect(end[0].payload).toEqual(data)
   })
 
-  test('Проверка с rejected ответом из-за валидации', async () => {
+  test('Проверка с rejected ответом', async () => {
     // @ts-ignore
-    mockedAxios.put.mockResolvedValue({ data: dataWithNoValid })
+    mockedAxios.put.mockResolvedValue({ status: 404 })
 
     const thunk = updateProfileDataThunk()
 
     // @ts-ignore
-    const x = await thunk(dispatch, getState, { api, navigate })
+    await thunk(dispatch, getState, { api, navigate })
     // @ts-ignore
     expect(dispatch.mock.calls).toHaveLength(2)
 
     // @ts-ignore
     const [start, end] = dispatch.mock.calls
 
-    console.log('start', start)
-    console.log('end', end)
-
     // @ts-ignore
     expect(start[0].type).toBe(updateProfileDataThunk.pending().type)
     // @ts-ignore
     expect(end[0].type).toBe(updateProfileDataThunk.rejected().type)
     expect(end[0].payload).toEqual([ValidateProfileError.SERVER_ERROR])
+    expect(end[0].meta.rejectedWithValue).toBe(true)
+  })
+
+  test('Проверка с rejected ответом из-за валидации', async () => {
+    mockedAxios.put.mockResolvedValue({})
+
+    const thunk = updateProfileDataThunk()
+    await thunk(dispatch, getStateNoValid, { api, navigate })
+
+    // @ts-ignore
+    expect(dispatch.mock.calls).toHaveLength(2)
+
+    // @ts-ignore
+    const [start, end] = dispatch.mock.calls
+
+    // @ts-ignore
+    expect(start[0].type).toBe(updateProfileDataThunk.pending().type)
+    // @ts-ignore
+    expect(end[0].type).toBe(updateProfileDataThunk.rejected().type)
+    expect(end[0].payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA])
     expect(end[0].meta.rejectedWithValue).toBe(true)
   })
 })
