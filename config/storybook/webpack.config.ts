@@ -33,6 +33,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
       __API_URL__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('sb'),
     })
   )
 

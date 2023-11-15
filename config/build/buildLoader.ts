@@ -1,50 +1,71 @@
-import webpack from 'webpack'
+import webpack, { ModuleOptions } from 'webpack'
 import { buildCssLoader } from './loaders/buildCssLoader'
 import { IBuildOptions } from './types/config'
+import ReactRefreshTypescript from 'react-refresh-typescript'
+import { buildBabelLoader } from './loaders/babelLoader'
 
-export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  }
-
-  const cssLoader = buildCssLoader(isDev)
-
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
-        ],
-      },
-    },
-  }
-
-  // Если не используем тайпскрипт - нужен babel-loader
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  }
-
-  const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
+  const svgrLoader = {
+    test: /\.svg$/i,
     use: [
       {
-        loader: 'file-loader',
+        loader: '@svgr/webpack',
+        options: {
+          icon: true,
+          svgoConfig: {
+            plugins: [
+              {
+                // позволяет упростить работу с color для svg иконок
+                name: 'convertColors',
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+          },
+        },
       },
     ],
   }
 
-  return [fileLoader, svgLoader, babelLoader, tsLoader, cssLoader]
+  const cssLoader = buildCssLoader(options.isDev)
+
+  const babelLoader = buildBabelLoader(options)
+
+  // Если не используем тайпскрипт - нужен babel-loader
+  const tsLoader = {
+    test: /\.tsx?$/,
+    // transpileOnly только сборка, без проверки типов (отдельно npm typecheck)
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [options.isDev && ReactRefreshTypescript()].filter(Boolean),
+          }),
+          transpileOnly: options.isDev,
+        },
+      },
+    ],
+    exclude: /node_modules/,
+  }
+
+  const assetLoader = {
+    test: /\.(png|jpg|jpeg|gif)$/i,
+    type: 'asset/resource',
+  }
+
+  const fontsLoader = {
+    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+    type: 'asset/resource',
+  }
+
+  return [
+    assetLoader,
+    fontsLoader,
+    svgrLoader,
+    // tsLoader,
+    babelLoader,
+    cssLoader,
+  ]
 }

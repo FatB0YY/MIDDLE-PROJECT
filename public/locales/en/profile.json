@@ -9,6 +9,13 @@
         "cancel": "Cancel",
         "save": "Save",
         "age": "Your age"
+      },
+      "error": {
+        "INCORRECT_USER_DATA": "Incorrect data",
+        "INCORRECT_AGE": "Incorrect age",
+        "INCORRECT_CURRENCY": "Incorrect currency",
+        "NO_DATA": "No data",
+        "SERVER_ERROR": "Unexpected error, please try again later"
       }
     }
   }
