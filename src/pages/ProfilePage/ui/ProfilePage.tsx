@@ -56,7 +56,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   const onChangeCurrency = useCallback(
     (currency?: ECurrency) => {
-      actionsProfile.updateProfile({ lastname: currency || ECurrency.RUB })
+      actionsProfile.updateProfile({ currency: currency || ECurrency.RUB })
     },
     [actionsProfile]
   )

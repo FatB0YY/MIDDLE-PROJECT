@@ -26,6 +26,12 @@ Clear.args = {
   theme: ThemeButton.CLEAR,
 }
 
+export const Accent = Template.bind({})
+Accent.args = {
+  children: 'Text',
+  theme: ThemeButton.ACCENT,
+}
+
 export const ClearInverted = Template.bind({})
 ClearInverted.args = {
   children: 'Text',

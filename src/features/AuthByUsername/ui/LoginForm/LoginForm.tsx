@@ -64,20 +64,22 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
         <Input
           autofocus={true}
           type='text'
-          className={cls.input}
+          classNameInput={cls.inputModalAuth}
           placeholder={t('features.authbyusername.loginform.placeholderEmail')}
           onChange={onChangeUsername}
           value={username}
+          placeholderClassName={cls.placeholderModalAuth}
         />
         <Input
           type='password'
-          className={cls.input}
+          classNameInput={cls.inputModalAuth}
           placeholder={t('features.authbyusername.loginform.placeholderPassword')}
           onChange={onChangePassword}
           value={password}
+          placeholderClassName={cls.placeholderModalAuth}
         />
 
-        <Button disabled={isLoading} onClick={onLoginClick} theme={ThemeButton.OUTLINE}>
+        <Button disabled={isLoading} onClick={onLoginClick} theme={ThemeButton.ACCENT}>
           {t('features.authbyusername.loginform.login')}
         </Button>
       </div>

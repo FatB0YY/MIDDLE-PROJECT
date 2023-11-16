@@ -1,10 +1,5 @@
 .app_dark_theme {
-    --bg-color: #090949;
-    --inverted-bg-color: #e8e8ea;
-
-
-    --primary-color: #049604;
-    --secondary-color: #04ff04;
-    --inverted-primary-color: #0449e0;
-    --inverted-secondary-color: #041c65;
+    --main-color: #5e69ee; // Backgrounds, main elements
+    --secondary-color: #F4F4FB; // For 2nd level elements, text
+    --accent-color: #39AFEA; // For CTAs and accent touches
 }

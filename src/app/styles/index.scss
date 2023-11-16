@@ -2,14 +2,15 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
+@import 'themes/orange.scss';
 
 body {
     font: var(--font-m);
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .app {
-    background: var(--bg-color);
+    background: var(--main-color);
     min-height: 100vh;
 }
 

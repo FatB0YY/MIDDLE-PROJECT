@@ -1,6 +1,9 @@
 .ProfileCard {
     padding: 20px;
-    border: 2px solid var(--inverted-bg-color);
+    border: 3px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    max-width: 40%;
 }
 
 .input {
@@ -12,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
+    height: 128x;
 }
 
 .avatarWrapper {
@@ -22,5 +25,5 @@
 }
 
 .editing {
-    border: 2px solid var(--inverted-primary-color);
+    border: 3px solid var(--accent-color);
 }

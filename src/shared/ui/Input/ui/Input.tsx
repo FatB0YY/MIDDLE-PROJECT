@@ -12,10 +12,23 @@ interface InputProps extends HTMLInputProps {
   placeholder?: string
   autofocus?: boolean
   readonly?: boolean
+  placeholderClassName?: string
+  classNameInput?: string
 }
 
 export const Input: FC<InputProps> = memo(
-  ({ className, value, onChange, type = 'text', placeholder = '>', autofocus, readonly, ...otherProps }) => {
+  ({
+    className,
+    value,
+    onChange,
+    type = 'text',
+    placeholder = '>',
+    autofocus,
+    readonly,
+    placeholderClassName,
+    classNameInput,
+    ...otherProps
+  }) => {
     const [isFocused, setIsFocused] = useState(false)
     const [caretPosition, setCaretPosition] = useState(0)
 
@@ -53,7 +66,9 @@ export const Input: FC<InputProps> = memo(
 
     return (
       <div className={classNames(cls.InputWrapper, mods, [className])}>
-        {placeholder && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
+        {placeholder && (
+          <div className={classNames(cls.placeholder, {}, [placeholderClassName])}>{`${placeholder}>`}</div>
+        )}
 
         <div className={cls.caretWrapper}>
           <input
@@ -61,7 +76,7 @@ export const Input: FC<InputProps> = memo(
             onFocus={onFocus}
             onBlur={onBlur}
             onSelect={onSelect}
-            className={cls.input}
+            className={classNames(cls.input, {}, [classNameInput])}
             type={type}
             value={value}
             onChange={onChangeHandler}

@@ -39,7 +39,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-      <Text title={t('entities.profile.profilecard.title')} />
+      <Text className={cls.title} title={t('entities.profile.profilecard.title')} />
       {readonly ? (
         <Button onClick={onEdit} theme={ThemeButton.OUTLINE}>
           {t('entities.profile.profilecard.edit')}
@@ -49,7 +49,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
           <Button className={cls.cancelBtn} onClick={onCancelEdit} theme={ThemeButton.OUTLINE_RED}>
             {t('entities.profile.profilecard.cancel')}
           </Button>
-          <Button onClick={onSave} theme={ThemeButton.OUTLINE}>
+          <Button onClick={onSave} theme={ThemeButton.ACCENT}>
             {t('entities.profile.profilecard.save')}
           </Button>
         </>
