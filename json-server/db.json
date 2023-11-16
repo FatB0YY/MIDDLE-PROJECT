@@ -26,32 +26,13 @@
     }
   ],
   "profile": {
-    "form": {
-      "first": "Joi",
-      "lastname": "Smith",
-      "age": 21,
-      "currency": "RUB",
-      "country": "Belarus",
-      "city": "Moscow",
-      "username": "admin213",
-      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-    },
-    "data": {
-      "first": "Joi",
-      "lastname": "EUR",
-      "age": 21,
-      "currency": "RUB",
-      "country": "Belarus",
-      "city": "Moscow",
-      "username": "admin213",
-      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-    },
-    "error": null,
-    "isLoading": true,
-    "readonly": false,
-    "first": "Jpirff",
-    "lastname": "Smithf",
-    "age": 334,
-    "currency": "USD"
+    "first": "Joi SAAe",
+    "lastname": "Smith MD",
+    "age": 213343,
+    "currency": "EUR",
+    "country": "Belarus",
+    "city": "Moscow",
+    "username": "admin213",
+    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
   }
 }

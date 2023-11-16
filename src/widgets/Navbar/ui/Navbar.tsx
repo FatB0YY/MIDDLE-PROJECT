@@ -15,7 +15,8 @@ interface NavbarProps {
 export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const { t } = useTranslation()
   const [isAuthModal, setIsAuthModal] = useState(false)
-  const authData = useSelector(getUserAuthData)
+  const { authData } = useSelector(getUserAuthData)
+
   const actionsUser = useActionCreatorsTyped(userActions)
 
   const onCloseModal = useCallback(() => {
@@ -27,9 +28,8 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   }, [])
 
   const onLogout = useCallback(() => {
-    setIsAuthModal(false)
     actionsUser.logout()
-  }, [])
+  }, [actionsUser.logout])
 
   if (authData) {
     return (

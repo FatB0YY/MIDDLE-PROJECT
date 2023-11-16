@@ -14,6 +14,7 @@ const profileSlice = createSlice({
     },
     canselEdit: (state) => {
       state.readonly = true
+      state.validateError = undefined
       state.form = state.data
     },
     updateProfile: (state, action: PayloadAction<IProfile>) => {
@@ -37,7 +38,7 @@ const profileSlice = createSlice({
     })
     builder.addCase(fetchProfileDataThunk.rejected, (state, action) => {
       state.isLoading = false
-      state.error = action.payload || null
+      state.error = action.payload || 'ошибка'
     })
     //
     builder.addCase(updateProfileDataThunk.pending, (state) => {
@@ -47,6 +48,7 @@ const profileSlice = createSlice({
     builder.addCase(updateProfileDataThunk.fulfilled, (state, action: PayloadAction<IProfile>) => {
       state.isLoading = false
       state.validateError = undefined
+      state.readonly = true
 
       state.data = action.payload
       state.form = action.payload

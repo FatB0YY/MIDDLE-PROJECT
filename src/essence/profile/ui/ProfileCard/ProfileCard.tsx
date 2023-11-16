@@ -51,6 +51,19 @@ export const ProfileCard: FC<ProfileCardProps> = ({
     )
   }
 
+  if (error) {
+    return (
+      <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+        <Text
+          theme={TextTheme.ERROR}
+          title={'Произошла ошибка при загрузке профиля'}
+          text={'Попробуйте обновить страницу'}
+          align={TextAlign.CENTER}
+        />
+      </div>
+    )
+  }
+
   const mods: Mods = {
     [cls.editing]: !readonly,
   }

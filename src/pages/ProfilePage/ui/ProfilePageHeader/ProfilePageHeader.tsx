@@ -21,21 +21,22 @@ const actions = {
 export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   const { t } = useTranslation('profile')
   const { readonly } = useSelector(getProfileState)
+
   const actionsProfile = useActionCreatorsTyped(actions)
 
   const onEdit = useCallback(() => {
     actionsProfile.setReadonly(false)
-  }, [actionsProfile])
+  }, [actionsProfile.setReadonly])
 
   const onCancelEdit = useCallback(() => {
     actionsProfile.canselEdit()
-  }, [actionsProfile])
+  }, [actionsProfile.canselEdit])
 
   const onSave = useCallback(() => {
     actionsProfile.updateProfile().finally(() => {
       actionsProfile.setReadonly(true)
     })
-  }, [actionsProfile])
+  }, [actionsProfile.setReadonly])
 
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>

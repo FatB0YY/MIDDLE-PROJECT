@@ -7,10 +7,24 @@ export interface ISidebarItem {
   path: string
   text: string
   Icon: React.VFC<React.SVGProps<SVGSVGElement>>
+  authOnly?: boolean
 }
 
 export const SidebarItemsList: ISidebarItem[] = [
-  { path: RoutePath.main, Icon: MainIcon, text: 'widgets.navbar.applink.main' },
-  { path: RoutePath.about, Icon: AboutIcon, text: 'widgets.navbar.applink.about' },
-  { path: RoutePath.profile, Icon: ProfileIcon, text: 'widgets.navbar.applink.profile' },
+  {
+    path: RoutePath.main,
+    Icon: MainIcon,
+    text: 'widgets.navbar.applink.main',
+  },
+  {
+    path: RoutePath.about,
+    Icon: AboutIcon,
+    text: 'widgets.navbar.applink.about',
+  },
+  {
+    path: RoutePath.profile,
+    Icon: ProfileIcon,
+    text: 'widgets.navbar.applink.profile',
+    authOnly: true,
+  },
 ]

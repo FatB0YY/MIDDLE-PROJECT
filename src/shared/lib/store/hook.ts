@@ -27,5 +27,7 @@ export const useActionCreatorsTyped = <
 ): BoundActions<Actions> => {
   const dispatch = useAppDispatch();
 
-  return useMemo(() => bindActionCreators(actions, dispatch), []);
+  const memoizedActions = useMemo(() => bindActionCreators(actions, dispatch), [actions, dispatch]);
+
+  return memoizedActions;
 };

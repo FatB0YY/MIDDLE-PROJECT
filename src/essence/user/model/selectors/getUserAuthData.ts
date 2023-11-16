@@ -1,3 +1,3 @@
-import { StateSchema } from 'shared/lib/store/index'
+import { StateSchema } from 'shared/lib/store'
 
-export const getUserAuthData = (state: StateSchema) => state.user.authData
+export const getUserAuthData = (state: StateSchema) => state.user

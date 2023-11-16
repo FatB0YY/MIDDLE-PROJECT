@@ -4,16 +4,18 @@ import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { useTheme } from './providers/ThemeProvider'
-import { userActions } from 'essence/user'
+import { getUserAuthData, userActions } from 'essence/user'
 import { useActionCreatorsTyped } from 'shared/lib/store'
+import { useSelector } from 'react-redux'
 
 function App() {
   const { theme } = useTheme()
+  const { _inited } = useSelector(getUserAuthData)
   const actionsUser = useActionCreatorsTyped(userActions)
 
   useEffect(() => {
     actionsUser.initAuthData()
-  }, [actionsUser])
+  }, [actionsUser.initAuthData])
 
   return (
     <div className={classNames('app', {}, [theme])}>
@@ -21,7 +23,7 @@ function App() {
         <Navbar />
         <div className='content-page'>
           <Sidebar />
-          <AppRouter />
+          {_inited && <AppRouter />}
         </div>
       </Suspense>
     </div>

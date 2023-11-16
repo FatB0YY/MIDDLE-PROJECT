@@ -38,14 +38,14 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
     (value) => {
       actionsLogin.setUsername(value)
     },
-    [actionsLogin]
+    [actionsLogin.setUsername]
   )
 
   const onChangePassword = useCallback(
     (value) => {
       actionsLogin.setPassword(value)
     },
-    [actionsLogin]
+    [actionsLogin.setPassword]
   )
 
   const onLoginClick = useCallback(async () => {
@@ -54,7 +54,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
         onSuccess()
       }
     })
-  }, [actionsLogin, onSuccess, username, password])
+  }, [actionsLogin.loginByUsername, onSuccess, username, password])
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>

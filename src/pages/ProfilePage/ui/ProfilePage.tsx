@@ -28,21 +28,21 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   useEffect(() => {
     actionsProfile.fetchProfile()
-  }, [actionsProfile])
+  }, [actionsProfile.fetchProfile])
 
   // для каждого поля формы своя ф-ция, тк может быть доп логика, валидация итд
   const onChangeFirstname = useCallback(
     (value?: string) => {
       actionsProfile.updateProfile({ first: value || '' })
     },
-    [actionsProfile]
+    [actionsProfile.updateProfile]
   )
 
   const onChangeLastname = useCallback(
     (value?: string) => {
       actionsProfile.updateProfile({ lastname: value || '' })
     },
-    [actionsProfile]
+    [actionsProfile.updateProfile]
   )
 
   const onChangeAge = useCallback(
@@ -51,14 +51,14 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         actionsProfile.updateProfile({ age: Number(value || 0) })
       }
     },
-    [actionsProfile]
+    [actionsProfile.updateProfile]
   )
 
   const onChangeCurrency = useCallback(
     (currency?: ECurrency) => {
       actionsProfile.updateProfile({ currency: currency || ECurrency.RUB })
     },
-    [actionsProfile]
+    [actionsProfile.updateProfile]
   )
 
   return (
