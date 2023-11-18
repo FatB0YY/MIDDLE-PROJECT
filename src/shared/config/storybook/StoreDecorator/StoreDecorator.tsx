@@ -1,4 +1,5 @@
 import { Story } from '@storybook/react'
+import { articleDetailsReducer } from 'essence/article'
 import { profileReducer } from 'essence/profile'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
@@ -8,6 +9,7 @@ import { StateSchema } from 'shared/lib/store/index'
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
+  articleDetails: articleDetailsReducer,
 }
 
 export const StoreDecorator =

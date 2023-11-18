@@ -1,6 +1,6 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
-import { counterReducer } from '../../../essence/counter/index'
-import { userReducer } from '../../../essence/user/index'
+import { counterReducer } from 'essence/counter/index'
+import { userReducer } from 'essence/user/index'
 import { MyNavigate, ReducerManager, StateSchema, thunkExtraArg } from './types'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
@@ -16,6 +16,7 @@ export function createReduxStore({ initialState, asyncReducers, navigate }: crea
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    // не добавляем async reducers
   }
 
   const reducerManager: ReducerManager = createReducerManager(rootReducers)

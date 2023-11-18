@@ -6,6 +6,8 @@ import { LoginSchema } from 'features/AuthByUsername/index'
 import { ProfileSchema } from 'essence/profile'
 import { AxiosInstance } from 'axios'
 import { NavigateOptions, To } from 'react-router-dom'
+import { ArticleDetailsSchema } from 'essence/article'
+import { articleDetailsCommentsSchema } from 'features/ArticleCommentsList'
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 // export type RootStore = ReturnType<typeof store.getState>
@@ -17,6 +19,8 @@ export interface StateSchema {
   // async
   loginForm?: LoginSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: articleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

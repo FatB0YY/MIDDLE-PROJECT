@@ -11,6 +11,8 @@ import { updateProfileDataThunk } from 'essence/profile'
 
 interface ProfilePageHeaderProps {
   className?: string
+  error: string | null
+  isLoading: boolean
 }
 
 const actions = {
@@ -18,7 +20,7 @@ const actions = {
   updateProfile: updateProfileDataThunk,
 }
 
-export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
+export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className, error, isLoading }) => {
   const { t } = useTranslation('profile')
   const { readonly } = useSelector(getProfileState)
 
@@ -38,14 +40,21 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
     })
   }, [actionsProfile.setReadonly])
 
-  return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-      <Text className={cls.title} title={t('entities.profile.profilecard.title')} />
-      {readonly ? (
+  const renderButtons = () => {
+    if (error || isLoading) {
+      return null
+    }
+
+    if (readonly) {
+      return (
         <Button onClick={onEdit} theme={ThemeButton.OUTLINE}>
           {t('entities.profile.profilecard.edit')}
         </Button>
-      ) : (
+      )
+    }
+
+    if (!readonly && !error && !isLoading) {
+      return (
         <>
           <Button className={cls.cancelBtn} onClick={onCancelEdit} theme={ThemeButton.OUTLINE_RED}>
             {t('entities.profile.profilecard.cancel')}
@@ -54,7 +63,17 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
             {t('entities.profile.profilecard.save')}
           </Button>
         </>
-      )}
+      )
+    }
+
+    return null
+  }
+
+  return (
+    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+      <Text className={cls.title} title={t('entities.profile.profilecard.title')} />
+
+      {renderButtons()}
     </div>
   )
 }

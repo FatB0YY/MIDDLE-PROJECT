@@ -1,18 +1,18 @@
-import { Counter } from '../../../essence/counter'
-import React, { useState } from 'react'
+import React, { FC } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
+import cls from './MainPage.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Input } from 'shared/ui/Input'
+import { Counter } from 'essence/counter'
 
-const MainPage = () => {
+interface MainPageProps {
+  className?: string
+}
+
+const MainPage: FC<MainPageProps> = ({ className }) => {
   const { t } = useTranslation('main')
-  const [value, setValue] = useState('')
-
-  const onChange = (val: string) => {
-    setValue(val)
-  }
 
   return (
-    <div>
+    <div className={classNames(cls.MainPage, {}, [className])}>
       {t('pages.mainpage')}
       <Counter />
     </div>

@@ -27,7 +27,9 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   const { error, isLoading, readonly, form } = useSelector(getProfileState)
 
   useEffect(() => {
-    actionsProfile.fetchProfile()
+    if (__PROJECT__ !== 'sb') {
+      actionsProfile.fetchProfile()
+    }
   }, [actionsProfile.fetchProfile])
 
   // для каждого поля формы своя ф-ция, тк может быть доп логика, валидация итд
@@ -64,7 +66,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
       <div className={classNames(cls.ProfilePage, {}, [className])}>
-        <ProfilePageHeader />
+        <ProfilePageHeader error={error} isLoading={isLoading} />
         <ProfileCard
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}

@@ -14,7 +14,14 @@
       }
     }
   },
-  "entities": { "CurrencySelect": { "label": "Specify the currency" } },
+  "entities": {
+    "CurrencySelect": {
+      "label": "Specify the currency"
+    },
+    "comment": {
+      "commentnotfound": "Comments not found"
+    }
+  },
 
   "widgets": {
     "langswitcher": {
@@ -27,7 +34,8 @@
       "applink": {
         "main": "Main",
         "about": "About us",
-        "profile": "Profile"
+        "profile": "Profile",
+        "articles": "Articles"
       },
       "login": "LogIn",
       "signup": "SignUp",

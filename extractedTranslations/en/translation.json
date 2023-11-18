@@ -3,6 +3,9 @@
     "CurrencySelect": {
       "label": "label"
     },
+    "comment": {
+      "commentnotfound": "commentnotfound"
+    },
     "profile": {
       "profilecard": {
         "age": "age",

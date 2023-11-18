@@ -9,7 +9,7 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API_URL__: '',
-    __PROFILE__: 'jest',
+    __PROJECT__: 'jest',
     testEnvironment: 'node',
   },
   clearMocks: true,

@@ -14,7 +14,12 @@
       }
     }
   },
-  "entities": { "CurrencySelect": { "label": "Укажите валюту" } },
+  "entities": {
+    "CurrencySelect": { "label": "Укажите валюту" },
+    "comment": {
+      "commentnotfound": "Комментарии не найдены"
+    }
+  },
 
   "widgets": {
     "langswitcher": {
@@ -27,7 +32,8 @@
       "applink": {
         "main": "Главная",
         "about": "О нас",
-        "profile": "Профиль"
+        "profile": "Профиль",
+        "articles": "Статьи"
       },
       "login": "Войти",
       "signup": "Регистрация",

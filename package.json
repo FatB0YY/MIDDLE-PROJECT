@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000 mode=development",
-    "start:dev": "concurrently \"npm start:json\" \"npm start:server\" \"npm start\"",
+    "start:dev": "concurrently \"npm start\" \"npm start:server\" \"npm start:json\"",
     "start:json": "json-server --watch ./json-server/db.json",
     "start:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production",
