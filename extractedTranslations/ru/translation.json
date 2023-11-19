@@ -19,6 +19,10 @@
     }
   },
   "features": {
+    "addnewcomment": {
+      "placeholder": "placeholder",
+      "submit": "submit"
+    },
     "authbyusername": {
       "loginform": {
         "login": "login",

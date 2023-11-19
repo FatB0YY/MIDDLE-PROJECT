@@ -10,6 +10,7 @@ export interface IProfile {
   city?: string
   username?: string
   avatar?: string
+  id?: string
 }
 
 export interface ProfileSchema {

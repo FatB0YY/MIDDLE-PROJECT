@@ -1,0 +1,16 @@
+.AddNewComment {
+    border: 1px solid var(--secondary-color);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .input {
+        flex-grow: 1;
+    }
+
+    .input,
+    .placeholder {
+        color: var(--secondary-color);
+    }
+}

@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect } from 'react'
+import React, { FC, memo, useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -18,6 +18,8 @@ import {
 } from 'features/ArticleCommentsList/model/selectors/ArticleCommentsListSelectors'
 import { useActionCreatorsTyped } from 'shared/lib/store'
 import { fetchCommentsByArticleIdThunk } from 'features/ArticleCommentsList/model/services/fetchCommentsByArticleIdThunk'
+import { AddNewCommentAsync } from 'features/addNewComment'
+import { addCommentForArticle } from 'features/ArticleCommentsList/model/services/addCommentForArticle'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -28,6 +30,7 @@ const reducers: ReducersList = {
 }
 
 const allActions = {
+  sendComment: addCommentForArticle,
   fetchComments: fetchCommentsByArticleIdThunk,
 }
 
@@ -39,6 +42,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const errors = useSelector(getArticleCommentsListErrors)
   const actions = useActionCreatorsTyped(allActions)
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      actions.sendComment(text)
+    },
+    [actions.sendComment]
+  )
+
   if (!id) {
     return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -49,8 +59,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'sb') {
-      console.log('1')
-
       actions.fetchComments(id).then((r) => console.log(r))
     }
   }, [actions.fetchComments])
@@ -59,6 +67,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
+        <AddNewCommentAsync onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

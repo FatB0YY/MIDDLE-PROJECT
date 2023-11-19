@@ -12,6 +12,10 @@
         "placeholderPassword": "Enter password",
         "title": "Auth form"
       }
+    },
+    "addnewcomment": {
+      "placeholder": "Enter a comment",
+      "submit": "Submit"
     }
   },
   "entities": {

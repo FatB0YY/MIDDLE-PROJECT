@@ -5,10 +5,13 @@ import { IComment } from '../model/types/comment'
 import { Avatar } from 'shared/ui/Avatar'
 import { Text } from 'shared/ui/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { AppLink } from 'shared/ui/AppLink'
+import { RoutePath } from 'app/providers/router/config/routeConfig'
+import { PageError } from 'widgets/PageError'
 
 interface CommentItemProps {
   className?: string
-  comment: IComment
+  comment?: IComment
   isLoading?: boolean
 }
 
@@ -25,12 +28,16 @@ export const CommentItem: FC<CommentItemProps> = ({ className, comment, isLoadin
     )
   }
 
+  if (!comment) {
+    return <PageError />
+  }
+
   return (
     <div className={classNames(cls.CommentItem, {}, [className])}>
-      <div className={cls.header}>
+      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
         {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} alt={comment.user.username} /> : null}
         <Text className={cls.username} title={comment.user.username} />
-      </div>
+      </AppLink>
       <Text className={cls.text} text={comment.text} />
     </div>
   )

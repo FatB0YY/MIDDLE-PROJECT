@@ -12,6 +12,10 @@
         "placeholderPassword": "Введите пароль",
         "title": "Форма авторизации"
       }
+    },
+    "addnewcomment": {
+      "placeholder": "Введите комментарий",
+      "submit": "Отправить"
     }
   },
   "entities": {

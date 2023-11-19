@@ -14,10 +14,21 @@ interface CommentListProps {
 
 export const CommentList: FC<CommentListProps> = ({ className, isLoading, comments }) => {
   const { t } = useTranslation()
+
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.CommentList, {}, [className])}>
+        <Text title='Коментарии' />
+
+        <CommentItem isLoading={true} />
+        <CommentItem isLoading={true} />
+        <CommentItem isLoading={true} />
+      </div>
+    )
+  }
+
   return (
     <div className={classNames(cls.CommentList, {}, [className])}>
-      <Text title='Коментарии' />
-
       {comments?.length ? (
         comments.map((comment) => (
           <CommentItem key={comment.id} isLoading={isLoading} className={cls.commentItem} comment={comment} />

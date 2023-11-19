@@ -8,6 +8,7 @@ import { AxiosInstance } from 'axios'
 import { NavigateOptions, To } from 'react-router-dom'
 import { ArticleDetailsSchema } from 'essence/article'
 import { articleDetailsCommentsSchema } from 'features/ArticleCommentsList'
+import { addNewCommentSchema } from 'features/addNewComment'
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 // export type RootStore = ReturnType<typeof store.getState>
@@ -21,6 +22,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: articleDetailsCommentsSchema
+  addNewComment?: addNewCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

@@ -1,84 +1,52 @@
-import { IUser } from 'essence/user'
+import { IUser, userActions } from 'essence/user'
 import { ILoginByUsername, loginByUsernameThunk } from '../model/services/loginByUsernameThunk'
-import axios, { AxiosStatic } from 'axios'
-import { Dispatch } from '@reduxjs/toolkit'
-import { StateSchema } from 'shared/lib/store/index'
-
-// мокаем
-jest.mock('axios')
-
-// для ts, глубокий мок
-const mockedAxios = jest.mocked(axios, { shallow: false })
+import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
 
 describe('loginByUsernameThunk', () => {
-  let dispatch: Dispatch
-  let getState: () => StateSchema
-  let api: jest.MockedFunctionDeep<AxiosStatic>
-  let navigate: jest.MockedFn<any>
   const mockUser: IUser = { id: '1', username: 'Joi' }
   const mockLoginData: ILoginByUsername = { username: 'admin', password: '123' }
 
-  beforeEach(() => {
-    dispatch = jest.fn()
-    getState = jest.fn()
-    api = mockedAxios
-    navigate = jest.fn()
-  })
-
   test('Проверка с resolved ответом', async () => {
-    // mockedAxios.post.mockReturnValue(Promise.resolve({ data: mockUser }))
-    // @ts-ignore
-    mockedAxios.post.mockResolvedValue({ data: mockUser })
+    const thunk = new TestAsyncThunk(loginByUsernameThunk)
+    thunk.api.post.mockResolvedValue({ data: mockUser })
 
-    const thunk = loginByUsernameThunk(mockLoginData)
+    // получаем dispatch[]
+    const result = await thunk.callThunk(mockLoginData)
 
-    await thunk(dispatch, getState, { api, navigate })
-
-    expect(mockedAxios.post).toHaveBeenCalled()
+    // проверяем что post был вызван
+    expect(thunk.api.post).toHaveBeenCalled()
+    // проверяем что длина вызовов всех dispatch === 3
+    expect(result).toHaveLength(3)
 
     // что экшн вызвался действиетлньо с этими данными
-    // expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(mockUser))
+    const expectedPayload = userActions.setAuthData(mockUser).payload
+    expect(thunk.dispatch[1].payload).toEqual(expectedPayload)
 
-    // @ts-ignore
-    expect(dispatch.mock.calls).toHaveLength(3)
+    expect(result[0].type).toBe(loginByUsernameThunk.pending.type)
 
-    // @ts-ignore
-    const [start, middle, end] = dispatch.mock.calls
+    expect(result[1].type).toBe(userActions.setAuthData(mockUser).type)
+    expect(result[1].payload).toBe(mockUser)
 
-    // @ts-ignore
-    expect(start[0].type).toBe(loginByUsernameThunk.pending().type)
-
-    // expect(middle[0].type).toBe(userActions.setAuthData(mockUser).type)
-    expect(middle[0].payload).toBe(mockUser)
-
-    // @ts-ignore
-    expect(end[0].type).toBe(loginByUsernameThunk.fulfilled().type)
-    expect(end[0].payload).toBe(mockUser)
+    expect(result[2].type).toBe(loginByUsernameThunk.fulfilled.type)
+    expect(result[2].payload).toBe(mockUser)
   })
 
   test('Проверка с rejected  ответом', async () => {
-    // @ts-ignore
-    mockedAxios.post.mockResolvedValue({ status: 404 })
+    const thunk = new TestAsyncThunk(loginByUsernameThunk)
+    thunk.api.post.mockResolvedValue({ status: 403 })
 
-    const thunk = loginByUsernameThunk(mockLoginData)
+    // получаем dispatch[]
+    const result = await thunk.callThunk(mockLoginData)
 
-    await thunk(dispatch, getState, { api, navigate })
+    // проверяем что post был вызван
+    expect(thunk.api.post).toHaveBeenCalled()
+    // проверяем что длина вызовов всех dispatch === 2
+    expect(result).toHaveLength(2)
 
-    expect(mockedAxios.post).toHaveBeenCalled()
+    expect(result[0].type).toBe(loginByUsernameThunk.pending.type)
 
-    // @ts-ignore
-    expect(dispatch.mock.calls).toHaveLength(2)
-
-    // @ts-ignore
-    const [start, end] = dispatch.mock.calls
-
-    // {type: payload, meta, error: {message: 'Rejected'}}
-
-    // @ts-ignore
-    expect(start[0].type).toBe(loginByUsernameThunk.pending().type)
-    // @ts-ignore
-    expect(end[0].type).toBe(loginByUsernameThunk.rejected().type)
-    expect(end[0].payload).toBe('my rejectWithValue error!')
-    expect(end[0].meta.rejectedWithValue).toBe(true)
+    expect(result[1].type).toBe(loginByUsernameThunk.rejected.type)
+    expect(result[1].payload).toBe('my rejectWithValue error!')
+    expect(result[1].meta.rejectedWithValue).toBe(true)
   })
 })

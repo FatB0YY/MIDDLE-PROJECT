@@ -1,23 +1,11 @@
 import { IProfile } from 'essence/profile'
 import { fetchProfileDataThunk } from '../model/services/fetchProfileDataThunk'
-import axios, { AxiosStatic } from 'axios'
-import { Dispatch } from '@reduxjs/toolkit'
-import { StateSchema } from 'shared/lib/store/index'
 import { ECurrency } from 'essence/currency'
 import { Country } from 'shared/const/other'
-
-// мокаем
-jest.mock('axios')
-
-// для ts, глубокий мок
-const mockedAxios = jest.mocked(axios, { shallow: false })
+import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
 
 describe('fetchProfileDataThunk', () => {
-  let dispatch: Dispatch
-  let getState: () => StateSchema
-  let api: jest.MockedFunctionDeep<AxiosStatic>
-  let navigate: jest.MockedFn<any>
-  const mockProfile: IProfile = {
+  const data: IProfile = {
     first: 'r5fft',
     lastname: 'Smith',
     age: 244,
@@ -26,62 +14,41 @@ describe('fetchProfileDataThunk', () => {
     city: 'Moscow',
     username: 'admin213',
     avatar: 'https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj',
+    id: '1',
   }
 
-  beforeEach(() => {
-    dispatch = jest.fn()
-    getState = jest.fn()
-    api = mockedAxios
-    navigate = jest.fn()
-  })
-
   test('Проверка с resolved ответом', async () => {
-    // @ts-ignore
-    mockedAxios.get.mockResolvedValue({ data: mockProfile })
+    const thunk = new TestAsyncThunk(fetchProfileDataThunk)
+    thunk.api.get.mockResolvedValue({ data })
 
-    const thunk = fetchProfileDataThunk()
+    // получаем dispatch[]
+    const result = await thunk.callThunk('1')
 
-    await thunk(dispatch, getState, { api, navigate })
+    // проверяем что get был вызван
+    expect(thunk.api.get).toHaveBeenCalled()
+    // проверяем что длина вызовов всех dispatch === 2
+    expect(result).toHaveLength(2)
 
-    expect(mockedAxios.get).toHaveBeenCalled()
-
-    // @ts-ignore
-    expect(dispatch.mock.calls).toHaveLength(2)
-
-    // @ts-ignore
-    const [start, end] = dispatch.mock.calls
-
-    // @ts-ignore
-    expect(start[0].type).toBe(fetchProfileDataThunk.pending().type)
-
-    // @ts-ignore
-    expect(end[0].type).toBe(fetchProfileDataThunk.fulfilled().type)
-    expect(end[0].payload).toEqual(mockProfile)
+    expect(result[0].type).toBe(fetchProfileDataThunk.pending.type)
+    expect(result[1].type).toBe(fetchProfileDataThunk.fulfilled.type)
+    expect(result[1].payload).toEqual(data)
   })
 
   test('Проверка с rejected  ответом', async () => {
-    // @ts-ignore
-    mockedAxios.get.mockResolvedValue({ status: 404 })
+    const thunk = new TestAsyncThunk(fetchProfileDataThunk)
+    thunk.api.get.mockResolvedValue({ status: 403 })
 
-    const thunk = fetchProfileDataThunk()
+    // получаем dispatch[]
+    const result = await thunk.callThunk('1')
 
-    await thunk(dispatch, getState, { api, navigate })
+    // проверяем что get был вызван
+    expect(thunk.api.get).toHaveBeenCalled()
+    // проверяем что длина вызовов всех dispatch === 2
+    expect(result).toHaveLength(2)
 
-    expect(mockedAxios.get).toHaveBeenCalled()
-
-    // @ts-ignore
-    expect(dispatch.mock.calls).toHaveLength(2)
-
-    // @ts-ignore
-    const [start, end] = dispatch.mock.calls
-
-    // {type: payload, meta, error: {message: 'Rejected'}}
-
-    // @ts-ignore
-    expect(start[0].type).toBe(fetchProfileDataThunk.pending().type)
-    // @ts-ignore
-    expect(end[0].type).toBe(fetchProfileDataThunk.rejected().type)
-    expect(end[0].payload).toBe('my rejectWithValue error!')
-    expect(end[0].meta.rejectedWithValue).toBe(true)
+    expect(result[0].type).toBe(fetchProfileDataThunk.pending.type)
+    expect(result[1].type).toBe(fetchProfileDataThunk.rejected.type)
+    expect(result[1].payload).toBe('my rejectWithValue error!')
+    expect(result[1].meta.rejectedWithValue).toBe(true)
   })
 })
