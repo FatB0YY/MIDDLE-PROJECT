@@ -21,7 +21,7 @@ const articleDetailsSlice = createSlice({
     })
     builder.addCase(fetchArticleByIdThunk.rejected, (state, action) => {
       state.error = action.payload
-      state.isLoading = true
+      state.isLoading = false
     })
   },
 })
