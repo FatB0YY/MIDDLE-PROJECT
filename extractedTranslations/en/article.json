@@ -1,4 +1,16 @@
 {
+  "entities": {
+    "article": {
+      "articlelistitem": {
+        "readmore": "readmore"
+      }
+    }
+  },
+  "pages": {
+    "articledetailspage": {
+      "backtothelist": "backtothelist"
+    }
+  },
   "Произошла ошибка при загрузке статьи": {
     "": ""
   }

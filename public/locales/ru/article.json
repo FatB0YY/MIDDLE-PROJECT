@@ -1,0 +1,14 @@
+{
+  "entities": {
+    "article": {
+      "articlelistitem": {
+        "readmore": "Читать далее..."
+      }
+    }
+  },
+  "pages": {
+    "articledetailspage": {
+      "backtothelist": "Назад к списку"
+    }
+  }
+}

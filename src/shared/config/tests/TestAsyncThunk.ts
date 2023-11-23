@@ -33,7 +33,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
     return this.dispatch
   }
 
-  // Вместо того, чтобы напрямую использовать jest.fn(), мы используем отдельную функцию dispatchMock,
+  // Вместо того, чтобы напрямую использовать jest.fn(), я использую отдельную функцию dispatchMock,
   // чтобы добавлять каждый вызов в массив this.dispatch
   // я это сделал, чтобы мы могли более подробно тестировать каждый вызов dispatch внутри теста
   private dispatchMock = jest.fn((action: any) => {

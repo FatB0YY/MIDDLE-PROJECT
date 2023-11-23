@@ -1,6 +1,5 @@
 import { fetchCommentsByArticleIdThunk } from '../model/services/fetchCommentsByArticleIdThunk'
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
-import { articleDetailsCommentsSchema } from '../model/types/articleDetailsCommentsSchema'
 import { IComment } from 'essence/comment'
 
 describe('fetchCommentsByArticleIdThunk', () => {

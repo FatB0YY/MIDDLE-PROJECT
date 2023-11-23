@@ -10,8 +10,6 @@ import {
   getArticleDetailsError,
   getArticleDetailsisLoading,
 } from '../../model/selectors/articleDetailsSelectors'
-import { Text, TextAlign } from 'shared/ui/Text'
-import { useTranslation } from 'react-i18next'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetails.module.scss'
@@ -33,7 +31,6 @@ const actions = {
 }
 
 export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
-  const { t } = useTranslation('article')
   const actionsArticleDetails = useActionCreatorsTyped(actions)
   const isLoading = useSelector(getArticleDetailsisLoading)
   const article = useSelector(getArticleDetailsData)

@@ -10,6 +10,7 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { ECurrency } from 'essence/currency'
 import { useParams } from 'react-router-dom'
 import { PageError } from 'widgets/PageError'
+import { Page } from 'shared/ui/Page/Page'
 
 interface ProfilePageProps {
   className?: string
@@ -31,9 +32,9 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ProfilePage, {}, [className])}>
+      <Page className={classNames(cls.ProfilePage, {}, [className])}>
         <PageError />
-      </div>
+      </Page>
     )
   }
 
@@ -76,7 +77,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
-      <div className={classNames(cls.ProfilePage, {}, [className])}>
+      <Page className={classNames(cls.ProfilePage, {}, [className])}>
         <ProfilePageHeader error={error} isLoading={isLoading} />
         <ProfileCard
           onChangeFirstname={onChangeFirstname}
@@ -88,7 +89,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           error={error}
           readonly={readonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }

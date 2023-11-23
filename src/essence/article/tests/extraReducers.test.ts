@@ -44,6 +44,10 @@ describe('articleDetailsSlice extra', () => {
       id: '0',
       createdAt: '',
       blocks: [],
+      user: {
+        id: '0',
+        username: '',
+      },
     }
 
     // @ts-ignore

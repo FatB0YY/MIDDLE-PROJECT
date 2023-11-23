@@ -1,9 +1,8 @@
 import React, { FC, memo, useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleDetailsPage.module.scss'
-import { useTranslation } from 'react-i18next'
 import { ArticleDetails } from 'essence/article'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { PageError } from 'widgets/PageError'
 import { CommentList } from 'essence/comment'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
@@ -20,6 +19,10 @@ import { useActionCreatorsTyped } from 'shared/lib/store'
 import { fetchCommentsByArticleIdThunk } from 'features/ArticleCommentsList/model/services/fetchCommentsByArticleIdThunk'
 import { AddNewCommentAsync } from 'features/addNewComment'
 import { addCommentForArticle } from 'features/ArticleCommentsList/model/services/addCommentForArticle'
+import { Button } from 'shared/ui/Button'
+import { useTranslation } from 'react-i18next'
+import { RoutePath } from 'app/providers/router/config/routeConfig'
+import { Page } from 'shared/ui/Page/Page'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -35,12 +38,13 @@ const allActions = {
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
-  const { t } = useTranslation('article')
   const { id } = useParams<{ id: string }>()
+  const { t } = useTranslation('article')
   const comments = useSelector(getArticleComments.selectAll)
   const isLoading = useSelector(getArticleCommentsListIsLoading)
   const errors = useSelector(getArticleCommentsListErrors)
   const actions = useActionCreatorsTyped(allActions)
+  const navigate = useNavigate()
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -51,25 +55,30 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <PageError />
-      </div>
+      </Page>
     )
   }
 
+  const onBackToTheList = useCallback(() => {
+    navigate(RoutePath.articles)
+  }, [navigate])
+
   useEffect(() => {
     if (__PROJECT__ !== 'sb') {
-      actions.fetchComments(id).then((r) => console.log(r))
+      actions.fetchComments(id)
     }
   }, [actions.fetchComments])
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Button onClick={onBackToTheList}>{t('pages.articledetailspage.backtothelist')}</Button>
         <ArticleDetails id={id} />
         <AddNewCommentAsync onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }

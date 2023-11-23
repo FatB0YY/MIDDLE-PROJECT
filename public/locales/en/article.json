@@ -1,0 +1,14 @@
+{
+  "entities": {
+    "article": {
+      "articlelistitem": {
+        "readmore": "Read more..."
+      }
+    }
+  },
+  "pages": {
+    "articledetailspage": {
+      "backtothelist": "Back to the list"
+    }
+  }
+}

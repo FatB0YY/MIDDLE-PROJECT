@@ -11,6 +11,10 @@ describe('fetchArticleByIdThunk', () => {
     subtitle: 'rgtg',
     title: 'rrg',
     type: [EArticleType.IT],
+    user: {
+      id: '1',
+      username: 'admin',
+    },
     blocks: [
       {
         code: 'rfr',

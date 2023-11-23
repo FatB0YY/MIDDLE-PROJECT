@@ -1,3 +1,5 @@
+import { IUser } from 'essence/user'
+
 export enum EArticleBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
@@ -43,4 +45,10 @@ export interface IArticle {
   createdAt: string
   type: EArticleType[]
   blocks: ArticleBlock[]
+  user: IUser
+}
+
+export enum EArticleView {
+  BIG = 'BIG',
+  SMALL = 'SMALL',
 }

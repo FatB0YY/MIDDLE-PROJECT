@@ -1,16 +1,76 @@
-import React, { FC, memo } from 'react'
+import React, { FC, memo, useCallback, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticlePage.module.scss'
 import { useTranslation } from 'react-i18next'
+import { ArticleList, EArticleView } from 'essence/article'
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+import { articlesPageActions, articlesPageReducer, getArticles } from 'pages/ArticlePage/model/slice/articlesPageSlice'
+import { useActionCreatorsTyped } from 'shared/lib/store'
+import { fetchArticlesListThunk } from 'pages/ArticlePage/model/services/fetchArticlesListThunk'
+import { useSelector } from 'react-redux'
+
+import {
+  getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageView,
+} from 'pages/ArticlePage/model/selectors/articlesPageSelectors'
+import { ArticleViewSelector } from 'features/ArticleViewSelector'
+import { Page } from 'shared/ui/Page/Page'
+import { fetchNextArticlesPage } from 'pages/ArticlePage/model/services/fetchNextArticlesPageThunk'
 
 interface ArticlePageProps {
   className?: string
 }
 
+const reducers: ReducersList = {
+  articlesPage: articlesPageReducer,
+}
+
+const allActions = {
+  ...articlesPageActions,
+  fetchArticles: fetchArticlesListThunk,
+  fetchNextArticles: fetchNextArticlesPage,
+}
+
 const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   const { t } = useTranslation('article')
 
-  return <div className={classNames(cls.ArticlePage, {}, [className])}></div>
+  const actionsArticlesPage = useActionCreatorsTyped(allActions)
+
+  const articles = useSelector(getArticles.selectAll)
+
+  const isLoading = useSelector(getArticlesPageIsLoading)
+  const error = useSelector(getArticlesPageError)
+  const view = useSelector(getArticlesPageView)
+
+  const onChangeView = useCallback(
+    (view: EArticleView) => {
+      actionsArticlesPage.setView(view)
+    },
+    [actionsArticlesPage.setView]
+  )
+
+  const onLoadNextPart = useCallback(() => {
+    actionsArticlesPage.fetchNextArticles()
+  }, [actionsArticlesPage.fetchNextArticles])
+
+  useEffect(() => {
+    if (__PROJECT__ !== 'sb') {
+      actionsArticlesPage.initState()
+      actionsArticlesPage.fetchArticles({
+        page: 1,
+      })
+    }
+  }, [actionsArticlesPage.fetchArticles, actionsArticlesPage.initState])
+
+  return (
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
+      <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
+        <ArticleViewSelector view={view} onViewClick={onChangeView} />
+        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+      </Page>
+    </DynamicModuleLoader>
+  )
 }
 
 export default memo(ArticlePage)
