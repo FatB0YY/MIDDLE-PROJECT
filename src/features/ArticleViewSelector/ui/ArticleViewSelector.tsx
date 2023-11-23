@@ -32,6 +32,7 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({ className, o
           theme={ThemeButton.CLEAR}
           onClick={onClick(viewType.view)}
           className={classNames('', { [cls.notSelected]: viewType.view !== view }, [])}
+          key={viewType.view}
         >
           <Icon Svg={viewType.icon} />
         </Button>

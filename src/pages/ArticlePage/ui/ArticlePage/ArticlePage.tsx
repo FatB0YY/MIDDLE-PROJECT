@@ -6,17 +6,17 @@ import { ArticleList, EArticleView } from 'essence/article'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { articlesPageActions, articlesPageReducer, getArticles } from 'pages/ArticlePage/model/slice/articlesPageSlice'
 import { useActionCreatorsTyped } from 'shared/lib/store'
-import { fetchArticlesListThunk } from 'pages/ArticlePage/model/services/fetchArticlesListThunk'
 import { useSelector } from 'react-redux'
 
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
-} from 'pages/ArticlePage/model/selectors/articlesPageSelectors'
+} from '../../model/selectors/articlesPageSelectors'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { Page } from 'shared/ui/Page/Page'
-import { fetchNextArticlesPage } from 'pages/ArticlePage/model/services/fetchNextArticlesPageThunk'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPageThunk'
+import { initArticlesPage } from '../../model/services/initArticlesPage'
 
 interface ArticlePageProps {
   className?: string
@@ -28,8 +28,8 @@ const reducers: ReducersList = {
 
 const allActions = {
   ...articlesPageActions,
-  fetchArticles: fetchArticlesListThunk,
   fetchNextArticles: fetchNextArticlesPage,
+  initArticlesPage: initArticlesPage,
 }
 
 const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
@@ -56,12 +56,9 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'sb') {
-      actionsArticlesPage.initState()
-      actionsArticlesPage.fetchArticles({
-        page: 1,
-      })
+      actionsArticlesPage.initArticlesPage()
     }
-  }, [actionsArticlesPage.fetchArticles, actionsArticlesPage.initState])
+  }, [actionsArticlesPage.initArticlesPage])
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>

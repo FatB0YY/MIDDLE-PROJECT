@@ -14,7 +14,6 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
   return {
     // возвращает редьюсеры
     getReducerMap: () => reducers,
-
     // ф-ция есть редьюсер, удаляем ключи из стейта если они есть (кусочек стейта)
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
