@@ -10,6 +10,7 @@ import { ArticleDetailsSchema } from 'essence/article'
 import { articleDetailsCommentsSchema } from 'features/ArticleCommentsList'
 import { addNewCommentSchema } from 'features/addNewComment'
 import { articlesPageSchema } from 'pages/ArticlePage'
+import { SaveScrollSchema } from 'features/ScrollSave'
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 // export type RootStore = ReturnType<typeof store.getState>
@@ -17,6 +18,7 @@ export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  saveScroll: SaveScrollSchema
 
   // async
   loginForm?: LoginSchema

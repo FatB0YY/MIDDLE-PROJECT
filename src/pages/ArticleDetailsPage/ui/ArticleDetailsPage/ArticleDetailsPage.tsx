@@ -22,7 +22,7 @@ import { addCommentForArticle } from 'features/ArticleCommentsList/model/service
 import { Button } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/ui/Page'
 
 interface ArticleDetailsPageProps {
   className?: string

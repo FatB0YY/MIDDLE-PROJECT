@@ -4,6 +4,7 @@ import { userReducer } from 'essence/user/index'
 import { ReducerManager, StateSchema, thunkExtraArg } from './types'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
+import { saveScrollReducer } from 'features/ScrollSave/models/slice/SaveScrollSlice'
 
 interface createReduxStoreProps {
   initialState?: StateSchema
@@ -15,6 +16,7 @@ export function createReduxStore({ initialState, asyncReducers }: createReduxSto
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    saveScroll: saveScrollReducer,
     // не добавляем async reducers
   }
 

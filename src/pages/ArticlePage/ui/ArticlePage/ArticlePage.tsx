@@ -14,7 +14,7 @@ import {
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/ui/Page'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPageThunk'
 import { initArticlesPage } from '../../model/services/initArticlesPage'
 
@@ -61,7 +61,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   }, [actionsArticlesPage.initArticlesPage])
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
