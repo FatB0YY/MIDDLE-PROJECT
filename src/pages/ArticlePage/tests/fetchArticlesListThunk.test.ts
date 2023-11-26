@@ -23,7 +23,7 @@ describe('fetchArticlesListThunk', () => {
     thunk.api.get.mockResolvedValue({ data: expectedArticles })
 
     // получаем dispatch[]
-    const result = await thunk.callThunk({ page })
+    const result = await thunk.callThunk({})
 
     // проверяем что get был вызван
     expect(thunk.api.get).toHaveBeenCalled()
@@ -43,7 +43,7 @@ describe('fetchArticlesListThunk', () => {
     thunk.api.get.mockResolvedValue({ status: 403 })
 
     // получаем dispatch[]
-    const result = await thunk.callThunk({ page })
+    const result = await thunk.callThunk({})
 
     // проверяем что get был вызван
     expect(thunk.api.get).toHaveBeenCalled()

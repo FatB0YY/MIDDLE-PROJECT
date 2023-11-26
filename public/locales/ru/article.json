@@ -10,5 +10,19 @@
     "articledetailspage": {
       "backtothelist": "Назад к списку"
     }
+  },
+  "features": {
+    "articlesearch": {
+      "placeholder": "Поиск"
+    },
+    "articlesortselector": {
+      "ascending": "Возрастанию",
+      "descending": "Убыванию",
+      "by": "по",
+      "views": "просмотрам",
+      "created": "дате создания",
+      "title": "названию",
+      "select": "Сортировка по"
+    }
   }
 }

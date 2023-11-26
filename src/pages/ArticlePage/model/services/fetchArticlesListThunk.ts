@@ -1,17 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { IArticle } from 'essence/article'
 import { ThunkConfig } from 'shared/lib/store'
-import { getArticlesPageLimit } from '../selectors/articlesPageSelectors'
+import { getArticlesPageLimit, getArticlesPagePage } from '../selectors/articlesPageSelectors'
+import { getArticleSortOrder, getArticleSortSearch, getArticleSortSort } from 'features/ArticleSort'
+import { getArticleSortType } from 'features/ArticleSort/model/selectors/articleSortSelectors'
+import { EArticleType } from 'essence/article/model/types/article'
 
 interface FetchArticlesListThunkProps {
-  page?: number
+  // переменная для фильра/поиска итд (extraReducers)
+  replace?: boolean
 }
 
 export const fetchArticlesListThunk = createAsyncThunk<IArticle[], FetchArticlesListThunkProps, ThunkConfig<string>>(
   'articlesPage/fetchArticlesListThunk',
-  async (props, thunkAPI) => {
-    const { page = 1 } = props
+  async (_, thunkAPI) => {
     const limit = getArticlesPageLimit(thunkAPI.getState())
+
+    const sort = getArticleSortSort(thunkAPI.getState())
+    const order = getArticleSortOrder(thunkAPI.getState())
+    const search = getArticleSortSearch(thunkAPI.getState())
+    const page = getArticlesPagePage(thunkAPI.getState())
+    const type = getArticleSortType(thunkAPI.getState())
 
     try {
       const response = await thunkAPI.extra.api.get<IArticle[]>(`/articles`, {
@@ -19,6 +28,10 @@ export const fetchArticlesListThunk = createAsyncThunk<IArticle[], FetchArticles
           _expand: 'user',
           _limit: limit,
           _page: page,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: type === EArticleType.ALL ? undefined : type,
         },
       })
 

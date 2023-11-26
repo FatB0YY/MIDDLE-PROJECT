@@ -1,0 +1,12 @@
+{
+  "features": {
+    "articlesortselector": {
+      "ascending": "ascending",
+      "by": "by",
+      "created": "created",
+      "descending": "descending",
+      "title": "title",
+      "views": "views"
+    }
+  }
+}

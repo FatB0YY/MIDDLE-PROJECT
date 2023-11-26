@@ -22,7 +22,7 @@ const articlesPageSlice = createSlice({
     entities: {},
     ids: [],
     hasMore: true,
-    limit: undefined,
+    limit: 0,
     page: 1,
     _initied: false,
   }),
@@ -42,18 +42,28 @@ const articlesPageSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchArticlesListThunk.pending, (state) => {
+    builder.addCase(fetchArticlesListThunk.pending, (state, action) => {
       state.error = undefined
       state.isLoading = true
+
+      if (action.meta.arg.replace) {
+        articlesAdapter.removeAll(state)
+      }
     })
-    builder.addCase(fetchArticlesListThunk.fulfilled, (state, action: PayloadAction<IArticle[]>) => {
+    builder.addCase(fetchArticlesListThunk.fulfilled, (state, action) => {
       state.error = undefined
       state.isLoading = false
 
-      // данные не полность затираем, а добавляем в конец
-      articlesAdapter.addMany(state, action.payload)
-      // если прилетел массив, в котором есть хотя бы 1 эл, то данные еще есть
-      state.hasMore = action.payload.length > 0
+      // если лимит 10, а пришло 5 объектов, то бд пуста и больше нет объектов
+      state.hasMore = action.payload.length >= state.limit
+
+      if (action.meta.arg.replace) {
+        // заменяем все
+        articlesAdapter.setAll(state, action.payload)
+      } else {
+        // данные не полность затираем, а добавляем в конец
+        articlesAdapter.addMany(state, action.payload)
+      }
     })
     builder.addCase(fetchArticlesListThunk.rejected, (state, action) => {
       state.error = action.payload

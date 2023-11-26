@@ -8,7 +8,7 @@ export interface articlesPageSchema extends EntityState<IArticle> {
   view: EArticleView
   // pagination
   page: number
-  limit?: number
+  limit: number
   hasMore: boolean
 
   _initied: boolean

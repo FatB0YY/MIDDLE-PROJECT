@@ -10,5 +10,19 @@
     "articledetailspage": {
       "backtothelist": "Back to the list"
     }
+  },
+  "features": {
+    "articlesearch": {
+      "placeholder": "Search"
+    },
+    "articlesortselector": {
+      "ascending": "To sort in ascending order",
+      "descending": "To sort in descending order",
+      "by": "by",
+      "views": "views",
+      "created": "created",
+      "title": "title",
+      "select": "Sort by"
+    }
   }
 }

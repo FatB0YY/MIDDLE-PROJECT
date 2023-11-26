@@ -1,0 +1,10 @@
+.Tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.tab {
+    cursor: pointer;
+    color: var(--main-color);
+}

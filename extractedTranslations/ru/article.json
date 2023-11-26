@@ -6,6 +6,23 @@
       }
     }
   },
+  "features": {
+    "articlefilters": {
+      "select": "select"
+    },
+    "articlesearch": {
+      "placeholder": "placeholder"
+    },
+    "articlesortselector": {
+      "ascending": "ascending",
+      "by": "by",
+      "created": "created",
+      "descending": "descending",
+      "select": "select",
+      "title": "title",
+      "views": "views"
+    }
+  },
   "pages": {
     "articledetailspage": {
       "backtothelist": "backtothelist"
