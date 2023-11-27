@@ -8,7 +8,8 @@
   },
   "pages": {
     "articledetailspage": {
-      "backtothelist": "Back to the list"
+      "backtothelist": "Back to the list",
+      "edit": "Edit"
     }
   },
   "features": {

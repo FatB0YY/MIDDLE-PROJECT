@@ -37,7 +37,9 @@
         "main": "Главная",
         "about": "О нас",
         "profile": "Профиль",
-        "articles": "Статьи"
+        "articles": "Статьи",
+        "appname": "App name",
+        "create": "Создать статью"
       },
       "login": "Войти",
       "signup": "Регистрация",

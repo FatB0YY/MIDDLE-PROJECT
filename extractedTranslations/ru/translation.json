@@ -45,6 +45,8 @@
       "optionrushort": "optionrushort"
     },
     "navbar": {
+      "appname": "appname",
+      "create": "create",
       "login": "login",
       "logout": "logout"
     },

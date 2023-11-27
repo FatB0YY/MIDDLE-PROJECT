@@ -25,7 +25,8 @@
   },
   "pages": {
     "articledetailspage": {
-      "backtothelist": "backtothelist"
+      "backtothelist": "backtothelist",
+      "edit": "edit"
     }
   },
   "Произошла ошибка при загрузке статьи": {

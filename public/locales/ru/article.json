@@ -8,7 +8,8 @@
   },
   "pages": {
     "articledetailspage": {
-      "backtothelist": "Назад к списку"
+      "backtothelist": "Назад к списку",
+      "edit": "Редактировать"
     }
   },
   "features": {
