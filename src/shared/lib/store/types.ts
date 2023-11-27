@@ -11,7 +11,8 @@ import { articleDetailsCommentsSchema } from 'features/ArticleCommentsList'
 import { addNewCommentSchema } from 'features/addNewComment'
 import { articlesPageSchema } from 'pages/ArticlePage'
 import { SaveScrollSchema } from 'features/ScrollSave'
-import { ArticleSortSchema } from 'features/ArticleSort/model/types/articlesort'
+import { ArticleSortSchema } from 'features/ArticleSort'
+import { ArticleDetailsRecommendationsSchema } from 'features/ArticleDetailsRecommendationsList'
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 // export type RootStore = ReturnType<typeof store.getState>
@@ -26,6 +27,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: articleDetailsCommentsSchema
+  articleDetailaRecommendations?: ArticleDetailsRecommendationsSchema
   addNewComment?: addNewCommentSchema
   articlesPage?: articlesPageSchema
   articleSort?: ArticleSortSchema

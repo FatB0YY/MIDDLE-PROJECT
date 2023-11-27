@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react'
 import { articleDetailsReducer } from 'essence/article'
 import { profileReducer } from 'essence/profile'
+import { articleDetailsCommentsReducer } from 'features/ArticleCommentsList'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { addNewCommentReducer } from 'features/addNewComment/model/slice/addNewCommentSlice'
 import { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
@@ -12,7 +13,7 @@ const defaultAsyncReducers: ReducersList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addNewComment: addNewCommentReducer,
-  articleDetailsComments: articleDetailsReducer,
+  articleDetailsComments: articleDetailsCommentsReducer,
 }
 
 export const StoreDecorator =

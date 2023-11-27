@@ -3,7 +3,6 @@ import { IComment } from 'essence/comment'
 import { StateSchema } from 'shared/lib/store'
 import { articleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema'
 import { fetchCommentsByArticleIdThunk } from '../services/fetchCommentsByArticleIdThunk'
-import { addCommentForArticle } from '../services/addCommentForArticle'
 
 const commentsAdapter = createEntityAdapter<IComment>({
   selectId: (comment) => comment.id,

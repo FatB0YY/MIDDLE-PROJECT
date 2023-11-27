@@ -14,7 +14,7 @@ import {
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
-import { Page } from 'widgets/Page/ui/Page'
+import { Page } from 'widgets/Page/Page'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPageThunk'
 import { initArticlesPage } from '../../model/services/initArticlesPage'
 import {

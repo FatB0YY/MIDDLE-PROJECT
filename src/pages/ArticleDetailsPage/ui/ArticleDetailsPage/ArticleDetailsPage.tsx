@@ -6,23 +6,18 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { PageError } from 'widgets/PageError'
 import { CommentList } from 'essence/comment'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from 'features/ArticleCommentsList/model/slice/articleDetailsCommentsSlice'
+import { articleDetailsCommentsReducer, getArticleComments } from 'features/ArticleCommentsList'
 import { useSelector } from 'react-redux'
-import {
-  getArticleCommentsListErrors,
-  getArticleCommentsListIsLoading,
-} from 'features/ArticleCommentsList/model/selectors/ArticleCommentsListSelectors'
+import { getArticleCommentsListErrors, getArticleCommentsListIsLoading } from 'features/ArticleCommentsList'
 import { useActionCreatorsTyped } from 'shared/lib/store'
-import { fetchCommentsByArticleIdThunk } from 'features/ArticleCommentsList/model/services/fetchCommentsByArticleIdThunk'
+import { fetchCommentsByArticleIdThunk } from 'features/ArticleCommentsList'
 import { AddNewCommentAsync } from 'features/addNewComment'
-import { addCommentForArticle } from 'features/ArticleCommentsList/model/services/addCommentForArticle'
+import { addCommentForArticle } from 'features/ArticleCommentsList'
 import { Button } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
-import { Page } from 'widgets/Page/ui/Page'
+import { Page } from 'widgets/Page/Page'
+import { ArticleDetailsRecommendationsList } from 'features/ArticleDetailsRecommendationsList'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -75,7 +70,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button onClick={onBackToTheList}>{t('pages.articledetailspage.backtothelist')}</Button>
+
         <ArticleDetails id={id} />
+
+        <ArticleDetailsRecommendationsList />
+
         <AddNewCommentAsync onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
       </Page>

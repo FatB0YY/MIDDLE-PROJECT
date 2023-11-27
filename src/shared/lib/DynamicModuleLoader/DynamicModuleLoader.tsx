@@ -1,10 +1,16 @@
 import { FC, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
-import { StateSchemaKey, ReduxStoreWithManager } from 'shared/lib/store/index'
+import { StateSchemaKey, ReduxStoreWithManager, StateSchema } from 'shared/lib/store/index'
 import { Reducer } from '@reduxjs/toolkit'
 
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer
+  /**
+   * Мы не передаем просто тип Reducer с какой то any Схемой
+   * конкретно указываем: забираем поле из СтейтСхемы
+   * в зависимости от того, какое название редьюсера разработчик указал
+   * @param params
+   */
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>
 }
 
 interface DynamicModuleLoaderProps {

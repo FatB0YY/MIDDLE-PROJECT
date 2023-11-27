@@ -2,7 +2,7 @@ export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelecto
 export { ArticleSearch } from './ui/ArticleSearch/ArticleSearch'
 export { ArticleTabsType } from './ui/ArticleTabsType/ArticleTabsType'
 
-export { EArticleSortField } from './model/types/articlesort'
+export { EArticleSortField, ArticleSortSchema } from './model/types/articlesort'
 
 export {
   getArticleSortOrder,

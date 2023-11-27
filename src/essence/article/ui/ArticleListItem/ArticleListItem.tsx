@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback } from 'react'
+import React, { FC, memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import { ArticleTextBlock, EArticleBlockType, EArticleView, IArticle } from '../../model/types/article'
@@ -10,7 +10,7 @@ import { Avatar } from 'shared/ui/Avatar'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { useNavigate } from 'react-router-dom'
+import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
 // import { useHover } from 'shared/lib/hooks/useHover/useHover'
 
@@ -18,16 +18,12 @@ interface ArticleListItemProps {
   className?: string
   article: IArticle
   view: EArticleView
+  target?: React.HTMLAttributeAnchorTarget
 }
 
-export const ArticleListItem: FC<ArticleListItemProps> = memo(({ className, article, view }) => {
+export const ArticleListItem: FC<ArticleListItemProps> = memo(({ className, article, view, target }) => {
   // const [isHover, bindHover] = useHover()
   const { t } = useTranslation('article')
-  const navigate = useNavigate()
-
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutePath.articles_details + article.id)
-  }, [article.id, navigate])
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />
   const views = (
@@ -57,9 +53,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({ className, arti
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
 
           <div className={cls.footer}>
-            <Button onClick={onOpenArticle} theme={ThemeButton.ACCENT}>
-              {t('entities.article.articlelistitem.readmore')}
-            </Button>
+            <AppLink to={RoutePath.articles_details + article.id}>
+              <Button theme={ThemeButton.ACCENT}>{t('entities.article.articlelistitem.readmore')}</Button>
+            </AppLink>
+
             {views}
           </div>
         </Card>
@@ -69,8 +66,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({ className, arti
 
   if (view === EArticleView.SMALL) {
     return (
-      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        <Card onClick={onOpenArticle} className={cls.card}>
+      <AppLink
+        target={target}
+        to={RoutePath.articles_details + article.id}
+        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      >
+        <Card className={cls.card}>
           <div className={cls.imageWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />
             <Text text={article.createdAt} className={cls.date} />
@@ -81,7 +82,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(({ className, arti
           </div>
           <Text text={article.title} className={cls.title} />
         </Card>
-      </div>
+      </AppLink>
     )
   }
 

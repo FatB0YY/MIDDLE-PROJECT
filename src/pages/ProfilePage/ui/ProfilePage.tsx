@@ -10,7 +10,7 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { ECurrency } from 'essence/currency'
 import { useParams } from 'react-router-dom'
 import { PageError } from 'widgets/PageError'
-import { Page } from 'widgets/Page/ui/Page'
+import { Page } from 'widgets/Page/Page'
 
 interface ProfilePageProps {
   className?: string
