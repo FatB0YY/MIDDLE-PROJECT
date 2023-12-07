@@ -1,14 +1,14 @@
 .app_light_theme {
-    --main-color: #F4F4FB; // Backgrounds, main elements
-    --secondary-color: #5e69ee; // For 2nd level elements, text
-    --accent-color: #39AFEA; // For CTAs and accent touches
+  --main-color: #f4f4fb; // Backgrounds, main elements
+  --secondary-color: #5e69ee; // For 2nd level elements, text
+  --accent-color: #39afea; // For CTAs and accent touches
 
-    // skeleton
-    --skeleton-color: #fff;
-    --skeleton-shadow: rgba(0 0 0 / 20%);
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
 
-    // code
-    --code-bg: #f9f9fb;
-    --code-border: #cdcdcd;
-    --code-color: #4a4a4a;
+  // code
+  --code-bg: #f9f9fb;
+  --code-border: #cdcdcd;
+  --code-color: #4a4a4a;
 }

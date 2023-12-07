@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from 'react'
+import { MutableRefObject, useEffect } from 'react'
 
 export interface UseInfinityScrollProps {
   // ф-ция вызывается, когда мы пересекли элемент X
@@ -9,7 +9,11 @@ export interface UseInfinityScrollProps {
   wrapperRef: MutableRefObject<HTMLElement>
 }
 
-export function useInfinityScroll({ callback, triggerRef, wrapperRef }: UseInfinityScrollProps) {
+export function useInfinityScroll({
+  callback,
+  triggerRef,
+  wrapperRef
+}: UseInfinityScrollProps) {
   useEffect(() => {
     let observer: IntersectionObserver | null = null
     const triggerElement = triggerRef.current
@@ -20,7 +24,7 @@ export function useInfinityScroll({ callback, triggerRef, wrapperRef }: UseInfin
         // эл, в котором находится скролл
         root: wrapperElement,
         rootMargin: '0px',
-        threshold: 1.0,
+        threshold: 1.0
       }
 
       observer = new IntersectionObserver(([entry]) => {

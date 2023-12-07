@@ -1,22 +1,24 @@
-import React, { FC, memo } from 'react'
+import React, { memo } from 'react'
+
 import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Text.module.scss'
 
 export enum TextAlign {
   RIGHT = 'right',
   LEFT = 'left',
-  CENTER = 'center',
+  CENTER = 'center'
 }
 
 export enum TextTheme {
   PRIMARY = 'primary',
   DARK = 'dark',
-  ERROR = 'error',
+  ERROR = 'error'
 }
 
 export enum TextSize {
   M = 'size_m',
-  L = 'size_l',
+  L = 'size_l'
 }
 
 interface TextProps {
@@ -28,13 +30,29 @@ interface TextProps {
   size?: TextSize
 }
 
-export const Text: FC<TextProps> = memo(
-  ({ className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT, size = TextSize.M }) => {
+export const Text = memo(
+  ({
+    className,
+    title,
+    text,
+    theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
+    size = TextSize.M
+  }: TextProps) => {
     return (
-      <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
+      <div
+        className={classNames(cls.Text, {}, [
+          className,
+          cls[theme],
+          cls[align],
+          cls[size]
+        ])}
+      >
         {title && <p className={cls.title}>{title}</p>}
         {text && <p className={cls.text}>{text}</p>}
       </div>
     )
   }
 )
+
+Text.displayName = 'Text'

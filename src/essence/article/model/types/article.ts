@@ -3,7 +3,7 @@ import { IUser } from 'essence/user'
 export enum EArticleBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
-  TEXT = 'TEXT',
+  TEXT = 'TEXT'
 }
 
 export interface ArticleBlockMain {
@@ -28,13 +28,16 @@ export interface ArticleTextBlock extends ArticleBlockMain {
   paragraphs: string[]
 }
 
-export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
+export type ArticleBlock =
+  | ArticleCodeBlock
+  | ArticleImageBlock
+  | ArticleTextBlock
 
 export enum EArticleType {
   ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
-  ECO = 'ECO',
+  ECO = 'ECO'
 }
 
 export interface IArticle {
@@ -51,5 +54,5 @@ export interface IArticle {
 
 export enum EArticleView {
   BIG = 'BIG',
-  SMALL = 'SMALL',
+  SMALL = 'SMALL'
 }

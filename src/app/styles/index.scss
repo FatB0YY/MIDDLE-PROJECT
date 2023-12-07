@@ -2,22 +2,22 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
-@import 'themes/orange.scss';
+@import "themes/orange";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font: var(--font-m);
-    color: var(--secondary-color);
+  color: var(--secondary-color);
+  font: var(--font-m);
 }
 
 .app {
-    background: var(--main-color);
-    min-height: 100vh;
+  min-height: 100vh;
+  background: var(--main-color);
 }
 
 .content-page {
-    display: flex;
+  display: flex;
 }

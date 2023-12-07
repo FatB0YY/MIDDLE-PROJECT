@@ -1,21 +1,33 @@
 // Updated ArticleDetails.jsx
-import React, { FC, memo, useEffect } from 'react'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
-import { useActionCreatorsTyped } from 'shared/lib/store'
-import { fetchArticleByIdThunk } from '../../model/services/fetchArticleByIdThunk'
+import React, { memo, useEffect } from 'react'
+
 import { useSelector } from 'react-redux'
+
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+
+import { useActionCreatorsTyped } from 'shared/lib/store'
+
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
+import { PageError } from 'widgets/PageError'
+
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
+import { fetchArticleByIdThunk } from '../../model/services/fetchArticleByIdThunk'
+
 import {
   getArticleDetailsData,
   getArticleDetailsError,
-  getArticleDetailsisLoading,
+  getArticleDetailsisLoading
 } from '../../model/selectors/articleDetailsSelectors'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './ArticleDetails.module.scss'
 import ArticleHeaderComponent from './ArticleHeaderComponent'
 import ArticleListComponent from './ArticleListComponent'
-import { PageError } from 'widgets/PageError'
 
 interface ArticleDetailsProps {
   className?: string
@@ -23,14 +35,14 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-  articleDetails: articleDetailsReducer,
+  articleDetails: articleDetailsReducer
 }
 
 const actions = {
-  fetchArticle: fetchArticleByIdThunk,
+  fetchArticle: fetchArticleByIdThunk
 }
 
-export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
+export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const actionsArticleDetails = useActionCreatorsTyped(actions)
   const isLoading = useSelector(getArticleDetailsisLoading)
   const article = useSelector(getArticleDetailsData)
@@ -47,11 +59,32 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={cls.avatar} width={200} height={200} border='50%' />
-        <Skeleton className={cls.title} width={300} height={32} />
-        <Skeleton className={cls.skeleton} width={600} height={24} />
-        <Skeleton className={cls.skeleton} width='100%' height={200} />
-        <Skeleton className={cls.skeleton} width='100%' height={200} />
+        <Skeleton
+          className={cls.avatar}
+          width={200}
+          height={200}
+          border='50%'
+        />
+        <Skeleton
+          className={cls.title}
+          width={300}
+          height={32}
+        />
+        <Skeleton
+          className={cls.skeleton}
+          width={600}
+          height={24}
+        />
+        <Skeleton
+          className={cls.skeleton}
+          width='100%'
+          height={200}
+        />
+        <Skeleton
+          className={cls.skeleton}
+          width='100%'
+          height={200}
+        />
       </>
     )
   } else if (error || !article) {
@@ -66,8 +99,15 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>{content}</div>
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount={true}
+    >
+      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+        {content}
+      </div>
     </DynamicModuleLoader>
   )
 })
+
+ArticleDetails.displayName = 'ArticleDetails'

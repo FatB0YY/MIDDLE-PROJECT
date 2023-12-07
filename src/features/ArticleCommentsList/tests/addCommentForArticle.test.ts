@@ -1,6 +1,7 @@
-import { addCommentForArticle } from '../model/services/addCommentForArticle'
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
 import { IComment } from 'essence/comment'
+
+import { addCommentForArticle } from '../model/services/addCommentForArticle'
 
 describe('addCommentForArticle', () => {
   const data: IComment = {
@@ -9,24 +10,24 @@ describe('addCommentForArticle', () => {
     user: {
       id: '1',
       username: 'admin',
-      avatar: 'rfr',
-    },
+      avatar: 'rfr'
+    }
   }
 
   test('Проверка с resolved ответом', async () => {
     const thunk = new TestAsyncThunk(addCommentForArticle, {
       user: {
-        _inited: true,
+        _initiated: true,
         authData: {
           id: '1',
-          username: 'admin',
-        },
+          username: 'admin'
+        }
       },
       articleDetails: {
         data: {
-          id: '1',
-        },
-      },
+          id: '1'
+        }
+      }
     })
     thunk.api.post.mockResolvedValue({ data })
 
@@ -51,22 +52,24 @@ describe('addCommentForArticle', () => {
   test('Проверка с rejected  ответом', async () => {
     const thunk = new TestAsyncThunk(addCommentForArticle, {
       user: {
-        _inited: true,
+        _initiated: true,
         authData: {
           id: '1',
-          username: 'admin',
-        },
+          username: 'admin'
+        }
       },
       articleDetails: {
         data: {
-          id: '1',
-        },
-      },
+          id: '1'
+        }
+      }
     })
     thunk.api.post.mockResolvedValue({ status: 403 })
 
     // получаем dispatch[]
-    const result = await thunk.callThunk('Text rnjrgjtg neikd ijneriuf hfr iehifvn igrgtg')
+    const result = await thunk.callThunk(
+      'Text rnjrgjtg neikd ijneriuf hfr iehifvn igrgtg'
+    )
 
     // проверяем что post был вызван
     expect(thunk.api.post).toHaveBeenCalled()

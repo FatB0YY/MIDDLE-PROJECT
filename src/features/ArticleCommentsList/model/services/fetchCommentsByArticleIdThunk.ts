@@ -1,16 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+
 import { ThunkConfig } from 'shared/lib/store'
 import { IComment } from 'essence/comment'
 
-export const fetchCommentsByArticleIdThunk = createAsyncThunk<IComment[], string, ThunkConfig<string>>(
+export const fetchCommentsByArticleIdThunk = createAsyncThunk<
+  IComment[],
+  string,
+  ThunkConfig<string>
+>(
   'articleDetailsComments/fetchCommentsByArticleIdThunk',
   async (articleId, thunkAPI) => {
     try {
       const response = await thunkAPI.extra.api.get<IComment[]>('/comments', {
         params: {
           articleId,
-          _expand: 'user',
-        },
+          _expand: 'user'
+        }
       })
 
       if (!response.data) {
@@ -19,7 +24,7 @@ export const fetchCommentsByArticleIdThunk = createAsyncThunk<IComment[], string
 
       return thunkAPI.fulfillWithValue(response.data)
     } catch (error) {
-      console.log(error)
+      console.error(error)
       return thunkAPI.rejectWithValue('my rejectWithValue error!')
     }
   }

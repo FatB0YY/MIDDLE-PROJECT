@@ -1,19 +1,24 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+
 import { ProfileCard } from 'essence/profile'
 import { ECurrency } from 'essence/currency'
-import avatar from 'shared/ui/Avatar/ui/bladeava.png'
+
 import { Country } from 'shared/const/other'
+
+import avatar from 'shared/ui/Avatar/ui/bladeava.png'
 
 export default {
   title: 'ENTITIES/ProfileCard',
   component: ProfileCard,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as ComponentMeta<typeof ProfileCard>
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+  <ProfileCard {...args} />
+)
 
 export const Primary = Template.bind({})
 Primary.args = {
@@ -25,16 +30,16 @@ Primary.args = {
     first: 'asd',
     city: 'asf',
     currency: ECurrency.USD,
-    avatar,
-  },
+    avatar
+  }
 }
 
 export const withError = Template.bind({})
 withError.args = {
-  error: 'true',
+  error: 'true'
 }
 
 export const Loading = Template.bind({})
 Loading.args = {
-  isLoading: true,
+  isLoading: true
 }

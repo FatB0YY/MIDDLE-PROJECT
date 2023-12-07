@@ -8,7 +8,10 @@ export {
   getArticleSortOrder,
   getArticleSortSearch,
   getArticleSortSort,
-  getArticleSortType,
+  getArticleSortType
 } from './model/selectors/articleSortSelectors'
 
-export { articleSortActions, articleSortReducer } from './model/slice/articleSortSlice'
+export {
+  articleSortActions,
+  articleSortReducer
+} from './model/slice/articleSortSlice'

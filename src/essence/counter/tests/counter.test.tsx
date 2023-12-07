@@ -1,17 +1,26 @@
-import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation'
-import { renderWirhRouter } from 'shared/config/tests/renderWithRouter'
-import Counter from '../ui/Counter'
-import { StateSchema } from 'shared/lib/store/index'
+import React from 'react'
+
 import { render, screen } from '@testing-library/react'
+
 import userEvent from '@testing-library/user-event'
+
+import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation'
+import { renderWithRouter } from 'shared/config/tests/renderWithRouter'
+
+import { StateSchema } from 'shared/lib/store/index'
+
 import { StoreProvider } from 'shared/lib/store/StateProvider'
+
+import Counter from '../ui/Counter'
 
 describe('Counter test component', () => {
   test('Проверка рендера', () => {
-    const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
+    const initialStateMock: DeepPartial<StateSchema> = {
+      counter: { value: 10 }
+    }
 
     render(
-      renderWirhRouter(
+      renderWithRouter(
         <StoreProvider initialState={initialStateMock as StateSchema}>
           {renderWithTranslation(<Counter />)}
         </StoreProvider>
@@ -23,10 +32,12 @@ describe('Counter test component', () => {
   })
 
   test('Проверка inc', () => {
-    const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
+    const initialStateMock: DeepPartial<StateSchema> = {
+      counter: { value: 10 }
+    }
 
     render(
-      renderWirhRouter(
+      renderWithRouter(
         <StoreProvider initialState={initialStateMock as StateSchema}>
           {renderWithTranslation(<Counter />)}
         </StoreProvider>
@@ -39,10 +50,12 @@ describe('Counter test component', () => {
   })
 
   test('Проверка dec', () => {
-    const initialStateMock: DeepPartial<StateSchema> = { counter: { value: 10 } }
+    const initialStateMock: DeepPartial<StateSchema> = {
+      counter: { value: 10 }
+    }
 
     render(
-      renderWirhRouter(
+      renderWithRouter(
         <StoreProvider initialState={initialStateMock as StateSchema}>
           {renderWithTranslation(<Counter />)}
         </StoreProvider>

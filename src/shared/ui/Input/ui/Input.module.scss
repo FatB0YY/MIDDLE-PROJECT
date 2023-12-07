@@ -1,60 +1,56 @@
 .InputWrapper {
-    display: flex;
+  display: flex;
 }
 
 .placeholder {
-    margin-right: 5px;
-    color: var(--main-color);
-    ;
+  margin-right: 5px;
+  color: var(--main-color);
 }
 
 .input {
-    background: transparent;
-    border: none;
+  width: 100%;
+  border: none;
+  animation: none;
+  background: transparent;
+  caret-color: transparent;
+  color: var(--main-color);
+  outline: none;
+  text-shadow: 0 0 0 var(--secondary-color);
+
+  &:focus {
     outline: none;
-    width: 100%;
-    color: transparent;
-    text-shadow: 0 0 0 var(--secondary-color);
-    color: var(--main-color);
-
-
-    caret-color: transparent;
-    animation: none;
-
-    &:focus {
-        outline: none;
-    }
+  }
 }
 
 .caretWrapper {
-    flex-grow: 1;
-    position: relative;
+  position: relative;
+  flex-grow: 1;
 }
 
 .caret {
-    height: 3px;
-    width: 9px;
-    background: var(--secondary-color);
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    animation: blink 0.7s forwards infinite;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 9px;
+  height: 3px;
+  animation: blink 0.7s forwards infinite;
+  background: var(--secondary-color);
 }
 
 .readonly {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 @keyframes blink {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50% {
-        opacity: 0.01;
-    }
+  50% {
+    opacity: 0.01;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,5 +1,7 @@
-import webpack from 'webpack'
 import path from 'path'
+
+import webpack from 'webpack'
+
 import { buildWebpackConfig } from './config/build/buildWebpackConfig'
 import { BuildPaths, IBuildEnv } from './config/build/types/config'
 
@@ -9,7 +11,7 @@ export default (env: IBuildEnv) => {
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     public: path.resolve(__dirname, 'public'),
-    src: path.resolve(__dirname, 'src'),
+    src: path.resolve(__dirname, 'src')
   }
 
   const mode = env.mode || 'development'
@@ -26,7 +28,7 @@ export default (env: IBuildEnv) => {
     isProd,
     port: PORT,
     apiUrl,
-    project: 'client',
+    project: 'client'
   })
 
   return config

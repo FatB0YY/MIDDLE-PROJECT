@@ -6,5 +6,5 @@ export interface IUser {
 
 export interface UserSchema {
   authData: IUser | null
-  _inited: boolean
+  _initiated: boolean
 }

@@ -1,11 +1,10 @@
-import { updateProfileDataThunk } from '../model/services/updateProfileDataThunk'
-import axios, { AxiosStatic } from 'axios'
-import { Dispatch } from '@reduxjs/toolkit'
-import { StateSchema } from 'shared/lib/store/index'
 import { ECurrency } from 'essence/currency'
 import { Country } from 'shared/const/other'
-import { IProfile, ValidateProfileError } from '../model/types/profile'
+
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+
+import { IProfile, ValidateProfileError } from '../model/types/profile'
+import { updateProfileDataThunk } from '../model/services/updateProfileDataThunk'
 
 describe('updateProfileDataThunk', () => {
   const data: IProfile = {
@@ -17,14 +16,14 @@ describe('updateProfileDataThunk', () => {
     first: 'Joi',
     lastname: 'Smith',
     username: 'Admin',
-    id: '1',
+    id: '1'
   }
 
   test('Проверка с resolved ответом', async () => {
     const thunk = new TestAsyncThunk(updateProfileDataThunk, {
       profile: {
-        form: data,
-      },
+        form: data
+      }
     })
 
     thunk.api.put.mockResolvedValue({ data })
@@ -46,8 +45,8 @@ describe('updateProfileDataThunk', () => {
   test('Проверка с rejected ответом', async () => {
     const thunk = new TestAsyncThunk(updateProfileDataThunk, {
       profile: {
-        form: data,
-      },
+        form: data
+      }
     })
     thunk.api.put.mockResolvedValue({ status: 403 })
 
@@ -66,8 +65,8 @@ describe('updateProfileDataThunk', () => {
   test('Проверка с rejected ответом из-за валидации', async () => {
     const thunk = new TestAsyncThunk(updateProfileDataThunk, {
       profile: {
-        form: { ...data, lastname: '' },
-      },
+        form: { ...data, lastname: '' }
+      }
     })
 
     // получаем dispatch[]
@@ -79,7 +78,9 @@ describe('updateProfileDataThunk', () => {
     expect(result[0].type).toBe(updateProfileDataThunk.pending.type)
 
     expect(result[1].type).toBe(updateProfileDataThunk.rejected.type)
-    expect(result[1].payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA])
+    expect(result[1].payload).toEqual([
+      ValidateProfileError.INCORRECT_USER_DATA
+    ])
     expect(result[1].meta.rejectedWithValue).toBe(true)
   })
 })

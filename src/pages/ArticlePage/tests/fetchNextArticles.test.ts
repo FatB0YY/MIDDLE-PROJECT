@@ -1,4 +1,5 @@
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPageThunk'
 import { fetchArticlesListThunk } from '../model/services/fetchArticlesListThunk'
 
@@ -13,8 +14,8 @@ describe('fetchNextArticlesPage', () => {
         entities: {},
         limit: 5,
         isLoading: false,
-        hasMore: true,
-      },
+        hasMore: true
+      }
     })
 
     // получаем dispatch[]
@@ -33,8 +34,8 @@ describe('fetchNextArticlesPage', () => {
         entities: {},
         limit: 5,
         isLoading: false,
-        hasMore: false,
-      },
+        hasMore: false
+      }
     })
 
     // получаем dispatch[]

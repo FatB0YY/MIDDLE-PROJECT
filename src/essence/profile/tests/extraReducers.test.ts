@@ -1,8 +1,14 @@
 import { Country } from 'shared/const/other'
+
+import { ECurrency } from 'essence/currency'
+
 import { fetchProfileDataThunk } from '../model/services/fetchProfileDataThunk'
 import { profileReducer } from '../model/slice/profileSlice'
-import { IProfile, ProfileSchema, ValidateProfileError } from '../model/types/profile'
-import { ECurrency } from 'essence/currency'
+import {
+  IProfile,
+  ProfileSchema,
+  ValidateProfileError
+} from '../model/types/profile'
 import { updateProfileDataThunk } from '../model/services/updateProfileDataThunk'
 
 describe('profileSlice extra', () => {
@@ -12,12 +18,14 @@ describe('profileSlice extra', () => {
     form: null,
     isLoading: false,
     readonly: true,
-    validateError: undefined,
+    validateError: undefined
   }
 
   test('Проверка fetchProfileDataThunk.pending', () => {
-    // @ts-ignore
-    const state = profileReducer(initialStateProfile, fetchProfileDataThunk.pending())
+    const state = profileReducer(
+      initialStateProfile,
+      fetchProfileDataThunk.pending
+    )
 
     expect(state.isLoading).toBe(true)
     expect(state.error).toBeNull()
@@ -26,7 +34,7 @@ describe('profileSlice extra', () => {
   test('Проверка fetchProfileDataThunk.rejected', () => {
     const action = {
       type: fetchProfileDataThunk.rejected.type,
-      payload: 'Cant fetch',
+      payload: 'Cant fetch'
     }
 
     const state = profileReducer(initialStateProfile, action)
@@ -37,7 +45,7 @@ describe('profileSlice extra', () => {
       form: null,
       isLoading: false,
       readonly: true,
-      validateError: undefined,
+      validateError: undefined
     })
   })
 
@@ -50,11 +58,15 @@ describe('profileSlice extra', () => {
       currency: ECurrency.RUB,
       first: 'Nick',
       lastname: 'Smit',
-      username: 'xxx',
+      username: 'xxx'
     }
 
-    // @ts-ignore
-    const state = profileReducer(initialStateProfile, fetchProfileDataThunk.fulfilled(mockProfile))
+    const state = profileReducer(
+      initialStateProfile,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      fetchProfileDataThunk.fulfilled(mockProfile)
+    )
 
     expect(state).toEqual({
       data: mockProfile,
@@ -62,13 +74,15 @@ describe('profileSlice extra', () => {
       form: mockProfile,
       isLoading: false,
       readonly: true,
-      validateError: undefined,
+      validateError: undefined
     })
   })
 
   test('Проверка updateProfileDataThunk.pending', () => {
-    // @ts-ignore
-    const state = profileReducer(initialStateProfile, updateProfileDataThunk.pending())
+    const state = profileReducer(
+      initialStateProfile,
+      updateProfileDataThunk.pending
+    )
 
     expect(state.isLoading).toBe(true)
     expect(state.validateError).toBeUndefined()
@@ -77,7 +91,7 @@ describe('profileSlice extra', () => {
   test('Проверка updateProfileDataThunk.rejected', () => {
     const action = {
       type: updateProfileDataThunk.rejected.type,
-      payload: [ValidateProfileError.INCORRECT_CURRENCY],
+      payload: [ValidateProfileError.INCORRECT_CURRENCY]
     }
 
     const state = profileReducer(initialStateProfile, action)
@@ -88,7 +102,7 @@ describe('profileSlice extra', () => {
       form: null,
       isLoading: false,
       readonly: true,
-      validateError: [ValidateProfileError.INCORRECT_CURRENCY],
+      validateError: [ValidateProfileError.INCORRECT_CURRENCY]
     })
   })
 
@@ -101,11 +115,15 @@ describe('profileSlice extra', () => {
       currency: ECurrency.RUB,
       first: 'Nick',
       lastname: 'Smit',
-      username: 'xxx',
+      username: 'xxx'
     }
 
-    // @ts-ignore
-    const state = profileReducer(initialStateProfile, updateProfileDataThunk.fulfilled(mockProfileUpdate))
+    const state = profileReducer(
+      initialStateProfile,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      updateProfileDataThunk.fulfilled(mockProfileUpdate)
+    )
 
     expect(state).toEqual({
       data: mockProfileUpdate,
@@ -113,7 +131,7 @@ describe('profileSlice extra', () => {
       form: mockProfileUpdate,
       isLoading: false,
       readonly: true,
-      validateError: undefined,
+      validateError: undefined
     })
   })
 })

@@ -1,14 +1,24 @@
-import React, { FC, useCallback } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ProfilePageHeader.module.scss'
+import React, { useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
+import { useSelector } from 'react-redux'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { Text } from 'shared/ui/Text'
-import { useSelector } from 'react-redux'
-import { getProfileState, profileActions } from 'essence/profile'
+
+import {
+  getProfileState,
+  profileActions,
+  updateProfileDataThunk
+} from 'essence/profile'
 import { useActionCreatorsTyped } from 'shared/lib/store/hook'
-import { updateProfileDataThunk } from 'essence/profile'
+
 import { getUserAuthData } from 'essence/user'
+
+import cls from './ProfilePageHeader.module.scss'
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -18,10 +28,14 @@ interface ProfilePageHeaderProps {
 
 const actions = {
   ...profileActions,
-  updateProfile: updateProfileDataThunk,
+  updateProfile: updateProfileDataThunk
 }
 
-export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className, error, isLoading }) => {
+export const ProfilePageHeader = ({
+  className,
+  error,
+  isLoading
+}: ProfilePageHeaderProps) => {
   const { t } = useTranslation('profile')
   const { readonly } = useSelector(getProfileState)
   const { authData } = useSelector(getUserAuthData)
@@ -31,19 +45,21 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className, error
 
   const canEdit = authData?.id === data?.id
 
+  /* eslint-disable */
   const onEdit = useCallback(() => {
     actionsProfile.setReadonly(false)
   }, [actionsProfile.setReadonly])
 
   const onCancelEdit = useCallback(() => {
-    actionsProfile.canselEdit()
-  }, [actionsProfile.canselEdit])
+    actionsProfile.cancelEdit()
+  }, [actionsProfile.cancelEdit])
 
   const onSave = useCallback(() => {
     actionsProfile.updateProfile().finally(() => {
       actionsProfile.setReadonly(true)
     })
   }, [actionsProfile.setReadonly])
+  /* eslint-enable */
 
   const renderButtons = () => {
     if (error || isLoading) {
@@ -53,7 +69,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className, error
     if (canEdit) {
       if (readonly) {
         return (
-          <Button onClick={onEdit} theme={ThemeButton.OUTLINE}>
+          <Button
+            onClick={onEdit}
+            theme={ThemeButton.OUTLINE}
+          >
             {t('entities.profile.profilecard.edit')}
           </Button>
         )
@@ -62,10 +81,17 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className, error
       if (!readonly && !error && !isLoading) {
         return (
           <>
-            <Button className={cls.cancelBtn} onClick={onCancelEdit} theme={ThemeButton.OUTLINE_RED}>
+            <Button
+              className={cls.cancelBtn}
+              onClick={onCancelEdit}
+              theme={ThemeButton.OUTLINE_RED}
+            >
               {t('entities.profile.profilecard.cancel')}
             </Button>
-            <Button onClick={onSave} theme={ThemeButton.ACCENT}>
+            <Button
+              onClick={onSave}
+              theme={ThemeButton.ACCENT}
+            >
               {t('entities.profile.profilecard.save')}
             </Button>
           </>
@@ -78,7 +104,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className, error
 
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-      <Text className={cls.title} title={t('entities.profile.profilecard.title')} />
+      <Text
+        className={cls.title}
+        title={t('entities.profile.profilecard.title')}
+      />
       <div className={cls.btnsWrapper}>{renderButtons()}</div>
     </div>
   )

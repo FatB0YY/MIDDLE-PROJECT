@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-idiomatic-order"
+  ],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "indentation": 2,
+    "selector-class-pattern": null,
+    "block-no-empty": null
+  }
+}

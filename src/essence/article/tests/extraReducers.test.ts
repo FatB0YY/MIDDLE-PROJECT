@@ -1,20 +1,20 @@
-import { Country } from 'shared/const/other'
 import { fetchArticleByIdThunk } from '../model/services/fetchArticleByIdThunk'
 import { articleDetailsReducer } from '../model/slice/articleDetailsSlice'
-import { EArticleType, IArticle } from '../model/types/article'
-import { ECurrency } from 'essence/currency'
+import { IArticle } from '../model/types/article'
 import { ArticleDetailsSchema } from '../model/types/articleDetailsSchema'
 
 describe('articleDetailsSlice extra', () => {
   const initialState: ArticleDetailsSchema = {
     isLoading: false,
     error: undefined,
-    data: null,
+    data: null
   }
 
   test('Проверка fetchArticleByIdThunk.pending', () => {
-    // @ts-ignore
-    const state = articleDetailsReducer(initialState, fetchArticleByIdThunk.pending())
+    const state = articleDetailsReducer(
+      initialState,
+      fetchArticleByIdThunk.pending
+    )
 
     expect(state.isLoading).toBe(true)
     expect(state.error).toBeNull()
@@ -23,14 +23,14 @@ describe('articleDetailsSlice extra', () => {
   test('Проверка fetchArticleByIdThunk.rejected', () => {
     const action = {
       type: fetchArticleByIdThunk.rejected.type,
-      payload: 'Cant fetch',
+      payload: 'Cant fetch'
     }
 
     const state = articleDetailsReducer(initialState, action)
 
     expect(state).toEqual({
       ...initialState,
-      error: 'Cant fetch',
+      error: 'Cant fetch'
     })
   })
 
@@ -46,17 +46,21 @@ describe('articleDetailsSlice extra', () => {
       blocks: [],
       user: {
         id: '0',
-        username: '',
-      },
+        username: ''
+      }
     }
 
-    // @ts-ignore
-    const state = articleDetailsReducer(initialState, fetchArticleByIdThunk.fulfilled(mockArticle))
+    const state = articleDetailsReducer(
+      initialState,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      fetchArticleByIdThunk.fulfilled(mockArticle)
+    )
 
     expect(state).toEqual({
       data: mockArticle,
       error: null,
-      isLoading: false,
+      isLoading: false
     })
   })
 })

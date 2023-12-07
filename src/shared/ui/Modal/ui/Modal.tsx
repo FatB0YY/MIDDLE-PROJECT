@@ -1,8 +1,12 @@
-import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useCallback, useEffect, useState } from 'react'
+
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
-import cls from './Modal.module.scss'
+/* eslint-disable */
 import { Portal } from 'shared/ui/Portal/index'
+/* eslint-enable */
 import { useTheme } from 'app/providers/ThemeProvider'
+
+import cls from './Modal.module.scss'
 
 interface ModalProps {
   className?: string
@@ -12,7 +16,14 @@ interface ModalProps {
   lazy?: boolean
 }
 
-export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy, ...otherProps }) => {
+export const Modal = ({
+  className,
+  children,
+  isOpen,
+  onClose,
+  lazy,
+  ...otherProps
+}: ModalProps) => {
   const [isMounted, setIsMounted] = useState(false)
   const { theme } = useTheme()
 
@@ -32,14 +43,16 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, la
     e.stopPropagation()
   }
 
-  // на каждый перерендер комп., эти функции будут создаваться заного, новые ссылки!!!
+  // на каждый перерендер комп., эти функции будут создаваться заново, новые ссылки!!!
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if ((e.key === 'Escape' || e.key === 'Esc') && onClose) {
         onClose()
       }
     },
-    [closeHandler]
+    /* eslint-disable */
+    [closeHandler, onClose]
+    /* eslint-enable */
   )
 
   useEffect(() => {
@@ -57,14 +70,23 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, la
   }
 
   const mods: Mods = {
-    [cls.opened]: isOpen,
+    [cls.opened]: isOpen
   }
 
   return (
     <Portal>
-      <div {...otherProps} className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
-        <div onClick={closeHandler} className={cls.overlay}>
-          <div onClick={onContentClick} className={cls.content}>
+      <div
+        {...otherProps}
+        className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}
+      >
+        <div
+          onClick={closeHandler}
+          className={cls.overlay}
+        >
+          <div
+            onClick={onContentClick}
+            className={cls.content}
+          >
             {children}
           </div>
         </div>

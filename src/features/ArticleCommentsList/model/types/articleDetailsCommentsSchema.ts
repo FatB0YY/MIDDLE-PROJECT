@@ -1,4 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit'
+
 import { IComment } from 'essence/comment'
 
 // автоматически добавляем ids и entities

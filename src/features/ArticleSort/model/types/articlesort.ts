@@ -4,7 +4,7 @@ import { SortOrder } from 'shared/types/sort'
 export enum EArticleSortField {
   VIEWS = 'views',
   TITLE = 'title',
-  CREATED = 'created',
+  CREATED = 'created'
 }
 
 export interface ArticleSortSchema {

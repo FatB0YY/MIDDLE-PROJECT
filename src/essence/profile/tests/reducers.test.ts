@@ -1,7 +1,9 @@
 import { ECurrency } from 'essence/currency'
+
+import { Country } from 'shared/const/other'
+
 import { profileActions, profileReducer } from '../model/slice/profileSlice'
 import { ProfileSchema } from '../model/types/profile'
-import { Country } from 'shared/const/other'
 
 describe('profileSlice reducers', () => {
   const mockedState: ProfileSchema = {
@@ -10,7 +12,7 @@ describe('profileSlice reducers', () => {
     form: null,
     isLoading: false,
     readonly: true,
-    validateError: undefined,
+    validateError: undefined
   }
 
   const mockedState2: ProfileSchema = {
@@ -19,7 +21,7 @@ describe('profileSlice reducers', () => {
     form: null,
     isLoading: false,
     readonly: true,
-    validateError: undefined,
+    validateError: undefined
   }
 
   const mockedState3: ProfileSchema = {
@@ -28,7 +30,7 @@ describe('profileSlice reducers', () => {
     form: { country: Country.ARMENIA },
     isLoading: false,
     readonly: true,
-    validateError: undefined,
+    validateError: undefined
   }
 
   test('Проверяем, что возвращается дефолтный стейт', () => {
@@ -38,7 +40,7 @@ describe('profileSlice reducers', () => {
   })
 
   test('Проверяем правильную работу canselEdit', () => {
-    const action = { type: profileActions.canselEdit.type }
+    const action = { type: profileActions.cancelEdit.type }
 
     const result = profileReducer(mockedState2, action)
 
@@ -54,7 +56,10 @@ describe('profileSlice reducers', () => {
   })
 
   test('Проверяем правильную работу updateProfile', () => {
-    const action = { type: profileActions.updateProfile.type, payload: { country: Country.RUSSIA } }
+    const action = {
+      type: profileActions.updateProfile.type,
+      payload: { country: Country.RUSSIA }
+    }
 
     const result = profileReducer(mockedState3, action)
 

@@ -6,7 +6,7 @@ describe('counterSlice reducers', () => {
     const result = counterReducer(undefined, { type: '' })
 
     expect(result).toEqual({
-      value: 0,
+      value: 0
     })
   })
 

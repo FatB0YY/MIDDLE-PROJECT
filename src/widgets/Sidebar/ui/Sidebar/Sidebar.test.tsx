@@ -1,13 +1,16 @@
+import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Sidebar } from './Sidebar'
+
 import { renderWithTranslation } from 'shared/config/tests/renderWithTranslation'
-import { renderWirhRouter } from 'shared/config/tests/renderWithRouter'
+import { renderWithRouter } from 'shared/config/tests/renderWithRouter'
 import { StoreProvider } from 'shared/lib/store/StateProvider'
+
+import { Sidebar } from './Sidebar'
 
 describe('Sidebar', () => {
   test('Проверка рендера', () => {
     render(
-      renderWirhRouter(
+      renderWithRouter(
         renderWithTranslation(
           <StoreProvider>
             <Sidebar />
@@ -21,7 +24,7 @@ describe('Sidebar', () => {
 
   test('Нажатие тоггл', () => {
     render(
-      renderWirhRouter(
+      renderWithRouter(
         renderWithTranslation(
           <StoreProvider>
             <Sidebar />

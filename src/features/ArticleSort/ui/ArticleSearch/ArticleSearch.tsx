@@ -1,9 +1,13 @@
-import React, { FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ArticleSearch.module.scss'
-import { Input } from 'shared/ui/Input'
+import React from 'react'
+
 import { useTranslation } from 'react-i18next'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
+import { Input } from 'shared/ui/Input'
 import { Card } from 'shared/ui/Card/Card'
+
+import cls from './ArticleSearch.module.scss'
 
 interface ArticleSearchProps {
   className?: string
@@ -11,12 +15,20 @@ interface ArticleSearchProps {
   value: string
 }
 
-export const ArticleSearch: FC<ArticleSearchProps> = ({ className, onChange, value }) => {
+export const ArticleSearch = ({
+  className,
+  onChange,
+  value
+}: ArticleSearchProps) => {
   const { t } = useTranslation('article')
 
   return (
     <Card className={classNames(cls.ArticleSearch, {}, [className])}>
-      <Input onChange={onChange} value={value} placeholder={t('features.articlesearch.placeholder')} />
+      <Input
+        onChange={onChange}
+        value={value}
+        placeholder={t('features.articlesearch.placeholder')}
+      />
     </Card>
   )
 }

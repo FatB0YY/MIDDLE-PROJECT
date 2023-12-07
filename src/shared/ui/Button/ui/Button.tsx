@@ -1,5 +1,7 @@
-import React, { ButtonHTMLAttributes, FC, ReactNode, memo } from 'react'
+import React, { ButtonHTMLAttributes, ReactNode, memo } from 'react'
+
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Button.module.scss'
 
 export enum ThemeButton {
@@ -9,13 +11,13 @@ export enum ThemeButton {
   OUTLINE_RED = 'outlineRed',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
-  ACCENT = 'accent',
+  ACCENT = 'accent'
 }
 
 export enum ButtonSize {
   M = 'size_m',
   L = 'size_l',
-  XL = 'size_xl',
+  XL = 'size_xl'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,17 +33,34 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // использует пропс children.
 // НО в кнопке нет сложной древовидной структуры, поэтому можно :) хранить дешево, а сравнивать легко
 
-export const Button: FC<ButtonProps> = memo(
-  ({ className, children, theme = ThemeButton.OUTLINE, square, size = ButtonSize.M, disabled, ...otherProps }) => {
+export const Button = memo(
+  ({
+    className,
+    children,
+    theme = ThemeButton.OUTLINE,
+    square,
+    size = ButtonSize.M,
+    disabled,
+    ...otherProps
+  }: ButtonProps) => {
     const mods: Mods = {
       [cls.square]: square,
-      [cls.disabled]: disabled,
+      [cls.disabled]: disabled
     }
 
     return (
-      <button className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])} {...otherProps}>
+      <button
+        className={classNames(cls.Button, mods, [
+          className,
+          cls[theme],
+          cls[size]
+        ])}
+        {...otherProps}
+      >
         {children}
       </button>
     )
   }
 )
+
+Button.displayName = 'Button'

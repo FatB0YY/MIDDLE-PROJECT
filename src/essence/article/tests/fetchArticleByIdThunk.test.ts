@@ -1,6 +1,11 @@
-import { fetchArticleByIdThunk } from '../model/services/fetchArticleByIdThunk'
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
-import { EArticleBlockType, EArticleType, IArticle } from '../model/types/article'
+
+import { fetchArticleByIdThunk } from '../model/services/fetchArticleByIdThunk'
+import {
+  EArticleBlockType,
+  EArticleType,
+  IArticle
+} from '../model/types/article'
 
 describe('fetchArticleByIdThunk', () => {
   const data: IArticle = {
@@ -13,15 +18,15 @@ describe('fetchArticleByIdThunk', () => {
     type: [EArticleType.IT],
     user: {
       id: '1',
-      username: 'admin',
+      username: 'admin'
     },
     blocks: [
       {
         code: 'rfr',
         type: EArticleBlockType.CODE,
-        id: '1',
-      },
-    ],
+        id: '1'
+      }
+    ]
   }
 
   test('Проверка с resolved ответом', async () => {

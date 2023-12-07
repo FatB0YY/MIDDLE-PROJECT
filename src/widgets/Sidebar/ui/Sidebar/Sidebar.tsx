@@ -1,22 +1,27 @@
-import React, { FC, memo, useMemo, useState } from 'react'
+import React, { memo, useState } from 'react'
+
+import { useSelector } from 'react-redux'
+
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './Sidebar.module.scss'
+
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher/index'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { ButtonSize } from 'shared/ui/Button/ui/Button'
+
 import { SidebarItem } from '../SidebarItem/SidebarItem'
-import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+
+import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
   className?: string
 }
 
-// если true навешивамаем класс collapsed, если false - удаляем
+// если true навешиваем  класс collapsed, если false - удаляем
 // { [cls.collapsed]: collapsed }
 
-export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false)
   const sidebarItemsList = useSelector(getSidebarItems)
 
@@ -37,7 +42,12 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
   // )
 
   return (
-    <menu data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+    <menu
+      data-testid='sidebar'
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className
+      ])}
+    >
       <Button
         data-testid='sidebar-toggle'
         size={ButtonSize.XL}
@@ -52,15 +62,24 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
       <nav>
         <ul className={cls.items}>
           {sidebarItemsList.map((item) => (
-            <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+            <SidebarItem
+              key={item.path}
+              item={item}
+              collapsed={collapsed}
+            />
           ))}
         </ul>
       </nav>
 
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher short={collapsed} className={cls.lang} />
+        <LangSwitcher
+          short={collapsed}
+          className={cls.lang}
+        />
       </div>
     </menu>
   )
 })
+
+Sidebar.displayName = 'Sidebar'

@@ -1,14 +1,20 @@
-import React, { FC } from 'react'
-import { Mods, classNames } from 'shared/lib/classNames/classNames'
-import cls from './ProfileCard.module.scss'
+import React from 'react'
+
 import { useTranslation } from 'react-i18next'
-import { Text, TextTheme } from 'shared/ui/Text'
+
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
+
+import { Text, TextTheme, TextAlign } from 'shared/ui/Text'
 import { Input } from 'shared/ui/Input'
-import { IProfile } from '../../model/types/profile'
+
 import { Loader } from 'shared/ui/Loader'
-import { TextAlign } from 'shared/ui/Text'
+
 import { Avatar } from 'shared/ui/Avatar'
 import { CurrencySelect, ECurrency } from 'essence/currency'
+
+import { IProfile } from '../../model/types/profile'
+
+import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {
   className?: string
@@ -22,7 +28,7 @@ interface ProfileCardProps {
   onChangeCurrency?: (currency?: ECurrency) => void
 }
 
-export const ProfileCard: FC<ProfileCardProps> = ({
+export const ProfileCard = ({
   className,
   data,
   error,
@@ -31,13 +37,15 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeFirstname,
   onChangeLastname,
   onChangeAge,
-  onChangeCurrency,
-}) => {
+  onChangeCurrency
+}: ProfileCardProps) => {
   const { t } = useTranslation('profile')
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+      <div
+        className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+      >
         <Loader />
       </div>
     )
@@ -46,7 +54,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   if (error) {
     return (
       <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-        <Text title='Произошла ошибка' theme={TextTheme.ERROR} align={TextAlign.CENTER} />
+        <Text
+          title='Произошла ошибка'
+          theme={TextTheme.ERROR}
+          align={TextAlign.CENTER}
+        />
       </div>
     )
   }
@@ -65,7 +77,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   }
 
   const mods: Mods = {
-    [cls.editing]: !readonly,
+    [cls.editing]: !readonly
   }
 
   return (
@@ -73,7 +85,10 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       <div className={cls.data}>
         {data?.avatar && (
           <div className={cls.avatarWrapper}>
-            <Avatar src={data?.avatar} alt={data?.username} />
+            <Avatar
+              src={data?.avatar}
+              alt={data?.username}
+            />
           </div>
         )}
 
@@ -99,7 +114,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           className={cls.input}
         />
 
-        <CurrencySelect readonly={readonly} onChange={onChangeCurrency} value={data?.currency} />
+        <CurrencySelect
+          readonly={readonly}
+          onChange={onChangeCurrency}
+          value={data?.currency}
+        />
       </div>
     </div>
   )

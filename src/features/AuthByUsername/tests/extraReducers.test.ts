@@ -7,12 +7,11 @@ describe('todoSlice extra', () => {
     isLoading: false,
     password: '',
     username: '',
-    error: null,
+    error: null
   }
 
   test('Проверка loginByUsernameThunk.pending', () => {
-    // @ts-ignore
-    const state = loginReducer(initialStateLogin, loginByUsernameThunk.pending())
+    const state = loginReducer(initialStateLogin, loginByUsernameThunk.pending)
 
     expect(state.isLoading).toBe(true)
     expect(state.error).toBeNull()
@@ -23,7 +22,7 @@ describe('todoSlice extra', () => {
   test('Проверка loginByUsernameThunk.rejected', () => {
     const action = {
       type: loginByUsernameThunk.rejected.type,
-      payload: 'Cant post',
+      payload: 'Cant post'
     }
 
     const state = loginReducer(initialStateLogin, action)
@@ -32,7 +31,7 @@ describe('todoSlice extra', () => {
       isLoading: false,
       password: '',
       username: '',
-      error: 'Cant post',
+      error: 'Cant post'
     })
   })
 })

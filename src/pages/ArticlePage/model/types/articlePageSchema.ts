@@ -1,4 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit'
+
 import { EArticleView, IArticle } from 'essence/article'
 
 export interface articlesPageSchema extends EntityState<IArticle> {
@@ -11,5 +12,5 @@ export interface articlesPageSchema extends EntityState<IArticle> {
   limit: number
   hasMore: boolean
 
-  _initied: boolean
+  _initiated: boolean
 }

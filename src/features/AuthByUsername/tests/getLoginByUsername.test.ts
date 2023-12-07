@@ -1,6 +1,11 @@
 import { IUser, userActions } from 'essence/user'
-import { ILoginByUsername, loginByUsernameThunk } from '../model/services/loginByUsernameThunk'
+
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+
+import {
+  ILoginByUsername,
+  loginByUsernameThunk
+} from '../model/services/loginByUsernameThunk'
 
 describe('loginByUsernameThunk', () => {
   const mockUser: IUser = { id: '1', username: 'Joi' }

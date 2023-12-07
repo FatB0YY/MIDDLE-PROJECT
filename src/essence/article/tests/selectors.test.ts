@@ -1,11 +1,12 @@
+import { StateSchema } from 'shared/lib/store'
+
 import { EArticleBlockType, EArticleType } from '../model/types/article'
 import {
   getArticleDetailsState,
   getArticleDetailsData,
   getArticleDetailsisLoading,
-  getArticleDetailsError,
+  getArticleDetailsError
 } from '../model/selectors/articleDetailsSelectors'
-import { StateSchema } from 'shared/lib/store'
 
 describe('articleDetailsSelectors', () => {
   const mockState: DeepPartial<StateSchema> = {
@@ -20,9 +21,9 @@ describe('articleDetailsSelectors', () => {
         title: 'rfrf',
         type: [EArticleType.IT],
         views: 334,
-        blocks: [{ type: EArticleBlockType.CODE, code: 'rr', id: '1' }],
-      },
-    },
+        blocks: [{ type: EArticleBlockType.CODE, code: 'rr', id: '1' }]
+      }
+    }
   }
 
   test('Правильная рабата getArticleDetailsState', () => {

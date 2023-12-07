@@ -1,5 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames'
 import React, { memo } from 'react'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Icon.module.scss'
 
 interface IconProps {
@@ -12,3 +14,5 @@ export const Icon = memo((props: IconProps) => {
 
   return <Svg className={classNames(cls.Icon, {}, [className])} />
 })
+
+Icon.displayName = 'Icon'

@@ -1,18 +1,31 @@
-import React, { FC, useCallback } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './AddNewComment.module.scss'
-import { Input } from 'shared/ui/Input'
+import React, { useCallback } from 'react'
+
 import { useTranslation } from 'react-i18next'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+
 import { useSelector } from 'react-redux'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
+import { Input } from 'shared/ui/Input'
+import { Button, ThemeButton } from 'shared/ui/Button'
 import {
-  getAddNewCommentError,
-  getAddNewCommentIsLoading,
-  getAddNewCommentText,
-} from '../model/selectors/addNewCommentSelectors'
-import { addNewCommentActions, addNewCommentReducer } from '../model/slice/addNewCommentSlice'
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+
 import { useActionCreatorsTyped } from 'shared/lib/store'
+
+import {
+  // getAddNewCommentError,
+  // getAddNewCommentIsLoading,
+  getAddNewCommentText
+} from '../model/selectors/addNewCommentSelectors'
+import {
+  addNewCommentActions,
+  addNewCommentReducer
+} from '../model/slice/addNewCommentSlice'
+
+import cls from './AddNewComment.module.scss'
 
 export interface AddNewCommentProps {
   className?: string
@@ -20,20 +33,20 @@ export interface AddNewCommentProps {
 }
 
 const reducers: ReducersList = {
-  addNewComment: addNewCommentReducer,
+  addNewComment: addNewCommentReducer
 }
 
 const allActions = {
-  ...addNewCommentActions,
+  ...addNewCommentActions
 }
 
-const AddNewComment: FC<AddNewCommentProps> = ({ className, onSendComment }) => {
+const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
   const { t } = useTranslation()
   const actionsAddNewComment = useActionCreatorsTyped(allActions)
 
   const text = useSelector(getAddNewCommentText)
-  const isLoading = useSelector(getAddNewCommentIsLoading)
-  const error = useSelector(getAddNewCommentError)
+  // const isLoading = useSelector(getAddNewCommentIsLoading)
+  // const error = useSelector(getAddNewCommentError)
 
   const onCommentTextChange = useCallback(
     (value: string) => {
@@ -48,7 +61,10 @@ const AddNewComment: FC<AddNewCommentProps> = ({ className, onSendComment }) => 
   }, [text, onSendComment, onCommentTextChange])
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount={true}
+    >
       <div className={classNames(cls.AddNewComment, {}, [className])}>
         <Input
           placeholderClassName={cls.input}
@@ -57,7 +73,10 @@ const AddNewComment: FC<AddNewCommentProps> = ({ className, onSendComment }) => 
           onChange={onCommentTextChange}
           placeholder={t('features.addnewcomment.placeholder')}
         />
-        <Button onClick={onSendHandler} theme={ThemeButton.ACCENT}>
+        <Button
+          onClick={onSendHandler}
+          theme={ThemeButton.ACCENT}
+        >
           {t('features.addnewcomment.submit')}
         </Button>
       </div>

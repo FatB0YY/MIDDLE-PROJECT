@@ -34,6 +34,8 @@
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
     "strict": true
+    // "isolatedModules": true, проверить потом!!
+    // "allowUmdGlobalAccess": false // https://www.typescriptlang.org/docs/handbook/modules/introduction.html
   },
   "ts-node": {
     "compilerOptions": {

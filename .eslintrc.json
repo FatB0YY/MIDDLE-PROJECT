@@ -1,0 +1,109 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:i18next/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks",
+    "fatboyy-plugin1"
+    // "plugin:import/typescript"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "markupOnly": true,
+        "ignoreAttribute": ["data-testid", "to", "target"]
+      }
+    ],
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-var": "error",
+    "no-console": "warn",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "indent": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "react/jsx-indent": ["warn", 2],
+    "max-len": ["warn", { "code": 120 }],
+    "comma-dangle": ["warn", "never"],
+    "semi": ["warn", "never"],
+    "prefer-const": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "__IS_DEV__",
+          "__API__",
+          "__PROJECT__",
+          "_initiated",
+          "__API_URL__"
+        ]
+      }
+    ],
+    "fatboyy-plugin1/path-checker": "error"
+  },
+  "globals": {
+    "__IS_DEV__": true,
+    "__API_URL__": true,
+    "__PROJECT__": true
+  },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.{test,stories}.{ts,tsx}"],
+      "rules": {
+        "i18next/no-literal-string": "off",
+        "max-len": "off"
+      }
+    }
+  ]
+}

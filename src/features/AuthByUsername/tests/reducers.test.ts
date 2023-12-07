@@ -2,7 +2,12 @@ import { loginActions, loginReducer } from '../model/slice/loginSlice'
 import { LoginSchema } from '../model/types/loginSchema'
 
 describe('loginSlice reducers', () => {
-  const mockedState: LoginSchema = { error: null, isLoading: false, password: '', username: '' }
+  const mockedState: LoginSchema = {
+    error: null,
+    isLoading: false,
+    password: '',
+    username: ''
+  }
 
   test('Проверяем, что возвращается дефолтный стейт', () => {
     const result = loginReducer(undefined, { type: '' })

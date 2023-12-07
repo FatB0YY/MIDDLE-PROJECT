@@ -1,15 +1,19 @@
-import React, { FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './MainPage.module.scss'
+import React from 'react'
+
 import { useTranslation } from 'react-i18next'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
 import { Counter } from 'essence/counter'
 import { Page } from 'widgets/Page/Page'
+
+import cls from './MainPage.module.scss'
 
 interface MainPageProps {
   className?: string
 }
 
-const MainPage: FC<MainPageProps> = ({ className }) => {
+const MainPage = ({ className }: MainPageProps) => {
   const { t } = useTranslation('main')
 
   return (

@@ -1,8 +1,10 @@
-import React, { FC, memo, useCallback, useMemo } from 'react'
+import React, { memo, useCallback } from 'react'
+
+import { useTranslation } from 'react-i18next'
 
 import { Select } from 'shared/ui/Select'
+
 import { ECurrency } from '../model/types/currency'
-import { useTranslation } from 'react-i18next'
 
 interface CurrencySelectProps {
   className?: string
@@ -14,23 +16,30 @@ interface CurrencySelectProps {
 const options = [
   { value: ECurrency.RUB, content: ECurrency.RUB },
   { value: ECurrency.USD, content: ECurrency.USD },
-  { value: ECurrency.EUR, content: ECurrency.EUR },
+  { value: ECurrency.EUR, content: ECurrency.EUR }
 ]
 
-export const CurrencySelect: FC<CurrencySelectProps> = memo(({ className, value, onChange, readonly }) => {
-  const { t } = useTranslation()
+export const CurrencySelect = memo(
+  ({ value, onChange, readonly }: CurrencySelectProps) => {
+    const { t } = useTranslation()
 
-  const onChangeHandler = useCallback((value?: string) => {
-    onChange?.(value as ECurrency)
-  }, [])
+    const onChangeHandler = useCallback(
+      (value?: string) => {
+        onChange?.(value as ECurrency)
+      },
+      [onChange]
+    )
 
-  return (
-    <Select
-      readonly={readonly}
-      label={t('entities.CurrencySelect.label')}
-      options={options}
-      onChange={onChangeHandler}
-      value={value}
-    />
-  )
-})
+    return (
+      <Select
+        readonly={readonly}
+        label={t('entities.CurrencySelect.label')}
+        options={options}
+        onChange={onChangeHandler}
+        value={value}
+      />
+    )
+  }
+)
+
+CurrencySelect.displayName = 'CurrencySelect'

@@ -1,10 +1,12 @@
-import React, { FC, HTMLAttributes, ReactNode, memo } from 'react'
+import React, { HTMLAttributes, ReactNode, memo } from 'react'
+
 import { classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Card.module.scss'
 
 export enum CardTheme {
   NORMAL = 'normal',
-  OUTLINED = 'outlined',
+  OUTLINED = 'outlined'
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -13,10 +15,22 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   theme?: CardTheme
 }
 
-export const Card: FC<CardProps> = memo(({ className, children, theme = CardTheme.NORMAL, ...otherProps }) => {
-  return (
-    <div {...otherProps} className={classNames(cls.Card, {}, [className, cls[theme]])}>
-      {children}
-    </div>
-  )
-})
+export const Card = memo(
+  ({
+    className,
+    children,
+    theme = CardTheme.NORMAL,
+    ...otherProps
+  }: CardProps) => {
+    return (
+      <div
+        {...otherProps}
+        className={classNames(cls.Card, {}, [className, cls[theme]])}
+      >
+        {children}
+      </div>
+    )
+  }
+)
+
+Card.displayName = 'Card'

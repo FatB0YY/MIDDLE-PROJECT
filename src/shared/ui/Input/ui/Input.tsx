@@ -1,8 +1,20 @@
-import React, { FC, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
+import React, {
+  ChangeEvent,
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
+
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
+
 import cls from './Input.module.scss'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLButtonElement>,
+  'value' | 'onChange' | 'readOnly'
+>
 
 interface InputProps extends HTMLInputProps {
   className?: string
@@ -16,7 +28,7 @@ interface InputProps extends HTMLInputProps {
   classNameInput?: string
 }
 
-export const Input: FC<InputProps> = memo(
+export const Input = memo(
   ({
     className,
     value,
@@ -26,9 +38,8 @@ export const Input: FC<InputProps> = memo(
     autofocus,
     readonly,
     placeholderClassName,
-    classNameInput,
-    ...otherProps
-  }) => {
+    classNameInput
+  }: InputProps) => {
     const [isFocused, setIsFocused] = useState(false)
     const [caretPosition, setCaretPosition] = useState(0)
 
@@ -47,7 +58,7 @@ export const Input: FC<InputProps> = memo(
       setIsFocused(true)
     }
 
-    const onSelect = (e: any) => {
+    const onSelect = (e: ChangeEvent<HTMLInputElement>) => {
       setCaretPosition(e?.target?.selectionStart || 0)
     }
 
@@ -59,7 +70,7 @@ export const Input: FC<InputProps> = memo(
     }, [autofocus])
 
     const mods: Mods = {
-      [cls.readonly]: readonly,
+      [cls.readonly]: readonly
     }
 
     const isCaretVisible = isFocused && !readonly
@@ -67,7 +78,9 @@ export const Input: FC<InputProps> = memo(
     return (
       <div className={classNames(cls.InputWrapper, mods, [className])}>
         {placeholder && (
-          <div className={classNames(cls.placeholder, {}, [placeholderClassName])}>{`${placeholder}>`}</div>
+          <div
+            className={classNames(cls.placeholder, {}, [placeholderClassName])}
+          >{`${placeholder}>`}</div>
         )}
 
         <div className={cls.caretWrapper}>
@@ -81,11 +94,17 @@ export const Input: FC<InputProps> = memo(
             value={value}
             onChange={onChangeHandler}
             readOnly={readonly}
-            // {...otherProps}
           />
-          {isCaretVisible && <span style={{ left: `${caretPosition * 9}px` }} className={cls.caret} />}
+          {isCaretVisible && (
+            <span
+              style={{ left: `${caretPosition * 9}px` }}
+              className={cls.caret}
+            />
+          )}
         </div>
       </div>
     )
   }
 )
+
+Input.displayName = 'Input'

@@ -1,4 +1,7 @@
+/* eslint-disable */
+
 import { Story } from '@storybook/react'
+
 import { articleDetailsReducer } from 'essence/article'
 import { profileReducer } from 'essence/profile'
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentsList'
@@ -13,13 +16,16 @@ const defaultAsyncReducers: ReducersList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addNewComment: addNewCommentReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsComments: articleDetailsCommentsReducer
 }
 
 export const StoreDecorator =
-  (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (StoryComponent: Story) =>
-    (
-      <StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
-        <StoryComponent />
-      </StoreProvider>
-    )
+  (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
+  (StoryComponent: Story) => (
+    <StoreProvider
+      initialState={state}
+      asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+    >
+      <StoryComponent />
+    </StoreProvider>
+  )

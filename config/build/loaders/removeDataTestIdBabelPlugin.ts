@@ -1,10 +1,16 @@
-import { PluginItem } from '@babel/core'
+import * as Babel from '@babel/core'
 
-export function removeDataTestIdBabelPlugin(): PluginItem {
+interface RemoveDataTestIdBabelPluginState {
+  opts: {
+    props?: string[]
+  }
+}
+
+export function removeDataTestIdBabelPlugin(): Babel.PluginObj<RemoveDataTestIdBabelPluginState> {
   return {
     visitor: {
       Program(path, state) {
-        const forbiddenProps = state.opts.props || []
+        const forbiddenProps = (state.opts.props || []) as string[]
 
         path.traverse({
           JSXIdentifier(current) {
@@ -12,9 +18,9 @@ export function removeDataTestIdBabelPlugin(): PluginItem {
             if (forbiddenProps.includes(nodeName)) {
               current.parentPath.remove()
             }
-          },
+          }
         })
-      },
-    },
+      }
+    }
   }
 }

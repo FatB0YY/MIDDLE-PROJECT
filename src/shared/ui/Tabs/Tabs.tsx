@@ -1,7 +1,10 @@
-import React, { FC, ReactNode, memo, useCallback } from 'react'
+import React, { ReactNode, memo, useCallback } from 'react'
+
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './Tabs.module.scss'
+
 import { Card, CardTheme } from '../Card/Card'
+
+import cls from './Tabs.module.scss'
 
 export interface TabItem {
   value: string
@@ -15,28 +18,32 @@ interface TabsProps {
   onTabClick: (tab: TabItem) => void
 }
 
-export const Tabs: FC<TabsProps> = memo(({ className, onTabClick, tabs, value }) => {
-  const clickHandle = useCallback(
-    (tab: TabItem) => {
-      return () => {
-        onTabClick(tab)
-      }
-    },
-    [onTabClick]
-  )
+export const Tabs = memo(
+  ({ className, onTabClick, tabs, value }: TabsProps) => {
+    const clickHandle = useCallback(
+      (tab: TabItem) => {
+        return () => {
+          onTabClick(tab)
+        }
+      },
+      [onTabClick]
+    )
 
-  return (
-    <div className={classNames(cls.Tabs, {}, [className])}>
-      {tabs.map((tab) => (
-        <Card
-          onClick={clickHandle(tab)}
-          theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
-          key={tab.value}
-          className={cls.tab}
-        >
-          {tab.content}
-        </Card>
-      ))}
-    </div>
-  )
-})
+    return (
+      <div className={classNames(cls.Tabs, {}, [className])}>
+        {tabs.map((tab) => (
+          <Card
+            onClick={clickHandle(tab)}
+            theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+            key={tab.value}
+            className={cls.tab}
+          >
+            {tab.content}
+          </Card>
+        ))}
+      </div>
+    )
+  }
+)
+
+Tabs.displayName = 'Tabs'

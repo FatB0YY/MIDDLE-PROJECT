@@ -1,12 +1,19 @@
-import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
+import {
+  PayloadAction,
+  createEntityAdapter,
+  createSlice
+} from '@reduxjs/toolkit'
+
 import { EArticleView, IArticle } from 'essence/article'
 import { StateSchema } from 'shared/lib/store'
-import { articlesPageSchema } from '../types/articlePageSchema'
-import { fetchArticlesListThunk } from '../services/fetchArticlesListThunk'
+
 import { ARTICLEVIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
+import { articlesPageSchema } from '../types/articlePageSchema'
+import { fetchArticlesListThunk } from '../services/fetchArticlesListThunk'
+
 const articlesAdapter = createEntityAdapter<IArticle>({
-  selectId: (article) => article.id,
+  selectId: (article) => article.id
 })
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -24,7 +31,7 @@ const articlesPageSlice = createSlice({
     hasMore: true,
     limit: 0,
     page: 1,
-    _initied: false,
+    _initiated: false
   }),
   reducers: {
     setView: (state, action: PayloadAction<EArticleView>) => {
@@ -35,11 +42,13 @@ const articlesPageSlice = createSlice({
       state.page = action.payload
     },
     initState: (state) => {
-      const view = localStorage.getItem(ARTICLEVIEW_LOCALSTORAGE_KEY) as EArticleView
+      const view = localStorage.getItem(
+        ARTICLEVIEW_LOCALSTORAGE_KEY
+      ) as EArticleView
       state.view = view
       state.limit = view === EArticleView.BIG ? 4 : 9
-      state._initied = true
-    },
+      state._initiated = true
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchArticlesListThunk.pending, (state, action) => {
@@ -61,7 +70,7 @@ const articlesPageSlice = createSlice({
         // заменяем все
         articlesAdapter.setAll(state, action.payload)
       } else {
-        // данные не полность затираем, а добавляем в конец
+        // данные не полностью затираем, а добавляем в конец
         articlesAdapter.addMany(state, action.payload)
       }
     })
@@ -69,7 +78,8 @@ const articlesPageSlice = createSlice({
       state.error = action.payload
       state.isLoading = false
     })
-  },
+  }
 })
 
-export const { actions: articlesPageActions, reducer: articlesPageReducer } = articlesPageSlice
+export const { actions: articlesPageActions, reducer: articlesPageReducer } =
+  articlesPageSlice

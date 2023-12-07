@@ -1,12 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ArticleSortSchema, EArticleSortField } from '../types/articlesort'
+
 import { EArticleType } from 'essence/article/model/types/article'
+
+import { ArticleSortSchema, EArticleSortField } from '../types/articlesort'
 
 const initialState: ArticleSortSchema = {
   order: 'asc',
   search: '',
   sort: EArticleSortField.VIEWS,
-  type: EArticleType.ALL,
+  type: EArticleType.ALL
 }
 
 const articleSortSlice = createSlice({
@@ -24,8 +26,9 @@ const articleSortSlice = createSlice({
     },
     setType: (state, action: PayloadAction<EArticleType>) => {
       state.type = action.payload
-    },
-  },
+    }
+  }
 })
 
-export const { actions: articleSortActions, reducer: articleSortReducer } = articleSortSlice
+export const { actions: articleSortActions, reducer: articleSortReducer } =
+  articleSortSlice

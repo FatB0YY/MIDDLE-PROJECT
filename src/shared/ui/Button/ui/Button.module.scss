@@ -1,98 +1,98 @@
 .Button {
-    cursor: pointer;
-    color: var(--main-color);
-    padding: 6px 15px;
-    max-height: 50px;
+  max-height: 50px;
+  padding: 6px 15px;
+  color: var(--main-color);
+  cursor: pointer;
 
-    &:hover {
-        opacity: 0.8;
-        stroke-opacity: 0.8;
-        fill-opacity: 0.8;
-    }
+  &:hover {
+    fill-opacity: 0.8;
+    opacity: 0.8;
+    stroke-opacity: 0.8;
+  }
 }
 
 .clear,
 .clearInverted {
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
 }
 
 .accent {
-    color: #F4F4FB;
-    background-color: var(--accent-color);
-    border-radius: 5px;
-    outline: none;
-    border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: #f4f4fb;
+  outline: none;
 }
 
 .accent:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .clearInverted {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
 .outline {
-    border: 2px solid var(--secondary-color);
-    border-radius: 5px;
-    color: var(--secondary-color);
-    background: none;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  background: none;
+  color: var(--secondary-color);
 }
 
 .background {
-    background: var(--main-color);
-    color: var(--secondary-color);
-    border: none;
+  border: none;
+  background: var(--main-color);
+  color: var(--secondary-color);
 }
 
 .backgroundInverted {
-    background: var(--secondary-color);
-    color: var(--main-color);
-    border: none;
+  border: none;
+  background: var(--secondary-color);
+  color: var(--main-color);
 }
 
 .square {
-    padding: 0;
+  padding: 0;
 }
 
 .square.size_m {
-    width: var(--font-line-m);
-    height: var(--font-line-m);
+  width: var(--font-line-m);
+  height: var(--font-line-m);
 }
 
 .square.size_l {
-    width: var(--font-line-l);
-    height: var(--font-line-l);
+  width: var(--font-line-l);
+  height: var(--font-line-l);
 }
 
 .square.size_xl {
-    width: var(--font-line-xl);
-    height: var(--font-line-xl);
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
 }
 
 .size_m {
-    font: var(--font-m);
+  font: var(--font-m);
 }
 
 .size_l {
-    font: var(--font-l);
+  font: var(--font-l);
 }
 
 .size_xl {
-    font: var(--font-xl);
+  font: var(--font-xl);
 }
 
 .disabled {
-    opacity: 0.5;
-    cursor: no-drop;
+  cursor: no-drop;
+  opacity: 0.5;
 }
 
 .outlineRed {
-    border: 2px solid var(--red-light);
-    border-radius: 5px;
-    color: var(--red-light);
-    background: none;
+  border: 2px solid var(--red-light);
+  border-radius: 5px;
+  background: none;
+  color: var(--red-light);
 }

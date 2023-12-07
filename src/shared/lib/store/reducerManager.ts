@@ -1,8 +1,16 @@
-import { AnyAction, Reducer, ReducersMapObject, combineReducers } from '@reduxjs/toolkit'
+import {
+  AnyAction,
+  Reducer,
+  ReducersMapObject,
+  combineReducers
+} from '@reduxjs/toolkit'
+
 import { ReducerManager, StateSchema, StateSchemaKey } from './types'
 
 // принимаем на вход дефолтные редьюсеры
-export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
+export function createReducerManager(
+  initialReducers: ReducersMapObject<StateSchema>
+): ReducerManager {
   const reducers = { ...initialReducers }
 
   // создаем корневой редьюсер
@@ -19,7 +27,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
       if (keysToRemove.length > 0) {
         state = { ...state }
 
-        for (let key of keysToRemove) {
+        for (const key of keysToRemove) {
           delete state[key]
         }
         keysToRemove = []
@@ -50,6 +58,6 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
       keysToRemove.push(key)
 
       combinedReducer = combineReducers(reducers)
-    },
+    }
   }
 }

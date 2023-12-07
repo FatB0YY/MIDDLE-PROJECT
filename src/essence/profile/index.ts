@@ -13,5 +13,5 @@ export {
   IProfile,
   ProfileSchema,
   profileActions,
-  profileReducer,
+  profileReducer
 }

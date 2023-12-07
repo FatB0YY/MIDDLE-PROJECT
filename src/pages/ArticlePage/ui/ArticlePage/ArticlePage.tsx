@@ -1,22 +1,24 @@
-import React, { FC, memo, useCallback, useEffect } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ArticlePage.module.scss'
-import { useTranslation } from 'react-i18next'
-import { ArticleList, EArticleView } from 'essence/article'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import { articlesPageActions, articlesPageReducer, getArticles } from 'pages/ArticlePage/model/slice/articlesPageSlice'
-import { useActionCreatorsTyped } from 'shared/lib/store'
+import React, { memo, useCallback, useEffect } from 'react'
+
+// import { useTranslation } from 'react-i18next'
+
 import { useSelector } from 'react-redux'
 
+import { useSearchParams } from 'react-router-dom'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
+import { ArticleList, EArticleView } from 'essence/article'
 import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors'
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+
+import { useActionCreatorsTyped } from 'shared/lib/store'
+
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { Page } from 'widgets/Page/Page'
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPageThunk'
-import { initArticlesPage } from '../../model/services/initArticlesPage'
+
 import {
   ArticleSortSelector,
   ArticleSearch,
@@ -24,34 +26,52 @@ import {
   getArticleSortSort,
   getArticleSortOrder,
   getArticleSortSearch,
+  articleSortActions,
+  getArticleSortType,
+  ArticleTabsType
 } from 'features/ArticleSort'
-import { articleSortActions } from 'features/ArticleSort'
+
 import { SortOrder } from 'shared/types/sort'
-import { fetchArticlesListThunk } from 'pages/ArticlePage/model/services/fetchArticlesListThunk'
+
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
-import { useSearchParams } from 'react-router-dom'
+
 import { EArticleType } from 'essence/article/model/types/article'
 import { TabItem } from 'shared/ui/Tabs/Tabs'
-import { getArticleSortType } from 'features/ArticleSort'
-import { ArticleTabsType } from 'features/ArticleSort'
+
+import {
+  articlesPageActions,
+  articlesPageReducer,
+  getArticles
+} from '../../model/slice/articlesPageSlice'
+
+import { initArticlesPage } from '../../model/services/initArticlesPage'
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPageThunk'
+import {
+  // getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageView
+} from '../../model/selectors/articlesPageSelectors'
+import { fetchArticlesListThunk } from '../../model/services/fetchArticlesListThunk'
+
+import cls from './ArticlePage.module.scss'
 
 interface ArticlePageProps {
   className?: string
 }
 
 const reducers: ReducersList = {
-  articlesPage: articlesPageReducer,
+  articlesPage: articlesPageReducer
 }
 
 const allActions = {
   ...articlesPageActions,
   fetchNextArticles: fetchNextArticlesPage,
   initArticlesPage: initArticlesPage,
-  fetchArticlesList: fetchArticlesListThunk,
+  fetchArticlesList: fetchArticlesListThunk
 }
 
-const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
-  const { t } = useTranslation('article')
+const ArticlePage = ({ className }: ArticlePageProps) => {
+  // const { t } = useTranslation('article')
 
   const actionsArticlesPage = useActionCreatorsTyped(allActions)
   const actionsArticleSort = useActionCreatorsTyped(articleSortActions)
@@ -59,7 +79,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   const articles = useSelector(getArticles.selectAll)
 
   const isLoading = useSelector(getArticlesPageIsLoading)
-  const error = useSelector(getArticlesPageError)
+  // const error = useSelector(getArticlesPageError)
   const view = useSelector(getArticlesPageView)
 
   const sort = useSelector(getArticleSortSort)
@@ -72,14 +92,23 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
 
   const onLoadNextPart = useCallback(() => {
     actionsArticlesPage.fetchNextArticles()
-  }, [actionsArticlesPage.fetchNextArticles])
+  }, [actionsArticlesPage.fetchNextArticles]) // eslint-disable-line
 
   useEffect(() => {
     if (__PROJECT__ !== 'sb') {
       setSearchParams({ sort, order, search, type })
       actionsArticlesPage.initArticlesPage(searchParams)
     }
-  }, [actionsArticlesPage.initArticlesPage, sort, order, search, searchParams, type])
+    // eslint-disable-next-line
+  }, [
+    actionsArticlesPage.initArticlesPage,
+    sort,
+    order,
+    search,
+    searchParams,
+    type,
+    setSearchParams
+  ])
 
   const fetchData = () => {
     actionsArticlesPage.fetchArticlesList({ replace: true })
@@ -91,25 +120,25 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
     (view: EArticleView) => {
       actionsArticlesPage.setView(view)
     },
-    [actionsArticlesPage.setView]
+    [actionsArticlesPage.setView] // eslint-disable-line
   )
 
   const onChangeSort = useCallback(
     (newSort: EArticleSortField) => {
-      actionsArticleSort.setSort(newSort as EArticleSortField)
+      actionsArticleSort.setSort(newSort)
       actionsArticlesPage.setPage(1)
       fetchData()
     },
-    [actionsArticleSort.setSort, fetchData]
+    [actionsArticleSort.setOrder, actionsArticlesPage.setPage, fetchData] // eslint-disable-line
   )
 
   const onChangeOrder = useCallback(
     (newOrder: SortOrder) => {
-      actionsArticleSort.setOrder(newOrder as SortOrder)
+      actionsArticleSort.setOrder(newOrder)
       actionsArticlesPage.setPage(1)
       fetchData()
     },
-    [actionsArticleSort.setOrder, fetchData]
+    [actionsArticleSort.setOrder, actionsArticlesPage.setPage, fetchData] // eslint-disable-line
   )
 
   const onChangeSearch = useCallback(
@@ -118,7 +147,12 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
       actionsArticlesPage.setPage(1)
       debouncedFetchData()
     },
-    [actionsArticleSort.setSearch, debouncedFetchData]
+    // eslint-disable-next-line
+    [
+      actionsArticleSort.setSearch,
+      actionsArticlesPage.setPage,
+      debouncedFetchData
+    ]
   )
 
   const onChangeType = useCallback(
@@ -128,20 +162,44 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
       actionsArticlesPage.setPage(1)
       fetchData()
     },
-    [actionsArticleSort.setType, debouncedFetchData]
+    [actionsArticleSort.setType, actionsArticlesPage.setPage, fetchData] // eslint-disable-line
   )
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount={false}
+    >
+      <Page
+        onScrollEnd={onLoadNextPart}
+        className={classNames(cls.ArticlePage, {}, [className])}
+      >
         <div className={cls.sortWrapper}>
-          <ArticleSortSelector sort={sort} order={order} onChangeOrder={onChangeOrder} onChangeSort={onChangeSort} />
-          <ArticleViewSelector view={view} onViewClick={onChangeView} />
+          <ArticleSortSelector
+            sort={sort}
+            order={order}
+            onChangeOrder={onChangeOrder}
+            onChangeSort={onChangeSort}
+          />
+          <ArticleViewSelector
+            view={view}
+            onViewClick={onChangeView}
+          />
         </div>
-        <ArticleSearch value={search} onChange={onChangeSearch} />
-        <ArticleTabsType value={type} onChangeType={onChangeType} />
+        <ArticleSearch
+          value={search}
+          onChange={onChangeSearch}
+        />
+        <ArticleTabsType
+          value={type}
+          onChangeType={onChangeType}
+        />
 
-        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+        <ArticleList
+          isLoading={isLoading}
+          view={view}
+          articles={articles}
+        />
       </Page>
     </DynamicModuleLoader>
   )

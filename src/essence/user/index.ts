@@ -1,6 +1,8 @@
 import { userReducer } from './model/slice/userSlice'
-import type { IUser, UserSchema } from './model/types/user'
+
 import { getUserAuthData } from './model/selectors/getUserAuthData'
+
+import type { IUser, UserSchema } from './model/types/user'
 
 export { userReducer, getUserAuthData }
 export type { IUser, UserSchema }

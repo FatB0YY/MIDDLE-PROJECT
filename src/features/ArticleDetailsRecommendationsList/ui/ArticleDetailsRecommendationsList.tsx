@@ -1,36 +1,47 @@
-import React, { FC, useEffect } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ArticleDetailsRecommendationsList.module.scss'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticleRecommendations,
-} from '../model/slice/ArticleDetailsRecommendationsListSlice'
+import React, { useEffect } from 'react'
+
 import { useSelector } from 'react-redux'
+
+import { classNames } from 'shared/lib/classNames/classNames'
+
 import {
-  getArticleRecommendationsListError,
-  getArticleRecommendationsListIsLoading,
-} from '../model/selectors/ArticleDetailsRecommendationsListSelectors'
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+
 import { Text, TextSize } from 'shared/ui/Text'
 import { ArticleList } from 'essence/article'
 import { useActionCreatorsTyped } from 'shared/lib/store'
+
+import {
+  // getArticleRecommendationsListError,
+  getArticleRecommendationsListIsLoading
+} from '../model/selectors/ArticleDetailsRecommendationsListSelectors'
+import {
+  articleDetailsPageRecommendationsReducer,
+  getArticleRecommendations
+} from '../model/slice/ArticleDetailsRecommendationsListSlice'
 import { fetchArticleDetailsRecommendationsListThunk } from '../model/services/fetchArticleDetailsRecommendationsList'
+
+import cls from './ArticleDetailsRecommendationsList.module.scss'
 
 interface ArticleDetailsRecommendationsListProps {
   className?: string
 }
 
 const reducers: ReducersList = {
-  articleDetailaRecommendations: articleDetailsPageRecommendationsReducer,
+  articleDetailsRecommendations: articleDetailsPageRecommendationsReducer
 }
 
 const allActions = {
-  fetchRecommend: fetchArticleDetailsRecommendationsListThunk,
+  fetchRecommend: fetchArticleDetailsRecommendationsListThunk
 }
 
-export const ArticleDetailsRecommendationsList: FC<ArticleDetailsRecommendationsListProps> = ({ className }) => {
+export const ArticleDetailsRecommendationsList = ({
+  className
+}: ArticleDetailsRecommendationsListProps) => {
   const recommendations = useSelector(getArticleRecommendations.selectAll)
-  const error = useSelector(getArticleRecommendationsListError)
+  // const error = useSelector(getArticleRecommendationsListError)
   const isLoading = useSelector(getArticleRecommendationsListIsLoading)
   const actions = useActionCreatorsTyped(allActions)
 
@@ -41,10 +52,26 @@ export const ArticleDetailsRecommendationsList: FC<ArticleDetailsRecommendations
   }, [actions.fetchRecommend])
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-      <div className={classNames(cls.ArticleDetailsRecommendationsList, {}, [className])}>
-        <Text size={TextSize.L} className={cls.commentListTitle} title={'Рекомендуем (перевод!)'} />
-        <ArticleList target={'_blank'} className={cls.recommendList} isLoading={isLoading} articles={recommendations} />
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount={true}
+    >
+      <div
+        className={classNames(cls.ArticleDetailsRecommendationsList, {}, [
+          className
+        ])}
+      >
+        <Text
+          size={TextSize.L}
+          className={cls.commentListTitle}
+          title={'Рекомендуем (перевод!)'}
+        />
+        <ArticleList
+          target={'_blank'}
+          className={cls.recommendList}
+          isLoading={isLoading}
+          articles={recommendations}
+        />
       </div>
     </DynamicModuleLoader>
   )

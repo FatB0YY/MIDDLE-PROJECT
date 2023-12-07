@@ -1,10 +1,13 @@
 import { ECurrency } from 'essence/currency'
+
 import { IProfile, ValidateProfileError } from '../types/profile'
 
 // Функция для проверки, что значение принадлежит к ECurrency
+/* eslint-disable */
 function isECurrency(value: any): value is ECurrency {
   return Object.values(ECurrency).includes(value)
 }
+/* eslint-enable */
 
 export const validateProfile = (profile: IProfile | null) => {
   const errors: ValidateProfileError[] = []

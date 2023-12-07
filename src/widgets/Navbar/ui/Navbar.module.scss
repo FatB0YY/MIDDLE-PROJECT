@@ -1,19 +1,18 @@
 .Navbar {
-    height: var(--navbar-height);
-    background: var(--secondary-color);
-    display: flex;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  height: var(--navbar-height);
+  align-items: center;
+  padding: 20px;
+  background: var(--secondary-color);
 }
 
-
 .mainLink {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .appLink {
-    width: var(--sidebar-width);
-    margin-left: 15px;
+  width: var(--sidebar-width);
+  margin-left: 15px;
 }
 
 .createBtn {}

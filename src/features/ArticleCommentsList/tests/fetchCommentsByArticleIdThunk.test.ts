@@ -1,6 +1,7 @@
-import { fetchCommentsByArticleIdThunk } from '../model/services/fetchCommentsByArticleIdThunk'
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
 import { IComment } from 'essence/comment'
+
+import { fetchCommentsByArticleIdThunk } from '../model/services/fetchCommentsByArticleIdThunk'
 
 describe('fetchCommentsByArticleIdThunk', () => {
   const data: IComment = {
@@ -9,8 +10,8 @@ describe('fetchCommentsByArticleIdThunk', () => {
     user: {
       id: '1',
       username: 'admin',
-      avatar: 'rfr',
-    },
+      avatar: 'rfr'
+    }
   }
 
   test('Проверка с resolved ответом', async () => {

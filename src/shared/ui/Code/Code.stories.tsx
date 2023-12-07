@@ -1,16 +1,19 @@
+/* eslint-disable */
+
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Code } from './Code'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+
+import { Code } from './Code'
 
 export default {
   title: 'SHARED/Code',
   component: Code,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as ComponentMeta<typeof Code>
 
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />
@@ -28,7 +31,7 @@ Normal.args = {
     '\n' +
     'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n' +
     '\n' +
-    'export const Normal = Template.bind({});',
+    'export const Normal = Template.bind({});'
 }
 
 export const Dark = Template.bind({})
@@ -44,6 +47,6 @@ Dark.args = {
     '\n' +
     'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n' +
     '\n' +
-    'export const Dark = Template.bind({});',
+    'export const Dark = Template.bind({});'
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

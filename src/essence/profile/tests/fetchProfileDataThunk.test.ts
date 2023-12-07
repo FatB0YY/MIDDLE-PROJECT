@@ -1,8 +1,10 @@
 import { IProfile } from 'essence/profile'
-import { fetchProfileDataThunk } from '../model/services/fetchProfileDataThunk'
+
 import { ECurrency } from 'essence/currency'
 import { Country } from 'shared/const/other'
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+
+import { fetchProfileDataThunk } from '../model/services/fetchProfileDataThunk'
 
 describe('fetchProfileDataThunk', () => {
   const data: IProfile = {
@@ -13,8 +15,9 @@ describe('fetchProfileDataThunk', () => {
     country: Country.ARMENIA,
     city: 'Moscow',
     username: 'admin213',
-    avatar: 'https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj',
-    id: '1',
+    avatar:
+      'https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj',
+    id: '1'
   }
 
   test('Проверка с resolved ответом', async () => {
