@@ -1,19 +1,17 @@
 import React, { useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
-
 import { useSelector } from 'react-redux'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-
 import { Input } from 'shared/ui/Input'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import {
   DynamicModuleLoader,
   ReducersList
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-
 import { useActionCreatorsTyped } from 'shared/lib/store'
+import { HStack } from 'shared/ui/Stack'
 
 import {
   // getAddNewCommentError,
@@ -65,7 +63,11 @@ const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
       reducers={reducers}
       removeAfterUnmount={true}
     >
-      <div className={classNames(cls.AddNewComment, {}, [className])}>
+      <HStack
+        gap='8'
+        max
+        className={classNames(cls.AddNewComment, {}, [className])}
+      >
         <Input
           placeholderClassName={cls.input}
           classNameInput={cls.placeholder}
@@ -79,7 +81,7 @@ const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
         >
           {t('features.addnewcomment.submit')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   )
 }

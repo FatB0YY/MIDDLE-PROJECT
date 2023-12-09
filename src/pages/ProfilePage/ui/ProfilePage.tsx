@@ -18,9 +18,8 @@ import {
 } from 'essence/profile'
 import { fetchProfileDataThunk } from 'features/AuthByUsername'
 import { useActionCreatorsTyped } from 'shared/lib/store/hook'
-
 import { ECurrency } from 'essence/currency'
-
+import { VStack } from 'shared/ui/Stack/VStack/VStack'
 import { PageError } from 'widgets/PageError'
 import { Page } from 'widgets/Page/Page'
 
@@ -49,21 +48,21 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     if (id && __PROJECT__ !== 'sb') {
       actionsProfile.fetchProfile(id)
     }
-  }, [actionsProfile, actionsProfile.fetchProfile, id])
+  }, [actionsProfile.fetchProfile, id])
 
   // для каждого поля формы своя ф-ция, тк может быть доп логика, валидация итд
   const onChangeFirstname = useCallback(
     (value?: string) => {
       actionsProfile.updateProfile({ first: value || '' })
     },
-    [actionsProfile.updateProfile] // eslint-disable-line
+    [actionsProfile.updateProfile]
   )
 
   const onChangeLastname = useCallback(
     (value?: string) => {
       actionsProfile.updateProfile({ lastname: value || '' })
     },
-    [actionsProfile.updateProfile] // eslint-disable-line
+    [actionsProfile.updateProfile]
   )
 
   const onChangeAge = useCallback(
@@ -72,14 +71,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         actionsProfile.updateProfile({ age: Number(value || 0) })
       }
     },
-    [actionsProfile.updateProfile] // eslint-disable-line
+    [actionsProfile.updateProfile]
   )
 
   const onChangeCurrency = useCallback(
     (currency?: ECurrency) => {
       actionsProfile.updateProfile({ currency: currency || ECurrency.RUB })
     },
-    [actionsProfile.updateProfile] // eslint-disable-line
+    [actionsProfile.updateProfile]
   )
 
   if (!id) {
@@ -96,20 +95,22 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
       removeAfterUnmount={true}
     >
       <Page className={classNames(cls.ProfilePage, {}, [className])}>
-        <ProfilePageHeader
-          error={error}
-          isLoading={isLoading}
-        />
-        <ProfileCard
-          onChangeFirstname={onChangeFirstname}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCurrency={onChangeCurrency}
-          data={form}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-        />
+        <VStack gap='16'>
+          <ProfilePageHeader
+            error={error}
+            isLoading={isLoading}
+          />
+          <ProfileCard
+            onChangeFirstname={onChangeFirstname}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCurrency={onChangeCurrency}
+            data={form}
+            isLoading={isLoading}
+            error={error}
+            readonly={readonly}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

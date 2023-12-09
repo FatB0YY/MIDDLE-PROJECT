@@ -17,8 +17,7 @@ import {
 import { useActionCreatorsTyped } from 'shared/lib/store/hook'
 
 import { getUserAuthData } from 'essence/user'
-
-import cls from './ProfilePageHeader.module.scss'
+import { HStack } from 'shared/ui/Stack/HStack/HStack'
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -80,9 +79,8 @@ export const ProfilePageHeader = ({
 
       if (!readonly && !error && !isLoading) {
         return (
-          <>
+          <HStack gap='8'>
             <Button
-              className={cls.cancelBtn}
               onClick={onCancelEdit}
               theme={ThemeButton.OUTLINE_RED}
             >
@@ -94,7 +92,7 @@ export const ProfilePageHeader = ({
             >
               {t('entities.profile.profilecard.save')}
             </Button>
-          </>
+          </HStack>
         )
       }
     }
@@ -103,12 +101,13 @@ export const ProfilePageHeader = ({
   }
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-      <Text
-        className={cls.title}
-        title={t('entities.profile.profilecard.title')}
-      />
-      <div className={cls.btnsWrapper}>{renderButtons()}</div>
-    </div>
+    <HStack
+      max={true}
+      justify='between'
+      className={classNames('', {}, [className])}
+    >
+      <Text title={t('entities.profile.profilecard.title')} />
+      <div>{renderButtons()}</div>
+    </HStack>
   )
 }

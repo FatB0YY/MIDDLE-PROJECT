@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useMemo, useState } from 'react'
 
 import { useSelector } from 'react-redux'
 
@@ -8,6 +8,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher/index'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { ButtonSize } from 'shared/ui/Button/ui/Button'
+import { VStack } from 'shared/ui/Stack/VStack/VStack'
 
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
@@ -41,6 +42,19 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   //   [collapsed]
   // )
 
+  const itemsList = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <li key={item.path}>
+          <SidebarItem
+            item={item}
+            collapsed={collapsed}
+          />
+        </li>
+      )),
+    [collapsed, sidebarItemsList]
+  )
+
   return (
     <menu
       data-testid='sidebar'
@@ -60,14 +74,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       </Button>
 
       <nav>
-        <ul className={cls.items}>
-          {sidebarItemsList.map((item) => (
-            <SidebarItem
-              key={item.path}
-              item={item}
-              collapsed={collapsed}
-            />
-          ))}
+        <ul>
+          <VStack
+            gap='8'
+            className={cls.items}
+          >
+            {itemsList}
+          </VStack>
         </ul>
       </nav>
 

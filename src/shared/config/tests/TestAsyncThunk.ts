@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { AsyncThunkAction } from '@reduxjs/toolkit'
-import axios, { AxiosStatic } from 'axios'
+import axios, { AxiosRequestConfig, AxiosStatic } from 'axios'
 import { StateSchema } from 'shared/lib/store'
 
 type ActionCreatorType<Return, Arg, RejectedValue> = (

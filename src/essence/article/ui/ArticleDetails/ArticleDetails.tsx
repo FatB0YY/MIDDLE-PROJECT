@@ -7,13 +7,10 @@ import {
   DynamicModuleLoader,
   ReducersList
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-
 import { useActionCreatorsTyped } from 'shared/lib/store'
-
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-
 import { classNames } from 'shared/lib/classNames/classNames'
-
+import { VStack } from 'shared/ui/Stack'
 import { PageError } from 'widgets/PageError'
 
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
@@ -103,9 +100,12 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       reducers={reducers}
       removeAfterUnmount={true}
     >
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack
+        gap='16'
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   )
 })

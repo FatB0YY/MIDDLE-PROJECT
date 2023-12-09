@@ -21,15 +21,13 @@ import {
   fetchCommentsByArticleIdThunk,
   addCommentForArticle
 } from 'features/ArticleCommentsList'
+import { VStack } from 'shared/ui/Stack'
 
 import { useActionCreatorsTyped } from 'shared/lib/store'
-
 import { AddNewCommentAsync } from 'features/addNewComment'
-
 import { Page } from 'widgets/Page/Page'
 import { ArticleDetailsRecommendationsList } from 'features/ArticleDetailsRecommendationsList'
 
-import cls from './ArticleDetailsPage.module.scss'
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
@@ -67,7 +65,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <PageError />
       </Page>
     )
@@ -78,18 +76,23 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       reducers={reducers}
       removeAfterUnmount={true}
     >
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
+      <Page className={classNames('', {}, [className])}>
+        <VStack
+          max
+          gap='16'
+        >
+          <ArticleDetailsPageHeader />
 
-        <ArticleDetails id={id} />
+          <ArticleDetails id={id} />
 
-        <ArticleDetailsRecommendationsList />
+          <ArticleDetailsRecommendationsList />
 
-        <AddNewCommentAsync onSendComment={onSendComment} />
-        <CommentList
-          isLoading={isLoading}
-          comments={comments}
-        />
+          <AddNewCommentAsync onSendComment={onSendComment} />
+          <CommentList
+            isLoading={isLoading}
+            comments={comments}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

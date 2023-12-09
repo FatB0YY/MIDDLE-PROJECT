@@ -8,6 +8,7 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
 import { PageError } from 'widgets/PageError'
+import { VStack } from 'shared/ui/Stack'
 
 import { IComment } from '../model/types/comment'
 
@@ -53,7 +54,11 @@ export const CommentItem = ({
   }
 
   return (
-    <div className={classNames(cls.CommentItem, {}, [className])}>
+    <VStack
+      max
+      gap='8'
+      className={classNames(cls.CommentItem, {}, [className])}
+    >
       <AppLink
         to={`${RoutePath.profile}${comment.user.id}`}
         className={cls.header}
@@ -74,6 +79,6 @@ export const CommentItem = ({
         className={cls.text}
         text={comment.text}
       />
-    </div>
+    </VStack>
   )
 }

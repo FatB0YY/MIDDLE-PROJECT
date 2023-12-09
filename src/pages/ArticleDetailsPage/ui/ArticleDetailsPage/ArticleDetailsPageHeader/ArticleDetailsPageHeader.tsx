@@ -1,19 +1,14 @@
 import React, { useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
-
 import { useNavigate } from 'react-router-dom'
-
 import { useSelector } from 'react-redux'
 
+import { HStack } from 'shared/ui/Stack'
 import { classNames } from 'shared/lib/classNames/classNames'
-
 import { RoutePath } from 'app/providers/router/config/routeConfig'
 import { Button, ThemeButton } from 'shared/ui/Button'
-
 import { getArticleDetailsData, getCanEditArticle } from 'essence/article'
-
-import cls from './ArticleDetailsPageHeader.module.scss'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -38,7 +33,11 @@ export const ArticleDetailsPageHeader = ({
   }, [navigate, article?.id])
 
   return (
-    <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+    <HStack
+      max
+      justify='between'
+      className={classNames('', {}, [className])}
+    >
       <Button onClick={onBackToTheList}>
         {t('pages.articledetailspage.backtothelist')}
       </Button>
@@ -47,11 +46,10 @@ export const ArticleDetailsPageHeader = ({
         <Button
           onClick={onEditArticle}
           theme={ThemeButton.OUTLINE}
-          className={cls.edit}
         >
           {t('pages.articledetailspage.edit')}
         </Button>
       )}
-    </div>
+    </HStack>
   )
 }
