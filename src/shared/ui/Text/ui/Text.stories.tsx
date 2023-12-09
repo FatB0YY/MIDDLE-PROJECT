@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 
-import { Text, TextTheme } from './Text'
+import { Text, TextAlign, TextSize, TextTheme } from './Text'
 
 export default {
   title: 'SHARED/Text',
@@ -27,6 +27,12 @@ Error.args = {
   title: 'Title lorem ipsun',
   text: 'Description Description Description Description',
   theme: TextTheme.ERROR
+}
+
+export const AlignedRight = Template.bind({})
+AlignedRight.args = {
+  text: 'This text is aligned to the right',
+  align: TextAlign.RIGHT
 }
 
 export const onlyTitle = Template.bind({})
@@ -57,3 +63,15 @@ onlyTextDark.args = {
   text: 'Description Description Description Description'
 }
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const SmallSize = Template.bind({})
+SmallSize.args = {
+  text: 'This text is small',
+  size: TextSize.S
+}
+
+export const LargeSize = Template.bind({})
+LargeSize.args = {
+  text: 'This text is large',
+  size: TextSize.L
+}
