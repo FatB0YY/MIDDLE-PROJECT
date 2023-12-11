@@ -82,13 +82,13 @@ export const ProfilePageHeader = ({
           <HStack gap='8'>
             <Button
               onClick={onCancelEdit}
-              theme={ThemeButton.OUTLINE_RED}
+              theme={ThemeButton.RED}
             >
               {t('entities.profile.profilecard.cancel')}
             </Button>
             <Button
               onClick={onSave}
-              theme={ThemeButton.ACCENT}
+              theme={ThemeButton.SUCCESS}
             >
               {t('entities.profile.profilecard.save')}
             </Button>

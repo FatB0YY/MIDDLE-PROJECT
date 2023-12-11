@@ -1,21 +1,20 @@
-@import "reset";
-@import "variables/global";
-@import "themes/normal";
-@import "themes/dark";
-@import "themes/orange";
+@import 'reset';
+@import 'variables/global';
+@import 'themes/normal';
+@import 'themes/dark';
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  color: var(--secondary-color);
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
   font: var(--font-m);
 }
 
 .app {
   min-height: 100vh;
-  background: var(--main-color);
 }
 
 .content-page {

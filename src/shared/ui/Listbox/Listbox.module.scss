@@ -1,0 +1,58 @@
+.ListBox {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 2px solid var(--card-border-color);
+  border-radius: 3px;
+  margin: 0;
+  background: none;
+  color: var(--main-text-color);
+  outline: none;
+}
+
+.options {
+  position: absolute;
+  z-index: 10000;
+  padding: 8px 12px;
+  border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%); /* Легкая тень */
+}
+
+.item {
+  padding: 4px 12px;
+  border-radius: 5px;
+  margin-bottom: 4px;
+  color: var(--main-text-color);
+  cursor: pointer;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.item.active {
+  background-color: var(--hover-nav-item-color);
+}
+
+.item.selected {
+  background-color: var(--active-nav-item-color);
+}
+
+.unavailable {
+  cursor: no-drop;
+  opacity: 0.7;
+}
+
+.optionsTop {
+  bottom: 100%;
+}
+
+.icon {
+  margin-left: 10px;
+}

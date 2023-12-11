@@ -1,18 +1,14 @@
 .LoginForm {
-  display: flex;
-  width: 400px;
-  flex-direction: column;
-}
-
-.placeholderModalAuth {
-  color: var(--secondary-color) !important;
-}
-
-.inputModalAuth {
-  color: var(--secondary-color) !important;
+  position: relative;
+  width: 450px;
 }
 
 .loginBtn {
   margin-top: 15px;
   margin-left: auto;
+}
+
+.closebtn {
+  position: absolute;
+  right: 0;
 }

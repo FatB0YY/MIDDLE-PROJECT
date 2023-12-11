@@ -105,6 +105,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.0",
     "i18next": "^23.5.1",

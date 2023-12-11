@@ -35,12 +35,6 @@ Accent.args = {
   theme: ThemeButton.ACCENT
 }
 
-export const ClearInverted = Template.bind({})
-ClearInverted.args = {
-  children: 'Text',
-  theme: ThemeButton.CLEAR_INVERTED
-}
-
 export const Outline = Template.bind({})
 Outline.args = {
   children: 'Text',
@@ -68,58 +62,9 @@ OutlineDark.args = {
 }
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const BackgroundTheme = Template.bind({})
-BackgroundTheme.args = {
-  children: 'Text',
-  theme: ThemeButton.BACKGROUND
-}
-
-export const BackgroundInverted = Template.bind({})
-BackgroundInverted.args = {
-  children: 'Text',
-  theme: ThemeButton.BACKGROUND_INVERTED
-}
-
-export const Square = Template.bind({})
-Square.args = {
-  children: '>',
-  theme: ThemeButton.BACKGROUND_INVERTED,
-  square: true
-}
-
-export const SquareSizeL = Template.bind({})
-SquareSizeL.args = {
-  children: '>',
-  theme: ThemeButton.BACKGROUND_INVERTED,
-  square: true,
-  size: ButtonSize.L
-}
-
-export const SquareSizeM = Template.bind({})
-SquareSizeM.args = {
-  children: '>',
-  theme: ThemeButton.BACKGROUND_INVERTED,
-  square: true,
-  size: ButtonSize.M
-}
-
-export const SquareSizeXL = Template.bind({})
-SquareSizeXL.args = {
-  children: '>',
-  theme: ThemeButton.BACKGROUND_INVERTED,
-  square: true,
-  size: ButtonSize.XL
-}
-
 export const Disabled = Template.bind({})
 Disabled.args = {
   children: 'Text',
   theme: ThemeButton.OUTLINE,
   disabled: true
-}
-
-export const Red = Template.bind({})
-Red.args = {
-  children: 'Text',
-  theme: ThemeButton.OUTLINE_RED
 }

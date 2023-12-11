@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 
@@ -10,8 +11,6 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import { Card } from 'shared/ui/Card/Card'
 import { Avatar } from 'shared/ui/Avatar'
 import { Button, ThemeButton } from 'shared/ui/Button'
-
-import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
 
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
@@ -25,6 +24,7 @@ import {
 } from '../../model/types/article'
 
 import cls from './ArticleListItem.module.scss'
+
 // import { useHover } from 'shared/lib/hooks/useHover/useHover'
 
 interface ArticleListItemProps {
@@ -105,11 +105,11 @@ export const ArticleListItem = memo(
           )}
 
           <div className={cls.footer}>
-            <AppLink to={RoutePath.articles_details + article.id}>
+            <Link to={RoutePath.articles_details + article.id}>
               <Button theme={ThemeButton.ACCENT}>
                 {t('entities.article.articlelistitem.readmore')}
               </Button>
-            </AppLink>
+            </Link>
 
             {views}
           </div>
@@ -119,7 +119,7 @@ export const ArticleListItem = memo(
 
     if (view === EArticleView.SMALL) {
       return (
-        <AppLink
+        <Link
           target={target}
           to={RoutePath.articles_details + article.id}
           className={classNames(cls.ArticleListItem, {}, [
@@ -149,7 +149,7 @@ export const ArticleListItem = memo(
               className={cls.title}
             />
           </Card>
-        </AppLink>
+        </Link>
       )
     }
 

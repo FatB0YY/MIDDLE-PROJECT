@@ -15,6 +15,7 @@ import { ProfileSchema } from 'essence/profile'
 
 import { ArticleDetailsSchema } from 'essence/article'
 import { articleDetailsCommentsSchema } from 'features/ArticleCommentsList'
+import { SidebarSchema } from 'widgets/Sidebar'
 import { addNewCommentSchema } from 'features/addNewComment'
 import { articlesPageSchema } from 'pages/ArticlePage'
 import { SaveScrollSchema } from 'features/ScrollSave'
@@ -30,6 +31,7 @@ export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   saveScroll: SaveScrollSchema
+  sidebar: SidebarSchema
 
   // async
   loginForm?: LoginSchema

@@ -1,7 +1,18 @@
 .app_light_theme {
-  --main-color: #f4f4fb; // Backgrounds, main elements
-  --secondary-color: #5e69ee; // For 2nd level elements, text
-  --accent-color: #39afea; // For CTAs and accent touches
+  --main-bg-color: #fff;
+  --header-bg-color: #f6f8fa;
+  --active-nav-item-color: #f0f2f4;
+  --hover-nav-item-color: #d4d8dc; /* slightly darker */
+  --selected-element-color: #0969da;
+  --inactive-icon-text-color: #656d76;
+  --hover-bg-icon-block: #24292e;
+  --main-text-color: #1f2328;
+  --secondary-text-color: #656d76;
+  --card-border-color: #e7eaee;
+  --card-bg-color: #f6f8fa;
+  --new-button-color: #1a7f37;
+  --hover-new-button-color: rgb(20 124 50);
+  --input-color: #eaeef1;
 
   // skeleton
   --skeleton-color: #fff;

@@ -1,7 +1,5 @@
 .Button {
-  max-height: 50px;
   padding: 6px 15px;
-  color: var(--main-color);
   cursor: pointer;
 
   &:hover {
@@ -9,6 +7,76 @@
     opacity: 0.8;
     stroke-opacity: 0.8;
   }
+}
+
+.icon_outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 2px solid var(--card-border-color);
+  border-radius: 5px;
+  background: inherit;
+}
+
+.icon_outline:hover {
+  fill-opacity: 1;
+  opacity: 1;
+  stroke-opacity: 1;
+}
+
+.success {
+  width: 100%;
+  height: 32px;
+  padding: 0 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(31 35 40 / 15%);
+  border-radius: 6px;
+  background-color: var(--new-button-color);
+  box-shadow: rgb(31 35 40 / 10%) 0 1px 0;
+  color: var(--btn-color);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 8px;
+}
+
+.success:hover {
+  background-color: var(--hover-new-button-color);
+}
+
+.outline {
+  height: 32px;
+  padding: 0 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--card-border-color);
+  border-radius: 6px;
+  background-color: inherit;
+  color: var(--secondary-text-color);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 8px;
+  outline: none;
+}
+
+.red {
+  width: 100%;
+  height: 32px;
+  padding: 0 12px;
+  border: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  background-color: var(--red-light);
+  color: var(--btn-color);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 8px;
+  outline: none;
 }
 
 .clear,
@@ -20,10 +88,7 @@
 }
 
 .accent {
-  border: 2px solid var(--accent-color);
   border-radius: 5px;
-  background-color: var(--accent-color);
-  color: #f4f4fb;
   outline: none;
 }
 
@@ -32,26 +97,14 @@
 }
 
 .clearInverted {
-  color: var(--main-color);
-}
-
-.outline {
-  border: 2px solid var(--secondary-color);
-  border-radius: 5px;
-  background: none;
-  color: var(--secondary-color);
 }
 
 .background {
   border: none;
-  background: var(--main-color);
-  color: var(--secondary-color);
 }
 
 .backgroundInverted {
   border: none;
-  background: var(--secondary-color);
-  color: var(--main-color);
 }
 
 .square {
@@ -94,5 +147,4 @@
   border: 2px solid var(--red-light);
   border-radius: 5px;
   background: none;
-  color: var(--red-light);
 }

@@ -3,12 +3,14 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
-import { Text, TextTheme, TextAlign } from 'shared/ui/Text'
+import { Text, TextTheme, TextAlign, TextSize } from 'shared/ui/Text'
 import { Input } from 'shared/ui/Input'
 import { HStack, VStack } from 'shared/ui/Stack'
-import { Loader } from 'shared/ui/Loader'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Avatar } from 'shared/ui/Avatar'
 import { CurrencySelect, ECurrency } from 'essence/currency'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import { LangSwitcher } from 'widgets/LangSwitcher'
 
 import { IProfile } from '../../model/types/profile'
 
@@ -41,13 +43,66 @@ export const ProfileCard = ({
 
   if (isLoading) {
     return (
-      <HStack
-        justify='center'
-        max
+      <div
         className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
       >
-        <Loader />
-      </HStack>
+        <VStack
+          gap='32'
+          max
+        >
+          <VStack
+            max
+            gap='8'
+          >
+            <Skeleton
+              className={cls.skeleton}
+              width={'120px'}
+              height={24}
+              border='5px'
+            />
+            <Skeleton
+              className={cls.skeleton}
+              width={'100%'}
+              height={24}
+              border='5px'
+            />
+          </VStack>
+          <VStack
+            max
+            gap='8'
+          >
+            <Skeleton
+              className={cls.skeleton}
+              width={'120px'}
+              height={24}
+              border='5px'
+            />
+            <Skeleton
+              className={cls.skeleton}
+              width={'100%'}
+              height={24}
+              border='5px'
+            />
+          </VStack>
+          <VStack
+            max
+            gap='8'
+          >
+            <Skeleton
+              className={cls.skeleton}
+              width={'120px'}
+              height={24}
+              border='5px'
+            />
+            <Skeleton
+              className={cls.skeleton}
+              width={'100%'}
+              height={24}
+              border='5px'
+            />
+          </VStack>
+        </VStack>
+      </div>
     )
   }
 
@@ -113,11 +168,45 @@ export const ProfileCard = ({
         className={cls.input}
       />
 
-      <CurrencySelect
-        readonly={readonly}
-        onChange={onChangeCurrency}
-        value={data?.currency}
-      />
+      <HStack
+        max
+        gap='8'
+      >
+        <Text
+          title={'Ваша валюта'}
+          size={TextSize.S}
+        />
+
+        <CurrencySelect
+          readonly={readonly}
+          onChange={onChangeCurrency}
+          value={data?.currency}
+        />
+      </HStack>
+
+      <div className={cls.line}></div>
+
+      <HStack
+        max
+        gap='8'
+      >
+        <Text
+          title={'Тема'}
+          size={TextSize.S}
+        />
+        <ThemeSwitcher />
+      </HStack>
+
+      <HStack
+        max
+        gap='8'
+      >
+        <Text
+          title={'Выбранный язык'}
+          size={TextSize.S}
+        />
+        <LangSwitcher className={cls.lang} />
+      </HStack>
     </VStack>
   )
 }

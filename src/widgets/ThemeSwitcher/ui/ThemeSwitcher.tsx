@@ -28,13 +28,13 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
         <DarkIcon
           width={35}
           height={35}
-          color={'var(--main-color)'}
+          color={'var(--inactive-icon-text-color'}
         />
       ) : (
         <LightIcon
           width={35}
           height={35}
-          color={'var(--main-color)'}
+          color={'var(--inactive-icon-text-color)'}
         />
       )}
     </Button>

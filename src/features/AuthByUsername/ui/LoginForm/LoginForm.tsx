@@ -10,11 +10,14 @@ import { Button, ThemeButton } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input'
 
 import { useActionCreatorsTyped } from 'shared/lib/store'
-import { Text, TextTheme } from 'shared/ui/Text'
+import { Text, TextSize, TextTheme } from 'shared/ui/Text'
 import {
   DynamicModuleLoader,
   ReducersList
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+import { VStack } from 'shared/ui/Stack'
+import { Icon } from 'shared/ui/Icon/Icon'
+import CloseIcon from 'shared/assets/icons/close.svg'
 
 import { loginByUsernameThunk } from '../../model/services/loginByUsernameThunk'
 import { getLoginState } from '../../model/selectors/getLoginState'
@@ -24,7 +27,7 @@ import cls from './LoginForm.module.scss'
 
 export interface LoginFormProps {
   className?: string
-  onSuccess: () => void
+  onClose: () => void
 }
 
 // чтобы не было на каждый рендер создание новой ссылки
@@ -37,7 +40,7 @@ const actions = {
   loginByUsername: loginByUsernameThunk
 }
 
-const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
   // i18n
   const { t } = useTranslation()
   const actionsLogin = useActionCreatorsTyped(actions)
@@ -63,15 +66,29 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
       .loginByUsername({ username: username, password: password })
       .then((result) => {
         if (result.meta.requestStatus === 'fulfilled') {
-          onSuccess()
+          onClose()
         }
       })
-  }, [actionsLogin.loginByUsername, username, password, onSuccess]) // eslint-disable-line
+  }, [actionsLogin.loginByUsername, username, password, onClose]) // eslint-disable-line
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
-        <Text title={t('features.authbyusername.loginform.title')} />
+      <VStack
+        gap='16'
+        className={classNames(cls.LoginForm, {}, [className])}
+      >
+        <Button
+          onClick={onClose}
+          className={cls.closebtn}
+          theme={ThemeButton.ICON_OUTLINE}
+        >
+          <Icon Svg={CloseIcon} />
+        </Button>
+
+        <Text
+          size={TextSize.M}
+          title={t('features.authbyusername.loginform.title')}
+        />
         {error && (
           <Text
             theme={TextTheme.ERROR}
@@ -81,31 +98,27 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         <Input
           autofocus={true}
           type='text'
-          classNameInput={cls.inputModalAuth}
           placeholder={t('features.authbyusername.loginform.placeholderEmail')}
           onChange={onChangeUsername}
           value={username}
-          placeholderClassName={cls.placeholderModalAuth}
         />
         <Input
           type='password'
-          classNameInput={cls.inputModalAuth}
           placeholder={t(
             'features.authbyusername.loginform.placeholderPassword'
           )}
           onChange={onChangePassword}
           value={password}
-          placeholderClassName={cls.placeholderModalAuth}
         />
 
         <Button
           disabled={isLoading}
           onClick={onLoginClick}
-          theme={ThemeButton.ACCENT}
+          theme={ThemeButton.SUCCESS}
         >
           {t('features.authbyusername.loginform.login')}
         </Button>
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   )
 })

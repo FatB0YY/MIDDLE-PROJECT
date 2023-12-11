@@ -10,10 +10,13 @@ import { Button, ThemeButton } from 'shared/ui/Button/index'
 import { LoginModal } from 'features/AuthByUsername'
 import { useActionCreatorsTyped } from 'shared/lib/store'
 import { getUserAuthData, userActions } from 'essence/user'
-
-import { Text, TextTheme } from 'shared/ui/Text'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink'
-import { RoutePath } from 'app/providers/router/config/routeConfig'
+import { Avatar } from 'shared/ui/Avatar'
+import { HStack } from 'shared/ui/Stack'
+import { ButtonSize } from 'shared/ui/Button/ui/Button'
+import { Icon } from 'shared/ui/Icon/Icon'
+import AppLogo from 'shared/assets/logo.jpg'
+import BurgerIcon from 'shared/assets/icons/burger.svg'
+import { SidebarActions } from 'widgets/Sidebar'
 
 import cls from './Navbar.module.scss'
 
@@ -25,6 +28,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [isAuthModal, setIsAuthModal] = useState(false)
   const { authData } = useSelector(getUserAuthData)
+  const sidebarActions = useActionCreatorsTyped(SidebarActions)
+
+  const onToggleSidebar = () => {
+    sidebarActions.setCollapsed()
+  }
 
   const actionsUser = useActionCreatorsTyped(userActions)
 
@@ -42,47 +50,65 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   }, [actionsUser.logout])
   /* eslint-enable */
 
-  if (authData) {
-    return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text
-          theme={TextTheme.PRIMARY}
-          className={cls.appName}
-          title={t('widgets.navbar.appname')}
-        />
-        <AppLink
-          className={cls.createBtn}
-          theme={AppLinkTheme.PRIMARY}
-          to={RoutePath.article_create}
-        >
-          {t('widgets.navbar.create')}
-        </AppLink>
-        <Button
-          onClick={onLogout}
-          theme={ThemeButton.CLEAR_INVERTED}
-          className={cls.links}
-        >
-          {t('widgets.navbar.logout')}
-        </Button>
-      </header>
-    )
-  }
-
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <Button
-        onClick={onShowModal}
-        theme={ThemeButton.CLEAR_INVERTED}
-        className={cls.links}
+      <HStack
+        justify='between'
+        align='center'
+        max
       >
-        {t('widgets.navbar.login')}
-      </Button>
-      {isAuthModal && (
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onCloseModal}
-        />
-      )}
+        <HStack gap='16'>
+          <Button
+            data-testid='sidebar-toggle'
+            size={ButtonSize.M}
+            onClick={onToggleSidebar}
+            theme={ThemeButton.ICON_OUTLINE}
+          >
+            {<Icon Svg={BurgerIcon} />}
+          </Button>
+          <Avatar
+            src={AppLogo}
+            alt={t('widgets.navbar.appname')}
+            size={42}
+          />
+        </HStack>
+
+        {/* // перенести в профиль -------------------------------- */}
+        {/* <AppLink
+            theme={AppLinkTheme.PRIMARY}
+            to={RoutePath.article_create}
+          >
+            {t('widgets.navbar.create')}
+          </AppLink> */}
+        {/* // ---------------------------------------------------- */}
+
+        {authData && (
+          <Button
+            onClick={onLogout}
+            theme={ThemeButton.OUTLINE}
+            className={cls.links}
+          >
+            {t('widgets.navbar.logout')}
+          </Button>
+        )}
+
+        {!authData && (
+          <Button
+            onClick={onShowModal}
+            theme={ThemeButton.OUTLINE}
+            className={cls.links}
+          >
+            {t('widgets.navbar.login')}
+          </Button>
+        )}
+
+        {isAuthModal && (
+          <LoginModal
+            isOpen={isAuthModal}
+            onClose={onCloseModal}
+          />
+        )}
+      </HStack>
     </header>
   )
 })

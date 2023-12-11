@@ -26,6 +26,7 @@ export const CommentList = ({
   if (isLoading) {
     return (
       <VStack
+        max
         gap='16'
         className={classNames('', {}, [className])}
       >

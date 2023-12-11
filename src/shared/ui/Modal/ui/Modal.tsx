@@ -3,8 +3,10 @@ import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
 /* eslint-disable */
 import { Portal } from 'shared/ui/Portal/index'
-/* eslint-enable */
+import { VStack } from 'shared/ui/Stack'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { useTheme } from 'app/providers/ThemeProvider'
+/* eslint-enable */
 
 import cls from './Modal.module.scss'
 
@@ -65,12 +67,12 @@ export const Modal = ({
     }
   }, [isOpen, onKeyDown])
 
-  if (lazy && !isMounted) {
-    return null
-  }
-
   const mods: Mods = {
     [cls.opened]: isOpen
+  }
+
+  if (lazy && !isMounted) {
+    return null
   }
 
   return (

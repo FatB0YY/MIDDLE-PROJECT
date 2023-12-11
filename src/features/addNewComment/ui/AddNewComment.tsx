@@ -69,8 +69,6 @@ const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
         className={classNames(cls.AddNewComment, {}, [className])}
       >
         <Input
-          placeholderClassName={cls.input}
-          classNameInput={cls.placeholder}
           value={text}
           onChange={onCommentTextChange}
           placeholder={t('features.addnewcomment.placeholder')}

@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink'
 import { getUserAuthData } from 'essence/user'
+import { Icon } from 'shared/ui/Icon/Icon'
+// import { HStack } from 'shared/ui/Stack'
 
 import { ISidebarItem } from '../../model/types/sidebar'
 
@@ -19,24 +20,30 @@ interface SidebarItemProps {
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation()
   const { authData } = useSelector(getUserAuthData)
+  const location = useLocation()
 
   if (item.authOnly && !authData) {
     return null
   }
+
+  const classNameLi = `${cls.li} ${
+    location.pathname === item.path ? cls.active : ''
+  }`
 
   const mods = {
     [cls.collapsed]: collapsed
   }
 
   return (
-    <AppLink
-      theme={AppLinkTheme.SECONDARY}
-      to={item.path}
-      className={classNames(cls.item, mods, [])}
-    >
-      <item.Icon className={cls.icon} />
-      {!collapsed && <span className={cls.link}>{t(item.text)}</span>}
-    </AppLink>
+    <li className={classNames(classNameLi, mods, [])}>
+      <NavLink
+        to={item.path}
+        className={cls.link}
+      >
+        <Icon Svg={item.Icon} />
+        {!collapsed && <span className={cls.text}>{t(item.text)}</span>}
+      </NavLink>
+    </li>
   )
 })
 

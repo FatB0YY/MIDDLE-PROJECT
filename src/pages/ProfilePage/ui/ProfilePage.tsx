@@ -100,6 +100,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             error={error}
             isLoading={isLoading}
           />
+
           <ProfileCard
             onChangeFirstname={onChangeFirstname}
             onChangeLastname={onChangeLastname}

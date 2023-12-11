@@ -1,7 +1,18 @@
 .app_dark_theme {
-  --main-color: #5e69ee; // Backgrounds, main elements
-  --secondary-color: #f4f4fb; // For 2nd level elements, text
-  --accent-color: #39afea; // For CTAs and accent touches
+  --main-bg-color: #0d1117;
+  --header-bg-color: #010409;
+  --active-nav-item-color: #1a1f24;
+  --hover-nav-item-color: #252c33;
+  --selected-element-color: #1f6feb;
+  --inactive-icon-text-color: #848d97;
+  --hover-bg-icon-block: #171b20;
+  --main-text-color: #d9edf3;
+  --secondary-text-color: #848d97;
+  --card-border-color: #242930;
+  --card-bg-color: #161b22;
+  --new-button-color: #1a7f37;
+  --hover-new-button-color: rgb(20 124 50);
+  --input-color: #010409;
 
   // skeleton
   --skeleton-color: #1515ad;

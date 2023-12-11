@@ -8,6 +8,7 @@ import {
 
 import { counterReducer } from 'essence/counter/index'
 import { userReducer } from 'essence/user/index'
+import { SidebarReducer } from 'widgets/Sidebar'
 
 import { $api } from 'shared/api/api'
 
@@ -29,7 +30,8 @@ export function createReduxStore({
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    saveScroll: saveScrollReducer
+    saveScroll: saveScrollReducer,
+    sidebar: SidebarReducer
     // не добавляем async reducers
   }
 

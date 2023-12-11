@@ -1,7 +1,6 @@
 .Modal {
   position: fixed;
   z-index: -1;
-  color: var(--secondary-color);
   inset: 0;
   opacity: 0;
   pointer-events: none;
@@ -13,14 +12,14 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  background: var(--overlay-color);
+  background-color: rgb(36 41 46 / 50%);
 }
 
 .content {
   max-width: 60%;
   padding: 20px;
   border-radius: 12px;
-  background: var(--main-color);
+  background-color: var(--main-bg-color);
   transform: scale(0.5);
 }
 

@@ -5,13 +5,20 @@ import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 export enum ThemeButton {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
+  // для иконок
+  ICON_OUTLINE = 'icon_outline',
+  // success удача (зеленая)
+  SUCCESS = 'success',
+  // Только border
   OUTLINE = 'outline',
-  OUTLINE_RED = 'outlineRed',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted',
-  ACCENT = 'accent'
+  // Пустая полностью
+  CLEAR = 'clear',
+  // другое
+  ACCENT = 'accent',
+  // red
+  RED = 'red',
+  // OUTLINE_RED
+  OUTLINE_RED = 'outline_red'
 }
 
 export enum ButtonSize {

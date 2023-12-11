@@ -1,6 +1,5 @@
 .AddNewComment {
   padding: 20px;
-  border: 1px solid var(--secondary-color);
 
   .input {
     flex-grow: 1;
@@ -8,6 +7,5 @@
 
   .input,
   .placeholder {
-    color: var(--secondary-color);
   }
 }

@@ -1,9 +1,9 @@
 .title {
-  color: var(--secondary-color);
+  color: var(--main-text-color);
 }
 
 .text {
-  color: var(--secondary-color);
+  color: var(--secondary-text-color);
 }
 
 .error {
@@ -12,7 +12,7 @@
   }
 
   .text {
-    color: var(--red-dark);
+    color: var(--red-light);
   }
 }
 

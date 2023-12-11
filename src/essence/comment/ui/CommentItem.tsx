@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import { Avatar } from 'shared/ui/Avatar'
 import { Text } from 'shared/ui/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { AppLink } from 'shared/ui/AppLink'
+// import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
 import { PageError } from 'widgets/PageError'
 import { VStack } from 'shared/ui/Stack'
@@ -27,7 +28,10 @@ export const CommentItem = ({
 }: CommentItemProps) => {
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentItem, {}, [className])}>
+      <VStack
+        max
+        className={classNames(cls.CommentItem, {}, [className])}
+      >
         <div className={cls.header}>
           <Skeleton
             width={30}
@@ -45,7 +49,7 @@ export const CommentItem = ({
           height={50}
           className={cls.text}
         />
-      </div>
+      </VStack>
     )
   }
 
@@ -59,7 +63,7 @@ export const CommentItem = ({
       gap='8'
       className={classNames(cls.CommentItem, {}, [className])}
     >
-      <AppLink
+      <Link
         to={`${RoutePath.profile}${comment.user.id}`}
         className={cls.header}
       >
@@ -74,7 +78,7 @@ export const CommentItem = ({
           className={cls.username}
           title={comment.user.username}
         />
-      </AppLink>
+      </Link>
       <Text
         className={cls.text}
         text={comment.text}

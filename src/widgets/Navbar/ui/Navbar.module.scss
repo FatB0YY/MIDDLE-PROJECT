@@ -2,8 +2,9 @@
   display: flex;
   height: var(--navbar-height);
   align-items: center;
-  padding: 20px;
-  background: var(--secondary-color);
+  padding: 30px;
+  border-bottom: 2px solid var(--card-border-color);
+  background-color: var(--header-bg-color);
 }
 
 .mainLink {
@@ -14,5 +15,3 @@
   width: var(--sidebar-width);
   margin-left: 15px;
 }
-
-.createBtn {}

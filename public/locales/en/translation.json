@@ -39,9 +39,9 @@
         "main": "Main",
         "about": "About us",
         "profile": "Profile",
-        "articles": "Articles",
-        "appname": "App name"
+        "articles": "Articles"
       },
+      "appname": "App name",
       "create": "Create Article",
       "login": "LogIn",
       "signup": "SignUp",
