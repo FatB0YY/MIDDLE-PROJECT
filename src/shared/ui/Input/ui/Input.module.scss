@@ -7,7 +7,7 @@
   background-color: var(--input-color);
   color: var(--main-text-color);
   font: var(--font-m);
-  outline: none;
+  outline: var(--selected-element-color);
 }
 
 .customInput:focus {

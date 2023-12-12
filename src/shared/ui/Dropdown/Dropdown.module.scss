@@ -1,42 +1,31 @@
-.Listbox {
+.Dropdown {
   position: relative;
 }
 
-.trigger {
-  padding: 5px;
-  border: 2px solid var(--card-border-color);
-  border-radius: 3px;
-  margin: 0;
-  background: none;
-  color: var(--main-text-color);
-
-  cursor: pointer;
-}
-
-.options {
-  position: absolute;
-  z-index: 10000;
-  padding: 8px 12px;
-  border: 2px solid var(--card-border-color);
-  border-radius: 15px;
+.items {
   background-color: var(--main-bg-color);
   box-shadow: 0 2px 5px rgb(0 0 0 / 10%); /* Легкая тень */
+  position: absolute;
+  z-index: 10000;
+  border-radius: 15px;
+  padding: 8px 12px;
+  border: 2px solid var(--card-border-color);
 }
 
 .item {
   padding: 4px 12px;
   border-radius: 5px;
-  margin-bottom: 4px;
+  width: 100%;
+  border: none;
+  background: none;
   color: var(--main-text-color);
   cursor: pointer;
 }
 
-.disabled {
-  opacity: 0.7;
-}
-
-.item:last-child {
-  margin-bottom: 0;
+.item:hover {
+  fill-opacity: 1;
+  opacity: 1;
+  stroke-opacity: 1;
 }
 
 .item.active {
@@ -47,13 +36,24 @@
   background-color: var(--active-nav-item-color);
 }
 
-.unavailable {
-  cursor: no-drop;
-  opacity: 0.7;
-}
+// .btn {
+//   background: none;
+//   outline: none;
+//   margin: 0;
+//   padding: 0;
+//   border: none;
+// }
 
-.optionsTop {
-  bottom: 100%;
+.trigger {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 2px solid var(--card-border-color);
+  border-radius: 3px;
+  margin: 0;
+  background: none;
+  color: var(--main-text-color);
+  cursor: pointer;
 }
 
 .icon {

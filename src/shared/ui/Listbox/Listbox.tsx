@@ -3,6 +3,7 @@ import { Listbox as HListBox } from '@headlessui/react'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 import SelectIcon from 'shared/assets/icons/select.svg'
+import { DropdownDirection } from 'shared/types/ui'
 
 import { Icon } from '../Icon/Icon'
 
@@ -24,6 +25,14 @@ interface ListboxProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (value: any) => void
   readonly?: boolean
+  direction?: DropdownDirection
+}
+
+const mapDirectionClass: Record<DropdownDirection, string> = {
+  'bottom left': cls.optionsBottomLeft,
+  'bottom right': cls.optionsBottomRight,
+  'top right': cls.optionsTopRight,
+  'top left': cls.optionsTopLeft
 }
 
 export const Listbox = ({
@@ -32,25 +41,29 @@ export const Listbox = ({
   defaultValue,
   onChange,
   value,
-  readonly
+  readonly,
+  direction = 'bottom right'
 }: ListboxProps) => {
+  const optionsClasses = [mapDirectionClass[direction]]
+
   return (
     <HListBox
       disabled={readonly}
       as={'div'}
-      className={classNames(cls.Listbox, {}, [className])}
+      className={classNames(cls.Listbox, { [cls.disabled]: readonly }, [
+        className
+      ])}
       value={value}
       onChange={onChange}
     >
       <HListBox.Button className={cls.trigger}>
-        {/* <Button>{value ?? defaultValue}</Button> */}
         {value ?? defaultValue}
         <Icon
           className={cls.icon}
           Svg={SelectIcon}
         />
       </HListBox.Button>
-      <HListBox.Options className={cls.options}>
+      <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
         {items.map((item) => (
           <HListBox.Option
             key={item.value}
@@ -70,7 +83,6 @@ export const Listbox = ({
                   []
                 )}
               >
-                {selected && '!!! '}
                 {item.content}
               </li>
             )}

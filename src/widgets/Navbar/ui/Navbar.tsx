@@ -17,6 +17,11 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import AppLogo from 'shared/assets/logo.jpg'
 import BurgerIcon from 'shared/assets/icons/burger.svg'
 import { SidebarActions } from 'widgets/Sidebar'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { RoutePath } from 'app/providers/router/config/routeConfig'
+
+import LogoutSvg from 'shared/assets/icons/logout.svg'
+import ProfileSvg from 'shared/assets/icons/profile-20-20.svg'
 
 import cls from './Navbar.module.scss'
 
@@ -83,13 +88,48 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         {/* // ---------------------------------------------------- */}
 
         {authData && (
-          <Button
-            onClick={onLogout}
-            theme={ThemeButton.OUTLINE}
-            className={cls.links}
-          >
-            {t('widgets.navbar.logout')}
-          </Button>
+          <Dropdown
+            visibleIcon={false}
+            direction='bottom left'
+            items={[
+              {
+                content: (
+                  <HStack
+                    max
+                    gap='8'
+                  >
+                    <Icon Svg={LogoutSvg} />
+                    <span className={cls.dropdowntext}>
+                      {t('widgets.navbar.logout')}
+                    </span>
+                  </HStack>
+                ),
+                onClick: onLogout,
+                buttonTheme: ThemeButton.OUTLINE
+              },
+              {
+                href: RoutePath.profile + authData.id,
+                content: (
+                  <HStack
+                    max
+                    gap='8'
+                  >
+                    <Icon Svg={ProfileSvg} />
+                    <span className={cls.dropdowntext}>Профиль</span>
+                  </HStack>
+                ),
+                onClick: () => {},
+                buttonTheme: ThemeButton.OUTLINE
+              }
+            ]}
+            trigger={
+              <Avatar
+                size={30}
+                src={authData.avatar}
+                alt={authData.username}
+              />
+            }
+          />
         )}
 
         {!authData && (
