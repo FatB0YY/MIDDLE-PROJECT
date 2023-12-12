@@ -8,6 +8,9 @@
         "first": "first",
         "lastname": "lastname",
         "save": "save",
+        "selectedcurrency": "selectedcurrency",
+        "selectedlang": "selectedlang",
+        "theme": "theme",
         "title": "title"
       }
     }

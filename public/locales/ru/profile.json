@@ -8,7 +8,10 @@
         "lastname": "Ваша фамилия",
         "cancel": "Отменить",
         "save": "Сохранить",
-        "age": "Ваш возраст"
+        "age": "Ваш возраст",
+        "selectedcurrency": "Ваша валюта",
+        "theme": "Тема",
+        "selectedlang": "Язык"
       },
       "error": {
         "INCORRECT_USER_DATA": "Некорректные данные",

@@ -8,7 +8,10 @@
         "lastname": "Your lastname",
         "cancel": "Cancel",
         "save": "Save",
-        "age": "Your age"
+        "age": "Your age",
+        "selectedcurrency": "Currency",
+        "theme": "Theme",
+        "selectedlang": "Language"
       },
       "error": {
         "INCORRECT_USER_DATA": "Incorrect data",

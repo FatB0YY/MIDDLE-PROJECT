@@ -173,7 +173,7 @@ export const ProfileCard = ({
         gap='8'
       >
         <Text
-          title={'Ваша валюта'}
+          title={t('entities.profile.profilecard.selectedcurrency')}
           size={TextSize.S}
         />
 
@@ -191,7 +191,7 @@ export const ProfileCard = ({
         gap='8'
       >
         <Text
-          title={'Тема'}
+          title={t('entities.profile.profilecard.theme')}
           size={TextSize.S}
         />
         <ThemeSwitcher />
@@ -202,7 +202,7 @@ export const ProfileCard = ({
         gap='8'
       >
         <Text
-          title={'Выбранный язык'}
+          title={t('entities.profile.profilecard.selectedlang')}
           size={TextSize.S}
         />
         <LangSwitcher className={cls.lang} />

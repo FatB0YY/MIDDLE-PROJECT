@@ -45,6 +45,9 @@
       "optionrushort": "optionrushort"
     },
     "navbar": {
+      "applink": {
+        "profile": "profile"
+      },
       "appname": "appname",
       "create": "create",
       "login": "login",

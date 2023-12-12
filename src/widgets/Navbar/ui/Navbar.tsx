@@ -115,7 +115,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     gap='8'
                   >
                     <Icon Svg={ProfileSvg} />
-                    <span className={cls.dropdowntext}>Профиль</span>
+                    <span className={cls.dropdowntext}>
+                      {t('widgets.navbar.applink.profile')}
+                    </span>
                   </HStack>
                 ),
                 onClick: () => {},
