@@ -27,7 +27,20 @@ export default {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
-  }
+  },
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit/html-report',
+        filename: 'report.html',
+        openReport: true,
+        inlineSource: true
+      }
+    ]
+  ]
+
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
