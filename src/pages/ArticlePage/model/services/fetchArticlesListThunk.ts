@@ -26,6 +26,8 @@ export const fetchArticlesListThunk = createAsyncThunk<
   FetchArticlesListThunkProps,
   ThunkConfig<string>
 >('articlesPage/fetchArticlesListThunk', async (_, thunkAPI) => {
+  console.log('1 -----------------------')
+
   const limit = getArticlesPageLimit(thunkAPI.getState())
 
   const sort = getArticleSortSort(thunkAPI.getState())
@@ -33,7 +35,7 @@ export const fetchArticlesListThunk = createAsyncThunk<
   const search = getArticleSortSearch(thunkAPI.getState())
   const page = getArticlesPagePage(thunkAPI.getState())
   const type = getArticleSortType(thunkAPI.getState())
-
+  console.log('2 -----------------------')
   try {
     const response = await thunkAPI.extra.api.get<IArticle[]>('/articles', {
       params: {

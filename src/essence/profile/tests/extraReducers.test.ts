@@ -2,14 +2,13 @@ import { Country } from 'shared/const/other'
 
 import { ECurrency } from 'essence/currency'
 
-import { fetchProfileDataThunk } from '../model/services/fetchProfileDataThunk'
-import { profileReducer } from '../model/slice/profileSlice'
-import {
-  IProfile,
-  ProfileSchema,
-  ValidateProfileError
-} from '../model/types/profile'
-import { updateProfileDataThunk } from '../model/services/updateProfileDataThunk'
+import { fetchProfileDataThunk } from 'features/EditableProfileCard/model/services/fetchProfileDataThunk'
+import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice'
+import { ProfileSchema } from 'features/EditableProfileCard'
+import { updateProfileDataThunk } from 'features/EditableProfileCard/model/services/updateProfileDataThunk'
+
+import { ValidateProfileError } from '../model/types/profile'
+import { IProfile } from '../model/types/profile'
 
 describe('profileSlice extra', () => {
   const initialStateProfile: ProfileSchema = {

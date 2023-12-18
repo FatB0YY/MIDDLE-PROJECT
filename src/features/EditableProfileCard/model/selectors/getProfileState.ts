@@ -1,6 +1,6 @@
 import { StateSchema } from 'shared/lib/store'
 
-import { ProfileSchema } from '../types/profile'
+import { ProfileSchema } from '../types/EditableProfileCardSchema'
 
 // заглушка
 const mock: ProfileSchema = {

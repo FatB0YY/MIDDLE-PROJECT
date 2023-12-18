@@ -1,6 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-import { IProfile, ProfileSchema } from '../types/profile'
+import { IProfile } from 'essence/profile'
+
+import { ProfileSchema } from '../types/EditableProfileCardSchema'
 import { fetchProfileDataThunk } from '../services/fetchProfileDataThunk'
 import { updateProfileDataThunk } from '../services/updateProfileDataThunk'
 

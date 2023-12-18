@@ -1,28 +1,20 @@
 import React, { useCallback } from 'react'
-
 import { useTranslation } from 'react-i18next'
-
 import { useSelector } from 'react-redux'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { Text } from 'shared/ui/Text'
-
-import {
-  getProfileState,
-  profileActions,
-  updateProfileDataThunk
-} from 'essence/profile'
 import { useActionCreatorsTyped } from 'shared/lib/store/hook'
-
 import { getUserAuthData } from 'essence/user'
 import { HStack } from 'shared/ui/Stack/HStack/HStack'
 
+import { profileActions } from '../../model/slice/profileSlice'
+import { updateProfileDataThunk } from '../../model/services/updateProfileDataThunk'
+import { getProfileState } from '../../model/selectors/getProfileState'
+
 interface ProfilePageHeaderProps {
   className?: string
-  error: string | null
-  isLoading: boolean
 }
 
 const actions = {
@@ -30,11 +22,8 @@ const actions = {
   updateProfile: updateProfileDataThunk
 }
 
-export const ProfilePageHeader = ({
-  className,
-  error,
-  isLoading
-}: ProfilePageHeaderProps) => {
+export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+  const { error, isLoading } = useSelector(getProfileState)
   const { t } = useTranslation('profile')
   const { readonly } = useSelector(getProfileState)
   const { authData } = useSelector(getUserAuthData)

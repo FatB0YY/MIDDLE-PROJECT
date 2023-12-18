@@ -2,8 +2,9 @@ import { ECurrency } from 'essence/currency'
 
 import { Country } from 'shared/const/other'
 
-import { profileActions, profileReducer } from '../model/slice/profileSlice'
-import { ProfileSchema } from '../model/types/profile'
+import { profileActions } from 'features/EditableProfileCard/model/slice/profileSlice'
+import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice'
+import { ProfileSchema } from 'features/EditableProfileCard'
 
 describe('profileSlice reducers', () => {
   const mockedState: ProfileSchema = {

@@ -11,7 +11,7 @@ import { RoutePath } from 'app/providers/router/config/routeConfig'
 import { PageError } from 'widgets/PageError'
 import { VStack } from 'shared/ui/Stack'
 
-import { IComment } from '../model/types/comment'
+import { IComment } from '../../../model/types/comment'
 
 import cls from './CommentItem.module.scss'
 

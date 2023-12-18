@@ -2,9 +2,9 @@ import { ECurrency } from 'essence/currency'
 import { Country } from 'shared/const/other'
 
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+import { updateProfileDataThunk } from 'features/EditableProfileCard/model/services/updateProfileDataThunk'
 
 import { IProfile, ValidateProfileError } from '../model/types/profile'
-import { updateProfileDataThunk } from '../model/services/updateProfileDataThunk'
 
 describe('updateProfileDataThunk', () => {
   const data: IProfile = {

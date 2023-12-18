@@ -13,6 +13,7 @@ import { SidebarReducer } from 'widgets/Sidebar'
 import { $api } from 'shared/api/api'
 
 import { saveScrollReducer } from 'features/ScrollSave/models/slice/SaveScrollSlice'
+import { rtkApi } from 'shared/api/rtkApi'
 
 import { ReducerManager, StateSchema, ThunkExtraArg } from './types'
 import { createReducerManager } from './reducerManager'
@@ -31,7 +32,9 @@ export function createReduxStore({
     counter: counterReducer,
     user: userReducer,
     saveScroll: saveScrollReducer,
-    sidebar: SidebarReducer
+    sidebar: SidebarReducer,
+    // rtk
+    [rtkApi.reducerPath]: rtkApi.reducer
     // не добавляем async reducers
   }
 
@@ -46,7 +49,9 @@ export function createReduxStore({
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({ thunk: { extraArgument: extraArg } })
+      getDefaultMiddleware({ thunk: { extraArgument: extraArg } }).concat(
+        rtkApi.middleware
+      )
   })
 
   // @ts-ignore

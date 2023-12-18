@@ -5,7 +5,7 @@ import { FixedSizeList } from 'react-window'
 import AutoSizer from 'react-virtualized-auto-sizer'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-
+import { HStack } from 'shared/ui/Stack'
 import { EArticleView, IArticle } from 'essence/article/model/types/article'
 
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
@@ -23,6 +23,7 @@ interface ArticleListProps {
   isLoading?: boolean
   view?: EArticleView
   target?: HTMLAttributeAnchorTarget
+  isVirtualizationList: boolean
 }
 
 // const getSkeletons = (view: EArticleView) =>
@@ -63,23 +64,52 @@ export const ArticleList = ({
   articles,
   // isLoading,
   view = EArticleView.SMALL,
-  target
+  target,
+  isVirtualizationList
 }: ArticleListProps) => {
   const size = view === EArticleView.BIG ? 750 : 350
-  return (
-    <AutoSizer>
-      {({ height, width }) => (
-        <FixedSizeList
-          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-          height={height}
-          width={width}
-          itemCount={articles.length}
-          itemData={{ articles, itemsCount: articles.length, target, view }}
-          itemSize={size}
-        >
-          {Row}
-        </FixedSizeList>
-      )}
-    </AutoSizer>
-  )
+
+  const renderArticle = (article: IArticle) => {
+    return (
+      <ArticleListItem
+        target={target}
+        key={article.id}
+        view={view}
+        article={article}
+        className={cls.card}
+      />
+    )
+  }
+
+  if (isVirtualizationList) {
+    return (
+      <AutoSizer>
+        {({ height, width }) => (
+          <FixedSizeList
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            height={height}
+            width={width}
+            itemCount={articles.length}
+            itemData={{ articles, itemsCount: articles.length, target, view }}
+            itemSize={size}
+          >
+            {Row}
+          </FixedSizeList>
+        )}
+      </AutoSizer>
+    )
+  } else {
+    return (
+      <HStack
+        max
+        justify='between'
+        className={classNames(cls.ArticleListNoisVirtualizationList, {}, [
+          className,
+          cls[view]
+        ])}
+      >
+        {articles.length > 0 ? articles.map(renderArticle) : null}
+      </HStack>
+    )
+  }
 }

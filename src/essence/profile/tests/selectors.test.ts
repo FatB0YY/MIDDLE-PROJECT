@@ -1,7 +1,8 @@
 import { StateSchema } from 'shared/lib/store/index'
 
-import { getProfileState } from '../model/selectors/getProfileState'
-import { getProfileValidateError } from '../model/selectors/getProfileValidateErrors'
+import { getProfileState } from 'features/EditableProfileCard/model/selectors/getProfileState'
+import { getProfileValidateError } from 'features/EditableProfileCard/model/selectors/getProfileValidateErrors'
+
 import { ValidateProfileError } from '../model/types/profile'
 
 describe('Selectors Profile', () => {

@@ -1,78 +1,74 @@
-import React, { useEffect } from 'react'
-
-import { useSelector } from 'react-redux'
+import React from 'react'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-
-import {
-  DynamicModuleLoader,
-  ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
-
-import { Text, TextSize } from 'shared/ui/Text'
 import { ArticleList } from 'essence/article'
-import { useActionCreatorsTyped } from 'shared/lib/store'
+import { HStack, VStack } from 'shared/ui/Stack'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { Text, TextTheme } from 'shared/ui/Text'
 
-import {
-  // getArticleRecommendationsListError,
-  getArticleRecommendationsListIsLoading
-} from '../model/selectors/ArticleDetailsRecommendationsListSelectors'
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticleRecommendations
-} from '../model/slice/ArticleDetailsRecommendationsListSlice'
-import { fetchArticleDetailsRecommendationsListThunk } from '../model/services/fetchArticleDetailsRecommendationsList'
-
-import cls from './ArticleDetailsRecommendationsList.module.scss'
+import { useGetArticleRecommendationsListQuery } from '../api/articleDetailsRecommendationsApi'
 
 interface ArticleDetailsRecommendationsListProps {
   className?: string
 }
 
-const reducers: ReducersList = {
-  articleDetailsRecommendations: articleDetailsPageRecommendationsReducer
-}
-
-const allActions = {
-  fetchRecommend: fetchArticleDetailsRecommendationsListThunk
-}
-
 export const ArticleDetailsRecommendationsList = ({
   className
 }: ArticleDetailsRecommendationsListProps) => {
-  const recommendations = useSelector(getArticleRecommendations.selectAll)
-  // const error = useSelector(getArticleRecommendationsListError)
-  const isLoading = useSelector(getArticleRecommendationsListIsLoading)
-  const actions = useActionCreatorsTyped(allActions)
+  const { isLoading: isLoadingRecomList, data: recommendations } =
+    useGetArticleRecommendationsListQuery(3)
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'sb') {
-      actions.fetchRecommend()
-    }
-  }, [actions.fetchRecommend])
+  if (isLoadingRecomList) {
+    return (
+      <VStack
+        max
+        gap='16'
+      >
+        <Skeleton
+          height={'30px'}
+          width={150}
+        />
+        <HStack
+          max
+          justify='between'
+        >
+          <Skeleton
+            height={'300px'}
+            width={250}
+          />
+          <Skeleton
+            height={'300px'}
+            width={250}
+          />
+          <Skeleton
+            height={'300px'}
+            width={250}
+          />
+        </HStack>
+      </VStack>
+    )
+  }
+
+  if (!recommendations) {
+    return (
+      <Text
+        theme={TextTheme.ERROR}
+        text='Извините за неудобства! Мы работаем над вашими рекомендациями, загляните позже :)'
+      />
+    )
+  }
 
   return (
-    <DynamicModuleLoader
-      reducers={reducers}
-      removeAfterUnmount={true}
+    <VStack
+      gap='8'
+      max
+      className={classNames('', {}, [className])}
     >
-      <div
-        className={classNames(cls.ArticleDetailsRecommendationsList, {}, [
-          className
-        ])}
-      >
-        <Text
-          size={TextSize.L}
-          className={cls.commentListTitle}
-          title={'Рекомендуем (перевод!)'}
-        />
-        <ArticleList
-          target={'_blank'}
-          className={cls.recommendList}
-          isLoading={isLoading}
-          articles={recommendations}
-        />
-      </div>
-    </DynamicModuleLoader>
+      <ArticleList
+        isVirtualizationList={false}
+        target={'_blank'}
+        articles={recommendations}
+      />
+    </VStack>
   )
 }

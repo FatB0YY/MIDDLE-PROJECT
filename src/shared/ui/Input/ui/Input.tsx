@@ -1,6 +1,6 @@
 import React, {
   InputHTMLAttributes,
-  memo,
+  // memo,
   useLayoutEffect,
   useRef
 } from 'react'
@@ -12,7 +12,7 @@ import { VStack } from 'shared/ui/Stack'
 import cls from './Input.module.scss'
 
 type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLButtonElement>,
+  InputHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'readOnly'
 >
 
@@ -26,50 +26,50 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean
 }
 
-export const Input = memo(
-  ({
-    className,
-    value,
-    onChange,
-    type = 'text',
-    placeholder = '>',
-    autofocus,
-    readonly
-  }: InputProps) => {
-    const ref = useRef<HTMLInputElement>(null)
+export const Input = ({
+  className,
+  value,
+  onChange,
+  type = 'text',
+  placeholder,
+  autofocus,
+  readonly,
+  ...otherProps
+}: InputProps) => {
+  const ref = useRef<HTMLInputElement>(null)
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange?.(e.target.value)
-    }
-
-    useLayoutEffect(() => {
-      if (autofocus && ref.current) {
-        ref.current.focus()
-      }
-    }, [autofocus])
-
-    const mods: Mods = {
-      [cls.readonly]: readonly
-    }
-
-    return (
-      <VStack
-        max
-        className={classNames(cls.InputWrapper, mods, [className])}
-      >
-        {placeholder && <span className={cls.placeholder}>{placeholder}</span>}
-
-        <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          readOnly={readonly}
-          className={cls.customInput}
-        />
-      </VStack>
-    )
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e.target.value)
   }
-)
+
+  useLayoutEffect(() => {
+    if (autofocus && ref.current) {
+      ref.current.focus()
+    }
+  }, [autofocus])
+
+  const mods: Mods = {
+    [cls.readonly]: readonly
+  }
+
+  return (
+    <VStack
+      max
+      className={classNames(cls.InputWrapper, mods, [className])}
+    >
+      {placeholder && <span className={cls.placeholder}>{placeholder}</span>}
+
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        readOnly={readonly}
+        className={cls.customInput}
+        {...otherProps}
+      />
+    </VStack>
+  )
+}
 
 Input.displayName = 'Input'

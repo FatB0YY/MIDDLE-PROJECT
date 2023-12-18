@@ -11,7 +11,7 @@ import { AxiosInstance } from 'axios'
 import { CounterSchema } from 'essence/counter/index'
 import { UserSchema } from 'essence/user/index'
 import { LoginSchema } from 'features/AuthByUsername/index'
-import { ProfileSchema } from 'essence/profile'
+import { ProfileSchema } from 'features/EditableProfileCard'
 
 import { ArticleDetailsSchema } from 'essence/article'
 import { articleDetailsCommentsSchema } from 'features/ArticleCommentsList'
@@ -20,7 +20,7 @@ import { addNewCommentSchema } from 'features/addNewComment'
 import { articlesPageSchema } from 'pages/ArticlePage'
 import { SaveScrollSchema } from 'features/ScrollSave'
 import { ArticleSortSchema } from 'features/ArticleSort'
-import { ArticleDetailsRecommendationsSchema } from 'features/ArticleDetailsRecommendationsList'
+import { rtkApi } from 'shared/api/rtkApi'
 
 import { createReduxStore } from './root'
 
@@ -33,12 +33,14 @@ export interface StateSchema {
   saveScroll: SaveScrollSchema
   sidebar: SidebarSchema
 
+  // rtk
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+
   // async
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: articleDetailsCommentsSchema
-  articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema
   addNewComment?: addNewCommentSchema
   articlesPage?: articlesPageSchema
   articleSort?: ArticleSortSchema

@@ -6,9 +6,9 @@ import { VStack } from 'shared/ui/Stack'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text } from 'shared/ui/Text'
 
-import { IComment } from '../model/types/comment'
+import { IComment } from '../../../model/types/comment'
 
-import { CommentItem } from './CommentItem'
+import { CommentItem } from '../Item/CommentItem'
 
 interface CommentListProps {
   className?: string

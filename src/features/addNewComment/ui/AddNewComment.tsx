@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, KeyboardEvent } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -58,6 +58,17 @@ const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
     onCommentTextChange('')
   }, [text, onSendComment, onCommentTextChange])
 
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent) => {
+      if (!event.repeat) {
+        if (event.key === 'Enter') {
+          onSendHandler()
+        }
+      }
+    },
+    [onSendHandler]
+  )
+
   return (
     <DynamicModuleLoader
       reducers={reducers}
@@ -66,16 +77,20 @@ const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
       <HStack
         gap='8'
         max
+        justify='between'
+        align='end'
         className={classNames(cls.AddNewComment, {}, [className])}
       >
         <Input
           value={text}
           onChange={onCommentTextChange}
+          onKeyDown={handleKeyPress}
           placeholder={t('features.addnewcomment.placeholder')}
         />
         <Button
           onClick={onSendHandler}
-          theme={ThemeButton.ACCENT}
+          theme={ThemeButton.SUCCESS}
+          className={cls.btn}
         >
           {t('features.addnewcomment.submit')}
         </Button>
