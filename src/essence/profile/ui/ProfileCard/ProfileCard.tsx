@@ -22,6 +22,7 @@ interface ProfileCardProps {
   error: string | null
   isLoading?: boolean
   readonly?: boolean
+  'data-testid'?: string
   onChangeFirstname?: (value?: string) => void
   onChangeLastname?: (value?: string) => void
   onChangeAge?: (value?: string) => void
@@ -33,7 +34,8 @@ export const ProfileCard = ({
   data,
   error,
   isLoading,
-  readonly,
+  readonly = false,
+  'data-testid': dataTestId = 'ProfileCard',
   onChangeFirstname,
   onChangeLastname,
   onChangeAge,
@@ -152,6 +154,7 @@ export const ProfileCard = ({
         value={data?.first}
         placeholder={t('entities.profile.profilecard.first')}
         className={cls.input}
+        data-testid={`${dataTestId}.first`}
       />
       <Input
         onChange={onChangeLastname}
@@ -159,6 +162,7 @@ export const ProfileCard = ({
         value={data?.lastname}
         placeholder={t('entities.profile.profilecard.lastname')}
         className={cls.input}
+        data-testid={`${dataTestId}.last`}
       />
       <Input
         onChange={onChangeAge}

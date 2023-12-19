@@ -18,21 +18,20 @@ type HTMLInputProps = Omit<
 
 interface InputProps extends HTMLInputProps {
   className?: string
-  type?: string
   value?: string | number
-  onChange?: (value: string) => void
   placeholder?: string
-  autofocus?: boolean
+  isAutoFocus?: boolean
   readonly?: boolean
+  onChange?: (value: string) => void
 }
 
 export const Input = ({
   className,
   value,
   onChange,
-  type = 'text',
+  type,
   placeholder,
-  autofocus,
+  isAutoFocus,
   readonly,
   ...otherProps
 }: InputProps) => {
@@ -43,10 +42,10 @@ export const Input = ({
   }
 
   useLayoutEffect(() => {
-    if (autofocus && ref.current) {
+    if (isAutoFocus && ref.current) {
       ref.current.focus()
     }
-  }, [autofocus])
+  }, [isAutoFocus])
 
   const mods: Mods = {
     [cls.readonly]: readonly

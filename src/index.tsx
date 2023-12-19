@@ -4,13 +4,15 @@ import 'shared/config/i18n/i18n'
 /* eslint-disable */
 import { render } from 'react-dom'
 /* eslint-enable */
-
+import { ToastContainer } from 'react-toastify'
 import { BrowserRouter } from 'react-router-dom'
 
 import App from 'app/App'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { ErrorBoundary } from 'app/providers/ErrorBoundary'
 import { StoreProvider } from 'shared/lib/store/StateProvider'
+
+import 'react-toastify/scss/main.scss'
 import 'app/styles/index.scss'
 
 render(
@@ -19,6 +21,10 @@ render(
       <ErrorBoundary>
         <ThemeProvider>
           <App />
+          <ToastContainer
+            position='top-right'
+            autoClose={2000}
+          />
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>

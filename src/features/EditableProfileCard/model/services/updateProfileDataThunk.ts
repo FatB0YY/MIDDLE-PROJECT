@@ -2,8 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { ThunkConfig } from 'shared/lib/store'
 
-import { ValidateProfileError } from 'essence/profile/model/types/profile'
-import { IProfile } from 'essence/profile/model/types/profile'
+import {
+  ValidateProfileError,
+  IProfile
+} from 'essence/profile/model/types/profile'
 
 import { getProfileState } from '../selectors/getProfileState'
 
@@ -29,7 +31,7 @@ export const updateProfileDataThunk = createAsyncThunk<
     )
 
     if (!response.data) {
-      throw new Error()
+      return thunkAPI.rejectWithValue([ValidateProfileError.SERVER_ERROR])
     }
 
     return thunkAPI.fulfillWithValue(response.data)

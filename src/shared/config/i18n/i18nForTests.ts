@@ -10,7 +10,10 @@ i18n.use(initReactI18next).init({
     escapeValue: false // not needed for react!!
   },
 
-  resources: { ru: { translationsNS: {} } }
+  resources: {
+    ru: { translationsNS: 'public/locales/ru' },
+    en: { translationsNS: 'public/locales/en' }
+  }
 })
 
 export default i18n

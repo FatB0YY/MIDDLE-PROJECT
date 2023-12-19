@@ -96,7 +96,7 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
           />
         )}
         <Input
-          autofocus={true}
+          isAutoFocus={true}
           type='text'
           placeholder={t('features.authbyusername.loginform.placeholderEmail')}
           onChange={onChangeUsername}

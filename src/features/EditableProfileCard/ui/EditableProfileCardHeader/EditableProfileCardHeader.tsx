@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ThemeButton } from 'shared/ui/Button'
@@ -8,13 +9,15 @@ import { Text } from 'shared/ui/Text'
 import { useActionCreatorsTyped } from 'shared/lib/store/hook'
 import { getUserAuthData } from 'essence/user'
 import { HStack } from 'shared/ui/Stack/HStack/HStack'
+import { ValidateProfileError } from 'essence/profile/model/types/profile'
 
 import { profileActions } from '../../model/slice/profileSlice'
 import { updateProfileDataThunk } from '../../model/services/updateProfileDataThunk'
 import { getProfileState } from '../../model/selectors/getProfileState'
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string
+  'data-testid'?: string
 }
 
 const actions = {
@@ -22,12 +25,23 @@ const actions = {
   updateProfile: updateProfileDataThunk
 }
 
-export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = ({
+  className,
+  'data-testid': dataTestId = 'EditableProfileCardHeader'
+}: EditableProfileCardHeaderProps) => {
   const { error, isLoading } = useSelector(getProfileState)
   const { t } = useTranslation('profile')
   const { readonly } = useSelector(getProfileState)
   const { authData } = useSelector(getUserAuthData)
   const { data } = useSelector(getProfileState)
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    [ValidateProfileError.INCORRECT_CURRENCY]: t('Некорректная валюта')
+  }
 
   const actionsProfile = useActionCreatorsTyped(actions)
 
@@ -43,9 +57,19 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [actionsProfile.cancelEdit])
 
   const onSave = useCallback(() => {
-    actionsProfile.updateProfile().finally(() => {
-      actionsProfile.setReadonly(true)
-    })
+    actionsProfile
+      .updateProfile()
+      .unwrap()
+      .then((result) => {
+        toast.success('Удачно')
+      })
+      .catch((errors: ValidateProfileError[]) => {
+        if (errors.length) {
+          errors.forEach((error: ValidateProfileError) => {
+            toast.error(validateErrorTranslates[error])
+          })
+        }
+      })
   }, [actionsProfile.setReadonly])
   /* eslint-enable */
 
@@ -60,6 +84,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
           <Button
             onClick={onEdit}
             theme={ThemeButton.OUTLINE}
+            data-testid={`${dataTestId}.Edit`}
           >
             {t('entities.profile.profilecard.edit')}
           </Button>
@@ -72,12 +97,14 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
             <Button
               onClick={onCancelEdit}
               theme={ThemeButton.RED}
+              data-testid={`${dataTestId}.Cancel`}
             >
               {t('entities.profile.profilecard.cancel')}
             </Button>
             <Button
               onClick={onSave}
               theme={ThemeButton.SUCCESS}
+              data-testid={`${dataTestId}.Save`}
             >
               {t('entities.profile.profilecard.save')}
             </Button>

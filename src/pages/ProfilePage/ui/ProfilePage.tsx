@@ -8,8 +8,6 @@ import { PageError } from 'widgets/PageError'
 import { Page } from 'widgets/Page/Page'
 import { EditableProfileCard } from 'features/EditableProfileCard'
 
-import { ProfilePageHeader } from 'features/EditableProfileCard/ui/ProfilePageHeader/ProfilePageHeader'
-
 import cls from './ProfilePage.module.scss'
 
 interface ProfilePageProps {
@@ -30,7 +28,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   return (
     <Page className={classNames(cls.ProfilePage, {}, [className])}>
       <VStack gap='16'>
-        <ProfilePageHeader />
         <EditableProfileCard id={id} />
       </VStack>
     </Page>

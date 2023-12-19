@@ -5,6 +5,7 @@ import { ProfileCard } from 'essence/profile'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useActionCreatorsTyped } from 'shared/lib/store'
 import { ECurrency } from 'essence/currency'
+
 import {
   DynamicModuleLoader,
   ReducersList
@@ -15,6 +16,7 @@ import { fetchProfileDataThunk } from '../../model/services/fetchProfileDataThun
 import { getProfileState } from '../../model/selectors/getProfileState'
 
 import cls from './EditableProfileCard.module.scss'
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 interface EditableProfileCardProps {
   className?: string
@@ -38,8 +40,10 @@ export const EditableProfileCard = ({
   const { error, isLoading, readonly, form } = useSelector(getProfileState)
 
   useEffect(() => {
-    if (id && __PROJECT__ !== 'sb') {
-      actionsProfile.fetchProfile(id)
+    if (__PROJECT__ !== 'sb' && __PROJECT__ !== 'jest') {
+      if (id) {
+        actionsProfile.fetchProfile(id)
+      }
     }
   }, [actionsProfile.fetchProfile, id])
 
@@ -60,9 +64,7 @@ export const EditableProfileCard = ({
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      if (/^\d+$/.test(value!)) {
-        actionsProfile.updateProfile({ age: Number(value || 0) })
-      }
+      actionsProfile.updateProfile({ age: Number(value || 0) })
     },
     [actionsProfile.updateProfile]
   )
@@ -80,6 +82,7 @@ export const EditableProfileCard = ({
       removeAfterUnmount={true}
     >
       <div className={classNames(cls.EditableProfileCard, {}, [className])}>
+        <EditableProfileCardHeader data-testid='EditableProfileCard.Header' />
         <ProfileCard
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}
@@ -89,6 +92,7 @@ export const EditableProfileCard = ({
           isLoading={isLoading}
           error={error}
           readonly={readonly}
+          data-testid='EditableProfileCard.Card'
         />
       </div>
     </DynamicModuleLoader>
