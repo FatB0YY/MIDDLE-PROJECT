@@ -9,7 +9,12 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ThemeButton } from 'shared/ui/Button/index'
 import { LoginModal } from 'features/AuthByUsername'
 import { useActionCreatorsTyped } from 'shared/lib/store'
-import { getUserAuthData, userActions } from 'essence/user'
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions
+} from 'essence/user'
 import { Avatar } from 'shared/ui/Avatar'
 import { HStack } from 'shared/ui/Stack'
 import { ButtonSize } from 'shared/ui/Button/ui/Button'
@@ -22,6 +27,7 @@ import { RoutePath } from 'app/providers/router/config/routeConfig'
 
 import LogoutSvg from 'shared/assets/icons/logout.svg'
 import ProfileSvg from 'shared/assets/icons/profile-20-20.svg'
+import AdminPanel from 'shared/assets/icons/adminpanel.svg'
 
 import cls from './Navbar.module.scss'
 
@@ -34,6 +40,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setIsAuthModal] = useState(false)
   const { authData } = useSelector(getUserAuthData)
   const sidebarActions = useActionCreatorsTyped(SidebarActions)
+
+  const isAdmin = useSelector(isUserAdmin)
+  const isManager = useSelector(isUserManager)
+
+  const isAdminPanelAvailable = isAdmin || isManager
 
   const onToggleSidebar = () => {
     sidebarActions.setCollapsed()
@@ -122,7 +133,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 ),
                 onClick: () => {},
                 buttonTheme: ThemeButton.OUTLINE
-              }
+              },
+              ...(isAdminPanelAvailable
+                ? [
+                    {
+                      href: RoutePath.admin_panel,
+                      content: (
+                        <HStack
+                          max
+                          gap='8'
+                        >
+                          <Icon Svg={AdminPanel} />
+                          <span className={cls.dropdowntext}>
+                            {t('widgets.navbar.applink.adminpanel')}
+                          </span>
+                        </HStack>
+                      ),
+                      onClick: () => {},
+                      buttonTheme: ThemeButton.OUTLINE
+                    }
+                  ]
+                : [])
             ]}
             trigger={
               <Avatar

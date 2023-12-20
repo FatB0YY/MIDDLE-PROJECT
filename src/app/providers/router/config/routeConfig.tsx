@@ -10,9 +10,13 @@ import { ArticlePageAsync } from 'pages/ArticlePage'
 import { MainPageAsync } from 'pages/MainPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePageAsync } from 'pages/ProfilePage'
+import { AdminPanelPageAsync } from 'pages/AdminPanelPage'
+import { UserRole } from 'essence/user/model/types/user'
+import { ForbiddenPageAsync } from 'pages/ForbiddenPage'
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean
+  roles?: UserRole[]
 }
 
 // перечисление роутов
@@ -24,6 +28,8 @@ export enum AppRoutes {
   ARTICLES_DETAILS = 'articles_details',
   ARTICLE_CREATE = 'article_create',
   ARTICLE_EDIT = 'article_edit',
+  ADMIN_PANEL = 'admin_panel',
+  FORBIDDEN = 'forbidden',
   // last!
   NOT_FOUND = 'not_found'
 }
@@ -37,6 +43,9 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ARTICLES_DETAILS]: '/articles/', // + :id
   [AppRoutes.ARTICLE_CREATE]: '/articles/create',
   [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
+  [AppRoutes.ADMIN_PANEL]: '/adminpanel',
+  [AppRoutes.FORBIDDEN]: '/forbidden',
+
   // last!
   [AppRoutes.NOT_FOUND]: '*'
 }
@@ -51,6 +60,10 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,
     element: <AboutPageAsync />
+  },
+  [AppRoutes.FORBIDDEN]: {
+    path: RoutePath.forbidden,
+    element: <ForbiddenPageAsync />
   },
   // private
   [AppRoutes.PROFILE]: {
@@ -77,6 +90,12 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     path: `${RoutePath.article_edit}`,
     element: <ArticleEditPageAsync />,
     authOnly: true
+  },
+  [AppRoutes.ADMIN_PANEL]: {
+    path: `${RoutePath.admin_panel}`,
+    element: <AdminPanelPageAsync />,
+    authOnly: true,
+    roles: [UserRole.MANAGER, UserRole.ADMIN]
   },
   // last!
   [AppRoutes.NOT_FOUND]: {

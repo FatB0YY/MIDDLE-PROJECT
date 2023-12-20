@@ -46,6 +46,7 @@
     },
     "navbar": {
       "applink": {
+        "adminpanel": "adminpanel",
         "profile": "profile"
       },
       "appname": "appname",

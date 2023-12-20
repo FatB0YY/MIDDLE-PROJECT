@@ -39,7 +39,8 @@
         "main": "Main",
         "about": "About us",
         "profile": "Profile",
-        "articles": "Articles"
+        "articles": "Articles",
+        "adminpanel": "Panel"
       },
       "appname": "App name",
       "create": "Create Article",

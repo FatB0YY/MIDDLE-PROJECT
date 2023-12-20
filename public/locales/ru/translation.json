@@ -37,7 +37,8 @@
         "main": "Главная",
         "about": "О нас",
         "profile": "Профиль",
-        "articles": "Статьи"
+        "articles": "Статьи",
+        "adminpanel": "Панель"
       },
       "appname": "App name",
       "create": "Создать статью",
