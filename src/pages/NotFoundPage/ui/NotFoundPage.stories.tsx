@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { NotFoundPage } from './NotFoundPage'
 import 'app/styles/index.scss' // вроде есть декоратор, но переменные нихуя не видит
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'PAGES/NotFoundPage',
@@ -18,3 +19,4 @@ const Template: ComponentStory<typeof NotFoundPage> = (args) => (
 
 export const Normal = Template.bind({})
 Normal.args = {}
+Normal.decorators = [StoreDecorator({})]

@@ -15,7 +15,14 @@ import { StoreProvider } from 'shared/lib/store/StateProvider'
 import 'react-toastify/scss/main.scss'
 import 'app/styles/index.scss'
 
-render(
+import { createRoot } from 'react-dom/client'
+const container = document.getElementById('root')
+
+if (!container) {
+  throw new Error('Root container не найден!')
+}
+const root = createRoot(container)
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
@@ -28,8 +35,7 @@ render(
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 )
 
 // const pagesMap = {

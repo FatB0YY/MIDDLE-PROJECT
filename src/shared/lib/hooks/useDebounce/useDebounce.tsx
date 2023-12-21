@@ -6,7 +6,7 @@ export function useDebounce(callback: (...args: any[]) => void, delay: number) {
   const timer = useRef(null) as MutableRefObject<any>
 
   const debouncedCallback = useCallback(
-    (...args) => {
+    (...args: any[]) => {
       if (timer.current) {
         clearTimeout(timer.current)
       }

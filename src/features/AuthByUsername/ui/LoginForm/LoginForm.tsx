@@ -48,14 +48,14 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
   const { password, username, error, isLoading } = useSelector(getLoginState)
 
   const onChangeUsername = useCallback(
-    (value) => {
+    (value: string) => {
       actionsLogin.setUsername(value)
     },
     [actionsLogin.setUsername] // eslint-disable-line
   )
 
   const onChangePassword = useCallback(
-    (value) => {
+    (value: string) => {
       actionsLogin.setPassword(value)
     },
     [actionsLogin.setPassword] // eslint-disable-line

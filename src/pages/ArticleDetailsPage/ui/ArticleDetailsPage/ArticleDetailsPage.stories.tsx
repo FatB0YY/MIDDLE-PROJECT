@@ -3,13 +3,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { IArticle } from 'essence/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-
-import {
-  EArticleBlockType,
-  EArticleType
-} from 'essence/article/model/types/article'
-
 import ArticleDetailsPage from './ArticleDetailsPage'
+import {
+  EArticleType,
+  EArticleBlockType
+} from 'essence/article/model/types/article'
 
 export default {
   title: 'PAGES/ArticleDetailsPage',
@@ -33,8 +31,7 @@ const article: IArticle = {
   type: [EArticleType.IT],
   user: {
     id: '1',
-    username: 'admin',
-    avatar: 'rfmkrkmfkrf'
+    username: 'rd tv'
   },
   blocks: [
     {
@@ -66,6 +63,7 @@ const article: IArticle = {
 
 export const Normal = Template.bind({})
 Normal.args = {}
+
 Normal.decorators = [
   StoreDecorator({
     articleDetails: {

@@ -7,6 +7,7 @@ import { Theme } from 'app/providers/ThemeProvider'
 
 import { PageError } from './PageError'
 import 'app/styles/index.scss'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
   title: 'WIDGETS/PageError',
@@ -22,8 +23,8 @@ const Template: ComponentStory<typeof PageError> = (args) => (
 
 export const Light = Template.bind({})
 Light.args = {}
+Light.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

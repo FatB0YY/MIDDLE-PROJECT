@@ -1,7 +1,9 @@
 import React from 'react'
-import { StoryFnReactReturnType } from '@storybook/react/dist/ts3.9/client/preview/types'
 import { BrowserRouter } from 'react-router-dom'
+import { Story } from '@storybook/react'
 
-export const RouterDecorator = (story: () => StoryFnReactReturnType) => (
-  <BrowserRouter>{story()}</BrowserRouter>
+export const RouterDecorator = (StoryComponent: Story) => (
+  <BrowserRouter>
+    <StoryComponent />
+  </BrowserRouter>
 )
