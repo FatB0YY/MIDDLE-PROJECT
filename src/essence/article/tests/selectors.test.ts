@@ -1,6 +1,6 @@
 import { StateSchema } from 'shared/lib/store'
 
-import { EArticleBlockType, EArticleType } from '../model/types/article'
+import { EArticleBlockType, EArticleType } from '../model/const/const'
 import {
   getArticleDetailsState,
   getArticleDetailsData,

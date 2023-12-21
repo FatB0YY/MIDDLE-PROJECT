@@ -1,4 +1,4 @@
-export { SaveScrollSchema } from './models/types/SaveScrollSchema'
+export type { SaveScrollSchema } from './models/types/SaveScrollSchema'
 export {
   saveScrollReducer,
   saveScrollActions

@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack, { Configuration } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
@@ -56,10 +56,24 @@ export function buildPlugins({
 
   if (isDev) {
     plugins.push(new webpack.ProgressPlugin())
-    // plugins.push(new webpack.HotModuleReplacementPlugin())
-    // выносит проверку типов в отдельный процесс: не нагружая сборку
-    plugins.push(new ForkTsCheckerWebpackPlugin())
+    plugins.push(
+      new ForkTsCheckerWebpackPlugin({
+        typescript: {
+          diagnosticOptions: {
+            semantic: true,
+            syntactic: true
+          },
+          mode: 'write-references'
+        }
+      })
+    )
     plugins.push(new ReactRefreshWebpackPlugin())
+    plugins.push(
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        failOnError: false
+      })
+    )
   }
 
   return plugins

@@ -33,8 +33,8 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
-    "strict": true
-    // "isolatedModules": true, проверить потом!!
+    "strict": true,
+    "isolatedModules": true
     // "allowUmdGlobalAccess": false // https://www.typescriptlang.org/docs/handbook/modules/introduction.html
   },
   "ts-node": {

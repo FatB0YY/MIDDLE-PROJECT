@@ -15,6 +15,7 @@ export default (env: IBuildEnv) => {
   }
 
   const mode = env.mode || 'development'
+
   const isDev = mode === 'development'
   const isProd = mode === 'production'
   const PORT = env.port || 3000

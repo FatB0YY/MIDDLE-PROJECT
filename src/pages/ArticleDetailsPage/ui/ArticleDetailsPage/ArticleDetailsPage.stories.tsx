@@ -3,11 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { IArticle } from 'essence/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import ArticleDetailsPage from './ArticleDetailsPage'
 import {
   EArticleType,
   EArticleBlockType
-} from 'essence/article/model/types/article'
+} from 'essence/article/model/const/const'
+
+import ArticleDetailsPage from './ArticleDetailsPage'
 
 export default {
   title: 'PAGES/ArticleDetailsPage',

@@ -12,16 +12,14 @@ import { Card } from 'shared/ui/Card/Card'
 import { Avatar } from 'shared/ui/Avatar'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { RoutePath } from 'app/providers/router/config/routeConfig'
-
+import {
+  EArticleBlockType,
+  EArticleView
+} from 'essence/article/model/const/const'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import {
-  ArticleTextBlock,
-  EArticleBlockType,
-  EArticleView,
-  IArticle
-} from '../../model/types/article'
+import { ArticleTextBlock, IArticle } from '../../model/types/article'
 
 import cls from './ArticleListItem.module.scss'
 

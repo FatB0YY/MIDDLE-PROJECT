@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { ReducersMapObject } from '@reduxjs/toolkit'
 import { MemoryRouter } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
 import { render } from '@testing-library/react'
@@ -7,7 +8,6 @@ import { StoreProvider } from 'shared/lib/store/StateProvider'
 import { StateSchema } from 'shared/lib/store'
 // eslint-disable-next-line fatboyy-plugin1/path-checker
 import i18nForTests from 'shared/config/i18n/i18nForTests'
-import { ReducersMapObject } from '@reduxjs/toolkit'
 
 export interface componentRenderOptions {
   route?: string

@@ -3,20 +3,20 @@
 }
 
 .items {
-  background-color: var(--main-bg-color);
-  box-shadow: 0 2px 5px rgb(0 0 0 / 10%); /* Легкая тень */
   position: absolute;
   z-index: 10000;
-  border-radius: 15px;
   padding: 8px 12px;
   border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%); /* Легкая тень */
 }
 
 .item {
-  padding: 4px 12px;
-  border-radius: 5px;
   width: 100%;
+  padding: 4px 12px;
   border: none;
+  border-radius: 5px;
   background: none;
   color: var(--main-text-color);
   cursor: pointer;

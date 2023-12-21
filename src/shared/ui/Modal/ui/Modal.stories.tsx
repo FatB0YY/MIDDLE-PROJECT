@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider'
 
 import { Modal } from './Modal'
-import 'app/styles/index.scss' // вроде есть декоратор, но переменные нихуя не видит
+import 'app/styles/index.scss'
 
 export default {
   title: 'SHARED/Modal',

@@ -1,11 +1,7 @@
-import { EArticleType } from 'essence/article/model/types/article'
 import { SortOrder } from 'shared/types/sort'
+import { EArticleType } from 'essence/article'
 
-export enum EArticleSortField {
-  VIEWS = 'views',
-  TITLE = 'title',
-  CREATED = 'created'
-}
+import { EArticleSortField } from '../const/const'
 
 export interface ArticleSortSchema {
   order: SortOrder

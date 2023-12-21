@@ -4,7 +4,7 @@ import { ThunkConfig } from 'shared/lib/store'
 
 import { articleSortActions } from 'features/ArticleSort/model/slice/articleSortSlice'
 import { EArticleSortField } from 'features/ArticleSort'
-import { EArticleType } from 'essence/article/model/types/article'
+import { EArticleType } from 'essence/article/model/const/const'
 
 import { getArticlesPageInitied } from '../selectors/articlesPageSelectors'
 import { articlesPageActions } from '../slice/articlesPageSlice'

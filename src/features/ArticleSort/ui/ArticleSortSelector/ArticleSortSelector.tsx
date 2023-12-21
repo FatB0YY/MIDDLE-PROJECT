@@ -13,7 +13,7 @@ import {
   ReducersList
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 
-import { EArticleSortField } from '../../model/types/articlesort'
+import { EArticleSortField } from '../../model/const/const'
 import { articleSortReducer } from '../../model/slice/articleSortSlice'
 
 import cls from './ArticleSortSelector.module.scss'

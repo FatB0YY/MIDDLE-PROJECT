@@ -1,10 +1,6 @@
 import { IUser } from 'essence/user'
 
-export enum EArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT'
-}
+import { EArticleBlockType, EArticleType } from '../const/const'
 
 export interface ArticleBlockMain {
   id: string
@@ -33,13 +29,6 @@ export type ArticleBlock =
   | ArticleImageBlock
   | ArticleTextBlock
 
-export enum EArticleType {
-  ALL = 'ALL',
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECO = 'ECO'
-}
-
 export interface IArticle {
   id: string
   title: string
@@ -50,9 +39,4 @@ export interface IArticle {
   type: EArticleType[]
   blocks: ArticleBlock[]
   user: IUser
-}
-
-export enum EArticleView {
-  BIG = 'BIG',
-  SMALL = 'SMALL'
 }

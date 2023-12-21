@@ -33,7 +33,8 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
 
   const cssLoader = buildCssLoader(options.isDev)
 
-  const babelLoader = buildBabelLoader(options)
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false })
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true })
 
   // Если не используем тайпскрипт - нужен babel-loader
   // const tsLoader = {
@@ -67,8 +68,8 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
     assetLoader,
     fontsLoader,
     svgrLoader,
-    // tsLoader,
-    babelLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
     cssLoader
   ]
 }

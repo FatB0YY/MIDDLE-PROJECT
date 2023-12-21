@@ -1,10 +1,10 @@
-import React, { ReactNode, useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 import { useSelector } from 'react-redux'
 
 import { Navigate, useLocation } from 'react-router-dom'
 
-import { UserRole } from 'essence/user/model/types/user'
+import { UserRole } from 'essence/user'
 import { getUserAuthData, getUserRoles } from 'essence/user'
 
 import { RoutePath } from '../config/routeConfig'

@@ -9,7 +9,7 @@ import {
   getArticleSortSort
 } from 'features/ArticleSort'
 import { getArticleSortType } from 'features/ArticleSort/model/selectors/articleSortSelectors'
-import { EArticleType } from 'essence/article/model/types/article'
+import { EArticleType } from 'essence/article/model/const/const'
 
 import {
   getArticlesPageLimit,

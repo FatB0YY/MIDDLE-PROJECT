@@ -1,10 +1,9 @@
 // ArticleListComponent.jsx
 import React, { memo } from 'react'
 
-import {
-  ArticleBlock,
-  EArticleBlockType
-} from 'essence/article/model/types/article'
+import { ArticleBlock } from 'essence/article/model/types/article'
+
+import { EArticleBlockType } from 'essence/article/model/const/const'
 
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'

@@ -1,9 +1,10 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { NotFoundPage } from './NotFoundPage'
-import 'app/styles/index.scss' // вроде есть декоратор, но переменные нихуя не видит
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+
+import { NotFoundPage } from './NotFoundPage'
+import 'app/styles/index.scss'
 
 export default {
   title: 'PAGES/NotFoundPage',

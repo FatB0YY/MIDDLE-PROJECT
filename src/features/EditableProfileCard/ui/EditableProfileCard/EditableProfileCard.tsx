@@ -14,9 +14,9 @@ import {
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { fetchProfileDataThunk } from '../../model/services/fetchProfileDataThunk'
 import { getProfileState } from '../../model/selectors/getProfileState'
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 import cls from './EditableProfileCard.module.scss'
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 interface EditableProfileCardProps {
   className?: string

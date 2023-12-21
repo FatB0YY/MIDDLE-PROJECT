@@ -1,9 +1,8 @@
 import React from 'react'
 
 import 'shared/config/i18n/i18n'
-/* eslint-disable */
-import { render } from 'react-dom'
-/* eslint-enable */
+
+import { createRoot } from 'react-dom/client'
 import { ToastContainer } from 'react-toastify'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -15,7 +14,6 @@ import { StoreProvider } from 'shared/lib/store/StateProvider'
 import 'react-toastify/scss/main.scss'
 import 'app/styles/index.scss'
 
-import { createRoot } from 'react-dom/client'
 const container = document.getElementById('root')
 
 if (!container) {

@@ -2,7 +2,15 @@ import { IBuildOptions } from '../types/config'
 
 import { removeDataTestIdBabelPlugin } from './removeDataTestIdBabelPlugin'
 
-export function buildBabelLoader({ isDev, isProd }: IBuildOptions) {
+interface BuildBabelLoaderProps extends IBuildOptions {
+  isTsx: boolean
+}
+
+export function buildBabelLoader({
+  isDev,
+  isProd,
+  isTsx
+}: BuildBabelLoaderProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const plugins: any = [
     [
@@ -11,10 +19,17 @@ export function buildBabelLoader({ isDev, isProd }: IBuildOptions) {
         locales: ['ru', 'en'],
         keyAsDefaultValue: true
       }
-    ]
+    ],
+    [
+      '@babel/plugin-transform-typescript',
+      {
+        isTSX: isTsx
+      }
+    ],
+    '@babel/plugin-transform-runtime'
   ]
 
-  if (isProd) {
+  if (isProd && isTsx) {
     plugins.push([
       removeDataTestIdBabelPlugin,
       {
@@ -24,13 +39,18 @@ export function buildBabelLoader({ isDev, isProd }: IBuildOptions) {
   }
 
   return {
-    test: /\.tsx?$/,
+    test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
       options: {
         presets: [
-          '@babel/preset-env',
+          [
+            '@babel/preset-env',
+            {
+              useBuiltIns: false
+            }
+          ],
           '@babel/preset-typescript',
           [
             '@babel/preset-react',

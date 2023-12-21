@@ -1,8 +1,8 @@
 import { StateSchema } from 'shared/lib/store'
 
-import { EArticleType } from 'essence/article/model/types/article'
+import { EArticleType } from 'essence/article'
 
-import { EArticleSortField } from '../types/articlesort'
+import { EArticleSortField } from '../const/const'
 
 export const getArticleSortOrder = (state: StateSchema) =>
   state.articleSort?.order || 'asc'

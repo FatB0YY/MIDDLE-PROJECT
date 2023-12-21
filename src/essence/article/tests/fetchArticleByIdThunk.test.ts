@@ -1,11 +1,9 @@
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
 
 import { fetchArticleByIdThunk } from '../model/services/fetchArticleByIdThunk'
-import {
-  EArticleBlockType,
-  EArticleType,
-  IArticle
-} from '../model/types/article'
+import { IArticle } from '../model/types/article'
+
+import { EArticleBlockType, EArticleType } from '../model/const/const'
 
 describe('fetchArticleByIdThunk', () => {
   const data: IArticle = {

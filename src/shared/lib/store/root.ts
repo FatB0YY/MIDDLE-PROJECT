@@ -6,13 +6,11 @@ import {
   ReducersMapObject
 } from '@reduxjs/toolkit'
 
-import { counterReducer } from 'essence/counter/index'
-import { userReducer } from 'essence/user/index'
+import { counterReducer } from 'essence/counter'
+import { userReducer } from 'essence/user'
 import { SidebarReducer } from 'widgets/Sidebar'
-
 import { $api } from 'shared/api/api'
-
-import { saveScrollReducer } from 'features/ScrollSave/models/slice/SaveScrollSlice'
+import { saveScrollReducer } from 'features/ScrollSave'
 import { rtkApi } from 'shared/api/rtkApi'
 
 import { ReducerManager, StateSchema, ThunkExtraArg } from './types'

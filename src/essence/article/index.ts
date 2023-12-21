@@ -1,5 +1,10 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails'
-export { IArticle, EArticleView } from './model/types/article'
+export type { IArticle } from './model/types/article'
+export {
+  EArticleView,
+  EArticleBlockType,
+  EArticleType
+} from './model/const/const'
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 export {
   articleDetailsActions,

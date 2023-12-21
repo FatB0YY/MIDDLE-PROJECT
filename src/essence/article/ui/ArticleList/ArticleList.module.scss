@@ -11,17 +11,17 @@
 }
 
 .ArticleListNoisVirtualizationList::before {
-  content: '';
   width: 100%;
   height: 1px;
-  background-color: var(--card-border-color);
   border-radius: 5px;
+  background-color: var(--card-border-color);
+  content: '';
 }
 
 .ArticleListNoisVirtualizationList::after {
-  content: '';
   width: 100%;
   height: 1px;
-  background-color: var(--card-border-color);
   border-radius: 5px;
+  background-color: var(--card-border-color);
+  content: '';
 }

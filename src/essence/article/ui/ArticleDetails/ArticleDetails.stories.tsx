@@ -4,10 +4,11 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 import {
-  IArticle,
   EArticleBlockType,
   EArticleType
-} from '../../model/types/article'
+} from 'essence/article/model/const/const'
+
+import { IArticle } from '../../model/types/article'
 
 import { ArticleDetails } from './ArticleDetails'
 
