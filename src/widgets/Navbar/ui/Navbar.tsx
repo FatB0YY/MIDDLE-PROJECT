@@ -9,12 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ThemeButton } from 'shared/ui/Button/index'
 import { LoginModal } from 'features/AuthByUsername'
 import { useActionCreatorsTyped } from 'shared/lib/store'
-import {
-  getUserAuthData,
-  isUserAdmin,
-  isUserManager,
-  userActions
-} from 'essence/user'
+import { getUserAuthData } from 'essence/user'
 import { Avatar } from 'shared/ui/Avatar'
 import { HStack } from 'shared/ui/Stack'
 import { ButtonSize } from 'shared/ui/Button/ui/Button'
@@ -22,12 +17,8 @@ import { Icon } from 'shared/ui/Icon/Icon'
 import AppLogo from 'shared/assets/logo.jpg'
 import BurgerIcon from 'shared/assets/icons/burger.svg'
 import { SidebarActions } from 'widgets/Sidebar'
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
-import { RoutePath } from 'app/providers/router/config/routeConfig'
-
-import LogoutSvg from 'shared/assets/icons/logout.svg'
-import ProfileSvg from 'shared/assets/icons/profile-20-20.svg'
-import AdminPanel from 'shared/assets/icons/adminpanel.svg'
+import { AvatarDropdown } from 'features/AvatarDropdown'
+import { NotificationButton } from 'features/NotificationButton'
 
 import cls from './Navbar.module.scss'
 
@@ -41,16 +32,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const { authData } = useSelector(getUserAuthData)
   const sidebarActions = useActionCreatorsTyped(SidebarActions)
 
-  const isAdmin = useSelector(isUserAdmin)
-  const isManager = useSelector(isUserManager)
-
-  const isAdminPanelAvailable = isAdmin || isManager
-
   const onToggleSidebar = () => {
     sidebarActions.setCollapsed()
   }
-
-  const actionsUser = useActionCreatorsTyped(userActions)
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false)
@@ -59,12 +43,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onShowModal = useCallback(() => {
     setIsAuthModal(true)
   }, [])
-
-  const onLogout = useCallback(() => {
-    actionsUser.logout()
-    /* eslint-disable */
-  }, [actionsUser.logout])
-  /* eslint-enable */
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
@@ -98,72 +76,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           </AppLink> */}
         {/* // ---------------------------------------------------- */}
 
-        {authData && (
-          <Dropdown
-            visibleIcon={false}
-            direction='bottom left'
-            items={[
-              {
-                content: (
-                  <HStack
-                    max
-                    gap='8'
-                  >
-                    <Icon Svg={LogoutSvg} />
-                    <span className={cls.dropdowntext}>
-                      {t('widgets.navbar.logout')}
-                    </span>
-                  </HStack>
-                ),
-                onClick: onLogout,
-                buttonTheme: ThemeButton.OUTLINE
-              },
-              {
-                href: RoutePath.profile + authData.id,
-                content: (
-                  <HStack
-                    max
-                    gap='8'
-                  >
-                    <Icon Svg={ProfileSvg} />
-                    <span className={cls.dropdowntext}>
-                      {t('widgets.navbar.applink.profile')}
-                    </span>
-                  </HStack>
-                ),
-                onClick: () => {},
-                buttonTheme: ThemeButton.OUTLINE
-              },
-              ...(isAdminPanelAvailable
-                ? [
-                    {
-                      href: RoutePath.admin_panel,
-                      content: (
-                        <HStack
-                          max
-                          gap='8'
-                        >
-                          <Icon Svg={AdminPanel} />
-                          <span className={cls.dropdowntext}>
-                            {t('widgets.navbar.applink.adminpanel')}
-                          </span>
-                        </HStack>
-                      ),
-                      onClick: () => {},
-                      buttonTheme: ThemeButton.OUTLINE
-                    }
-                  ]
-                : [])
-            ]}
-            trigger={
-              <Avatar
-                size={30}
-                src={authData.avatar}
-                alt={authData.username}
-              />
-            }
-          />
-        )}
+        <HStack
+          gap='16'
+          className={cls.actions}
+        >
+          {authData && (
+            <>
+              <NotificationButton />
+              <AvatarDropdown authData={authData} />
+            </>
+          )}
+        </HStack>
 
         {!authData && (
           <Button

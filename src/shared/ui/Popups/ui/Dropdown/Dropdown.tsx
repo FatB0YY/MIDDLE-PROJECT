@@ -10,9 +10,10 @@ import SelectIcon from 'shared/assets/icons/select.svg'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { DropdownDirection } from 'shared/types/ui'
 
-import { VStack } from '../Stack'
+import { VStack } from '../../../Stack'
 
-import cls from './Dropdown.module.scss'
+import cls from '../../styles/popup.module.scss'
+import { mapDirectionClass } from '../../styles/const'
 
 export interface DropdownItem {
   disabled?: boolean
@@ -31,12 +32,6 @@ export interface DropdownProps {
 }
 
 // повторы из файла Listbox, потом будет рефакторинг
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top right': cls.optionsTopRight,
-  'top left': cls.optionsTopLeft
-}
 
 export const Dropdown = ({
   className,
@@ -92,6 +87,7 @@ export const Dropdown = ({
                   key={index}
                   as={Link}
                   disabled={item.disabled}
+                  className={cls.link}
                 >
                   {content}
                 </Menu.Item>

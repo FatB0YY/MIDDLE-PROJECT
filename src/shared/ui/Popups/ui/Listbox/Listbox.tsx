@@ -5,11 +5,12 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import SelectIcon from 'shared/assets/icons/select.svg'
 import { DropdownDirection } from 'shared/types/ui'
 
-import { Icon } from '../Icon/Icon'
+import { Icon } from '../../../Icon/Icon'
 
 // import { Button } from '../Button'
 
-import cls from './Listbox.module.scss'
+import cls from '../../styles/popup.module.scss'
+import { mapDirectionClass } from '../../styles/const'
 
 export interface ListBoxItem {
   value: string
@@ -26,13 +27,6 @@ interface ListboxProps {
   onChange: (value: any) => void
   readonly?: boolean
   direction?: DropdownDirection
-}
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top right': cls.optionsTopRight,
-  'top left': cls.optionsTopLeft
 }
 
 export const Listbox = ({

@@ -1,8 +1,12 @@
-.Listbox {
+.Listbox,
+.Dropdown,
+.Popover {
   position: relative;
 }
 
 .trigger {
+  display: flex;
+  align-items: center;
   padding: 5px;
   border: 2px solid var(--card-border-color);
   border-radius: 3px;
@@ -12,7 +16,9 @@
   cursor: pointer;
 }
 
-.options {
+.options,
+.items,
+.panel {
   position: absolute;
   z-index: 10000;
   padding: 8px 12px;
@@ -23,6 +29,7 @@
 }
 
 .item {
+  width: 100%;
   padding: 4px 12px;
   border-radius: 5px;
   margin-bottom: 4px;
@@ -30,7 +37,8 @@
   cursor: pointer;
 }
 
-.disabled {
+.disabled,
+.unavailable {
   opacity: 0.7;
 }
 
@@ -38,17 +46,9 @@
   margin-bottom: 0;
 }
 
-.item.active {
-  background-color: var(--hover-nav-item-color);
-}
-
+.item.active,
 .item.selected {
-  background-color: var(--active-nav-item-color);
-}
-
-.unavailable {
-  cursor: no-drop;
-  opacity: 0.7;
+  background-color: var(--hover-nav-item-color);
 }
 
 .optionsTop {
@@ -59,22 +59,29 @@
   margin-left: 10px;
 }
 
-.optionsBottomLeft {
+.optionsBottomLeft,
+.optionsBottomRight,
+.optionsTopRight,
+.optionsTopLeft {
   top: 105%;
-  right: 0;
 }
 
-.optionsBottomRight {
-  top: 105%;
-  left: 0;
-}
-
-.optionsTopRight {
-  bottom: 105%;
-  left: 0;
-}
-
+.optionsBottomLeft,
 .optionsTopLeft {
   right: 0;
-  bottom: 105%;
+}
+
+.optionsBottomRight,
+.optionsTopRight {
+  left: 0;
+}
+
+.item:hover {
+  fill-opacity: 1;
+  opacity: 1;
+  stroke-opacity: 1;
+}
+
+.link {
+  width: 100%;
 }

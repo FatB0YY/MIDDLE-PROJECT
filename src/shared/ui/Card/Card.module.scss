@@ -4,7 +4,9 @@
 }
 
 .normal {
+  border: none;
 }
 
 .outlined {
+  border: 1px solid var(--card-border-color);
 }
