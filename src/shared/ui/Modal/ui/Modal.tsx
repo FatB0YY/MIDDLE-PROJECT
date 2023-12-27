@@ -1,10 +1,12 @@
-import React, { ReactNode, useCallback, useEffect, useState } from 'react'
+import React, { ReactNode } from 'react'
 
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
 /* eslint-disable */
 import { Portal } from 'shared/ui/Portal/index'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Overlay } from 'shared/ui/Overlay/Overlay'
+import { useModal } from 'shared/lib/hooks/useModal/useModal'
+
 /* eslint-enable */
 
 import cls from './Modal.module.scss'
@@ -25,42 +27,8 @@ export const Modal = ({
   lazy,
   ...otherProps
 }: ModalProps) => {
-  const [isMounted, setIsMounted] = useState(false)
   const { theme } = useTheme()
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true)
-    }
-  }, [isOpen])
-
-  const closeHandler = () => {
-    if (onClose) {
-      onClose()
-    }
-  }
-
-  // на каждый перерендер комп., эти функции будут создаваться заново, новые ссылки!!!
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if ((e.key === 'Escape' || e.key === 'Esc') && onClose) {
-        onClose()
-      }
-    },
-    /* eslint-disable */
-    [closeHandler, onClose]
-    /* eslint-enable */
-  )
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown)
-    }
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [isOpen, onKeyDown])
+  const { closeHandler, isMounted } = useModal({ isOpen, onClose })
 
   const mods: Mods = {
     [cls.opened]: isOpen
@@ -76,7 +44,7 @@ export const Modal = ({
         {...otherProps}
         className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}
       >
-        <Overlay onClick={onClose} />
+        <Overlay onClick={closeHandler} />
         <div className={cls.content}>{children}</div>
       </div>
     </Portal>
