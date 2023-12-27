@@ -11,7 +11,7 @@ import { SortOrder } from 'shared/types/sort'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 import { EArticleSortField } from '../../model/const/const'
 import { articleSortReducer } from '../../model/slice/articleSortSlice'

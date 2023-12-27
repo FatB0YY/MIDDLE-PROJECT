@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useActionCreatorsTyped } from 'shared/lib/store'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { classNames } from 'shared/lib/classNames/classNames'

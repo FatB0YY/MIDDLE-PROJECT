@@ -14,7 +14,7 @@ import { Text, TextSize, TextTheme } from 'shared/ui/Text'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { VStack } from 'shared/ui/Stack'
 import { Icon } from 'shared/ui/Icon/Icon'
 import CloseIcon from 'shared/assets/icons/close.svg'

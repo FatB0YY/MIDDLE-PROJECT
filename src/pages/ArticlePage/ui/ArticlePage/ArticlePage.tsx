@@ -3,7 +3,7 @@ import React, { memo, useCallback } from 'react'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useActionCreatorsTyped } from 'shared/lib/store'
 import { Page } from 'widgets/Page/Page'
 import { classNames } from 'shared/lib/classNames/classNames'

@@ -9,7 +9,7 @@ import { ECurrency } from 'essence/currency'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { fetchProfileDataThunk } from '../../model/services/fetchProfileDataThunk'

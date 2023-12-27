@@ -8,7 +8,7 @@ import { PageError } from 'widgets/PageError'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentsList'
 import { VStack } from 'shared/ui/Stack'
 import { Page } from 'widgets/Page/Page'

@@ -7,7 +7,7 @@ import { profileReducer } from 'features/EditableProfileCard/model/slice/profile
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentsList'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { addNewCommentReducer } from 'features/addNewComment/model/slice/addNewCommentSlice'
-import { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { StoreProvider } from 'shared/lib/store/StateProvider'
 import { StateSchema } from 'shared/lib/store/index'
 

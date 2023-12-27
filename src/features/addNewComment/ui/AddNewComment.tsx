@@ -9,7 +9,7 @@ import { Button, ThemeButton } from 'shared/ui/Button'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useActionCreatorsTyped } from 'shared/lib/store'
 import { HStack } from 'shared/ui/Stack'
 
