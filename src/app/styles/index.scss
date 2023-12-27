@@ -13,6 +13,13 @@ body {
   font: var(--font-m);
 }
 
+.app,
+.app_modal,
+.app_drawer {
+  font: var(--font-m);
+  color: var(--main-text-color);
+}
+
 .app {
   min-height: 100vh;
 }

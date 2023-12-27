@@ -3,9 +3,8 @@ import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
 /* eslint-disable */
 import { Portal } from 'shared/ui/Portal/index'
-import { VStack } from 'shared/ui/Stack'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { useTheme } from 'app/providers/ThemeProvider'
+import { Overlay } from 'shared/ui/Overlay/Overlay'
 /* eslint-enable */
 
 import cls from './Modal.module.scss'
@@ -39,10 +38,6 @@ export const Modal = ({
     if (onClose) {
       onClose()
     }
-  }
-
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
   }
 
   // на каждый перерендер комп., эти функции будут создаваться заново, новые ссылки!!!
@@ -81,17 +76,8 @@ export const Modal = ({
         {...otherProps}
         className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}
       >
-        <div
-          onClick={closeHandler}
-          className={cls.overlay}
-        >
-          <div
-            onClick={onContentClick}
-            className={cls.content}
-          >
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={onClose} />
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   )

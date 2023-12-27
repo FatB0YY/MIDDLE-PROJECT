@@ -5,3 +5,17 @@
   display: flex;
   align-items: center;
 }
+
+.NotificationList {
+  min-height: 150px;
+  max-height: 300px;
+  width: 500px;
+  overflow-y: auto;
+}
+
+.NotificationListLoading {
+  min-height: 150px;
+  max-height: 300px;
+  width: 500px;
+  padding: 10px 0;
+}

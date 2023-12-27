@@ -4,6 +4,9 @@
   inset: 0;
   opacity: 0;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay {
@@ -12,7 +15,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: rgb(36 41 46 / 50%);
+  background-color: var(--overlay-color);
 }
 
 .content {

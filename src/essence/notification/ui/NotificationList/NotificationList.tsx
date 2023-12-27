@@ -11,9 +11,13 @@ import cls from './NotificationList.module.scss'
 
 interface NotificationListProps {
   className?: string
+  classNameLoader?: string
 }
 
-export const NotificationList = ({ className }: NotificationListProps) => {
+export const NotificationList = ({
+  className,
+  classNameLoader
+}: NotificationListProps) => {
   const { isLoading: isNotificationLoading, data: notifications } =
     useGetNotificationListQuery(null, { pollingInterval: 1000 })
 
@@ -21,7 +25,10 @@ export const NotificationList = ({ className }: NotificationListProps) => {
     return (
       <VStack
         gap='16'
-        className={classNames(cls.NotificationListLoading, {}, [className])}
+        max
+        className={classNames(cls.NotificationListLoading, {}, [
+          classNameLoader
+        ])}
       >
         <Skeleton
           width='100%'
@@ -45,6 +52,7 @@ export const NotificationList = ({ className }: NotificationListProps) => {
   return (
     <VStack
       gap='16'
+      max
       className={classNames(cls.NotificationList, {}, [className])}
     >
       {notifications?.map((item) => (
