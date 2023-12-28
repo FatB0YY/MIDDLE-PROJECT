@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/lib/store/index'
+import { StateSchema } from '@/shared/lib/store/index'
 
 import { getCounter } from '../model/selectors/getCounter'
 import { getCounterValue } from '../model/selectors/getCounterValue'

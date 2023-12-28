@@ -1,11 +1,11 @@
-import { Country } from 'shared/const/other'
+import { Country } from '@/shared/const/other'
 
-import { ECurrency } from 'essence/currency'
+import { ECurrency } from '@/essence/currency'
 
-import { fetchProfileDataThunk } from 'features/EditableProfileCard/model/services/fetchProfileDataThunk'
-import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice'
-import { ProfileSchema } from 'features/EditableProfileCard'
-import { updateProfileDataThunk } from 'features/EditableProfileCard/model/services/updateProfileDataThunk'
+import { fetchProfileDataThunk } from '@/features/EditableProfileCard/model/services/fetchProfileDataThunk'
+import { profileReducer } from '@/features/EditableProfileCard/model/slice/profileSlice'
+import { ProfileSchema } from '@/features/EditableProfileCard'
+import { updateProfileDataThunk } from '@/features/EditableProfileCard/model/services/updateProfileDataThunk'
 
 import { ValidateProfileError } from '../model/types/profile'
 import { IProfile } from '../model/types/profile'

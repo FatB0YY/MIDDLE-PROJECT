@@ -1,10 +1,10 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 import { NotFoundPage } from './NotFoundPage'
-import 'app/styles/index.scss'
+import '@/app/styles/index.scss'
 
 export default {
   title: 'PAGES/NotFoundPage',

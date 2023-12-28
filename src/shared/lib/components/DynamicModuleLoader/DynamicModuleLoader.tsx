@@ -8,7 +8,7 @@ import {
   StateSchemaKey,
   ReduxStoreWithManager,
   StateSchema
-} from 'shared/lib/store/index'
+} from '@/shared/lib/store/index'
 /* eslint-enable */
 
 export type ReducersList = {

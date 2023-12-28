@@ -2,8 +2,8 @@ import React, { memo, useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { Listbox } from 'shared/ui/Popups/ui/Listbox/Listbox'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { Listbox } from '@/shared/ui/Popups/ui/Listbox/Listbox'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 // import cls from './LangSwitcher.module.scss'
 

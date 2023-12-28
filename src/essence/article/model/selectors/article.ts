@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 
-import { getUserAuthData } from 'essence/user'
+import { getUserAuthData } from '@/essence/user'
 
 import { getArticleDetailsData } from './articleDetailsSelectors'
 

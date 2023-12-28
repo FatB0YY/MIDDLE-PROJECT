@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/lib/store/index'
+import { StateSchema } from '@/shared/lib/store/index'
 
 import { LoginSchema } from '../types/loginSchema'
 

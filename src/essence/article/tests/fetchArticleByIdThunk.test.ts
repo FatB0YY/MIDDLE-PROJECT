@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
 
 import { fetchArticleByIdThunk } from '../model/services/fetchArticleByIdThunk'
 import { IArticle } from '../model/types/article'

@@ -1,8 +1,8 @@
-import { ECurrency } from 'essence/currency'
-import { Country } from 'shared/const/other'
+import { ECurrency } from '@/essence/currency'
+import { Country } from '@/shared/const/other'
 
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
-import { updateProfileDataThunk } from 'features/EditableProfileCard/model/services/updateProfileDataThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
+import { updateProfileDataThunk } from '@/features/EditableProfileCard/model/services/updateProfileDataThunk'
 
 import { IProfile, ValidateProfileError } from '../model/types/profile'
 

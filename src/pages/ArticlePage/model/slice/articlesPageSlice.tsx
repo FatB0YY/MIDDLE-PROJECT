@@ -4,10 +4,10 @@ import {
   createSlice
 } from '@reduxjs/toolkit'
 
-import { EArticleView, IArticle } from 'essence/article'
-import { StateSchema } from 'shared/lib/store'
+import { EArticleView, IArticle } from '@/essence/article'
+import { StateSchema } from '@/shared/lib/store'
 
-import { ARTICLEVIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
+import { ARTICLEVIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
 
 import { articlesPageSchema } from '../types/articlePageSchema'
 import { fetchArticlesListThunk } from '../services/fetchArticlesListThunk'

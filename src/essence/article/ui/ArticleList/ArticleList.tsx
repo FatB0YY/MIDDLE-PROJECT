@@ -4,10 +4,10 @@ import { FixedSizeList } from 'react-window'
 
 import AutoSizer from 'react-virtualized-auto-sizer'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { HStack } from 'shared/ui/Stack'
-import { IArticle } from 'essence/article/model/types/article'
-import { EArticleView } from 'essence/article/model/const/const'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { HStack } from '@/shared/ui/Stack'
+import { IArticle } from '@/essence/article/model/types/article'
+import { EArticleView } from '@/essence/article/model/const/const'
 
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 // import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'

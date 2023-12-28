@@ -1,6 +1,6 @@
-import { IUser, userActions } from 'essence/user'
+import { IUser, userActions } from '@/essence/user'
 
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
 
 import {
   ILoginByUsername,

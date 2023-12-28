@@ -3,10 +3,10 @@ import React, { memo, useCallback } from 'react'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useActionCreatorsTyped } from 'shared/lib/store'
-import { Page } from 'widgets/Page/Page'
-import { classNames } from 'shared/lib/classNames/classNames'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { Page } from '@/widgets/Page/Page'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { ArticlesPageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { ArticlePageInfinityList } from '../ArticlePageInfinityList/ArticlePageInfinityList'

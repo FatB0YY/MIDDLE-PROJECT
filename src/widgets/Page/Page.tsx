@@ -11,13 +11,13 @@ import { useLocation } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll/useInfinityScroll'
-import { StateSchema, useActionCreatorsTyped } from 'shared/lib/store'
-import { getSaveScrollByPath, saveScrollActions } from 'features/ScrollSave'
+import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll/useInfinityScroll'
+import { StateSchema, useActionCreatorsTyped } from '@/shared/lib/store'
+import { getSaveScrollByPath, saveScrollActions } from '@/features/ScrollSave'
 
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 
 import cls from './Page.module.scss'
 

@@ -3,12 +3,12 @@ import React, { Fragment, ReactNode } from 'react'
 import { Menu } from '@headlessui/react'
 import { Link } from 'react-router-dom'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Icon } from 'shared/ui/Icon/Icon'
-import SelectIcon from 'shared/assets/icons/select.svg'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import SelectIcon from '@/shared/assets/icons/select.svg'
 // import { Text, TextSize } from 'shared/ui/Text'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { DropdownDirection } from 'shared/types/ui'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { DropdownDirection } from '@/shared/types/ui'
 
 import { VStack } from '../../../Stack'
 

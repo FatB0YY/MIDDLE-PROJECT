@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Card, CardTheme } from 'shared/ui/Card/Card'
-import { Text, TextSize } from 'shared/ui/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Card, CardTheme } from '@/shared/ui/Card/Card'
+import { Text, TextSize } from '@/shared/ui/Text'
 
 import { INotification } from '../../model/types/notification'
 

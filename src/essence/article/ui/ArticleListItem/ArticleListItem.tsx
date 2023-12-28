@@ -3,20 +3,20 @@ import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { Text } from 'shared/ui/Text'
-import { Icon } from 'shared/ui/Icon/Icon'
+import { Text } from '@/shared/ui/Text'
+import { Icon } from '@/shared/ui/Icon/Icon'
 
-import { Card } from 'shared/ui/Card/Card'
-import { Avatar } from 'shared/ui/Avatar'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { RoutePath } from 'app/providers/router/config/routeConfig'
+import { Card } from '@/shared/ui/Card/Card'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { RoutePath } from '@/app/providers/router/config/routeConfig'
 import {
   EArticleBlockType,
   EArticleView
-} from 'essence/article/model/const/const'
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
+} from '@/essence/article/model/const/const'
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { ArticleTextBlock, IArticle } from '../../model/types/article'

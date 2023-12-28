@@ -2,16 +2,16 @@ import React, { useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { Select } from 'shared/ui/Select'
-import { SelectOption } from 'shared/ui/Select/ui/Select'
+import { Select } from '@/shared/ui/Select'
+import { SelectOption } from '@/shared/ui/Select/ui/Select'
 
-import { SortOrder } from 'shared/types/sort'
+import { SortOrder } from '@/shared/types/sort'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 import { EArticleSortField } from '../../model/const/const'
 import { articleSortReducer } from '../../model/slice/articleSortSlice'

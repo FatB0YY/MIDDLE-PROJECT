@@ -1,7 +1,7 @@
 import React, { Suspense, memo, useCallback } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { PageLoader } from 'shared/ui/PageLoader'
+import { PageLoader } from '@/shared/ui/PageLoader'
 
 import { AppRoutesProps, routeConfig } from '../config/routeConfig'
 

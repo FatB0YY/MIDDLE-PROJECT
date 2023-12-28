@@ -2,11 +2,11 @@ import React from 'react'
 
 import { useParams } from 'react-router-dom'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { VStack } from 'shared/ui/Stack/VStack/VStack'
-import { PageError } from 'widgets/PageError'
-import { Page } from 'widgets/Page/Page'
-import { EditableProfileCard } from 'features/EditableProfileCard'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { VStack } from '@/shared/ui/Stack/VStack/VStack'
+import { PageError } from '@/widgets/PageError'
+import { Page } from '@/widgets/Page/Page'
+import { EditableProfileCard } from '@/features/EditableProfileCard'
 
 import cls from './ProfilePage.module.scss'
 

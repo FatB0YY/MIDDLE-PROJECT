@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { ProfileCard } from 'essence/profile'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useActionCreatorsTyped } from 'shared/lib/store'
-import { ECurrency } from 'essence/currency'
+import { ProfileCard } from '@/essence/profile'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { ECurrency } from '@/essence/currency'
 
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { fetchProfileDataThunk } from '../../model/services/fetchProfileDataThunk'

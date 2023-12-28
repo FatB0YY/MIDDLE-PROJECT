@@ -2,16 +2,16 @@ import React from 'react'
 
 import { RouteProps } from 'react-router-dom'
 
-import { AboutPageAsync } from 'pages/AboutPage'
-import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage'
-import { ArticleEditPageAsync } from 'pages/ArticleEditPage'
-import { ArticlePageAsync } from 'pages/ArticlePage'
-import { MainPageAsync } from 'pages/MainPage'
-import { NotFoundPage } from 'pages/NotFoundPage'
-import { ProfilePageAsync } from 'pages/ProfilePage'
-import { AdminPanelPageAsync } from 'pages/AdminPanelPage'
-import { ForbiddenPageAsync } from 'pages/ForbiddenPage'
-import { UserRole } from 'essence/user'
+import { AboutPageAsync } from '@/pages/AboutPage'
+import { ArticleDetailsPageAsync } from '@/pages/ArticleDetailsPage'
+import { ArticleEditPageAsync } from '@/pages/ArticleEditPage'
+import { ArticlePageAsync } from '@/pages/ArticlePage'
+import { MainPageAsync } from '@/pages/MainPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { ProfilePageAsync } from '@/pages/ProfilePage'
+import { AdminPanelPageAsync } from '@/pages/AdminPanelPage'
+import { ForbiddenPageAsync } from '@/pages/ForbiddenPage'
+import { UserRole } from '@/essence/user'
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean

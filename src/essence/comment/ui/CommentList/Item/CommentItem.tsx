@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { Avatar } from 'shared/ui/Avatar'
-import { Text } from 'shared/ui/Text'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Text } from '@/shared/ui/Text'
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 // import { AppLink } from 'shared/ui/AppLink'
-import { RoutePath } from 'app/providers/router/config/routeConfig'
-import { PageError } from 'widgets/PageError'
-import { VStack } from 'shared/ui/Stack'
+import { RoutePath } from '@/app/providers/router/config/routeConfig'
+import { PageError } from '@/widgets/PageError'
+import { VStack } from '@/shared/ui/Stack'
 
 import { IComment } from '../../../model/types/comment'
 

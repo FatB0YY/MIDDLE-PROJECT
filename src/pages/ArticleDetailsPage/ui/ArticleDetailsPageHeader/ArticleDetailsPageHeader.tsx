@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import { HStack } from 'shared/ui/Stack'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { RoutePath } from 'app/providers/router/config/routeConfig'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { getArticleDetailsData, getCanEditArticle } from 'essence/article'
+import { HStack } from '@/shared/ui/Stack'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { RoutePath } from '@/app/providers/router/config/routeConfig'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { getArticleDetailsData, getCanEditArticle } from '@/essence/article'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string

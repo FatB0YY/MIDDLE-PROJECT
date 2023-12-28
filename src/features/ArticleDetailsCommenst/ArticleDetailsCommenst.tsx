@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { AddNewCommentAsync } from 'features/addNewComment'
-import { CommentList } from 'essence/comment'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { AddNewCommentAsync } from '@/features/addNewComment'
+import { CommentList } from '@/essence/comment'
 import {
   addCommentForArticle,
   fetchCommentsByArticleIdThunk,
   getArticleComments,
   getArticleCommentsListIsLoading
-} from 'features/ArticleCommentsList'
-import { useActionCreatorsTyped } from 'shared/lib/store'
+} from '@/features/ArticleCommentsList'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
 
 import cls from './ArticleDetailsComments.module.scss'
 

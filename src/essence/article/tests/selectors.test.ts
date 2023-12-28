@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/lib/store'
+import { StateSchema } from '@/shared/lib/store'
 
 import { EArticleBlockType, EArticleType } from '../model/const/const'
 import {

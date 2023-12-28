@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 
 import { Navigate, useLocation } from 'react-router-dom'
 
-import { UserRole } from 'essence/user'
-import { getUserAuthData, getUserRoles } from 'essence/user'
+import { UserRole } from '@/essence/user'
+import { getUserAuthData, getUserRoles } from '@/essence/user'
 
 import { RoutePath } from '../config/routeConfig'
 

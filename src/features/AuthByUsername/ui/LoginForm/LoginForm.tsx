@@ -4,20 +4,20 @@ import { useTranslation } from 'react-i18next'
 
 import { useSelector } from 'react-redux'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { Input } from 'shared/ui/Input'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input'
 
-import { useActionCreatorsTyped } from 'shared/lib/store'
-import { Text, TextSize, TextTheme } from 'shared/ui/Text'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { VStack } from 'shared/ui/Stack'
-import { Icon } from 'shared/ui/Icon/Icon'
-import CloseIcon from 'shared/assets/icons/close.svg'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { VStack } from '@/shared/ui/Stack'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import CloseIcon from '@/shared/assets/icons/close.svg'
 
 import { loginByUsernameThunk } from '../../model/services/loginByUsernameThunk'
 import { getLoginState } from '../../model/selectors/getLoginState'

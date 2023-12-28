@@ -1,5 +1,5 @@
-import { StateSchema } from 'shared/lib/store'
-import { EArticleView } from 'essence/article'
+import { StateSchema } from '@/shared/lib/store'
+import { EArticleView } from '@/essence/article'
 
 export const getArticlesPageIsLoading = (state: StateSchema) =>
   state.articlesPage?.isLoading || false

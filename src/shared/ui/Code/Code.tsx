@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 /* eslint-disable */
-import { Button, ThemeButton } from 'shared/ui/Button/index'
+import { Button, ThemeButton } from '@/shared/ui/Button/index'
 /* eslint-enable */
 
-import CopyIcon from 'shared/assets/icons/copy-20-20.svg'
+import CopyIcon from '@/shared/assets/icons/copy-20-20.svg'
 
 import cls from './Code.module.scss'
 

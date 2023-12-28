@@ -1,5 +1,5 @@
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
-import { IComment } from 'essence/comment'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
+import { IComment } from '@/essence/comment'
 
 import { fetchCommentsByArticleIdThunk } from '../model/services/fetchCommentsByArticleIdThunk'
 

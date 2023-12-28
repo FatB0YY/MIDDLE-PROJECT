@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/lib/store'
+import { StateSchema } from '@/shared/lib/store'
 
 export const getAddNewCommentText = (state: StateSchema) =>
   state.addNewComment?.text ?? ''

@@ -1,10 +1,10 @@
-import { IProfile } from 'essence/profile'
+import { IProfile } from '@/essence/profile'
 
-import { ECurrency } from 'essence/currency'
-import { Country } from 'shared/const/other'
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk'
+import { ECurrency } from '@/essence/currency'
+import { Country } from '@/shared/const/other'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
 
-import { fetchProfileDataThunk } from 'features/EditableProfileCard/model/services/fetchProfileDataThunk'
+import { fetchProfileDataThunk } from '@/features/EditableProfileCard/model/services/fetchProfileDataThunk'
 
 describe('fetchProfileDataThunk', () => {
   const data: IProfile = {

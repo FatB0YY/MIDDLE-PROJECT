@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
-import { ThunkConfig } from 'shared/lib/store'
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
+import { ThunkConfig } from '@/shared/lib/store'
 
 import { IUser, userActions } from '../../../../essence/user/index'
 

@@ -6,12 +6,12 @@ import { useSelector } from 'react-redux'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useActionCreatorsTyped } from 'shared/lib/store'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { VStack } from 'shared/ui/Stack'
-import { PageError } from 'widgets/PageError'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { VStack } from '@/shared/ui/Stack'
+import { PageError } from '@/widgets/PageError'
 
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { fetchArticleByIdThunk } from '../../model/services/fetchArticleByIdThunk'

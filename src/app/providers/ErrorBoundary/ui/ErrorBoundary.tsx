@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 
-import { PageError } from 'widgets/PageError'
+import { PageError } from '@/widgets/PageError'
 
 import type { ErrorInfo } from 'react'
 

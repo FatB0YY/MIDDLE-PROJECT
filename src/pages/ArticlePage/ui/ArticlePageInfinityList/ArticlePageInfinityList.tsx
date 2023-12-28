@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { ArticleList } from 'essence/article'
-import { PageError } from 'widgets/PageError'
+import { ArticleList } from '@/essence/article'
+import { PageError } from '@/widgets/PageError'
 
 import {
   getArticlesPageError,

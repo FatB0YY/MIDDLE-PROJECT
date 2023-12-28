@@ -1,15 +1,15 @@
 import React from 'react'
 
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { EArticleView } from 'essence/article'
+import { EArticleView } from '@/essence/article'
 
-import { Button, ThemeButton } from 'shared/ui/Button'
+import { Button, ThemeButton } from '@/shared/ui/Button'
 
-import { Icon } from 'shared/ui/Icon/Icon'
+import { Icon } from '@/shared/ui/Icon/Icon'
 
-import ListIcon from 'shared/assets/icons/list-24-24.svg'
-import TiledIcon from 'shared/assets/icons/tiled-24-24.svg'
+import ListIcon from '@/shared/assets/icons/list-24-24.svg'
+import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg'
 
 import cls from './ArticleViewSelector.module.scss'
 

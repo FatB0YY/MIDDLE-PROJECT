@@ -2,19 +2,19 @@ import React, { memo } from 'react'
 
 import { useParams } from 'react-router-dom'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { ArticleDetails } from 'essence/article'
-import { PageError } from 'widgets/PageError'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { ArticleDetails } from '@/essence/article'
+import { PageError } from '@/widgets/PageError'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { articleDetailsCommentsReducer } from 'features/ArticleCommentsList'
-import { VStack } from 'shared/ui/Stack'
-import { Page } from 'widgets/Page/Page'
-import { ArticleDetailsRecommendationsList } from 'features/ArticleDetailsRecommendationsList'
-import { Text, TextTheme } from 'shared/ui/Text'
-import { ArticleDetailsComments } from 'features/ArticleDetailsCommenst/ArticleDetailsCommenst'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { articleDetailsCommentsReducer } from '@/features/ArticleCommentsList'
+import { VStack } from '@/shared/ui/Stack'
+import { Page } from '@/widgets/Page/Page'
+import { ArticleDetailsRecommendationsList } from '@/features/ArticleDetailsRecommendationsList'
+import { Text, TextTheme } from '@/shared/ui/Text'
+import { ArticleDetailsComments } from '@/features/ArticleDetailsCommenst/ArticleDetailsCommenst'
 
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 

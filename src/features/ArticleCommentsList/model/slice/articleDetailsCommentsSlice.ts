@@ -4,8 +4,8 @@ import {
   createSlice
 } from '@reduxjs/toolkit'
 
-import { IComment } from 'essence/comment'
-import { StateSchema } from 'shared/lib/store'
+import { IComment } from '@/essence/comment'
+import { StateSchema } from '@/shared/lib/store'
 
 import { articleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema'
 import { fetchCommentsByArticleIdThunk } from '../services/fetchCommentsByArticleIdThunk'

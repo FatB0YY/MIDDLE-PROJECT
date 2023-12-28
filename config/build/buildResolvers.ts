@@ -9,6 +9,9 @@ export function buildResolvers(
     extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,
     modules: [options.paths.src, 'node_modules'],
-    mainFiles: ['index']
+    mainFiles: ['index'],
+    alias: {
+      '@': options.paths.src
+    }
   }
 }

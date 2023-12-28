@@ -2,7 +2,7 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { ThunkConfig } from 'shared/lib/store'
+import { ThunkConfig } from '@/shared/lib/store'
 
 import { IArticle } from '../types/article'
 

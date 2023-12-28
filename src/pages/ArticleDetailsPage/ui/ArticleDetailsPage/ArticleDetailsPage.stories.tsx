@@ -1,12 +1,12 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { IArticle } from 'essence/article'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { IArticle } from '@/essence/article'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import {
   EArticleType,
   EArticleBlockType
-} from 'essence/article/model/const/const'
+} from '@/essence/article/model/const/const'
 
 import ArticleDetailsPage from './ArticleDetailsPage'
 

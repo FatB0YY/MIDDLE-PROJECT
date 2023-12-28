@@ -1,5 +1,5 @@
-import { SortOrder } from 'shared/types/sort'
-import { EArticleType } from 'essence/article'
+import { SortOrder } from '@/shared/types/sort'
+import { EArticleType } from '@/essence/article'
 
 import { EArticleSortField } from '../const/const'
 

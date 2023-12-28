@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/lib/store'
+import { StateSchema } from '@/shared/lib/store'
 
 export const getArticleCommentsListIsLoading = (state: StateSchema) =>
   state.articleDetailsComments?.isLoading

@@ -2,7 +2,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { ThemeButton } from 'shared/ui/Button'
+import { ThemeButton } from '@/shared/ui/Button'
 
 import { Dropdown } from './Dropdown'
 

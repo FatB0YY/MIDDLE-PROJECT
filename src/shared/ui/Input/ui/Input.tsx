@@ -5,9 +5,9 @@ import React, {
   useRef
 } from 'react'
 
-import { Mods, classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 // eslint-disable-next-line fatboyy-plugin1/path-checker
-import { VStack } from 'shared/ui/Stack'
+import { VStack } from '@/shared/ui/Stack'
 
 import cls from './Input.module.scss'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Page } from 'widgets/Page/Page'
+import { Page } from '@/widgets/Page/Page'
 
 const ForbiddenPage = () => {
   const text = 'у вас нет прав'

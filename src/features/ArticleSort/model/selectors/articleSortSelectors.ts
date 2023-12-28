@@ -1,6 +1,6 @@
-import { StateSchema } from 'shared/lib/store'
+import { StateSchema } from '@/shared/lib/store'
 
-import { EArticleType } from 'essence/article'
+import { EArticleType } from '@/essence/article'
 
 import { EArticleSortField } from '../const/const'
 

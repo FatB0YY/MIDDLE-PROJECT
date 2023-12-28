@@ -1,7 +1,7 @@
 import {
   IProfile,
   ValidateProfileError
-} from 'essence/profile/model/types/profile'
+} from '@/essence/profile/model/types/profile'
 
 export interface ProfileSchema {
   data: IProfile | null

@@ -1,18 +1,15 @@
 .Drawer {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
   z-index: 100;
+  inset: 0;
   display: flex;
   align-items: flex-end;
 }
 
 .opened {
-  pointer-events: auto;
-  opacity: 1;
   z-index: 10000;
+  opacity: 1;
+  pointer-events: auto;
 
   .content {
     transform: translateY(0%);
@@ -20,13 +17,13 @@
 }
 
 .sheet {
-  z-index: 10000;
   position: fixed;
+  z-index: 10000;
   left: 2vw;
-  height: calc(100vh + 100px);
   width: 96vw;
+  height: calc(100vh + 100px);
+  padding: 15px;
   border-radius: 12px 12px 0;
   background: var(--main-bg-color);
   touch-action: none;
-  padding: 15px;
 }

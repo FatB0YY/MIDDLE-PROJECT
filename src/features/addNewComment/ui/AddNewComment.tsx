@@ -3,15 +3,15 @@ import React, { useCallback, KeyboardEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Input } from 'shared/ui/Input'
-import { Button, ThemeButton } from 'shared/ui/Button'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Input } from '@/shared/ui/Input'
+import { Button, ThemeButton } from '@/shared/ui/Button'
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useActionCreatorsTyped } from 'shared/lib/store'
-import { HStack } from 'shared/ui/Stack'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { HStack } from '@/shared/ui/Stack'
 
 import {
   // getAddNewCommentError,

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 
-import { Button } from 'shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
-import { useActionCreatorsTyped } from 'shared/lib/store'
+import { useActionCreatorsTyped } from '@/shared/lib/store'
 
 import { counterActions } from '../model/slice/counterSlice'
 import { getCounterValue } from '../model/selectors/getCounterValue'

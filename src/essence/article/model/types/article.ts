@@ -1,4 +1,4 @@
-import { IUser } from 'essence/user'
+import { IUser } from '@/essence/user'
 
 import { EArticleBlockType, EArticleType } from '../const/const'
 
