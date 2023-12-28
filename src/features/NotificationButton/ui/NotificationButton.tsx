@@ -8,7 +8,6 @@ import { NotificationList } from '@/essence/notification'
 import { Popover } from '@/shared/ui/Popups'
 import { Button, ThemeButton } from '@/shared/ui/Button'
 import { Icon } from '@/shared/ui/Icon/Icon'
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 
 import cls from './NotificationButton.module.scss'
 
@@ -57,14 +56,13 @@ export const NotificationButton = ({ className }: NotificationButtonProps) => {
       <MobileView>
         {trigger}
         {/* подгружаем асинк доп библиотеки в мобильные версии */}
-        <AnimationProvider>
-          <Drawer
-            isOpen={isOpen}
-            onClose={onCloseDrawer}
-          >
-            <NotificationList />
-          </Drawer>
-        </AnimationProvider>
+
+        <Drawer
+          isOpen={isOpen}
+          onClose={onCloseDrawer}
+        >
+          <NotificationList />
+        </Drawer>
       </MobileView>
     </>
   )
