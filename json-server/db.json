@@ -749,5 +749,21 @@
       "username": "ulbi tv",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "articleId": "1",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "",
+      "id": 1
+    },
+    {
+      "articleId": "2",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "статья супер пупер",
+      "id": 2
+    }
   ]
 }

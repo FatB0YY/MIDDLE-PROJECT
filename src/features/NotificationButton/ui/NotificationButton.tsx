@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { BrowserView, MobileView } from 'react-device-detect'
+import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -17,6 +17,7 @@ interface NotificationButtonProps {
 
 export const NotificationButton = ({ className }: NotificationButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  let trigger = null
 
   const onOpenDrawer = useCallback(() => {
     setIsOpen(true)
@@ -26,18 +27,33 @@ export const NotificationButton = ({ className }: NotificationButtonProps) => {
     setIsOpen(false)
   }, [])
 
-  const trigger = (
-    <Button
-      className={cls.notbtn}
-      onClick={onOpenDrawer}
-      theme={ThemeButton.CLEAR}
-    >
-      <Icon
-        Svg={NotificationIcon}
-        // inverted
-      />
-    </Button>
-  )
+  if (isMobile) {
+    trigger = (
+      <Button
+        className={cls.notbtn}
+        onClick={onOpenDrawer}
+        theme={ThemeButton.CLEAR}
+      >
+        <Icon
+          Svg={NotificationIcon}
+          // inverted
+        />
+      </Button>
+    )
+  } else {
+    trigger = (
+      <div
+        className={cls.notbtn}
+        onClick={onOpenDrawer}
+        // theme={ThemeButton.CLEAR}
+      >
+        <Icon
+          Svg={NotificationIcon}
+          // inverted
+        />
+      </div>
+    )
+  }
 
   return (
     <>

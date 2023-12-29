@@ -15,6 +15,7 @@ import { Page } from '@/widgets/Page/Page'
 import { ArticleDetailsRecommendationsList } from '@/features/ArticleDetailsRecommendationsList'
 import { Text, TextTheme } from '@/shared/ui/Text'
 import { ArticleDetailsComments } from '@/features/ArticleDetailsCommenst/ArticleDetailsCommenst'
+import { ArticleRatingAsync } from '@/features/ArticleRating'
 
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
@@ -59,6 +60,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
 
           <ArticleDetails id={id} />
+
+          <ArticleRatingAsync articleId={id} />
 
           <ArticleDetailsRecommendationsList />
 

@@ -50,5 +50,12 @@
       "buttonreload": "Обновить страницу",
       "title": "Произошла непредвиденная ошибка"
     }
+  },
+  "essence": {
+    "rating": {
+      "feedbackplaceholder": "Ваш отзыв",
+      "cancel": "Отменить",
+      "success": "Отправить"
+    }
   }
 }
