@@ -15,6 +15,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
   }
   config!.resolve!.modules!.push(paths.src)
   config!.resolve!.extensions!.push('.ts', '.tsx')
+  config!.resolve!.alias = {
+    ...config!.resolve!.alias,
+    '@': paths.src
+  }
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -35,7 +39,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config!.plugins!.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-      __API_URL__: JSON.stringify('http://localhost:8080'),
+      __API_URL__: JSON.stringify('http://localhost:8000'),
       __PROJECT__: JSON.stringify('sb')
     })
   )

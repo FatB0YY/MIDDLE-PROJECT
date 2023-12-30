@@ -14,6 +14,8 @@ export const Icon = memo((props: IconProps) => {
 
   return (
     <Svg
+      width={15}
+      height={15}
       className={classNames(cls.Icon, {}, [className])}
       {...otherProps}
     />

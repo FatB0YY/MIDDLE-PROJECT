@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["vite-plugin-svgr/client"],
+    // "types": ["vite-plugin-svgr/client"],
     "outDir": "./build/",
     // Подсвечивает все места где не указан тип
     // Однако это не означает, что теперь вовсе нельзя использовать any.

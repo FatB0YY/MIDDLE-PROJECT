@@ -18,6 +18,13 @@
       }
     }
   },
+  "essence": {
+    "rating": {
+      "cancel": "cancel",
+      "feedbackplaceholder": "feedbackplaceholder",
+      "success": "success"
+    }
+  },
   "features": {
     "addnewcomment": {
       "placeholder": "placeholder",

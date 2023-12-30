@@ -764,6 +764,13 @@
       "userId": "1",
       "feedback": "статья супер пупер",
       "id": 2
+    },
+    {
+      "articleId": "7",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "rfrfrf",
+      "id": 3
     }
   ]
 }
