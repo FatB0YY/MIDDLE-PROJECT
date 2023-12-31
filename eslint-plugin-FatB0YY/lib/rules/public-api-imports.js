@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 // Rule Definition
 //------------------------------------------------------------------------------
+const micromatch = require('micromatch')
 const { isPathRelative } = require('../helpers/index')
 
 /** @type {import('eslint').Rule.RuleModule} */
@@ -25,6 +26,9 @@ module.exports = {
         properties: {
           alias: {
             type: 'string'
+          },
+          testFilesPatterns: {
+            type: 'array'
           }
         }
       }
@@ -32,7 +36,7 @@ module.exports = {
   },
 
   create(context) {
-    const alias = context.options[0]?.alias || ''
+    const { alias = '', testFilePatterns = [] } = context.options[0] ?? {}
 
     const checkingLayers = {
       entities: 'entities',
@@ -60,12 +64,29 @@ module.exports = {
         }
 
         const isImportNotFromPuplicApi = segments.length > 2
+        const isTestingPublicApi =
+          segments[2] === 'testing' && segments.length < 4
 
-        if (isImportNotFromPuplicApi) {
+        if (isImportNotFromPuplicApi && !isTestingPublicApi) {
           context.report(
             node,
             'Абсолютный импорт разрешен только из Public API (index.ts)'
           )
+        }
+
+        if (isTestingPublicApi) {
+          const currentFilePath = context.filename
+
+          const isCurrentFileTesting = testFilePatterns.some((pattern) =>
+            micromatch.isMatch(currentFilePath, pattern)
+          )
+
+          if (!isCurrentFileTesting) {
+            context.report(
+              node,
+              'Тестовые данные необходимо импортировать из Public API (testing.ts)'
+            )
+          }
         }
       }
     }

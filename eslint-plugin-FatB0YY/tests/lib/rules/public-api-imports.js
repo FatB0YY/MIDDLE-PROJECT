@@ -30,11 +30,11 @@ const aliasOptions = [
 ruleTester.run('public-api-imports', rule, {
   valid: [
     {
-      code: "import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice'",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice'",
       errors: []
     },
     {
-      code: "import { addCommentFormActions, addCommentFormReducer } from '@/essence/Article'",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/essence/article'",
       errors: [],
       options: aliasOptions
     },
@@ -108,7 +108,8 @@ ruleTester.run('public-api-imports', rule, {
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/essence/article/testing'",
       errors: [
         {
-          message: 'Абсолютный импорт разрешен только из Public API (index.ts)'
+          message:
+            'Тестовые данные необходимо импортировать из Public API (testing.ts)'
         }
       ],
       options: [

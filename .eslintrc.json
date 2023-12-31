@@ -93,7 +93,12 @@
     "fatboyy-plugin1/public-api-imports": [
       "error",
       {
-        "alias": "@"
+        "alias": "@",
+        "testFilesPatterns": [
+          "**/*.test.*",
+          "**/StoreDecorator.tsx",
+          "**/*.stories.*"
+        ]
       }
     ]
   },

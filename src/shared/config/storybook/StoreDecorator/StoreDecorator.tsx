@@ -2,14 +2,15 @@
 
 import { Story } from '@storybook/react'
 
-import { articleDetailsReducer } from '@/essence/article'
 import { profileReducer } from '@/features/EditableProfileCard/model/slice/profileSlice'
-import { articleDetailsCommentsReducer } from '@/features/ArticleCommentsList'
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice'
-import { addNewCommentReducer } from '@/features/addNewComment/model/slice/addNewCommentSlice'
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { StoreProvider } from '@/shared/lib/store/StateProvider'
 import { StateSchema } from '@/shared/lib/store/index'
+
+import { loginReducer } from '@/features/AuthByUsername/testing'
+import { articleDetailsCommentsReducer } from '@/features/ArticleCommentsList/testing'
+import { addNewCommentReducer } from '@/features/addNewComment/testing'
+import { articleDetailsReducer } from '@/essence/article/testing'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
