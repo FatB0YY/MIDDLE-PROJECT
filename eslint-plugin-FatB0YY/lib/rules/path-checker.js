@@ -5,6 +5,8 @@
 'use strict'
 
 const path = require('path')
+
+const { isPathRelative } = require('../helpers/index')
 //------------------------------------------------------------------------------
 // Rule Definition
 //------------------------------------------------------------------------------
@@ -52,10 +54,6 @@ module.exports = {
       }
     }
   }
-}
-
-function isPathRelative(path) {
-  return path === '.' || path.startsWith('./') || path.startsWith('../')
 }
 
 const layers = {

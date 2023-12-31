@@ -1,6 +1,6 @@
 import { ECurrency } from '@/essence/currency'
 
-import { validateProfile } from '@/features/EditableProfileCard/model/services/validateProfile' // замените на путь к вашему модулю
+import { validateProfile } from '@/features/EditableProfileCard' // замените на путь к вашему модулю
 
 import { ValidateProfileError } from '../model/types/profile'
 

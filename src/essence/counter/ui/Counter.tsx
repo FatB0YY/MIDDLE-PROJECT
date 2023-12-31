@@ -9,7 +9,7 @@ import { useActionCreatorsTyped } from '@/shared/lib/store'
 import { counterActions } from '../model/slice/counterSlice'
 import { getCounterValue } from '../model/selectors/getCounterValue'
 
-const Counter = () => {
+export const Counter = () => {
   const actionsCounter = useActionCreatorsTyped(counterActions)
   const counterValue = useSelector(getCounterValue)
 
@@ -38,5 +38,3 @@ const Counter = () => {
     </div>
   )
 }
-
-export default Counter

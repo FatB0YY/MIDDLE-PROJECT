@@ -5,7 +5,7 @@ import {
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useActionCreatorsTyped } from '@/shared/lib/store'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { ArticlesPageFilters } from '../ArticlePageFilters/ArticlePageFilters'

@@ -15,13 +15,10 @@ import {
   getArticleSortSort,
   getArticleSortType
 } from '@/features/ArticleSort'
-// eslint-disable-next-line fatboyy-plugin1/path-checker
-import { initArticlesPage } from '@/pages/ArticlePage/model/services/initArticlesPage'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
-import { EArticleView } from '@/essence/article'
 import { SortOrder } from '@/shared/types/sort'
 import { TabItem } from '@/shared/ui/Tabs/Tabs'
-import { EArticleType } from '@/essence/article/model/const/const'
+import { EArticleType, EArticleView } from '@/essence/article'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Card } from '@/shared/ui/Card/Card'
 import { ArticleViewSelector } from '@/features/ArticleViewSelector'
@@ -29,6 +26,7 @@ import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 import { fetchArticlesListThunk } from '../../model/services/fetchArticlesListThunk'
 import { getArticlesPageView } from '../../model/selectors/articlesPageSelectors'
 import { articlesPageActions } from '../../model/slice/articlesPageSlice'
+import { initArticlesPage } from '../../model/services/initArticlesPage'
 
 import cls from './ArticlesPageFilters.module.scss'
 

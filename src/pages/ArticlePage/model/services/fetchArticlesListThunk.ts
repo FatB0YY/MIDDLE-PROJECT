@@ -1,15 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { IArticle } from '@/essence/article'
+import { EArticleType, IArticle } from '@/essence/article'
 import { ThunkConfig } from '@/shared/lib/store'
 
 import {
   getArticleSortOrder,
   getArticleSortSearch,
-  getArticleSortSort
+  getArticleSortSort,
+  getArticleSortType
 } from '@/features/ArticleSort'
-import { getArticleSortType } from '@/features/ArticleSort/model/selectors/articleSortSelectors'
-import { EArticleType } from '@/essence/article/model/const/const'
 
 import {
   getArticlesPageLimit,

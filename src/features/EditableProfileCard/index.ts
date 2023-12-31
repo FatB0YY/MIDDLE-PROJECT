@@ -1,2 +1,8 @@
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
 export type { ProfileSchema } from './model/types/EditableProfileCardSchema'
+export { validateProfile } from './model/services/validateProfile'
+export { updateProfileDataThunk } from './model/services/updateProfileDataThunk'
+export { getProfileState } from './model/selectors/getProfileState'
+export { getProfileValidateError } from './model/selectors/getProfileValidateErrors'
+export { profileActions, profileReducer } from './model/slice/profileSlice'
+export { fetchProfileDataThunk } from './model/services/fetchProfileDataThunk'

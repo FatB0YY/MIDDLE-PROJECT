@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs'
-import { EArticleType } from '@/essence/article/model/const/const'
+import { EArticleType } from '@/essence/article'
 
 import cls from './ArticleTabsType.module.scss'
 

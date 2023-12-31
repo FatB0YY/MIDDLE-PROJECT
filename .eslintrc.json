@@ -89,6 +89,12 @@
       {
         "alias": "@"
       }
+    ],
+    "fatboyy-plugin1/public-api-imports": [
+      "error",
+      {
+        "alias": "@"
+      }
     ]
   },
   "globals": {

@@ -8,9 +8,9 @@ import {
 
 import { AxiosInstance } from 'axios'
 
-import { CounterSchema } from '@/essence/counter/index'
-import { UserSchema } from '@/essence/user/index'
-import { LoginSchema } from '@/features/AuthByUsername/index'
+import { CounterSchema } from '@/essence/counter'
+import { UserSchema } from '@/essence/user'
+import { LoginSchema } from '@/features/AuthByUsername'
 import { ProfileSchema } from '@/features/EditableProfileCard'
 
 import { ArticleDetailsSchema } from '@/essence/article'

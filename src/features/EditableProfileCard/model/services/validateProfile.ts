@@ -1,7 +1,6 @@
 import { ECurrency } from '@/essence/currency'
 
-import { ValidateProfileError } from '@/essence/profile/model/types/profile'
-import { IProfile } from '@/essence/profile/model/types/profile'
+import { ValidateProfileError, IProfile } from '@/essence/profile'
 
 // Функция для проверки, что значение принадлежит к ECurrency
 /* eslint-disable */

@@ -9,7 +9,7 @@ import { Text } from '@/shared/ui/Text'
 import { useActionCreatorsTyped } from '@/shared/lib/store/hook'
 import { getUserAuthData } from '@/essence/user'
 import { HStack } from '@/shared/ui/Stack/HStack/HStack'
-import { ValidateProfileError } from '@/essence/profile/model/types/profile'
+import { ValidateProfileError } from '@/essence/profile'
 
 import { profileActions } from '../../model/slice/profileSlice'
 import { updateProfileDataThunk } from '../../model/services/updateProfileDataThunk'
