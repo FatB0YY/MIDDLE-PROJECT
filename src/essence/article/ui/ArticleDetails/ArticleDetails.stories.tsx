@@ -3,11 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
-import {
-  EArticleBlockType,
-  EArticleType
-} from '@/essence/article/model/const/const'
-
+import { EArticleBlockType, EArticleType } from '../../model/const/const'
 import { IArticle } from '../../model/types/article'
 
 import { ArticleDetails } from './ArticleDetails'

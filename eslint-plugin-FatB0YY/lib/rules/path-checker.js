@@ -16,27 +16,42 @@ module.exports = {
     docs: {
       description: 'feature sliced relative path checker',
       recommended: false,
-      url: null, // URL to the documentation page for this rule
+      url: null // URL to the documentation page for this rule
     },
     fixable: null, // Or `code` or `whitespace`
-    schema: [], // Add a schema if the rule has options
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          alias: {
+            type: 'string'
+          }
+        }
+      }
+    ] // Add a schema if the rule has options
   },
 
   create(context) {
+    const alias = context.options[0]?.alias || ''
+
     return {
       ImportDeclaration(node) {
         // app/entities/Article
-        const importTo = node.source.value
+        const value = node.source.value
+        const importTo = alias ? value.replace(`${alias}/`, '') : value
 
         // example C://Users/MyUser/Desktop/js/middle-project/src/index.tsx
         const fromFilename = context.filename
 
         if (shouldBeRelative(fromFilename, importTo)) {
-          context.report(node, 'В рамках одного слайса все пути должны быть относительными.')
+          context.report(
+            node,
+            'В рамках одного слайса все пути должны быть относительными.'
+          )
         }
-      },
+      }
     }
-  },
+  }
 }
 
 function isPathRelative(path) {
@@ -45,10 +60,11 @@ function isPathRelative(path) {
 
 const layers = {
   entities: 'entities',
+  essence: 'essence',
   pages: 'pages',
   shared: 'shared',
   widgets: 'widgets',
-  features: 'features',
+  features: 'features'
 }
 
 // если совпадает слой и совпадает слайс, то используем относительный импорт, иначе абсолютный.

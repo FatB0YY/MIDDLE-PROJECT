@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { useGetNotificationListQuery } from '@/essence/notification/api/notificationApi'
 import { VStack } from '@/shared/ui/Stack'
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 
 import { NotificationItem } from '../NotificationItem/NotificationItem'
+import { useGetNotificationListQuery } from '../../api/notificationApi'
 
 import cls from './NotificationList.module.scss'
 

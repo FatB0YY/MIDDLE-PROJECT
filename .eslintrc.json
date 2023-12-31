@@ -84,7 +84,12 @@
         "allow": ["__IS_DEV__", "__PROJECT__", "_initiated", "__API_URL__"]
       }
     ],
-    "fatboyy-plugin1/path-checker": "error"
+    "fatboyy-plugin1/path-checker": [
+      "error",
+      {
+        "alias": "@"
+      }
+    ]
   },
   "globals": {
     "__IS_DEV__": true,

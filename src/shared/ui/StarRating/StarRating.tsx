@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 import IconStar from '@/shared/assets/icons/star.svg'
+// eslint-disable-next-line fatboyy-plugin1/path-checker
 import { Icon } from '@/shared/ui/Icon/Icon'
 
 import cls from './StarRating.module.scss'

@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-fatboyy-plugin1",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "plugin for prod project",
   "keywords": [
     "eslint",
