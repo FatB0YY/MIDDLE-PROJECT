@@ -1,13 +1,10 @@
 import React, { ReactNode } from 'react'
 
-import { Mods, classNames } from '@/shared/lib/classNames/classNames'
-/* eslint-disable */
-import { Portal } from '@/shared/ui/Portal/index'
-import { useTheme } from '@/app/providers/ThemeProvider'
-import { Overlay } from '@/shared/ui/Overlay/Overlay'
-import { useModal } from '@/shared/lib/hooks/useModal/useModal'
-
-/* eslint-enable */
+import { Portal } from '../../../ui/Portal'
+import { Overlay } from '../../../ui/Overlay'
+import { useModal } from '../../../lib/hooks/useModal/useModal'
+import { useTheme } from '../../../lib/hooks/useTheme/useTheme'
+import { Mods, classNames } from '../../../lib/classNames/classNames'
 
 import cls from './Modal.module.scss'
 

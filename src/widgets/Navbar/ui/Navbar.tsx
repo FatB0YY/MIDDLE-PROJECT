@@ -4,16 +4,19 @@ import { useTranslation } from 'react-i18next'
 
 import { useSelector } from 'react-redux'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button, ThemeButton, ButtonSize } from '@/shared/ui/Button'
 
-import { Button, ThemeButton } from '@/shared/ui/Button/index'
+import { Avatar } from '@/shared/ui/Avatar'
+
+import { HStack } from '@/shared/ui/Stack'
+
+import { Icon } from '@/shared/ui/Icon'
+
 import { LoginModal } from '@/features/AuthByUsername'
 import { useActionCreatorsTyped } from '@/shared/lib/store'
 import { getUserAuthData } from '@/essence/user'
-import { Avatar } from '@/shared/ui/Avatar'
-import { HStack } from '@/shared/ui/Stack'
-import { ButtonSize } from '@/shared/ui/Button/ui/Button'
-import { Icon } from '@/shared/ui/Icon/Icon'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 import AppLogo from '@/shared/assets/logo.jpg'
 import BurgerIcon from '@/shared/assets/icons/burger.svg'
 import { SidebarActions } from '@/widgets/Sidebar'

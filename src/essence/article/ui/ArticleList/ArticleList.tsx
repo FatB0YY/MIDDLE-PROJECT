@@ -4,8 +4,9 @@ import { FixedSizeList } from 'react-window'
 
 import AutoSizer from 'react-virtualized-auto-sizer'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { HStack } from '@/shared/ui/Stack'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { IArticle } from '../../model/types/article'
 import { EArticleView } from '../../model/const/const'

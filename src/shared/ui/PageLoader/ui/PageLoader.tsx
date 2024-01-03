@@ -1,9 +1,7 @@
 import React from 'react'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-/* eslint-disable */
-import { Loader } from '@/shared/ui/Loader/index'
-/* eslint-enable */
+import { classNames } from '../../../lib/classNames/classNames'
+import { Loader } from '../../../ui/Loader'
 
 import cls from './PageLoader.module.scss'
 

@@ -1,8 +1,7 @@
-/* eslint-disable fatboyy-plugin1/path-checker */
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { ThemeButton } from '@/shared/ui/Button'
+import { ThemeButton } from '../../../../ui/Button/index'
 
 import { Dropdown } from './Dropdown'
 

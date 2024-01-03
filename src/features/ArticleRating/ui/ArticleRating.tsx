@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
+import { Skeleton } from '@/shared/ui/Skeleton'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { RatingCard } from '@/essence/rating'
 import { getUserAuthData } from '@/essence/user'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 
 import {
   useGetArticleRatingQuery,

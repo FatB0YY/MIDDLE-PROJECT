@@ -3,7 +3,7 @@ import React, { memo, useCallback } from 'react'
 // import { useTranslation } from 'react-i18next'
 
 // import { Select } from 'shared/ui/Select'
-import { Listbox } from '@/shared/ui/Popups/ui/Listbox/Listbox'
+import { Listbox } from '@/shared/ui/Popups'
 
 import { ECurrency } from '../model/types/currency'
 

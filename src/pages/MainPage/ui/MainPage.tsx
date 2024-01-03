@@ -3,7 +3,6 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Counter } from '@/essence/counter'
 import { Page } from '@/widgets/Page'
 
 import cls from './MainPage.module.scss'
@@ -18,7 +17,6 @@ const MainPage = ({ className }: MainPageProps) => {
   return (
     <Page className={classNames(cls.MainPage, {}, [className])}>
       {t('pages.mainpage')}
-      <Counter />
     </Page>
   )
 }

@@ -3,6 +3,10 @@ import React, { memo, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
+import { TabItem } from '@/shared/ui/Tabs'
+
+import { Card } from '@/shared/ui/Card'
+
 import { useActionCreatorsTyped } from '@/shared/lib/store'
 import {
   ArticleSearch,
@@ -17,10 +21,9 @@ import {
 } from '@/features/ArticleSort'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { SortOrder } from '@/shared/types/sort'
-import { TabItem } from '@/shared/ui/Tabs/Tabs'
 import { EArticleType, EArticleView } from '@/essence/article'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Card } from '@/shared/ui/Card/Card'
+
 import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 
 import { fetchArticlesListThunk } from '../../model/services/fetchArticlesListThunk'

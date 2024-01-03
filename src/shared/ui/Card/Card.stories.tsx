@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 /* eslint-disable */
-import { Text } from '@/shared/ui/Text/index'
+import { Text } from '@/shared/ui/Text'
 /* eslint-enable */
 
 import { Card } from './Card'

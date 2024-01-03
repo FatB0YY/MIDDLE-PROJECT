@@ -1,13 +1,17 @@
 import React, { useCallback, useState } from 'react'
 import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 
-import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import { Drawer } from '@/shared/ui/Drawer'
+
+import { Popover } from '@/shared/ui/Popups'
+
+import { Button, ThemeButton } from '@/shared/ui/Button'
+
+import { Icon } from '@/shared/ui/Icon'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg'
 import { NotificationList } from '@/essence/notification'
-import { Popover } from '@/shared/ui/Popups'
-import { Button, ThemeButton } from '@/shared/ui/Button'
-import { Icon } from '@/shared/ui/Icon/Icon'
 
 import cls from './NotificationButton.module.scss'
 

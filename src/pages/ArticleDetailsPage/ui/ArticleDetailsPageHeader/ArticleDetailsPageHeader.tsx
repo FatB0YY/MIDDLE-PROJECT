@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { HStack } from '@/shared/ui/Stack'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { RoutePath } from '@/app/providers/router/config/routeConfig'
+
 import { Button, ThemeButton } from '@/shared/ui/Button'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { getArticleDetailsData, getCanEditArticle } from '@/essence/article'
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -24,12 +26,11 @@ export const ArticleDetailsPageHeader = ({
   const canEdit = useSelector(getCanEditArticle)
 
   const onBackToTheList = useCallback(() => {
-    navigate(RoutePath.articles)
+    navigate(getRouteArticles())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    // далее улучшу
-    navigate(`${RoutePath.articles_details}${article?.id}/edit`)
+    navigate(getRouteArticleEdit(article!.id))
   }, [navigate, article?.id])
 
   return (

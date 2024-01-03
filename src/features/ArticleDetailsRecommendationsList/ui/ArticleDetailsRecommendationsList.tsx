@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { ArticleList } from '@/essence/article'
 import { HStack, VStack } from '@/shared/ui/Stack'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { Text, TextTheme } from '@/shared/ui/Text'
+
+import { ArticleList } from '@/essence/article'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import { useGetArticleRecommendationsListQuery } from '../api/articleDetailsRecommendationsApi'
 

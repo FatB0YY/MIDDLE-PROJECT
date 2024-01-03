@@ -2,8 +2,9 @@ import React from 'react'
 
 import { useParams } from 'react-router-dom'
 
+import { VStack } from '@/shared/ui/Stack'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { VStack } from '@/shared/ui/Stack/VStack/VStack'
 import { PageError } from '@/widgets/PageError'
 import { Page } from '@/widgets/Page'
 import { EditableProfileCard } from '@/features/EditableProfileCard'

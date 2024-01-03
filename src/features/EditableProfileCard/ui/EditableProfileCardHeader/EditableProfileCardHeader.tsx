@@ -3,12 +3,17 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ThemeButton } from '@/shared/ui/Button'
+
 import { Text } from '@/shared/ui/Text'
+
+import { HStack } from '@/shared/ui/Stack'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
+
 import { useActionCreatorsTyped } from '@/shared/lib/store/hook'
 import { getUserAuthData } from '@/essence/user'
-import { HStack } from '@/shared/ui/Stack/HStack/HStack'
+
 import { ValidateProfileError } from '@/essence/profile'
 
 import { profileActions } from '../../model/slice/profileSlice'

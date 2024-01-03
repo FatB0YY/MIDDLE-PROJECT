@@ -3,10 +3,12 @@ import React, { memo } from 'react'
 
 import { Avatar } from '@/shared/ui/Avatar'
 import { Text, TextSize } from '@/shared/ui/Text'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import { Icon } from '@/shared/ui/Icon'
+
+import { HStack, VStack } from '@/shared/ui/Stack'
+
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
-import { HStack, VStack } from '@/shared/ui/Stack'
 
 import { IArticle } from '../../model/types/article'
 

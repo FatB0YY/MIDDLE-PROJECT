@@ -11,7 +11,8 @@
     "plugin:react/recommended",
     "plugin:i18next/recommended",
     "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@conarti/feature-sliced/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -26,7 +27,8 @@
     "@typescript-eslint",
     "i18next",
     "react-hooks",
-    "fatboyy-plugin1"
+    "fatboyy-plugin1",
+    "unused-imports"
     // "plugin:import/typescript"
   ],
   "settings": {
@@ -35,6 +37,7 @@
     }
   },
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "i18next/no-literal-string": [
       "error",
       {
@@ -83,24 +86,31 @@
       {
         "allow": ["__IS_DEV__", "__PROJECT__", "_initiated", "__API_URL__"]
       }
-    ],
-    "fatboyy-plugin1/path-checker": [
-      "error",
-      {
-        "alias": "@"
-      }
-    ],
-    "fatboyy-plugin1/public-api-imports": [
-      "error",
-      {
-        "alias": "@",
-        "testFilesPatterns": [
-          "**/*.test.*",
-          "**/StoreDecorator.tsx",
-          "**/*.stories.*"
-        ]
-      }
     ]
+    // "fatboyy-plugin1/path-checker": [
+    //   "error",
+    //   {
+    //     "alias": "@"
+    //   }
+    // ],
+    // "fatboyy-plugin1/public-api-imports": [
+    //   "error",
+    //   {
+    //     "alias": "@",
+    //     "testFilesPatterns": [
+    //       "**/*.test.*",
+    //       "**/StoreDecorator.tsx",
+    //       "**/*.stories.*"
+    //     ]
+    //   }
+    // ],
+    // "fatboyy-plugin1/layer-imports": [
+    //   "error",
+    //   {
+    //     "alias": "@",
+    //     "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+    //   }
+    // ]
   },
   "globals": {
     "__IS_DEV__": true,

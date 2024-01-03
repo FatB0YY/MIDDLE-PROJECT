@@ -3,14 +3,13 @@ import React, { Suspense, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { AppRouter } from '@/app/providers/router'
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
-
 import { getUserAuthData, userActions } from '@/essence/user'
 import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 
-import { useTheme } from './providers/ThemeProvider'
+import { AppRouter } from './providers/router'
 
 function App() {
   const { theme } = useTheme()

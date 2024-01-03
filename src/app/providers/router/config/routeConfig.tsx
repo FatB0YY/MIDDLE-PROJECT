@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { RouteProps } from 'react-router-dom'
-
 import { AboutPageAsync } from '@/pages/AboutPage'
 import { ArticleDetailsPageAsync } from '@/pages/ArticleDetailsPage'
 import { ArticleEditPageAsync } from '@/pages/ArticleEditPage'
@@ -12,93 +10,86 @@ import { ProfilePageAsync } from '@/pages/ProfilePage'
 import { AdminPanelPageAsync } from '@/pages/AdminPanelPage'
 import { ForbiddenPageAsync } from '@/pages/ForbiddenPage'
 import { UserRole } from '@/essence/user'
+import { AppRoutesProps } from '@/shared/types/router'
+import {
+  getRouteMain,
+  getRouteAbout,
+  getRouteForbidden,
+  getRouteProfile,
+  getRouteArticles,
+  getRouteArticleDetails,
+  getRouteArticleCreate,
+  getRouteArticleEdit,
+  getRouteAdminpanel,
+  AppRoutes
+} from '@/shared/const/router'
 
-export type AppRoutesProps = RouteProps & {
-  authOnly?: boolean
-  roles?: UserRole[]
-}
+// // пути
+// export const RoutePath: Record<AppRoutes, string> = {
+//   [AppRoutes.MAIN]: getRouteMain(),
+//   [AppRoutes.ABOUT]: getRouteAbout(),
+//   [AppRoutes.PROFILE]: getRouteProfile(':id'),
+//   [AppRoutes.ARTICLES]: getRouteArticles(),
+//   [AppRoutes.ARTICLES_DETAILS]: getRouteArticleDetails(':id'),
+//   [AppRoutes.ARTICLE_CREATE]: getRouteArticleCreate(),
+//   [AppRoutes.ARTICLE_EDIT]: getRouteArticleEdit(':id'),
+//   [AppRoutes.ADMIN_PANEL]: getRouteAdminpanel(),
+//   [AppRoutes.FORBIDDEN]: getRouteForbidden(),
 
-// перечисление роутов
-export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
-  PROFILE = 'profile',
-  ARTICLES = 'articles',
-  ARTICLES_DETAILS = 'articles_details',
-  ARTICLE_CREATE = 'article_create',
-  ARTICLE_EDIT = 'article_edit',
-  ADMIN_PANEL = 'admin_panel',
-  FORBIDDEN = 'forbidden',
-  // last!
-  NOT_FOUND = 'not_found'
-}
-
-// пути
-export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile/', // + id
-  [AppRoutes.ARTICLES]: '/articles',
-  [AppRoutes.ARTICLES_DETAILS]: '/articles/', // + :id
-  [AppRoutes.ARTICLE_CREATE]: '/articles/create',
-  [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-  [AppRoutes.ADMIN_PANEL]: '/adminpanel',
-  [AppRoutes.FORBIDDEN]: '/forbidden',
-
-  // last!
-  [AppRoutes.NOT_FOUND]: '*'
-}
+//   // last!
+//   [AppRoutes.NOT_FOUND]: '*'
+// }
 
 // сами
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   // public
   [AppRoutes.MAIN]: {
-    path: RoutePath.main,
+    path: getRouteMain(),
     element: <MainPageAsync />
   },
   [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
+    path: getRouteAbout(),
     element: <AboutPageAsync />
   },
   [AppRoutes.FORBIDDEN]: {
-    path: RoutePath.forbidden,
+    path: getRouteForbidden(),
     element: <ForbiddenPageAsync />
   },
   // private
   [AppRoutes.PROFILE]: {
-    path: `${RoutePath.profile}:id`,
+    path: getRouteProfile(':id'),
     element: <ProfilePageAsync />,
     authOnly: true
   },
   [AppRoutes.ARTICLES]: {
-    path: RoutePath.articles,
+    path: getRouteArticles(),
     element: <ArticlePageAsync />,
     authOnly: true
   },
   [AppRoutes.ARTICLES_DETAILS]: {
-    path: `${RoutePath.articles_details}:id`,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPageAsync />,
     authOnly: true
   },
   [AppRoutes.ARTICLE_CREATE]: {
-    path: `${RoutePath.article_create}`,
+    path: getRouteArticleCreate(),
     element: <ArticleEditPageAsync />,
     authOnly: true
   },
   [AppRoutes.ARTICLE_EDIT]: {
-    path: `${RoutePath.article_edit}`,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPageAsync />,
     authOnly: true
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: `${RoutePath.admin_panel}`,
+    path: getRouteAdminpanel(),
     element: <AdminPanelPageAsync />,
     authOnly: true,
     roles: [UserRole.MANAGER, UserRole.ADMIN]
   },
   // last!
   [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.not_found,
+    path: '*',
     element: <NotFoundPage />
   }
 }

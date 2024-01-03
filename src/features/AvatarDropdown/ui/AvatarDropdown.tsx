@@ -2,18 +2,24 @@ import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
+import { Dropdown } from '@/shared/ui/Popups'
+
+import { HStack } from '@/shared/ui/Stack'
+
+import { ThemeButton } from '@/shared/ui/Button'
+
+import { Icon } from '@/shared/ui/Icon'
+
+import { Avatar } from '@/shared/ui/Avatar'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useActionCreatorsTyped } from '@/shared/lib/store'
-import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown'
-import { RoutePath } from '@/app/providers/router/config/routeConfig'
 import LogoutSvg from '@/shared/assets/icons/logout.svg'
 import ProfileSvg from '@/shared/assets/icons/profile-20-20.svg'
 import AdminPanel from '@/shared/assets/icons/adminpanel.svg'
 import { IUser, isUserAdmin, isUserManager, userActions } from '@/essence/user'
-import { HStack } from '@/shared/ui/Stack'
-import { ThemeButton } from '@/shared/ui/Button'
-import { Icon } from '@/shared/ui/Icon/Icon'
-import { Avatar } from '@/shared/ui/Avatar'
+
+import { getRouteAdminpanel, getRouteProfile } from '@/shared/const/router'
 
 import cls from './AvatarDropdown.module.scss'
 
@@ -63,7 +69,7 @@ export const AvatarDropdown = ({
           buttonTheme: ThemeButton.CLEAR
         },
         {
-          href: RoutePath.profile + authData.id,
+          href: getRouteProfile(authData.id),
           content: (
             <HStack
               max
@@ -81,7 +87,7 @@ export const AvatarDropdown = ({
         ...(isAdminPanelAvailable
           ? [
               {
-                href: RoutePath.admin_panel,
+                href: getRouteAdminpanel(),
                 content: (
                   <HStack
                     max

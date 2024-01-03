@@ -6,12 +6,13 @@ import {
   ReducersMapObject
 } from '@reduxjs/toolkit'
 
-import { counterReducer } from '@/essence/counter'
 import { userReducer } from '@/essence/user'
+
 import { SidebarReducer } from '@/widgets/Sidebar'
-import { $api } from '@/shared/api/api'
 import { saveScrollReducer } from '@/features/ScrollSave'
-import { rtkApi } from '@/shared/api/rtkApi'
+
+import { $api } from '../../api/api'
+import { rtkApi } from '../../api/rtkApi'
 
 import { ReducerManager, StateSchema, ThunkExtraArg } from './types'
 import { createReducerManager } from './reducerManager'
@@ -27,7 +28,6 @@ export function createReduxStore({
 }: createReduxStoreProps) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
-    counter: counterReducer,
     user: userReducer,
     saveScroll: saveScrollReducer,
     sidebar: SidebarReducer,

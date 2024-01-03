@@ -8,11 +8,9 @@ import {
 
 import { AxiosInstance } from 'axios'
 
-import { CounterSchema } from '@/essence/counter'
 import { UserSchema } from '@/essence/user'
 import { LoginSchema } from '@/features/AuthByUsername'
 import { ProfileSchema } from '@/features/EditableProfileCard'
-
 import { ArticleDetailsSchema } from '@/essence/article'
 import { articleDetailsCommentsSchema } from '@/features/ArticleCommentsList'
 import { SidebarSchema } from '@/widgets/Sidebar'
@@ -20,7 +18,8 @@ import { addNewCommentSchema } from '@/features/addNewComment'
 import { articlesPageSchema } from '@/pages/ArticlePage'
 import { SaveScrollSchema } from '@/features/ScrollSave'
 import { ArticleSortSchema } from '@/features/ArticleSort'
-import { rtkApi } from '@/shared/api/rtkApi'
+
+import { rtkApi } from '../../api/rtkApi'
 
 import { createReduxStore } from './root'
 
@@ -28,7 +27,6 @@ export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 // export type RootStore = ReturnType<typeof store.getState>
 
 export interface StateSchema {
-  counter: CounterSchema
   user: UserSchema
   saveScroll: SaveScrollSchema
   sidebar: SidebarSchema

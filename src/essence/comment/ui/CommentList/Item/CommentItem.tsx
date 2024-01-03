@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-
 import { Avatar } from '@/shared/ui/Avatar'
 import { Text } from '@/shared/ui/Text'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
-// import { AppLink } from 'shared/ui/AppLink'
-import { RoutePath } from '@/app/providers/router/config/routeConfig'
-import { PageError } from '@/widgets/PageError'
+import { Skeleton } from '@/shared/ui/Skeleton'
+
 import { VStack } from '@/shared/ui/Stack'
+
+import { PageError } from '@/widgets/PageError'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { getRouteProfile } from '@/shared/const/router'
 
 import { IComment } from '../../../model/types/comment'
 
@@ -64,7 +64,7 @@ export const CommentItem = ({
       className={classNames(cls.CommentItem, {}, [className])}
     >
       <Link
-        to={`${RoutePath.profile}${comment.user.id}`}
+        to={getRouteProfile(comment.user.id)}
         className={cls.header}
       >
         {comment.user.avatar ? (

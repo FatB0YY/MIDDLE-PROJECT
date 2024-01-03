@@ -3,16 +3,16 @@ import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-
 import { Text } from '@/shared/ui/Text'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import { Icon } from '@/shared/ui/Icon'
 
-import { Card } from '@/shared/ui/Card/Card'
+import { Card } from '@/shared/ui/Card'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Button, ThemeButton } from '@/shared/ui/Button'
-import { RoutePath } from '@/app/providers/router/config/routeConfig'
+
+import { classNames } from '@/shared/lib/classNames/classNames'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
+import { getRouteArticleDetails } from '@/shared/const/router'
 
 import { EArticleBlockType, EArticleView } from '../../model/const/const'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
@@ -100,7 +100,7 @@ export const ArticleListItem = memo(
           )}
 
           <div className={cls.footer}>
-            <Link to={RoutePath.articles_details + article.id}>
+            <Link to={getRouteArticleDetails(article.id)}>
               <Button theme={ThemeButton.ACCENT}>
                 {t('entities.article.articlelistitem.readmore')}
               </Button>
@@ -116,7 +116,7 @@ export const ArticleListItem = memo(
       return (
         <Link
           target={target}
-          to={RoutePath.articles_details + article.id}
+          to={getRouteArticleDetails(article.id)}
           className={classNames(cls.ArticleListItem, {}, [
             className,
             cls[view]

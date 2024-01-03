@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react'
 
+import { TabItem, Tabs } from '@/shared/ui/Tabs'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs'
 import { EArticleType } from '@/essence/article'
 
 import cls from './ArticleTabsType.module.scss'

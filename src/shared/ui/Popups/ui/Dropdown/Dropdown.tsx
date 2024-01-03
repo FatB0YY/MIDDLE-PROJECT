@@ -1,17 +1,13 @@
-/* eslint-disable fatboyy-plugin1/path-checker */
 import React, { Fragment, ReactNode } from 'react'
 import { Menu } from '@headlessui/react'
 import { Link } from 'react-router-dom'
 
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Icon } from '@/shared/ui/Icon/Icon'
-import SelectIcon from '@/shared/assets/icons/select.svg'
-// import { Text, TextSize } from 'shared/ui/Text'
-import { Button, ThemeButton } from '@/shared/ui/Button'
-import { DropdownDirection } from '@/shared/types/ui'
-
+import { Button, ThemeButton } from '../../../../ui/Button'
+import { classNames } from '../../../../lib/classNames/classNames'
+import SelectIcon from '../../../../assets/icons/select.svg'
+import { DropdownDirection } from '../../../../types/ui'
 import { VStack } from '../../../Stack'
-
+import { Icon } from '../../../../ui/Icon/index'
 import cls from '../../styles/popup.module.scss'
 import { mapDirectionClass } from '../../styles/const'
 
@@ -62,7 +58,7 @@ export const Dropdown = ({
           gap='8'
         >
           {items.map((item, index) => {
-            let content = ({ active }: { active: boolean }) => (
+            const content = ({ active }: { active: boolean }) => (
               <Button
                 theme={item.buttonTheme}
                 type='button'

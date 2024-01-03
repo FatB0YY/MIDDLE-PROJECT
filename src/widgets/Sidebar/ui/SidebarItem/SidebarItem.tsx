@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { NavLink, useLocation } from 'react-router-dom'
 
+import { Icon } from '@/shared/ui/Icon'
+
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { getUserAuthData } from '@/essence/user'
-import { Icon } from '@/shared/ui/Icon/Icon'
 // import { HStack } from 'shared/ui/Stack'
 
 import { ISidebarItem } from '../../model/types/sidebar'

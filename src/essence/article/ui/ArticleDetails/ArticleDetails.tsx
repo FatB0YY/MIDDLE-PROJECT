@@ -3,14 +3,17 @@ import React, { memo, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
+import { Skeleton } from '@/shared/ui/Skeleton'
+
+import { VStack } from '@/shared/ui/Stack'
+
 import {
   DynamicModuleLoader,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useActionCreatorsTyped } from '@/shared/lib/store'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { VStack } from '@/shared/ui/Stack'
+
 import { PageError } from '@/widgets/PageError'
 
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'

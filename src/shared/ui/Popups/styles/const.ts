@@ -1,4 +1,4 @@
-import { DropdownDirection } from '@/shared/types/ui'
+import { DropdownDirection } from '../../../types/ui'
 
 import cls from './popup.module.scss'
 

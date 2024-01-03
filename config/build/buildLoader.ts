@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import webpack, { ModuleOptions } from 'webpack'
+import { ModuleOptions } from 'webpack'
 
 // import ReactRefreshTypescript from 'react-refresh-typescript'
 

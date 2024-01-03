@@ -8,6 +8,7 @@ const path = require('path')
 
 const { isPathRelative } = require('../helpers/index')
 //------------------------------------------------------------------------------
+
 // Rule Definition
 //------------------------------------------------------------------------------
 
@@ -57,7 +58,6 @@ module.exports = {
 }
 
 const layers = {
-  entities: 'entities',
   essence: 'essence',
   pages: 'pages',
   shared: 'shared',

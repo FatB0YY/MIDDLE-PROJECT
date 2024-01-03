@@ -1,12 +1,11 @@
 import React, { ReactNode, useCallback, useEffect } from 'react'
 
-import { useTheme } from '@/app/providers/ThemeProvider'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { useTheme } from '../../lib/hooks/useTheme/useTheme'
+import { classNames } from '../../lib/classNames/classNames'
 import {
   AnimationProvider,
   useAnimationLibs
-} from '@/shared/lib/components/AnimationProvider'
-
+} from '../../lib/components/AnimationProvider'
 import { Portal } from '../Portal'
 import { Overlay } from '../Overlay/Overlay'
 

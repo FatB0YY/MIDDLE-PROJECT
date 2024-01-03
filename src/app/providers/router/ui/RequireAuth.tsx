@@ -1,13 +1,10 @@
 import React, { useMemo } from 'react'
-
 import { useSelector } from 'react-redux'
-
 import { Navigate, useLocation } from 'react-router-dom'
 
-import { UserRole } from '@/essence/user'
-import { getUserAuthData, getUserRoles } from '@/essence/user'
+import { UserRole, getUserAuthData, getUserRoles } from '@/essence/user'
 
-import { RoutePath } from '../config/routeConfig'
+import { getRouteForbidden, getRouteMain } from '@/shared/const/router'
 
 interface RequireAuthProps {
   children: JSX.Element
@@ -33,7 +30,7 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
   if (!authData) {
     return (
       <Navigate
-        to={RoutePath.main}
+        to={getRouteMain()}
         state={{ from: location }}
         replace
       />
@@ -43,7 +40,7 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
   if (!hasRequireRoles) {
     return (
       <Navigate
-        to={RoutePath.forbidden}
+        to={getRouteForbidden()}
         state={{ from: location }}
         replace
       />

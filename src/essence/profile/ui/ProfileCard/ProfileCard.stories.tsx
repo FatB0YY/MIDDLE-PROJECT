@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { ECurrency } from '@/essence/currency'
 import { Country } from '@/shared/const/other'
-import avatar from '@/shared/ui/Avatar/ui/bladeava.png'
 
 import { ProfileCard } from './ProfileCard'
 
@@ -29,7 +28,7 @@ Primary.args = {
     first: 'asd',
     city: 'asf',
     currency: ECurrency.USD,
-    avatar
+    avatar: ''
   }
 }
 

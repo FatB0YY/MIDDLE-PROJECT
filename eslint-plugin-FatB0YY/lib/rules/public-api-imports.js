@@ -39,7 +39,6 @@ module.exports = {
     const { alias = '', testFilePatterns = [] } = context.options[0] ?? {}
 
     const checkingLayers = {
-      entities: 'entities',
       essence: 'essence',
       pages: 'pages',
       widgets: 'widgets',
