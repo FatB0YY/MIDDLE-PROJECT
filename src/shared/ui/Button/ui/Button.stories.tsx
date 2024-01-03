@@ -2,7 +2,6 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDecorator'
-
 import { Theme } from '../../../const/theme'
 
 import { Button, ButtonSize, ThemeButton } from './Button'
