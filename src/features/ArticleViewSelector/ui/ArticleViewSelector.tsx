@@ -39,16 +39,20 @@ export const ArticleViewSelector = ({
     <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
       {viewTypes.map((viewType) => (
         <Button
-          theme={ThemeButton.CLEAR}
+          theme={ThemeButton.ICON_OUTLINE}
           onClick={onClick(viewType.view)}
           className={classNames(
-            '',
+            cls.viewTab,
             { [cls.notSelected]: viewType.view !== view },
             []
           )}
           key={viewType.view}
         >
-          <Icon Svg={viewType.icon} />
+          <Icon
+            // width={'24px'}
+            // height={'24px'}
+            Svg={viewType.icon}
+          />
         </Button>
       ))}
     </div>

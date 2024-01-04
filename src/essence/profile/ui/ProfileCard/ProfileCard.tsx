@@ -23,7 +23,6 @@ interface ProfileCardProps {
   error: string | null
   isLoading?: boolean
   readonly?: boolean
-  'data-testid'?: string
   onChangeFirstname?: (value?: string) => void
   onChangeLastname?: (value?: string) => void
   onChangeAge?: (value?: string) => void
@@ -36,7 +35,6 @@ export const ProfileCard = ({
   error,
   isLoading,
   readonly = false,
-  'data-testid': dataTestId = 'ProfileCard',
   onChangeFirstname,
   onChangeLastname,
   onChangeAge,
@@ -52,10 +50,17 @@ export const ProfileCard = ({
         <VStack
           gap='32'
           max
+          align='center'
         >
+          <Skeleton
+            className={cls.skeleton}
+            width={'64px'}
+            height={64}
+            border='100%'
+          />
           <VStack
             max
-            gap='8'
+            gap='16'
           >
             <Skeleton
               className={cls.skeleton}
@@ -72,7 +77,7 @@ export const ProfileCard = ({
           </VStack>
           <VStack
             max
-            gap='8'
+            gap='16'
           >
             <Skeleton
               className={cls.skeleton}
@@ -89,7 +94,7 @@ export const ProfileCard = ({
           </VStack>
           <VStack
             max
-            gap='8'
+            gap='16'
           >
             <Skeleton
               className={cls.skeleton}
@@ -143,6 +148,7 @@ export const ProfileCard = ({
           className={cls.avatarWrapper}
         >
           <Avatar
+            size={64}
             src={data?.avatar}
             alt={data?.username}
           />
@@ -155,7 +161,7 @@ export const ProfileCard = ({
         value={data?.first}
         placeholder={t('entities.profile.profilecard.first')}
         className={cls.input}
-        data-testid={`${dataTestId}.first`}
+        data-testid='PC.first'
       />
       <Input
         onChange={onChangeLastname}
@@ -163,7 +169,7 @@ export const ProfileCard = ({
         value={data?.lastname}
         placeholder={t('entities.profile.profilecard.lastname')}
         className={cls.input}
-        data-testid={`${dataTestId}.last`}
+        data-testid='PC.last'
       />
       <Input
         onChange={onChangeAge}

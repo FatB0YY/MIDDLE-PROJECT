@@ -14,27 +14,30 @@ import { StoreProvider } from '@/shared/lib/store/StateProvider'
 import 'react-toastify/scss/main.scss'
 import '@/app/styles/index.scss'
 
-const container = document.getElementById('root')
+// import reportWebVitals from "../config/jest/jestEmptyComponent";
 
-if (!container) {
-  throw new Error('Root container не найден!')
-}
+const container = document.getElementById('root') as HTMLElement
+
 const root = createRoot(container)
 root.render(
-  <BrowserRouter>
-    <StoreProvider>
-      <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-          <ToastContainer
-            position='top-right'
-            autoClose={2000}
-          />
-        </ThemeProvider>
-      </ErrorBoundary>
-    </StoreProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <StoreProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <App />
+            <ToastContainer
+              position='top-right'
+              autoClose={2000}
+            />
+          </ThemeProvider>
+        </ErrorBoundary>
+      </StoreProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 )
+
+// reportWebVitals();
 
 // const pagesMap = {
 //   basic: "Basic",

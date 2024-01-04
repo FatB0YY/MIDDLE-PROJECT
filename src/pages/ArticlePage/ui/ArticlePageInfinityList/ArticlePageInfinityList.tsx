@@ -24,7 +24,7 @@ export const ArticlePageInfinityList = () => {
   return (
     <ArticleList
       articles={articles}
-      isVirtualizationList={true}
+      isVirtualizationList={false}
       isLoading={isLoading}
       target='_blank'
       view={view}

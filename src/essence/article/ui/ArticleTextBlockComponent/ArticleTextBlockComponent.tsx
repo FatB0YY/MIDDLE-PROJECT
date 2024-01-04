@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import { Text } from '@/shared/ui/Text'
+import { Text, TextSize } from '@/shared/ui/Text'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
@@ -23,6 +23,7 @@ export const ArticleTextBlockComponent = memo(
           <Text
             title={block.title}
             className={cls.title}
+            size={TextSize.M}
           />
         )}
         {block.paragraphs.map((paragraph) => (
@@ -30,6 +31,7 @@ export const ArticleTextBlockComponent = memo(
             key={paragraph}
             text={paragraph}
             className={cls.paragraph}
+            size={TextSize.M}
           />
         ))}
       </div>

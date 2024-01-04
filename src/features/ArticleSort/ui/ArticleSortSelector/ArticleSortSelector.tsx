@@ -3,9 +3,8 @@ import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Select, SelectOption } from '@/shared/ui/Select'
-
 import { classNames } from '@/shared/lib/classNames/classNames'
-
+import { VStack } from '@/shared/ui/Stack'
 import { SortOrder } from '@/shared/types/sort'
 import {
   DynamicModuleLoader,
@@ -68,7 +67,11 @@ export const ArticleSortSelector = ({
       reducers={reducers}
       removeAfterUnmount={false}
     >
-      <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+      <VStack
+        gap='16'
+        max
+        className={classNames(cls.ArticleSortSelector, {}, [className])}
+      >
         <Select<EArticleSortField>
           onChange={onChangeSort}
           className={cls.sortField}
@@ -83,7 +86,7 @@ export const ArticleSortSelector = ({
           label={t('features.articlesortselector.by')}
           value={order}
         />
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   )
 }

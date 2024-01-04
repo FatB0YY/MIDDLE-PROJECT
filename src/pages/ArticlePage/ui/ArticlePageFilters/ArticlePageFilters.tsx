@@ -4,9 +4,6 @@ import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
 import { TabItem } from '@/shared/ui/Tabs'
-
-import { Card } from '@/shared/ui/Card'
-
 import { useActionCreatorsTyped } from '@/shared/lib/store'
 import {
   ArticleSearch,
@@ -23,7 +20,6 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { SortOrder } from '@/shared/types/sort'
 import { EArticleType, EArticleView } from '@/essence/article'
 import { classNames } from '@/shared/lib/classNames/classNames'
-
 import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 
 import { fetchArticlesListThunk } from '../../model/services/fetchArticlesListThunk'
@@ -134,25 +130,23 @@ export const ArticlesPageFilters = memo(
 
     return (
       <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
-        <div className={cls.sortWrapper}>
-          <ArticleSortSelector
-            order={order}
-            sort={sort}
-            onChangeOrder={onChangeOrder}
-            onChangeSort={onChangeSort}
-          />
-          <ArticleViewSelector
-            view={view}
-            onViewClick={onChangeView}
-          />
-        </div>
-        <Card className={cls.search}>
-          <ArticleSearch
-            onChange={onChangeSearch}
-            value={search}
-            // placeholder={t('Поиск')}
-          />
-        </Card>
+        <ArticleSearch
+          className={cls.search}
+          onChange={onChangeSearch}
+          value={search}
+        />
+
+        <ArticleSortSelector
+          order={order}
+          sort={sort}
+          onChangeOrder={onChangeOrder}
+          onChangeSort={onChangeSort}
+        />
+        <ArticleViewSelector
+          view={view}
+          onViewClick={onChangeView}
+        />
+
         <ArticleTabsType
           value={type}
           onChangeType={onChangeType}

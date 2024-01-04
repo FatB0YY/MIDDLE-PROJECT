@@ -1,0 +1,18 @@
+.Tab {
+  background: inherit;
+  padding: 8px 14px;
+  border-radius: 5px;
+  border: 2px solid var(--card-border-color);
+  cursor: pointer;
+  color: var(--main-text-color);
+  font: var(--font-m);
+}
+
+.Tab:hover {
+  border: 2px solid var(--hover-nav-item-color);
+}
+
+.ACTIVE {
+  border: 2px solid var(--selected-element-color) !important;
+  color: var(--selected-element-color) !important;
+}

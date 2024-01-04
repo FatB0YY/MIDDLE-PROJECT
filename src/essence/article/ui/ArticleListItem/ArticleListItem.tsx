@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom'
 import { Text } from '@/shared/ui/Text'
 import { Icon } from '@/shared/ui/Icon'
 
-import { Card } from '@/shared/ui/Card'
+import { Card, CardTheme } from '@/shared/ui/Card'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Button, ThemeButton } from '@/shared/ui/Button'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { getRouteArticleDetails } from '@/shared/const/router'
+import { HStack } from '@/shared/ui/Stack'
 
 import { EArticleBlockType, EArticleView } from '../../model/const/const'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
@@ -35,6 +36,8 @@ export const ArticleListItem = memo(
     // const [isHover, bindHover] = useHover()
     const { t } = useTranslation('article')
 
+    const themeCard = CardTheme.NORMAL
+
     const types = (
       <Text
         text={article.type.join(', ')}
@@ -42,13 +45,13 @@ export const ArticleListItem = memo(
       />
     )
     const views = (
-      <>
+      <HStack gap='8'>
         <Text
           text={String(article.views)}
           className={cls.views}
         />
         <Icon Svg={EyeIcon} />
-      </>
+      </HStack>
     )
 
     if (view === EArticleView.BIG) {
@@ -57,6 +60,7 @@ export const ArticleListItem = memo(
       ) as ArticleTextBlock
       return (
         <Card
+          theme={themeCard}
           className={classNames(cls.ArticleListItem, {}, [
             className,
             cls[view]
@@ -99,7 +103,11 @@ export const ArticleListItem = memo(
             />
           )}
 
-          <div className={cls.footer}>
+          <HStack
+            max
+            justify='between'
+            className={cls.footer}
+          >
             <Link to={getRouteArticleDetails(article.id)}>
               <Button theme={ThemeButton.ACCENT}>
                 {t('entities.article.articlelistitem.readmore')}
@@ -107,7 +115,7 @@ export const ArticleListItem = memo(
             </Link>
 
             {views}
-          </div>
+          </HStack>
         </Card>
       )
     }
@@ -123,7 +131,10 @@ export const ArticleListItem = memo(
             // style
           ])}
         >
-          <Card className={cls.card}>
+          <Card
+            className={cls.card}
+            theme={themeCard}
+          >
             <div className={cls.imageWrapper}>
               <img
                 src={article.img}

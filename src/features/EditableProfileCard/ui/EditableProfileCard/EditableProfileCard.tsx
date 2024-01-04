@@ -82,7 +82,7 @@ export const EditableProfileCard = ({
       removeAfterUnmount={true}
     >
       <div className={classNames(cls.EditableProfileCard, {}, [className])}>
-        <EditableProfileCardHeader data-testid='EditableProfileCard.Header' />
+        <EditableProfileCardHeader />
         <ProfileCard
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}
@@ -92,7 +92,6 @@ export const EditableProfileCard = ({
           isLoading={isLoading}
           error={error}
           readonly={readonly}
-          data-testid='EditableProfileCard.Card'
         />
       </div>
     </DynamicModuleLoader>

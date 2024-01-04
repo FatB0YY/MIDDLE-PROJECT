@@ -22,7 +22,6 @@ import { getProfileState } from '../../model/selectors/getProfileState'
 
 interface EditableProfileCardHeaderProps {
   className?: string
-  'data-testid'?: string
 }
 
 const actions = {
@@ -31,8 +30,7 @@ const actions = {
 }
 
 export const EditableProfileCardHeader = ({
-  className,
-  'data-testid': dataTestId = 'EditableProfileCardHeader'
+  className
 }: EditableProfileCardHeaderProps) => {
   const { error, isLoading } = useSelector(getProfileState)
   const { t } = useTranslation('profile')
@@ -89,7 +87,7 @@ export const EditableProfileCardHeader = ({
           <Button
             onClick={onEdit}
             theme={ThemeButton.OUTLINE}
-            data-testid={`${dataTestId}.Edit`}
+            data-testid='EPCH.Edit'
           >
             {t('entities.profile.profilecard.edit')}
           </Button>
@@ -102,14 +100,14 @@ export const EditableProfileCardHeader = ({
             <Button
               onClick={onCancelEdit}
               theme={ThemeButton.RED}
-              data-testid={`${dataTestId}.Cancel`}
+              data-testid='EPCH.Cancel'
             >
               {t('entities.profile.profilecard.cancel')}
             </Button>
             <Button
               onClick={onSave}
               theme={ThemeButton.SUCCESS}
-              data-testid={`${dataTestId}.Save`}
+              data-testid='EPCH.Save'
             >
               {t('entities.profile.profilecard.save')}
             </Button>

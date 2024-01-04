@@ -4,6 +4,7 @@
  */
 
 import path from 'path'
+import 'whatwg-fetch'
 
 export default {
   globals: {
@@ -23,10 +24,15 @@ export default {
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
   rootDir: '../../',
-  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  setupFilesAfterEnv: [
+    '<rootDir>config/jest/setupTests.ts',
+    '@testing-library/jest-dom',
+    '<rootDir>config/jest/jest.config.ts'
+  ],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^@/(.*)$': '<rootDir>/src/$1'
   },
   reporters: [
     'default',

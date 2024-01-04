@@ -9,7 +9,6 @@ import { ECurrency } from '@/essence/currency'
 import { $api } from '@/shared/api/api'
 
 import { profileReducer } from '../../model/slice/profileSlice'
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 import { EditableProfileCard } from './EditableProfileCard'
 
@@ -30,43 +29,34 @@ const options = {
     profile: {
       readonly: true,
       data: profile,
-      form: profile,
-      isLoading: false,
-      error: undefined
+      form: profile
     },
     user: {
-      authData: {
-        id: '1',
-        username: 'admin'
-      }
+      authData: { id: '1', username: 'admin' }
     }
   },
-  asyncReducers: { profile: profileReducer }
+  asyncReducers: {
+    profile: profileReducer
+  }
 }
 
-describe('featires/EditableProfileCardHeader.test', () => {
-  test('Переключение ридонли режима false', async () => {
-    componentRender(<EditableProfileCardHeader />, options)
+describe('features/EditableProfileCard', () => {
+  test('Режим рид онли должен переключиться', async () => {
+    componentRender(<EditableProfileCard id='1' />, options)
 
-    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Edit'))
+    await userEvent.click(screen.getByTestId('EPCH.Edit'))
 
-    expect(
-      screen.getByTestId('EditableProfileCardHeader.Save')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByTestId('EditableProfileCardHeader.Cancel')
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByTestId('EditableProfileCardHeader.Edit')
-    ).not.toBeInTheDocument()
+    expect(screen.getByTestId('EPCH.Save')).toBeInTheDocument()
+    expect(screen.getByTestId('EPCH.Cancel')).toBeInTheDocument()
+    expect(screen.queryByTestId('EPCH.Edit')).not.toBeInTheDocument()
   })
 
   test('Изменение', async () => {
     componentRender(<EditableProfileCard id='1' />, options)
-    await userEvent.click(screen.getByTestId('EditableProfileCard.Header.Edit'))
+    await userEvent.click(screen.getByTestId('EPCH.Edit'))
 
-    const firstInput = screen.getByTestId('EditableProfileCard.Card.first')
-    const lastInput = screen.getByTestId('EditableProfileCard.Card.last')
+    const firstInput = screen.getByTestId('PC.first')
+    const lastInput = screen.getByTestId('PC.last')
     await userEvent.clear(firstInput)
     await userEvent.type(firstInput, 'name')
     await userEvent.clear(lastInput)
@@ -76,46 +66,34 @@ describe('featires/EditableProfileCardHeader.test', () => {
     expect(lastInput).toHaveValue('name')
   })
 
-  test('cancel button', async () => {
+  test('При отмене значения должны обнуляться', async () => {
     componentRender(<EditableProfileCard id='1' />, options)
-    await userEvent.click(screen.getByTestId('EditableProfileCard.Header.Edit'))
 
-    await userEvent.clear(screen.getByTestId('EditableProfileCard.Card.first'))
-    await userEvent.type(
-      screen.getByTestId('EditableProfileCard.Card.last'),
-      'type'
-    )
+    await userEvent.click(screen.getByTestId('EPCH.Edit'))
 
-    await userEvent.click(
-      screen.getByTestId('EditableProfileCard.Header.Cancel')
-    )
+    await userEvent.clear(screen.getByTestId('PC.first'))
+    await userEvent.clear(screen.getByTestId('PC.last'))
 
-    expect(
-      screen.queryByTestId('EditableProfileCard.Header.Save')
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByTestId('EditableProfileCard.Header.Cancel')
-    ).not.toBeInTheDocument()
+    await userEvent.type(screen.getByTestId('PC.first'), 'user')
+    await userEvent.type(screen.getByTestId('PC.last'), 'user')
 
-    expect(screen.getByTestId('EditableProfileCard.Card.first')).toHaveValue(
-      'admin'
-    )
-    expect(screen.getByTestId('EditableProfileCard.Card.last')).toHaveValue(
-      'admin'
-    )
+    expect(screen.getByTestId('PC.first')).toHaveValue('user')
+    expect(screen.getByTestId('PC.last')).toHaveValue('user')
+
+    await userEvent.click(screen.getByTestId('EPCH.Cancel'))
+
+    expect(screen.getByTestId('PC.first')).toHaveValue('admin')
+    expect(screen.getByTestId('PC.last')).toHaveValue('admin')
   })
 
   test('Если нет ошибок валидации, то на сервер должен уйти PUT запрос', async () => {
     const mockPutReq = jest.spyOn($api, 'put')
     componentRender(<EditableProfileCard id='1' />, options)
-    await userEvent.click(screen.getByTestId('EditableProfileCard.Header.Edit'))
+    await userEvent.click(screen.getByTestId('EPCH.Edit'))
 
-    await userEvent.type(
-      screen.getByTestId('EditableProfileCard.Card.first'),
-      'user'
-    )
+    await userEvent.type(screen.getByTestId('PC.first'), 'user')
 
-    await userEvent.click(screen.getByTestId('EditableProfileCard.Header.Save'))
+    await userEvent.click(screen.getByTestId('EPCH.Save'))
 
     expect(mockPutReq).toHaveBeenCalled()
   })

@@ -4,11 +4,15 @@
 .sortField {
   select,
   span {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
   }
 }
 
 .order {
   select,
   span {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
   }
 }
