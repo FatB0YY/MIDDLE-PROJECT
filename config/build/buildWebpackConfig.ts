@@ -26,7 +26,7 @@ export function buildWebpackConfig(
       rules: buildLoaders(options) // обрабатываем файлы за рамки js (png css scss svg ts...)
     },
     resolve: buildResolvers(options),
-    devtool: isDev ? 'inline-source-map' : 'source-map',
+    devtool: isDev ? 'eval-cheap-module-source-map' : 'source-map', // inline-source-map
     devServer: isDev ? buildDevServer(options) : undefined,
     stats: {
       warningsFilter: /export .* was not found in/

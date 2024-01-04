@@ -36,6 +36,72 @@ npm run start:dev или npm run start:vite + npm run start:server - запус�
 
 ---
 
+## Взаимодействие со стейтом, работа с данными
+
+Взаимодействие с данными осуществляется с помощью redux toolkit.
+
+Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
+
+Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+
+Для более удобной работы с useSelector, была создана ф-ция-обертка buildSelector:
+
+```typescript jsx
+type Selector<T> = (state: StateSchema) => T
+type Result<T> = [() => T, Selector<T>]
+
+export function buildSelector<T>(selector: Selector<T>): Result<T> {
+  const useSelectorHook = () => {
+    return useSelector(selector)
+  }
+
+  return [useSelectorHook, selector]
+}
+```
+
+Пример использования:
+
+```typescript jsx
+export const [useUserAuthData, getUserAuthData] = buildSelector(
+  (state) => state.user
+)
+
+const { _initiated } = useUserAuthData()
+```
+
+Также для правильной типизированной работы с async actions и dispatch, используется useActionCreatorsTyped:
+
+```typescript jsx
+export const useActionCreatorsTyped = <
+  Actions extends ActionCreatorsMapObject = ActionCreatorsMapObject
+>(
+  actions: Actions
+): BoundActions<Actions> => {
+  const dispatch = useAppDispatch()
+
+  const memoizedActions = useMemo(
+    () => bindActionCreators(actions, dispatch),
+    [actions, dispatch]
+  )
+
+  return memoizedActions
+}
+```
+
+Пример использования:
+
+```typescript jsx
+const actionsUser = useActionCreatorsTyped(userActions)
+useEffect(() => {
+  actionsUser.initAuthData()
+}, [actionsUser.initAuthData])
+```
+
+Подробнее о хуке - [useActionCreatorsTyped](/src/shared/lib/store/hook.ts)
+
+---
+
 ## Архитектура проекта
 
 Проект написан в соответствии с методологией Feature sliced design
@@ -162,18 +228,6 @@ Clear.args = {
 В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
 
 В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
-
----
-
-### Работа с данными
-
-Взаимодействие с данными осуществляется с помощью redux toolkit.
-По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
-
-Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
-
-Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
-[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
 ---
 

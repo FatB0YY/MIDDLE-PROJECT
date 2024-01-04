@@ -26,7 +26,8 @@
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "prepare": "husky install",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "postinstall": "rimraf ./node_modules/.cache"
   },
   "author": "\"rodion-web@yandex.ru FatB0YY\"",
   "license": "ISC",
@@ -99,9 +100,11 @@
     "react-refresh-typescript": "^2.0.9",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.14.0",
+    "rimraf": "^5.0.5",
     "sass": "^1.67.0",
     "sass-loader": "^13.3.2",
     "storybook-addon-mock": "^4.3.0",
+    "storybook-addon-themes": "^6.1.0",
     "style-loader": "^3.3.3",
     "stylelint": "^15.11.0",
     "stylelint-config-idiomatic-order": "^9.0.0",

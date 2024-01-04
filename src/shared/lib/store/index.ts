@@ -6,4 +6,7 @@ export type {
   StateSchemaKey,
   ThunkConfig
 } from './types'
+
 export { createReduxStore } from './root'
+
+export { buildSelector } from './buildSelector'

@@ -14,13 +14,6 @@ export function buildBabelLoader({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const plugins: any = [
     [
-      'i18next-extract',
-      {
-        locales: ['ru', 'en'],
-        keyAsDefaultValue: true
-      }
-    ],
-    [
       '@babel/plugin-transform-typescript',
       {
         isTSX: isTsx
@@ -42,6 +35,7 @@ export function buildBabelLoader({
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
+      cacheDirectory: true,
       loader: 'babel-loader',
       options: {
         presets: [
