@@ -1,8 +1,5 @@
 export { userReducer } from './model/slice/userSlice'
-export {
-  getUserAuthData,
-  useUserAuthData
-} from './model/selectors/getUserAuthData'
+export { getUserAuthData } from './model/selectors/getUserAuthData'
 
 export type { IUser, UserSchema } from './model/types/user'
 

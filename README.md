@@ -45,31 +45,6 @@ npm run start:dev или npm run start:vite + npm run start:server - запус�
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
 [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
-Для более удобной работы с useSelector, была создана ф-ция-обертка buildSelector:
-
-```typescript jsx
-type Selector<T> = (state: StateSchema) => T
-type Result<T> = [() => T, Selector<T>]
-
-export function buildSelector<T>(selector: Selector<T>): Result<T> {
-  const useSelectorHook = () => {
-    return useSelector(selector)
-  }
-
-  return [useSelectorHook, selector]
-}
-```
-
-Пример использования:
-
-```typescript jsx
-export const [useUserAuthData, getUserAuthData] = buildSelector(
-  (state) => state.user
-)
-
-const { _initiated } = useUserAuthData()
-```
-
 Также для правильной типизированной работы с async actions и dispatch, используется useActionCreatorsTyped:
 
 ```typescript jsx

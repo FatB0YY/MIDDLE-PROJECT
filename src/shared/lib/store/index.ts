@@ -8,5 +8,3 @@ export type {
 } from './types'
 
 export { createReduxStore } from './root'
-
-export { buildSelector } from './buildSelector'

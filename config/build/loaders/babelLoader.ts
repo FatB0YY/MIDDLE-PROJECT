@@ -35,7 +35,7 @@ export function buildBabelLoader({
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
-      cacheDirectory: true,
+      // cacheDirectory: true,
       loader: 'babel-loader',
       options: {
         presets: [

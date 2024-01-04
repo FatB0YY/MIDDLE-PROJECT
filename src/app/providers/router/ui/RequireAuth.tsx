@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
 
-import { UserRole, getUserRoles, useUserAuthData } from '@/essence/user'
+import { UserRole, getUserAuthData, getUserRoles } from '@/essence/user'
 
 import { getRouteForbidden, getRouteMain } from '@/shared/const/router'
 
@@ -12,7 +12,7 @@ interface RequireAuthProps {
 }
 
 export function RequireAuth({ children, roles }: RequireAuthProps) {
-  const { authData } = useUserAuthData()
+  const { authData } = useSelector(getUserAuthData)
   const location = useLocation()
   const userRoles = useSelector(getUserRoles)
 

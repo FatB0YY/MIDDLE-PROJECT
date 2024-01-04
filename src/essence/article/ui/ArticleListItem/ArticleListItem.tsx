@@ -14,6 +14,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { getRouteArticleDetails } from '@/shared/const/router'
 import { HStack } from '@/shared/ui/Stack'
+import { AppImage } from '@/shared/ui/AppImage'
+import { Skeleton } from '@/shared/ui/Skeleton'
 
 import { EArticleBlockType, EArticleView } from '../../model/const/const'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
@@ -90,7 +92,14 @@ export const ArticleListItem = memo(
 
           {types}
 
-          <img
+          <AppImage
+            fallback={
+              <Skeleton
+                width={'100%'}
+                height={250}
+                border='5px'
+              />
+            }
             src={article.img}
             alt={article.title}
             className={cls.img}
@@ -136,10 +145,17 @@ export const ArticleListItem = memo(
             theme={themeCard}
           >
             <div className={cls.imageWrapper}>
-              <img
+              <AppImage
                 src={article.img}
                 alt={article.title}
                 className={cls.img}
+                fallback={
+                  <Skeleton
+                    width={'200px'}
+                    height={'200px'}
+                    border='5px'
+                  />
+                }
               />
               <Text
                 text={article.createdAt}

@@ -1,5 +1,3 @@
-import { buildSelector } from '@/shared/lib/store'
+import { StateSchema } from '@/shared/lib/store'
 
-export const [useUserAuthData, getUserAuthData] = buildSelector(
-  (state) => state.user
-)
+export const getUserAuthData = (state: StateSchema) => state.user
