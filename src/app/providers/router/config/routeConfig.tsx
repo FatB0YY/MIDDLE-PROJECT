@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { AboutPageAsync } from '@/pages/AboutPage'
 import { ArticleDetailsPageAsync } from '@/pages/ArticleDetailsPage'
 import { ArticleEditPageAsync } from '@/pages/ArticleEditPage'
 import { ArticlePageAsync } from '@/pages/ArticlePage'
@@ -13,7 +12,6 @@ import { UserRole } from '@/essence/user'
 import { AppRoutesProps } from '@/shared/types/router'
 import {
   getRouteMain,
-  getRouteAbout,
   getRouteForbidden,
   getRouteProfile,
   getRouteArticles,
@@ -27,7 +25,6 @@ import {
 // // пути
 // export const RoutePath: Record<AppRoutes, string> = {
 //   [AppRoutes.MAIN]: getRouteMain(),
-//   [AppRoutes.ABOUT]: getRouteAbout(),
 //   [AppRoutes.PROFILE]: getRouteProfile(':id'),
 //   [AppRoutes.ARTICLES]: getRouteArticles(),
 //   [AppRoutes.ARTICLES_DETAILS]: getRouteArticleDetails(':id'),
@@ -46,10 +43,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
     element: <MainPageAsync />
-  },
-  [AppRoutes.ABOUT]: {
-    path: getRouteAbout(),
-    element: <AboutPageAsync />
   },
   [AppRoutes.FORBIDDEN]: {
     path: getRouteForbidden(),

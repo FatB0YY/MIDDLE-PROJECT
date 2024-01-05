@@ -6,29 +6,26 @@ import React, {
   UIEvent,
   useEffect
 } from 'react'
-
 import { useLocation } from 'react-router-dom'
-
 import { useSelector } from 'react-redux'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-
 import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll/useInfinityScroll'
 import { StateSchema, useActionCreatorsTyped } from '@/shared/lib/store'
 import { getSaveScrollByPath, saveScrollActions } from '@/features/ScrollSave'
-
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
+import { MyTestProps } from '@/shared/types/tests'
 
 import cls from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends MyTestProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
 }
 
 // shared -> widgets
-export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
+export const Page = memo((props: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const actionsSaveScroll = useActionCreatorsTyped(saveScrollActions)
@@ -40,7 +37,7 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
   useInfinityScroll({
     triggerRef,
     wrapperRef,
-    callback: onScrollEnd
+    callback: props.onScrollEnd
   })
 
   useEffect(() => {
@@ -56,12 +53,13 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
 
   return (
     <main
+      data-testid={props['data-testid'] ?? 'Page'}
       onScroll={onScroll}
       ref={wrapperRef}
-      className={classNames(cls.Page, {}, [className])}
+      className={classNames(cls.Page, {}, [props.className])}
     >
-      {children}
-      {onScrollEnd ? (
+      {props.children}
+      {props.onScrollEnd ? (
         <div
           className={cls.trigger}
           ref={triggerRef}

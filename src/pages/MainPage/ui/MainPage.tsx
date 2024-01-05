@@ -15,7 +15,10 @@ const MainPage = ({ className }: MainPageProps) => {
   const { t } = useTranslation('main')
 
   return (
-    <Page className={classNames(cls.MainPage, {}, [className])}>
+    <Page
+      data-testid='MainPage'
+      className={classNames(cls.MainPage, {}, [className])}
+    >
       {t('pages.mainpage')}
     </Page>
   )
