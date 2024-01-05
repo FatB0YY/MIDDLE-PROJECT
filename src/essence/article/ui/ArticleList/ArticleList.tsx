@@ -21,7 +21,9 @@ interface ArticleListProps {
   isLoading?: boolean
 }
 
+/* eslint-disable */
 const Row = ({ data, index, style }: any) => {
+  /* eslint-enable */
   const { articles, view, target, itemsCount } = data
 
   if (index + 1 >= itemsCount) return null

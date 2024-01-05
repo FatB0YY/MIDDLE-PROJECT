@@ -1,17 +1,11 @@
 import React, { Fragment, ReactNode } from 'react'
 import { Listbox as HListBox } from '@headlessui/react'
 
-import { VStack } from '@/shared/ui/Stack'
-
-import { classNames } from '@/shared/lib/classNames/classNames'
-import SelectIcon from '@/shared/assets/icons/select.svg'
-import { DropdownDirection } from '@/shared/types/ui'
-// eslint-disable-next-line fatboyy-plugin1/path-checker
-
+import { VStack } from '../../../../ui/Stack'
+import { classNames } from '../../../../lib/classNames/classNames'
+import SelectIcon from '../../../../assets/icons/select.svg'
+import { DropdownDirection } from '../../../../types/ui'
 import { Icon } from '../../../Icon/Icon'
-
-// import { Button } from '../Button'
-
 import cls from '../../styles/popup.module.scss'
 import { mapDirectionClass } from '../../styles/const'
 

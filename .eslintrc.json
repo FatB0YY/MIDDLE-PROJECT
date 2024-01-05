@@ -86,7 +86,7 @@
       {
         "allow": ["__IS_DEV__", "__PROJECT__", "_initiated", "__API_URL__"]
       }
-    ]
+    ],
     // "fatboyy-plugin1/path-checker": [
     //   "error",
     //   {
@@ -111,6 +111,9 @@
     //     "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
     //   }
     // ]
+    "@conarti/feature-sliced/layers-slices": "warn",
+    "@conarti/feature-sliced/absolute-relative": "warn",
+    "@conarti/feature-sliced/public-api": "warn"
   },
   "globals": {
     "__IS_DEV__": true,
