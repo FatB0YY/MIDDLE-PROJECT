@@ -12,6 +12,7 @@
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "typecheck": "tsc --skipLibCheck",
+    "prettier": "npx prettier --write **/*.{ts,tsx,js,json}",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -52,7 +53,7 @@
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "@svgr/webpack": "^8.1.0",
-    "@testing-library/jest-dom": "^6.1.6",
+    "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
     "@types/babel__core": "^7.20.4",
@@ -146,6 +147,12 @@
     "react-virtualized-auto-sizer": "^1.0.20",
     "react-window": "^1.8.10",
     "react-window-infinite-loader": "^1.0.9"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ]
   },
   "loki": {
     "configurations": {

@@ -1,6 +1,6 @@
 import { IUser, userActions } from '@/essence/user'
 
-import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk'
 
 import {
   ILoginByUsername,
@@ -30,10 +30,10 @@ describe('loginByUsernameThunk', () => {
     expect(result[0].type).toBe(loginByUsernameThunk.pending.type)
 
     expect(result[1].type).toBe(userActions.setAuthData(mockUser).type)
-    expect(result[1].payload).toBe(mockUser)
+    expect(result[1].payload).toEqual(mockUser)
 
     expect(result[2].type).toBe(loginByUsernameThunk.fulfilled.type)
-    expect(result[2].payload).toBe(mockUser)
+    expect(result[2].payload).toEqual(mockUser)
   })
 
   test('Проверка с rejected  ответом', async () => {
@@ -51,7 +51,7 @@ describe('loginByUsernameThunk', () => {
     expect(result[0].type).toBe(loginByUsernameThunk.pending.type)
 
     expect(result[1].type).toBe(loginByUsernameThunk.rejected.type)
-    expect(result[1].payload).toBe('my rejectWithValue error!')
+    expect(result[1].payload).toEqual('my rejectWithValue error!')
     expect(result[1].meta.rejectedWithValue).toBe(true)
   })
 })

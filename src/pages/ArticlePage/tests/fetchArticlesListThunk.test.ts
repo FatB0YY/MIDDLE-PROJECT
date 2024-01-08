@@ -1,17 +1,38 @@
-import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk'
+import { EArticleSortField } from '@/features/ArticleSort'
+import { EArticleType } from '@/essence/article'
 
 import { fetchArticlesListThunk } from '../model/services/fetchArticlesListThunk'
 
 // мокаем селектор
 jest.mock('../model/selectors/articlesPageSelectors.ts', () => ({
-  getArticlesPageLimit: jest.fn()
+  getArticlesPageLimit: jest.fn(),
+  getArticlesPagePage: jest.fn()
 }))
+
+jest.mock(
+  '../../../features/ArticleSort/model/selectors/articleSortSelectors.ts',
+  () => ({
+    getArticleSortOrder: jest.fn(),
+    getArticleSortSearch: jest.fn(),
+    getArticleSortSort: jest.fn(),
+    getArticleSortType: jest.fn()
+  })
+)
 
 /* eslint-disable */
 // Импорт после jest.mock
 const {
-  getArticlesPageLimit
+  getArticlesPageLimit,
+  getArticlesPagePage
 } = require('../model/selectors/articlesPageSelectors.ts')
+
+const {
+  getArticleSortOrder,
+  getArticleSortSearch,
+  getArticleSortSort,
+  getArticleSortType
+} = require('../../../features/ArticleSort/model/selectors/articleSortSelectors.ts')
 /* eslint-enable */
 
 describe('fetchArticlesListThunk', () => {
@@ -20,8 +41,14 @@ describe('fetchArticlesListThunk', () => {
 
     // мокаем селектор
     getArticlesPageLimit.mockReturnValue(limit)
+    getArticleSortOrder.mockReturnValue('asc')
+    getArticleSortSearch.mockReturnValue('')
+    getArticleSortSort.mockReturnValue(EArticleSortField.VIEWS)
+    getArticleSortType.mockReturnValue(EArticleType.ALL)
+    getArticlesPagePage.mockReturnValue(1)
 
     const thunk = new TestAsyncThunk(fetchArticlesListThunk)
+
     thunk.api.get.mockResolvedValue({ data: expectedArticles })
 
     // получаем dispatch[]

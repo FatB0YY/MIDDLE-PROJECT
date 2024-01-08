@@ -1,7 +1,7 @@
 import { ECurrency } from '@/essence/currency'
 import { Country } from '@/shared/const/other'
 
-import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk'
 import { updateProfileDataThunk } from '@/features/EditableProfileCard'
 
 import { IProfile, ValidateProfileError } from '../model/types/profile'

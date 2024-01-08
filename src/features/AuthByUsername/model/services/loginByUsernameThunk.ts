@@ -38,7 +38,7 @@ export const loginByUsernameThunk = createAsyncThunk<
 
     return thunkAPI.fulfillWithValue(response.data)
   } catch (error) {
-    console.error(error)
+    // console.error(error)
     return thunkAPI.rejectWithValue('my rejectWithValue error!')
   }
 })

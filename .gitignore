@@ -134,3 +134,7 @@ dist
 /storybook-static
 
 /reports/unit
+
+eslint-plugin-FatB0YY
+/eslint-plugin-FatB0YY
+./eslint-plugin-FatB0YY

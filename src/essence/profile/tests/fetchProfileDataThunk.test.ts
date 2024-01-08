@@ -1,6 +1,6 @@
 import { ECurrency } from '@/essence/currency'
 import { Country } from '@/shared/const/other'
-import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk'
 import { fetchProfileDataThunk } from '@/features/EditableProfileCard'
 
 import { IProfile } from '../model/types/profile'
@@ -21,6 +21,7 @@ describe('fetchProfileDataThunk', () => {
 
   test('Проверка с resolved ответом', async () => {
     const thunk = new TestAsyncThunk(fetchProfileDataThunk)
+
     thunk.api.get.mockResolvedValue({ data })
 
     // получаем dispatch[]
