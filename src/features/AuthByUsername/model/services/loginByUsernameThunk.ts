@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
 import { ThunkConfig } from '@/shared/lib/store'
 
 import { IUser, userActions } from '../../../../essence/user/index'
@@ -31,7 +30,7 @@ export const loginByUsernameThunk = createAsyncThunk<
     }
 
     // имитация авторизации
-    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
+    // localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
     thunkAPI.dispatch(userActions.setAuthData(response.data))
 
     // thunkAPI.extra.navigate('/about')

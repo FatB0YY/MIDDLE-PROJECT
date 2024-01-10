@@ -30,6 +30,10 @@
       "placeholder": "placeholder",
       "submit": "submit"
     },
+    "articlepagegreeting": {
+      "text": "text",
+      "title": "title"
+    },
     "authbyusername": {
       "loginform": {
         "login": "login",

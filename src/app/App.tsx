@@ -4,20 +4,24 @@ import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
-import { getUserAuthData, userActions } from '@/essence/user'
-import { useActionCreatorsTyped } from '@/shared/lib/store'
+import { getUserAuthData, initAuthData } from '@/essence/user'
+import { useAppDispatch } from '@/shared/lib/store'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 
 import { AppRouter } from './providers/router'
 
 function App() {
   const { theme } = useTheme()
-  const { _initiated } = useSelector(getUserAuthData)
-  const actionsUser = useActionCreatorsTyped(userActions)
+  const { _initiated, isLoading } = useSelector(getUserAuthData)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    actionsUser.initAuthData()
-  }, [actionsUser.initAuthData])
+    dispatch(initAuthData())
+  }, [dispatch])
+
+  if (isLoading || !_initiated) {
+    return 'Loading...'
+  }
 
   return (
     <div className={classNames('app', {}, [theme])}>

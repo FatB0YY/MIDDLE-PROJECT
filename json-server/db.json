@@ -38,11 +38,13 @@
       "id": "1",
       "title": "Javascript news СВЕЖАЯ",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png",
       "views": 1022,
       "createdAt": "26.04.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -108,11 +110,13 @@
       "id": "2",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -130,11 +134,13 @@
       "id": "3",
       "title": "Kotlin news 2019",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 94002,
       "createdAt": "26.02.2019",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -152,11 +158,13 @@
       "id": "4",
       "title": "Scala news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://pluspng.com/img-png/scala-logo-png-scala-logo-1200x675.png",
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -174,11 +182,13 @@
       "id": "5",
       "title": "Golang news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://www.itsec.ru/hs-fs/hubfs/ISR/Golang.png?width=750&name=Golang.png",
       "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -196,11 +206,13 @@
       "id": "6",
       "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://andreyex.ru/wp-content/uploads/2018/05/Kak-ustanovit-Java-s-apt-na-Ubuntu-18.04.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -218,11 +230,13 @@
       "id": "7",
       "title": "Ruby news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--oqV3akcU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/pgnw91fs7tpxn0wyeqh2.jpg",
       "views": 100,
       "createdAt": "21.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -240,11 +254,13 @@
       "id": "8",
       "title": "TypeScript news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1400/1*aTCN2ctKNoZupUCMP0hQuw.png",
       "views": 102222,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -262,11 +278,13 @@
       "id": "9",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -284,11 +302,13 @@
       "id": "10",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -306,11 +326,13 @@
       "id": "11",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -328,11 +350,13 @@
       "id": "12",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -350,11 +374,13 @@
       "id": "13",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -372,11 +398,13 @@
       "id": "14",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -394,11 +422,13 @@
       "id": "15",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -416,11 +446,13 @@
       "id": "16",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -438,11 +470,13 @@
       "id": "17",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -460,11 +494,13 @@
       "id": "18",
       "title": "Экономическая статья - ИНФЛЯЦИЯ!",
       "subtitle": "Экономика",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -482,11 +518,13 @@
       "id": "18",
       "title": "Научная статья - Биология",
       "subtitle": "БиологиЯ",
-      "img": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png",
+      "img": "https://kartinkin.net/uploads/posts/2022-05/1652214942_9-kartinkin-net-p-biologiya-krasivie-kartinki-10.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -499,6 +537,32 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Научная статья - Биология",
+      "subtitle": "БиологиЯ",
+      "img": "https://kartinkin.net/uploads/posts/2022-05/1652214942_9-kartinkin-net-p-biologiya-krasivie-kartinki-10.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "guOLlgD"
+    },
+    {
+      "title": "Научная статья - Биология",
+      "subtitle": "БиологиЯ",
+      "img": "https://i.ebayimg.com/00/s/NjE0WDc2OA==/z/PhIAAOSw~oFZvBcK/$_57.JPG?set_id=8800005007",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "6f91vPH"
     }
   ],
   "comments": [
@@ -657,6 +721,24 @@
       "userId": "1",
       "text": "123",
       "id": "KmtWJR_"
+    },
+    {
+      "articleId": "8",
+      "userId": "2",
+      "text": "asdasd",
+      "id": "eB1A-7c"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "class",
+      "id": "wAZ_hJM"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "asfasf",
+      "id": "SygCNYE"
     }
   ],
   "users": [
@@ -664,35 +746,83 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
-      "avatar": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png"
+      "roles": [
+        "ADMIN"
+      ],
+      "features": {
+        "isArticleRatingEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageHasOpen": true
+      },
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
-      "avatar": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png"
+      "roles": [
+        "USER"
+      ],
+      "features": {
+        "isArticleRatingEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
+      "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
-      "avatar": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png"
+      "roles": [
+        "MANAGER"
+      ],
+      "features": {
+        "isArticleRatingEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
+      "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "features": {
+        "isArticleRatingEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
+      "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg"
     }
   ],
   "profile": [
     {
       "id": "1",
-      "first": "Joii",
-      "lastname": "Drdr",
-      "age": 21,
+      "first": "timurasd5r5t",
+      "lastname": "ulbi44",
+      "age": 4545,
       "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png"
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
     },
     {
       "id": "2",
@@ -703,30 +833,85 @@
       "country": "Ukraine",
       "city": "Moscow",
       "username": "ulbi tv",
-      "avatar": "https://worksolutions.ru/uploads/t_DUW_3hn_Ao_Qe_SQV_5x_Col_Rr_E_Ly_MYZ_Ial_OKFI_7zmza_N_02f17d7c57.png"
+      "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 465,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "article-ratings": [
     {
-      "articleId": "1",
-      "rate": 3,
-      "userId": "1",
-      "feedback": "",
-      "id": 1
-    },
-    {
-      "articleId": "2",
-      "rate": 5,
-      "userId": "1",
-      "feedback": "статья супер пупер",
-      "id": 2
-    },
-    {
-      "articleId": "7",
+      "id": "1",
       "rate": 4,
+      "feedback": "Хорошая статья",
       "userId": "1",
-      "feedback": "rfrfrf",
-      "id": 3
+      "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "rate": 4,
+      "feedback": "asdasdasdad",
+      "id": "1I3E5gT"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 2,
+      "feedback": "asdasdasd",
+      "id": "xbwnNBF"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

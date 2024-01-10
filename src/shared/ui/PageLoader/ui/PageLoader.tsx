@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Page } from '@/widgets/Page'
+
 import { classNames } from '../../../lib/classNames/classNames'
 import { Loader } from '../../../ui/Loader'
 
@@ -10,7 +12,7 @@ interface PageLoaderProps {
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => (
-  <div className={classNames(cls.PageLoader, {}, [className])}>
+  <Page className={classNames(cls.PageLoader, {}, [className])}>
     <Loader />
-  </div>
+  </Page>
 )

@@ -7,6 +7,7 @@ import {
 import { useActionCreatorsTyped } from '@/shared/lib/store'
 import { Page } from '@/widgets/Page'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 
 import { ArticlesPageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { ArticlePageInfinityList } from '../ArticlePageInfinityList/ArticlePageInfinityList'
@@ -45,6 +46,7 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
       >
         <ArticlesPageFilters />
         <ArticlePageInfinityList />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   )

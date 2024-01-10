@@ -16,9 +16,10 @@ import {
 import { articleDetailsCommentsReducer } from '@/features/ArticleCommentsList'
 import { Page } from '@/widgets/Page'
 import { ArticleDetailsRecommendationsList } from '@/features/ArticleDetailsRecommendationsList'
-
 import { ArticleDetailsComments } from '@/features/ArticleDetailsCommenst'
 import { ArticleRatingAsync } from '@/features/ArticleRating'
+import { ToggleFeatures } from '@/shared/lib/features/index'
+import { Card } from '@/shared/ui/Card'
 
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
@@ -64,7 +65,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
           <ArticleDetails id={id} />
 
-          <ArticleRatingAsync articleId={id} />
+          <ToggleFeatures
+            feature='isArticleRatingEnabled'
+            on={<ArticleRatingAsync articleId={id} />}
+            // eslint-disable-next-line i18next/no-literal-string
+            off={<Card>Оценка статей скоро появится!</Card>}
+          />
 
           <ArticleDetailsRecommendationsList />
 

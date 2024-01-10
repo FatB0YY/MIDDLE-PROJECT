@@ -12,3 +12,8 @@ export {
   isUserUser,
   getUserRoles
 } from './model/selectors/roleSelectors'
+
+export { getUserJsonSettings } from './model/selectors/jsonSettings'
+
+export { saveJsonSettings } from './model/services/saveJsonSettings'
+export { initAuthData } from './model/services/initAuthData'

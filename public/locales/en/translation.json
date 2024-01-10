@@ -16,6 +16,10 @@
     "addnewcomment": {
       "placeholder": "Enter a comment",
       "submit": "Submit"
+    },
+    "articlepagegreeting": {
+      "title": "Welcome to the articles page",
+      "text": "Here you can search and view articles on various topics"
     }
   },
   "entities": {
