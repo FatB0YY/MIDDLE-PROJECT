@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Card, CardTheme } from '@/shared/ui/Card'
-import { Text, TextSize } from '@/shared/ui/Text'
+import { Card } from '@/shared/ui/Card'
+import { Text } from '@/shared/ui/Text'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
@@ -20,11 +20,11 @@ export const NotificationItem = ({
 }: NotificationItemProps) => {
   const content = (
     <Card
-      theme={CardTheme.OUTLINED}
+      theme='outlined'
       className={classNames(cls.NotificationItem, {}, [className])}
     >
       <Text
-        size={TextSize.S}
+        size='s'
         title={item.title}
         text={item.description}
       />

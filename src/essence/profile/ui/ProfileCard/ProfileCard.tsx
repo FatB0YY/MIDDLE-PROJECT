@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { Text, TextTheme, TextAlign, TextSize } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 import { Input } from '@/shared/ui/Input'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { Skeleton } from '@/shared/ui/Skeleton'
@@ -10,8 +10,6 @@ import { Avatar } from '@/shared/ui/Avatar'
 
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import { CurrencySelect, ECurrency } from '@/essence/currency'
-import { ThemeSwitcher } from '@/features/ThemeSwitcher'
-import { LangSwitcher } from '@/features/LangSwitcher'
 
 import { IProfile } from '../../model/types/profile'
 
@@ -122,10 +120,10 @@ export const ProfileCard = ({
         className={classNames(cls.ProfileCard, {}, [className, cls.error])}
       >
         <Text
-          theme={TextTheme.ERROR}
+          theme='error'
           title={'Произошла ошибка при загрузке профиля'}
           text={'Попробуйте обновить страницу'}
-          align={TextAlign.CENTER}
+          align='center'
         />
       </HStack>
     )
@@ -185,7 +183,7 @@ export const ProfileCard = ({
       >
         <Text
           title={t('entities.profile.profilecard.selectedcurrency')}
-          size={TextSize.S}
+          size='s'
         />
 
         <CurrencySelect
@@ -193,30 +191,6 @@ export const ProfileCard = ({
           onChange={onChangeCurrency}
           value={data?.currency}
         />
-      </HStack>
-
-      <div className={cls.line}></div>
-
-      <HStack
-        max
-        gap='8'
-      >
-        <Text
-          title={t('entities.profile.profilecard.theme')}
-          size={TextSize.S}
-        />
-        <ThemeSwitcher />
-      </HStack>
-
-      <HStack
-        max
-        gap='8'
-      >
-        <Text
-          title={t('entities.profile.profilecard.selectedlang')}
-          size={TextSize.S}
-        />
-        <LangSwitcher className={cls.lang} />
       </HStack>
     </VStack>
   )

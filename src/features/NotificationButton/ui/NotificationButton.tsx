@@ -5,7 +5,7 @@ import { Drawer } from '@/shared/ui/Drawer'
 
 import { Popover } from '@/shared/ui/Popups'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 import { Icon } from '@/shared/ui/Icon'
 
@@ -36,7 +36,7 @@ export const NotificationButton = ({ className }: NotificationButtonProps) => {
       <Button
         className={cls.notbtn}
         onClick={onOpenDrawer}
-        theme={ThemeButton.CLEAR}
+        theme='clear'
       >
         <Icon
           Svg={NotificationIcon}

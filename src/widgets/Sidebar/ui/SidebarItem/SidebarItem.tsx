@@ -39,9 +39,13 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     <li className={classNames(classNameLi, mods, [])}>
       <NavLink
         to={item.path}
-        className={cls.link}
+        className={classNames(cls.link, mods, [])}
       >
-        <Icon Svg={item.Icon} />
+        <Icon
+          width={'18px'}
+          height={'18px'}
+          Svg={item.Icon}
+        />
         {!collapsed && <span className={cls.text}>{t(item.text)}</span>}
       </NavLink>
     </li>

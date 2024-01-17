@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 import { Icon } from '@/shared/ui/Icon'
 
@@ -39,7 +39,7 @@ export const ArticleViewSelector = ({
     <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
       {viewTypes.map((viewType) => (
         <Button
-          theme={ThemeButton.ICON_OUTLINE}
+          theme='icon_outline'
           onClick={onClick(viewType.view)}
           className={classNames(
             cls.viewTab,

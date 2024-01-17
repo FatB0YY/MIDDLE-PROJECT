@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { Input } from '@/shared/ui/Input'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 import { HStack } from '@/shared/ui/Stack'
 
@@ -93,7 +93,7 @@ const AddNewComment = ({ className, onSendComment }: AddNewCommentProps) => {
         />
         <Button
           onClick={onSendHandler}
-          theme={ThemeButton.SUCCESS}
+          theme='success'
           className={cls.btn}
         >
           {t('features.addnewcomment.submit')}

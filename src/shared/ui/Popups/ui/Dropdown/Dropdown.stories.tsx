@@ -1,8 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { ThemeButton } from '../../../../ui/Button/index'
-
 import { Dropdown } from './Dropdown'
 
 export default {
@@ -31,17 +29,17 @@ Normal.args = {
     {
       content: 'first',
       onClick: () => {},
-      buttonTheme: ThemeButton.OUTLINE
+      buttonTheme: 'outline'
     },
     {
       content: 'second',
       onClick: () => {},
-      buttonTheme: ThemeButton.OUTLINE
+      buttonTheme: 'outline'
     },
     {
       content: 'third',
       onClick: () => {},
-      buttonTheme: ThemeButton.OUTLINE
+      buttonTheme: 'outline'
     }
   ]
 }

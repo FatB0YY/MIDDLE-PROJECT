@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next'
 
 import { useSelector } from 'react-redux'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 
-import { Text, TextSize, TextTheme } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 
 import { VStack } from '@/shared/ui/Stack'
 import { Icon } from '@/shared/ui/Icon'
@@ -81,18 +81,18 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
         <Button
           onClick={onClose}
           className={cls.closebtn}
-          theme={ThemeButton.ICON_OUTLINE}
+          theme='icon_outline'
         >
           <Icon Svg={CloseIcon} />
         </Button>
 
         <Text
-          size={TextSize.M}
+          size='m'
           title={t('features.authbyusername.loginform.title')}
         />
         {error && (
           <Text
-            theme={TextTheme.ERROR}
+            theme='error'
             text={'Вы ввели неверный логин или пароль'}
           />
         )}
@@ -115,7 +115,7 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
         <Button
           disabled={isLoading}
           onClick={onLoginClick}
-          theme={ThemeButton.SUCCESS}
+          theme='success'
         >
           {t('features.authbyusername.loginform.login')}
         </Button>

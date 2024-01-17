@@ -2,7 +2,7 @@ import React from 'react'
 
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { Skeleton } from '@/shared/ui/Skeleton'
-import { Text, TextTheme } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 
 import { ArticleList } from '@/essence/article'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -53,7 +53,7 @@ export const ArticleDetailsRecommendationsList = ({
   if (!recommendations) {
     return (
       <Text
-        theme={TextTheme.ERROR}
+        theme='error'
         text='Извините за неудобства! Мы работаем над вашими рекомендациями, загляните позже :)'
       />
     )

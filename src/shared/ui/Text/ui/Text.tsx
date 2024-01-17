@@ -1,69 +1,74 @@
-import React, { memo } from 'react'
+import React from 'react'
 
 import { classNames } from '../../../lib/classNames/classNames'
 
 import cls from './Text.module.scss'
 
-export enum TextAlign {
-  RIGHT = 'right',
-  LEFT = 'left',
-  CENTER = 'center'
-}
+type TextVariant = 'primary' | 'error' | 'accent'
 
-export enum TextTheme {
-  PRIMARY = 'primary',
-  DARK = 'dark',
-  ERROR = 'error'
-}
+type TextAlign = 'right' | 'left' | 'center'
 
-export enum TextSize {
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l'
-}
+type TextSize = 's' | 'm' | 'l'
 
 interface TextProps {
   className?: string
   title?: string
   text?: string
-  theme?: TextTheme
+  theme?: TextVariant
   align?: TextAlign
   size?: TextSize
+
+  'data-testid'?: string
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3'
 
-const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-  [TextSize.S]: 'h3',
-  [TextSize.M]: 'h2',
-  [TextSize.L]: 'h1'
+const mapSizeToClass: Record<TextSize, string> = {
+  s: 'size_s',
+  m: 'size_m',
+  l: 'size_l'
 }
 
-export const Text = memo(
-  ({
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  s: 'h3',
+  m: 'h2',
+  l: 'h1'
+}
+
+export const Text = (props: TextProps) => {
+  const {
     className,
-    title,
     text,
-    theme = TextTheme.PRIMARY,
-    align = TextAlign.LEFT,
-    size = TextSize.M
-  }: TextProps) => {
-    const HeaderTag = mapSizeToHeaderTag[size]
+    title,
+    theme = 'primary',
+    align = 'left',
+    size = 'm',
+    'data-testid': dataTestId = 'Text'
+  } = props
 
-    return (
-      <div
-        className={classNames(cls.Text, {}, [
-          className,
-          cls[theme],
-          cls[align],
-          cls[size]
-        ])}
-      >
-        {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-        {text && <p className={cls.text}>{text}</p>}
-      </div>
-    )
-  }
-)
+  const HeaderTag = mapSizeToHeaderTag[size]
+  const sizeClass = mapSizeToClass[size]
 
-Text.displayName = 'Text'
+  const additionalClasses = [className, cls[theme], cls[align], sizeClass]
+
+  return (
+    <div className={classNames(cls.Text, {}, additionalClasses)}>
+      {title && (
+        <HeaderTag
+          className={cls.title}
+          data-testid={`${dataTestId}.Header`}
+        >
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p
+          className={cls.text}
+          data-testid={`${dataTestId}.Paragraph`}
+        >
+          {text}
+        </p>
+      )}
+    </div>
+  )
+}

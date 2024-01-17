@@ -750,7 +750,8 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_light_theme",
@@ -768,7 +769,8 @@
         "USER"
       ],
       "features": {
-        "isArticleRatingEnabled": false
+        "isArticleRatingEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",
@@ -785,7 +787,8 @@
         "MANAGER"
       ],
       "features": {
-        "isArticleRatingEnabled": false
+        "isArticleRatingEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",
@@ -802,7 +805,8 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_dark_theme",

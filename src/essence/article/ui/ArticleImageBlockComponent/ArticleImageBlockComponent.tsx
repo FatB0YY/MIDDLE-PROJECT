@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import { Text, TextAlign } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
@@ -27,7 +27,7 @@ export const ArticleImageBlockComponent = memo(
         {block.title && (
           <Text
             text={block.title}
-            align={TextAlign.CENTER}
+            align='center'
           />
         )}
       </div>

@@ -13,7 +13,6 @@ import { LoginSchema } from '@/features/AuthByUsername'
 import { ProfileSchema } from '@/features/EditableProfileCard'
 import { ArticleDetailsSchema } from '@/essence/article'
 import { articleDetailsCommentsSchema } from '@/features/ArticleCommentsList'
-import { SidebarSchema } from '@/widgets/Sidebar'
 import { addNewCommentSchema } from '@/features/addNewComment'
 import { articlesPageSchema } from '@/pages/ArticlePage'
 import { SaveScrollSchema } from '@/features/ScrollSave'
@@ -29,7 +28,6 @@ export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 export interface StateSchema {
   user: UserSchema
   saveScroll: SaveScrollSchema
-  sidebar: SidebarSchema
 
   // rtk
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>

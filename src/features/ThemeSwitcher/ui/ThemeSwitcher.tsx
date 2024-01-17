@@ -1,14 +1,14 @@
 import React, { memo, useCallback } from 'react'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { useAppDispatch } from '@/shared/lib/store'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
-import { Theme } from '@/shared/const/theme'
+// import { Theme } from '@/shared/const/theme'
 import { saveJsonSettings } from '@/essence/user'
+import { Icon } from '@/shared/ui/Icon'
 
-import LightIcon from '../assets/icons/theme-light.svg'
-import DarkIcon from '../assets/icons/theme-dark.svg'
+import ThemeIcon from '@/shared/assets/icons/themenew.svg'
 
 import cls from './ThemeSwitcher.module.scss'
 
@@ -17,7 +17,7 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme()
+  const { toggleTheme } = useTheme()
   const dispatch = useAppDispatch()
 
   const onToggleHandler = useCallback(() => {
@@ -28,23 +28,16 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme='clear'
       className={classNames(cls.ThemeSwitcher, {}, [className])}
       onClick={onToggleHandler}
     >
-      {theme === Theme.DARK ? (
-        <DarkIcon
-          width={35}
-          height={35}
-          color={'var(--inactive-icon-text-color'}
-        />
-      ) : (
-        <LightIcon
-          width={35}
-          height={35}
-          color={'var(--inactive-icon-text-color)'}
-        />
-      )}
+      <Icon
+        width={35}
+        height={35}
+        color={'var(--inactive-icon-text-color)'}
+        Svg={ThemeIcon}
+      />
     </Button>
   )
 })

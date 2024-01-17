@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '../../../const/theme'
 
-import { Button, ButtonSize, ThemeButton } from './Button'
+import { Button } from './Button'
 
 export default {
   title: 'SHARED/Button',
@@ -24,45 +24,45 @@ Primary.args = {
 export const Clear = Template.bind({})
 Clear.args = {
   children: 'Text',
-  theme: ThemeButton.CLEAR
+  theme: 'clear'
 }
 
 export const Accent = Template.bind({})
 Accent.args = {
   children: 'Text',
-  theme: ThemeButton.ACCENT
+  theme: 'accent'
 }
 
 export const Outline = Template.bind({})
 Outline.args = {
   children: 'Text',
-  theme: ThemeButton.OUTLINE
+  theme: 'outline'
 }
 
 export const OutlineSizeL = Template.bind({})
 OutlineSizeL.args = {
   children: 'Text',
-  theme: ThemeButton.OUTLINE,
-  size: ButtonSize.L
+  theme: 'outline',
+  size: 'size_l'
 }
 
 export const OutlineSizeXL = Template.bind({})
 OutlineSizeXL.args = {
   children: 'Text',
-  theme: ThemeButton.OUTLINE,
-  size: ButtonSize.XL
+  theme: 'outline',
+  size: 'size_xl'
 }
 
 export const OutlineDark = Template.bind({})
 OutlineDark.args = {
   children: 'Text',
-  theme: ThemeButton.OUTLINE
+  theme: 'outline'
 }
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   children: 'Text',
-  theme: ThemeButton.OUTLINE,
+  theme: 'outline',
   disabled: true
 }

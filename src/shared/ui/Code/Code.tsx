@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react'
 
-import { Button, ThemeButton } from '../../ui/Button/index'
+import { Button } from '../../ui/Button/index'
 import CopyIcon from '../../assets/icons/copy-20-20.svg'
 import { classNames } from '../../lib/classNames/classNames'
 
@@ -24,7 +24,7 @@ export const Code = memo((props: CodeProps) => {
       <Button
         onClick={onCopy}
         className={cls.copyBtn}
-        theme={ThemeButton.CLEAR}
+        theme='clear'
       >
         <CopyIcon className={cls.copyIcon} />
       </Button>

@@ -8,7 +8,7 @@ import { Icon } from '@/shared/ui/Icon'
 
 import { Card, CardTheme } from '@/shared/ui/Card'
 import { Avatar } from '@/shared/ui/Avatar'
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
@@ -38,7 +38,7 @@ export const ArticleListItem = memo(
     // const [isHover, bindHover] = useHover()
     const { t } = useTranslation('article')
 
-    const themeCard = CardTheme.NORMAL
+    const themeCard: CardTheme = 'normal'
 
     const types = (
       <Text
@@ -118,7 +118,7 @@ export const ArticleListItem = memo(
             className={cls.footer}
           >
             <Link to={getRouteArticleDetails(article.id)}>
-              <Button theme={ThemeButton.ACCENT}>
+              <Button theme='accent'>
                 {t('entities.article.articlelistitem.readmore')}
               </Button>
             </Link>

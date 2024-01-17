@@ -7,8 +7,6 @@ import {
 } from '@reduxjs/toolkit'
 
 import { userReducer } from '@/essence/user'
-
-import { SidebarReducer } from '@/widgets/Sidebar'
 import { saveScrollReducer } from '@/features/ScrollSave'
 
 import { $api } from '../../api/api'
@@ -30,7 +28,6 @@ export function createReduxStore({
     ...asyncReducers,
     user: userReducer,
     saveScroll: saveScrollReducer,
-    sidebar: SidebarReducer,
     // rtk
     [rtkApi.reducerPath]: rtkApi.reducer
     // не добавляем async reducers

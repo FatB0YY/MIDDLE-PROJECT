@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 import { Text } from '@/shared/ui/Text'
 
@@ -86,7 +86,7 @@ export const EditableProfileCardHeader = ({
         return (
           <Button
             onClick={onEdit}
-            theme={ThemeButton.OUTLINE}
+            theme='outline'
             data-testid='EPCH.Edit'
           >
             {t('entities.profile.profilecard.edit')}
@@ -99,14 +99,14 @@ export const EditableProfileCardHeader = ({
           <HStack gap='8'>
             <Button
               onClick={onCancelEdit}
-              theme={ThemeButton.RED}
+              theme='red'
               data-testid='EPCH.Cancel'
             >
               {t('entities.profile.profilecard.cancel')}
             </Button>
             <Button
               onClick={onSave}
-              theme={ThemeButton.SUCCESS}
+              theme='success'
               data-testid='EPCH.Save'
             >
               {t('entities.profile.profilecard.save')}

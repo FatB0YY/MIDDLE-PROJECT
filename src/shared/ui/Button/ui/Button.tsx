@@ -4,28 +4,22 @@ import { Mods, classNames } from '../../../lib/classNames/classNames'
 
 import cls from './Button.module.scss'
 
-export enum ThemeButton {
+export type ThemeButton =
   // для иконок
-  ICON_OUTLINE = 'icon_outline',
+  | 'icon_outline'
   // success удача (зеленая)
-  SUCCESS = 'success',
+  | 'success'
   // Только border
-  OUTLINE = 'outline',
+  | 'outline'
   // Пустая полностью
-  CLEAR = 'clear',
+  | 'clear'
   // другое
-  ACCENT = 'accent',
-  // red
-  RED = 'red',
-  // OUTLINE_RED
-  OUTLINE_RED = 'outline_red'
-}
+  | 'accent'
+  // ошибки
+  | 'red'
+  | 'outline_red'
 
-export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl'
-}
+type ButtonSize = 'size_m' | 'size_l' | 'size_xl'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
@@ -59,9 +53,9 @@ export const Button = memo(
   ({
     className,
     children,
-    theme = ThemeButton.OUTLINE,
+    theme = 'outline',
     square,
-    size = ButtonSize.M,
+    size = 'size_m',
     disabled,
     ...otherProps
   }: ButtonProps) => {

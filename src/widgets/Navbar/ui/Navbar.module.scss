@@ -1,10 +1,5 @@
 .Navbar {
-  display: flex;
-  height: var(--navbar-height);
-  align-items: center;
-  padding: 30px;
-  border-bottom: 2px solid var(--card-border-color);
-  background-color: var(--header-bg-color);
+  padding: 16px;
 }
 
 .mainLink {

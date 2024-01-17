@@ -6,7 +6,7 @@ import { Listbox } from '@/shared/ui/Popups'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
-// import cls from './LangSwitcher.module.scss'
+import cls from './LangSwitcher.module.scss'
 
 interface LangSwitcherProps {
   className?: string
@@ -36,10 +36,11 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
 
   return (
     <Listbox
-      className={classNames('', {}, [className])}
+      className={classNames(cls.LangSwitcher, {}, [className])}
       onChange={updateLang}
       value={i18n.language}
       items={options}
+      direction='top right'
     />
   )
 })

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 import { HStack } from '@/shared/ui/Stack'
 
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { getArticleDetailsData, getCanEditArticle } from '@/essence/article'
@@ -46,7 +46,7 @@ export const ArticleDetailsPageHeader = ({
       {canEdit && (
         <Button
           onClick={onEditArticle}
-          theme={ThemeButton.OUTLINE}
+          theme='outline'
         >
           {t('pages.articledetailspage.edit')}
         </Button>

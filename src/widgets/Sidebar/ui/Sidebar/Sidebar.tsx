@@ -1,14 +1,20 @@
-import React, { memo, useMemo } from 'react'
+import React, { memo, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useSelector } from 'react-redux'
 
-import { VStack } from '@/shared/ui/Stack'
-
+import { Icon } from '@/shared/ui/Icon'
+import { HStack } from '@/shared/ui/Stack'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import AppLogo from '@/shared/assets/logo.jpg'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Button } from '@/shared/ui/Button'
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
+import { LangSwitcher } from '@/features/LangSwitcher'
 
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
-import { getCollapsed } from '../../model/selectors/sidebarSelectors'
 
 import cls from './Sidebar.module.scss'
 
@@ -20,8 +26,9 @@ interface SidebarProps {
 // { [cls.collapsed]: collapsed }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
+  const { t } = useTranslation()
   const sidebarItemsList = useSelector(getSidebarItems)
-  const collapsed = useSelector(getCollapsed)
+  const [collapsed, setCollapsed] = useState(false)
 
   // в каких случаях перерисовывается компонент:
   // 1. изменился пропс
@@ -47,6 +54,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     [collapsed, sidebarItemsList]
   )
 
+  const toggleSidebarCollapsed = () => {
+    setCollapsed((prev) => !prev)
+  }
+
   return (
     <aside
       data-testid='sidebar'
@@ -54,13 +65,51 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         className
       ])}
     >
-      <VStack
-        role='navigation'
-        gap='8'
-        className={cls.items}
+      <HStack
+        align='center'
+        justify='center'
+        max
+      >
+        <Avatar
+          className={cls.applogo}
+          src={AppLogo}
+          alt={t('widgets.navbar.appname')}
+          size={collapsed ? 40 : 64}
+        />
+      </HStack>
+
+      <nav
+        className={classNames(cls.items, { [cls.collapsed]: collapsed }, [])}
       >
         {itemsList}
-      </VStack>
+      </nav>
+
+      <Button
+        className={classNames(
+          cls.buttonCollapsed,
+          { [cls.collapsed]: collapsed },
+          []
+        )}
+        theme='icon_outline'
+        onClick={toggleSidebarCollapsed}
+      >
+        <Icon
+          width='30px'
+          height='30px'
+          Svg={ArrowIcon}
+        />
+      </Button>
+
+      <div
+        className={classNames(
+          cls.switchersWrapper,
+          { [cls.collapsed]: collapsed },
+          []
+        )}
+      >
+        <ThemeSwitcher />
+        <LangSwitcher className={cls.lang} />
+      </div>
     </aside>
   )
 })

@@ -2,7 +2,7 @@
 import React, { memo } from 'react'
 
 import { Avatar } from '@/shared/ui/Avatar'
-import { Text, TextSize } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 import { Icon } from '@/shared/ui/Icon'
 
 import { HStack, VStack } from '@/shared/ui/Stack'
@@ -39,7 +39,7 @@ const ArticleHeaderComponent = ({ article }: ArticleHeaderComponentProps) => (
         className={cls.title}
         title={article.title}
         text={article.subtitle}
-        size={TextSize.L}
+        size='l'
       />
       <HStack
         gap='8'

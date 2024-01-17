@@ -16,7 +16,7 @@ export interface DropdownItem {
   content: ReactNode
   onClick: () => void
   href?: string
-  buttonTheme: ThemeButton
+  buttonTheme: string
 }
 
 export interface DropdownProps {
@@ -60,7 +60,7 @@ export const Dropdown = ({
           {items.map((item, index) => {
             const content = ({ active }: { active: boolean }) => (
               <Button
-                theme={item.buttonTheme}
+                theme={item.buttonTheme as ThemeButton}
                 type='button'
                 disabled={item.disabled}
                 onClick={item.onClick}

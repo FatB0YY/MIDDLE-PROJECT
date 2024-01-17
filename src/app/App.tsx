@@ -7,6 +7,8 @@ import { Sidebar } from '@/widgets/Sidebar'
 import { getUserAuthData, initAuthData } from '@/essence/user'
 import { useAppDispatch } from '@/shared/lib/store'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { MainLayout } from '@/shared/layouts/MainLayout'
 
 import { AppRouter } from './providers/router'
 
@@ -26,11 +28,12 @@ function App() {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback=''>
-        <Navbar />
-        <div className='content-page'>
-          <Sidebar />
-          {_initiated && <AppRouter />}
-        </div>
+        <MainLayout
+          content={<AppRouter />}
+          header={<Navbar />}
+          sidebar={<Sidebar />}
+          toolbar={<div>toolbar</div>}
+        />
       </Suspense>
     </div>
   )

@@ -8,7 +8,7 @@ import { Modal } from '@/shared/ui/Modal'
 import { Input } from '@/shared/ui/Input'
 import { StarRating } from '@/shared/ui/StarRating'
 import { Text } from '@/shared/ui/Text'
-import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { Drawer } from '@/shared/ui/Drawer'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -81,13 +81,13 @@ export const RatingCard = ({
       <HStack gap='16'>
         <Button
           onClick={cancelHandle}
-          theme={ThemeButton.RED}
+          theme='red'
         >
           {t('essence.rating.cancel')}
         </Button>
         <Button
           onClick={acceptHandle}
-          theme={ThemeButton.SUCCESS}
+          theme='success'
         >
           {t('essence.rating.success')}
         </Button>

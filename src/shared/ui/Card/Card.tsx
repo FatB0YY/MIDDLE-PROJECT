@@ -4,10 +4,7 @@ import { classNames } from '../../lib/classNames/classNames'
 
 import cls from './Card.module.scss'
 
-export enum CardTheme {
-  NORMAL = 'normal',
-  OUTLINED = 'outlined'
-}
+export type CardTheme = 'normal' | 'outlined'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
@@ -16,12 +13,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = memo(
-  ({
-    className,
-    children,
-    theme = CardTheme.NORMAL,
-    ...otherProps
-  }: CardProps) => {
+  ({ className, children, theme = 'normal', ...otherProps }: CardProps) => {
     return (
       <div
         {...otherProps}
