@@ -36,7 +36,7 @@ export const Modal = ({
   }
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
         {...otherProps}
         className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}

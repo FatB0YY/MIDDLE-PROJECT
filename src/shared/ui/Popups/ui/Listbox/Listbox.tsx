@@ -1,6 +1,7 @@
-import React, { Fragment, ReactNode } from 'react'
+import React, { Fragment, ReactNode, useMemo } from 'react'
 import { Listbox as HListBox } from '@headlessui/react'
 
+import { Button } from '../../../../ui/Button'
 import { VStack } from '../../../../ui/Stack'
 import { classNames } from '../../../../lib/classNames/classNames'
 import SelectIcon from '../../../../assets/icons/select.svg'
@@ -9,33 +10,37 @@ import { Icon } from '../../../Icon/Icon'
 import cls from '../../styles/popup.module.scss'
 import { mapDirectionClass } from '../../styles/const'
 
-export interface ListBoxItem {
-  value: string
+export interface ListBoxItem<T extends string> {
+  value: T
   content: ReactNode
-  unavailable: boolean
 }
 
-interface ListboxProps {
-  items?: ListBoxItem[]
+interface ListboxProps<T extends string> {
+  items?: ListBoxItem<T>[]
   className?: string
-  value?: string
+  value?: T
   defaultValue?: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onChange: (value: any) => void
+  onChange: (value: T) => void
   readonly?: boolean
   direction?: DropdownDirection
 }
 
-export const Listbox = ({
-  items = [],
-  className,
-  defaultValue,
-  onChange,
-  value,
-  readonly,
-  direction = 'bottom right'
-}: ListboxProps) => {
+export const Listbox = <T extends string>(props: ListboxProps<T>) => {
+  const {
+    onChange,
+    className,
+    defaultValue,
+    direction = 'bottom right',
+    items = [],
+    readonly,
+    value
+  } = props
+
   const optionsClasses = [mapDirectionClass[direction]]
+
+  const selectedItem = useMemo(() => {
+    return items.find((item) => item.value === value)
+  }, [items, value])
 
   return (
     <HListBox
@@ -47,8 +52,11 @@ export const Listbox = ({
       value={value}
       onChange={onChange}
     >
-      <HListBox.Button className={cls.trigger}>
-        {value ?? defaultValue}
+      <HListBox.Button
+        as={Button}
+        className={cls.trigger}
+      >
+        {selectedItem?.content ?? defaultValue}
         <Icon
           className={cls.icon}
           Svg={SelectIcon}
@@ -63,7 +71,6 @@ export const Listbox = ({
             <HListBox.Option
               key={item.value}
               value={item.value}
-              disabled={item.unavailable}
               as={Fragment}
             >
               {({ active, selected }) => (
@@ -72,7 +79,6 @@ export const Listbox = ({
                     cls.item,
                     {
                       [cls.active]: active,
-                      [cls.unavailable]: item.unavailable,
                       [cls.selected]: selected
                     },
                     []

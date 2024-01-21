@@ -9,18 +9,11 @@
 
 body {
   background-color: var(--main-bg-color);
-  color: var(--main-text-color);
-  font: var(--font-m);
-}
-
-.app,
-.app_modal,
-.app_drawer {
-  color: var(--main-text-color);
-  font: var(--font-m);
 }
 
 .app {
+  color: var(--main-text-color);
+  font: var(--font-m);
   min-height: 100vh;
   background-color: var(--main-bg-color);
 }

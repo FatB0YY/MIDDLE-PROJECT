@@ -25,8 +25,8 @@ export const Normal = Template.bind({})
 Normal.args = {
   value: '123',
   items: [
-    { content: '1asfasfasf23', value: '123', unavailable: true },
-    { content: '1asfasfasf23', value: '123', unavailable: true }
+    { content: '1asfasfasf23', value: '123' },
+    { content: '1asfasfasf23', value: '123' }
   ]
 }
 
@@ -35,8 +35,8 @@ topLeft.args = {
   direction: 'top left',
   value: '123',
   items: [
-    { content: '1asfasfasf23', value: '123', unavailable: false },
-    { content: '1asfasfasf23', value: '123', unavailable: true }
+    { content: '1asfasfasf23', value: '123' },
+    { content: '1asfasfasf23', value: '123' }
   ]
 }
 
@@ -45,9 +45,9 @@ topRight.args = {
   direction: 'top right',
   value: '123',
   items: [
-    { content: '1asfasfasf23', value: '123', unavailable: false },
+    { content: '1asfasfasf23', value: '123' },
 
-    { content: '1asfasfasf23', value: '123', unavailable: true }
+    { content: '1asfasfasf23', value: '123' }
   ]
 }
 
@@ -56,8 +56,8 @@ bottomLeft.args = {
   direction: 'bottom left',
   value: '123',
   items: [
-    { content: '1asfasfasf23', value: '123', unavailable: false },
-    { content: '1asfasfasf23', value: '123', unavailable: true }
+    { content: '1asfasfasf23', value: '123' },
+    { content: '1asfasfasf23', value: '123' }
   ]
 }
 
@@ -66,7 +66,7 @@ bottomRight.args = {
   direction: 'bottom right',
   value: '123',
   items: [
-    { content: '1asfasfasf23', value: '123', unavailable: false },
-    { content: '1asfasfasf23', value: '123', unavailable: true }
+    { content: '1asfasfasf23', value: '123' },
+    { content: '1asfasfasf23', value: '123' }
   ]
 }

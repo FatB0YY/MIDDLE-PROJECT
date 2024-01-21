@@ -16,9 +16,16 @@ import '@/app/styles/index.scss'
 
 // import reportWebVitals from "../config/jest/jestEmptyComponent";
 
-const container = document.getElementById('root') as HTMLElement
+const container = document.getElementById('root')
+
+if (!container) {
+  throw new Error(
+    'Контейнер root не найден. НЕ удалось вмонтировать реакт приложение'
+  )
+}
 
 const root = createRoot(container)
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -28,7 +35,7 @@ root.render(
             <App />
             <ToastContainer
               position='top-right'
-              autoClose={2000}
+              autoClose={1000}
             />
           </ThemeProvider>
         </ErrorBoundary>
@@ -46,3 +53,5 @@ root.render(
 // };
 
 // type PageType = keyof typeof pagesMap;
+
+export { Theme } from '@/shared/const/theme'

@@ -1,4 +1,9 @@
-import React, { ButtonHTMLAttributes, ReactNode, memo } from 'react'
+import React, {
+  ButtonHTMLAttributes,
+  ForwardedRef,
+  ReactNode,
+  forwardRef
+} from 'react'
 
 import { Mods, classNames } from '../../../lib/classNames/classNames'
 
@@ -49,16 +54,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // использует пропс children.
 // НО в кнопке нет сложной древовидной структуры, поэтому можно :) хранить дешево, а сравнивать легко
 
-export const Button = memo(
-  ({
-    className,
-    children,
-    theme = 'outline',
-    square,
-    size = 'size_m',
-    disabled,
-    ...otherProps
-  }: ButtonProps) => {
+export const Button = forwardRef(
+  (
+    {
+      className,
+      children,
+      theme = 'outline',
+      square,
+      size = 'size_m',
+      disabled,
+      ...otherProps
+    }: ButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>
+  ) => {
     const mods: Mods = {
       [cls.square]: square,
       [cls.disabled]: disabled
@@ -72,6 +80,7 @@ export const Button = memo(
           cls[size]
         ])}
         {...otherProps}
+        ref={ref}
       >
         {children}
       </button>

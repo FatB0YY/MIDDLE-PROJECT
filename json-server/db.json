@@ -739,6 +739,12 @@
       "userId": "1",
       "text": "asfasf",
       "id": "SygCNYE"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "dcd",
+      "id": "o5TFR6L"
     }
   ],
   "users": [
@@ -819,10 +825,10 @@
   "profile": [
     {
       "id": "1",
-      "first": "timurasd5r5t",
-      "lastname": "ulbi44",
-      "age": 4545,
-      "currency": "RUB",
+      "first": "r",
+      "lastname": "ro",
+      "age": 21,
+      "currency": "USD",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
@@ -900,6 +906,12 @@
       "rate": 2,
       "feedback": "asdasdasd",
       "id": "xbwnNBF"
+    },
+    {
+      "articleId": "8",
+      "rate": 2,
+      "userId": "1",
+      "id": "ItnSVQ-"
     }
   ],
   "profile-ratings": [

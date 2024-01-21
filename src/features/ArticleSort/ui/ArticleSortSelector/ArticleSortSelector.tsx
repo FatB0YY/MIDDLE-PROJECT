@@ -2,14 +2,15 @@ import React, { useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { Select, SelectOption } from '@/shared/ui/Select'
+import { SelectOption } from '@/shared/ui/Select'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { VStack } from '@/shared/ui/Stack'
+import { HStack } from '@/shared/ui/Stack'
 import { SortOrder } from '@/shared/types/sort'
 import {
   DynamicModuleLoader,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { Listbox } from '@/shared/ui/Popups'
 
 import { EArticleSortField } from '../../model/const/const'
 import { articleSortReducer } from '../../model/slice/articleSortSlice'
@@ -67,26 +68,24 @@ export const ArticleSortSelector = ({
       reducers={reducers}
       removeAfterUnmount={false}
     >
-      <VStack
+      <HStack
         gap='16'
         max
         className={classNames(cls.ArticleSortSelector, {}, [className])}
       >
-        <Select<EArticleSortField>
+        <Listbox
           onChange={onChangeSort}
           className={cls.sortField}
-          options={sortFieldOptions}
-          label={t('features.articlesortselector.select')}
+          items={sortFieldOptions}
           value={sort}
         />
-        <Select<SortOrder>
+        <Listbox
           onChange={onChangeOrder}
           className={cls.order}
-          options={orderOptions}
-          label={t('features.articlesortselector.by')}
+          items={orderOptions}
           value={order}
         />
-      </VStack>
+      </HStack>
     </DynamicModuleLoader>
   )
 }
